@@ -1,0 +1,11 @@
+.photo-edit {
+  background_colr: #c5bdbd;
+  padding: 30 px 50 px;
+  border-radius: 15 px;
+}
+
+.photo-edit__form {
+  margin: 2rem auto 1rem auto;
+  max-width: 25rem;
+}
+/*# sourceMappingURL=styles.css.map */

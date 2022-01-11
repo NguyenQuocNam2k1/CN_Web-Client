@@ -1,0 +1,11 @@
+.photo-edit {
+  
+  background_colr: rgb(197, 189, 189);
+  padding: 30 px 50 px;
+  border-radius: 15 px;
+
+  &__form {
+    margin: 2rem auto 1rem auto;
+    max-width: 25rem;
+  }
+}
