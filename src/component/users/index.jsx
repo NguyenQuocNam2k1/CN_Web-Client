@@ -13,8 +13,8 @@ function User(props) {
 
     <Switch>
 
-      <Route path={`${match.url}`} component={LoginForm} />
-      <Route path={`${match.url}/register`} component={Register} />
+      <Route exact path={`${match.url}`} component={LoginForm} />
+      <Route exact path={`${match.url}/register`} component={Register} />
 
       <Route component={NotFound} />
     </Switch>

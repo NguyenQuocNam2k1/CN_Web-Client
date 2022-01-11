@@ -1,10 +1,8 @@
 import Home from "component/Home/Home";
 import NotFound from "component/NotFound";
+import User from "component/users";
 import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-
-const users = React.lazy(() => import('./component/users/index'));
 
 function App() {
   return (
@@ -16,7 +14,7 @@ function App() {
 
           <Route exact path="/" component={Home} />
 
-          <Route path="/user" component={users} />
+          <Route path="/user" component={User} />
           <Route component={NotFound} />
 
         </Switch>
