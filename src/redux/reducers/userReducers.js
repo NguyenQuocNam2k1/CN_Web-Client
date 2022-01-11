@@ -3,12 +3,12 @@ import { UserTypes } from "../contants/action-types"
 
 const initialState = {}
 
-export const userReducer = (state = initialState , {type , payload}) =>{
+export const userReducer = (state = 0 , {type , payload}) =>{
     switch (type) {
-        case UserTypes.UserTypes:
+        case UserTypes.LOG_IN:
             
-            break;
+            return {...state};
         default:
-            break;
+            return state;
     }
 }
