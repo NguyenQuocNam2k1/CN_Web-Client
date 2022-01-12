@@ -20,8 +20,6 @@ function Login(props) {
 
     return (
 
-        <div className="container">
-
             <div className="photo-edit__form">
                 <h1>Login</h1>
 
@@ -30,8 +28,7 @@ function Login(props) {
                     onSubmit={handleSubmit}
                 />
             </div>
-
-        </div>
+            
     );
 }
 

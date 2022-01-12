@@ -1,11 +1,33 @@
 .photo-edit {
-  
-  background_colr: rgb(197, 189, 189);
-  padding: 30 px 50 px;
-  border-radius: 15 px;
-
   &__form {
+    background-image: url(../../../public/background-login.png);
     margin: 2rem auto 1rem auto;
     max-width: 25rem;
+    padding: 50px;
+    border-radius: 15px;
+    
+    & label {
+      font-weight: 600;
+    }
+
+    & button {
+      display: flex;
+      margin: auto;
+      margin-top: 24px;
+    }
+
+    & h1 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    & .spinner-border {
+      font-size: 4px;
+      width: 16px;
+      height: 16px;
+      margin-left: 6px;
+      margin-top: 6px;
+    }
   }
 }
+
