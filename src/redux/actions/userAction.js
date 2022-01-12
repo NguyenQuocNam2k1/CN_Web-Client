@@ -1,4 +1,4 @@
-import { UserTypes } from "../contants/action-types";
+import { UserTypes } from "../constants/action-types";
 import api from "../../apis/index.js";
 
 export const logIn = (userName , password) => async (dispatch) => { 
@@ -7,8 +7,9 @@ export const logIn = (userName , password) => async (dispatch) => {
             userName,
             password
         });
-        dispatch({ type: UserTypes.LOG_IN, payload: response }); 
+
+        dispatch({ type: UserTypes.LOG_IN, payload: response.data }); 
     } catch (err) {
-        console.log(err.response);
+        dispatch({ type: UserTypes.LOG_IN, payload: err.response.data }); 
     }
 }

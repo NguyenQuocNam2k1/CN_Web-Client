@@ -11,7 +11,8 @@ Login.propTypes = {};
 
 function Login(props) {
     const dispatch = useDispatch();
-    const messageSingin = useSelector(state => state.users.message)
+    const auth = useSelector(state => state.users.auth);
+    
 
     const handleSubmit = (values) => {
         dispatch(logIn(values.userName , values.passWord))

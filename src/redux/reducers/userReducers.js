@@ -1,15 +1,22 @@
-import { UserTypes } from "../contants/action-types"
+import { UserTypes } from "../constants/action-types";
 
 
 const initialState = {
-    message: ""
+    auth: false,
 }
 
-export const userReducer = (state = 0 , {type , payload}) =>{
+export const userReducer = (state = initialState , {type , payload}) =>{
     switch (type) {
         case UserTypes.LOG_IN:
-            
-            return {...state , message : "Success"};
+            console.log(payload);
+            let status ;
+            if(payload.status === "200"){
+                // Đẩy token lên cookie
+                status = true
+            } else {
+                status = false
+            }
+            return {...state , auth:status };
         default:
             return state;
     }
