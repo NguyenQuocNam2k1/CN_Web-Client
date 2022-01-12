@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import InputField from 'custom-fields/InputField';
 import { FastField, Form, Formik } from 'formik';
 import PropTypes from 'prop-types';
