@@ -1,0 +1,22 @@
+.navbar-brand img {
+  width: 46px;
+}
+
+.navbar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar-nav li {
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+.navbar-nav li:first-child {
+  margin-left: 100px;
+}
+/*# sourceMappingURL=header.css.map */

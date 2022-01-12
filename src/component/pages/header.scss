@@ -1,0 +1,19 @@
+.navbar-brand {
+    & img {
+        width: 46px;
+    }
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+
+    & li {
+        margin: 0 20px;
+        font-size: 20px;
+    }
+
+    & li:first-child {
+        margin-left: 100px;
+    }
+}
