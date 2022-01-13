@@ -1,8 +1,8 @@
-import Home from "component/Home/Home";
+import Home from "component/pages/Home/Home";
 import NotFound from "component/NotFound";
-import User from "component/users";
+import User from "component/pages/users";
 import React from "react";
-import Header from "component/pages/Header";
+import Header from "component/pages/header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
