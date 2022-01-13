@@ -31,6 +31,7 @@ function Login(props) {
                 <LoginForm
                     initialValues={initialValues}
                     onSubmit={handleSubmit}
+                    auth={auth}
                 />
             </div>
             
