@@ -1,12 +1,12 @@
-.hompage_layout_1 {
+.homepage_layout_1 {
   height: 530px;
 }
 
-.hompage_layout_1 .col-6 {
+.homepage_layout_1 .col-6 {
   margin: auto;
 }
 
-.hompage_layout_1 .col-6 h1 {
+.homepage_layout_1 .col-6 h1 {
   width: 528px;
   height: 45px;
   font-size: 45px;
@@ -16,7 +16,7 @@
   font-weight: bold;
 }
 
-.hompage_layout_1 .col-6 p {
+.homepage_layout_1 .col-6 p {
   font-size: 20px;
   line-height: 20px;
   color: #000000;
@@ -32,5 +32,33 @@
   border-radius: 25px;
   font-weight: 750;
   margin-bottom: 21px;
+}
+
+.homepage_layout_2 {
+  height: 610px;
+  margin-top: 60px;
+}
+
+.homepage_layout_2 h1 {
+  font-size: 50px;
+  line-height: 50px;
+  color: #000000;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.homepage_layout_2 .homepage_layout_2_text {
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: #000000;
+}
+
+.homepage_layout_2 .homepage_layout_2_image {
+  background: #ffd300;
+  border-radius: 25px;
+  width: 172px;
+  height: 50px;
 }
 /*# sourceMappingURL=homepage.css.map */

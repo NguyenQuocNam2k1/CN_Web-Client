@@ -1,5 +1,4 @@
-.hompage_layout_1 {
-  //   width: 1440px;
+.homepage_layout_1 {
   height: 530px;
   & .col-6 {
     margin: auto;
@@ -29,4 +28,29 @@
   border-radius: 25px;
   font-weight: 750;
   margin-bottom: 21px;
+}
+
+.homepage_layout_2 {
+  height: 610px;
+  margin-top: 60px;
+  & h1 {
+    font-size: 50px;
+    line-height: 50px;
+    color: #000000;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  & .homepage_layout_2_text {
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #000000;
+  }
+  & .homepage_layout_2_image {
+    background: #ffd300;
+    border-radius: 25px;
+    width: 172px;
+    height: 50px;
+  }
 }
