@@ -4,16 +4,48 @@
     }
 }
 
+
 .navbar-nav {
     display: flex;
     justify-content: space-between;
 
-    & li {
-        margin: 0 20px;
-        font-size: 20px;
-    }
 
-    & li:first-child {
-        margin-left: 100px;
+    // & li {
+    //     margin: 0 20px;
+    //     font-size: 20px;
+    // }
+
+    // & li:first-child {
+    //     margin-left: 100px;
+    // }
+
+  
+    .nav-block-item{
+        position: relative !important;
+        &:hover .block-list{
+            display: block
+        }
+        .block-list{
+            // width: 300px;
+            // height:200px;
+            position: absolute;
+            top: 100%;
+            left: 0px;
+            background: white;
+            z-index: 10;
+            display:none;
+            .block-list-item{
+                display: flex;
+                .list-item-link{
+                    ul{
+                        list-style: none;
+                    }
+                }
+            }
+        }
     }
+    
+   
 }
+
+

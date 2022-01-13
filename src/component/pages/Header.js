@@ -16,8 +16,30 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="#">Mục lục</Link>
+              <li className="nav-item nav-block-item">
+                <Link className="nav-link active "  aria-current="page" to="#">Mục lục</Link>
+                <div className="block-list">
+                    <div className="block-list-item">
+                      <div className="list-item-link">
+                      <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JAVASCRIPT</li>
+                        <li>REACTJS</li>
+                        <li>ANGULARJS</li>
+                      </ul>
+                    </div>
+                  <div className="list-item-link">
+                    <ul>
+                      <li>JAVA</li>
+                      <li>PYTHON</li>
+                      <li>KOTLIN</li>
+                      <li>C++</li>
+                      <li>C#</li>
+                    </ul>
+                  </div>
+                    </div>
+                </div>
               </li>
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="#">Lộ trình</Link>
