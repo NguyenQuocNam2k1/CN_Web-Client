@@ -1,5 +1,13 @@
 .homepage_layout_1 {
   height: 530px;
+  & .col-5 {
+    & div {
+      background-image: url("../../../images/home-icon.png");
+      width: 100%;
+      height: 100%;
+      background-size:initial;
+    }
+  }
   & .col-6 {
     margin: auto;
     & h1 {

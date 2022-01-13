@@ -5,7 +5,11 @@ function Home(props) {
   return (
     <div className='container'>
       <div className='row homepage_layout_1'>
-        <div className='col-5'></div>
+        <div className='col-5'>
+          <div>
+
+          </div>
+        </div>
         <div className='col-1'></div>
         <div className='col-6'>
           <h1>Tham gia học MIỄN PHÍ</h1>
@@ -13,7 +17,7 @@ function Home(props) {
             <button className='button_homepage'>Đăng ký</button>
           </Link>
           <p>Hoặc đăng ký bằng</p>
-          <div className="logo"></div>
+          <div className="logo logo_gg"></div>
           <div className="logo"></div>
           <div className="logo"></div>
         </div>
