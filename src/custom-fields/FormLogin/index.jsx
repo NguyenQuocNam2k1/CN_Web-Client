@@ -16,12 +16,12 @@ LoginForm.defaultProps = {
 
 function LoginForm(props) {
     const { initialValues } = props;
-
     const validationSchema = Yup.object().shape({
         userName: Yup.string().required('This field is required'),
 
         passWord: Yup.string().required('This field is required'),
     });
+
 
     return (
         <Formik
@@ -38,7 +38,7 @@ function LoginForm(props) {
                         <FastField
                             name="userName"
                             component={InputField}
-
+                    
                             label="User Name"
                             placeholder="Nhập user name ... "
                         />
@@ -50,7 +50,7 @@ function LoginForm(props) {
                             label="Pass Word"
                             placeholder="Nhập mật khẩu ... "
                         />
-
+                        {props.auth.status === "500" && <p className="error-login">{props.auth.message}</p>}
                         <FormGroup>
                             <Button type="submit" color='primary'>Đăng nhập
                                 {isSubmitting && <Spinner size="small" />}
