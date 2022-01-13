@@ -41,16 +41,24 @@
     font-weight: bold;
   }
   & .homepage_layout_2_text {
+    text-align: center;
     font-weight: 600;
     font-size: 35px;
     line-height: 35px;
-    text-align: center;
     color: #000000;
   }
   & .homepage_layout_2_image {
-    background: #ffd300;
-    border-radius: 25px;
-    width: 172px;
-    height: 50px;
+    & button {
+      background: #ffd300;
+      border-radius: 25px;
+      text-align: center;
+      width: 172px;
+      border: none;
+      height: 50px;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 30px;
+      color: #ffffff;
+    }
   }
 }

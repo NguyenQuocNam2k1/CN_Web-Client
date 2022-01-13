@@ -1,5 +1,5 @@
 .photo-edit__form {
-  background-image: url(../../../public/images/background-login.png);
+  background-image: url(../../../public/background-login.png);
   margin: 2rem auto 1rem auto;
   max-width: 25rem;
   padding: 50px;
@@ -29,5 +29,10 @@
   height: 16px;
   margin-left: 6px;
   margin-top: 6px;
+}
+
+.photo-edit__form .error-login {
+  margin-top: 10px;
+  color: #e82424;
 }
 /*# sourceMappingURL=styles.css.map */
