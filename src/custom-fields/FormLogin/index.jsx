@@ -50,7 +50,7 @@ function LoginForm(props) {
                             label="Pass Word"
                             placeholder="Nhập mật khẩu ... "
                         />
-                        {props.auth.status === "500" ? <p>{props.auth.message}</p> : <p>{props.auth.message}</p>}
+                        {props.auth.status === "500" && <p className="error-login">{props.auth.message}</p>}
                         <FormGroup>
                             <Button type="submit" color='primary'>Đăng nhập
                                 {isSubmitting && <Spinner size="small" />}

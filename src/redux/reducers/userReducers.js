@@ -1,6 +1,5 @@
 import { UserTypes } from "../constants/action-types";
 
-
 const initialState = {
     auth: {},
 }
@@ -11,7 +10,8 @@ export const userReducer = (state = initialState, { type, payload }) => {
             console.log(payload);
 
             if (payload.status === "200") {
-                // Đẩy token lên cookie
+                
+                document.cookie = `token = ${payload.token}`;
             }
             return {
                 ...state,
