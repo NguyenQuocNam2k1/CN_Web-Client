@@ -30,4 +30,9 @@
   margin-left: 6px;
   margin-top: 6px;
 }
+
+.photo-edit__form .error-login {
+  margin-top: 10px;
+  color: #e82424;
+}
 /*# sourceMappingURL=styles.css.map */
