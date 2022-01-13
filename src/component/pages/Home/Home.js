@@ -13,6 +13,9 @@ function Home(props) {
             <button className='button_homepage'>Đăng ký</button>
           </Link>
           <p>Hoặc đăng ký bằng</p>
+          <div className="logo"></div>
+          <div className="logo"></div>
+          <div className="logo"></div>
         </div>
       </div>
       <div className='homepage_layout_2'>
