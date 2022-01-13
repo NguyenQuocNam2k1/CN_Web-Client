@@ -13,6 +13,9 @@ function Home(props) {
             <button className='button_homepage'>Đăng ký</button>
           </Link>
           <p>Hoặc đăng ký bằng</p>
+          {for(let index ; index <= 3 ; index++){
+              
+          }}
         </div>
       </div>
     </div>
