@@ -6,7 +6,7 @@ import './header.css';
 
 function Header() {
   return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-lg">
           <Link className="navbar-brand" to="/">
             <img className="img" src="https://fullstack.edu.vn/assets/icon/f8_icon.png" alt="logo"></img>
