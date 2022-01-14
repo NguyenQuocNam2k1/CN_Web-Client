@@ -1,0 +1,133 @@
+.container {
+  margin-top: 32px;
+}
+
+.list-course-name {
+  background-color: #466a8a;
+  border-radius: 6px;
+  color: #fff;
+  padding: 0;
+  width: 70%;
+
+  & .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 12px;
+    padding: 0;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+  }
+
+  & .list-name {
+    list-style: none;
+    font-size: 18px;
+    padding: 0;
+
+    & .course-name {
+      margin: 0;
+      color: #fff;
+      padding: 8px 32px;
+      transition: all 0.1s ease 0s;
+    }
+
+    & .course-name:hover {
+      background-color: #fff;
+      border-radius: 2px;
+      color: #333;
+      transition: all 0.1s ease 0s;
+    }
+  }
+}
+
+.col-9 {
+
+
+  & .lo-trinh {
+    background-color: #466a8a;
+    height: 75px;
+    margin: 12px 0;
+    border-radius: 4px;
+
+    & .title {
+      display: flex;
+      align-items: center;
+
+      & .title-left {
+        padding-left: 20%;
+        font-size: 20px;
+        color: #fff;
+
+        & p {
+          margin: revert;
+        }
+      }
+
+      & .title-right a {
+        font-size: 20px;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.25s ease 0s;
+      }
+
+      .title-right a:hover {
+        color: #333;
+        opacity: 0.6;
+        transition: all 0.25s ease 0s;
+      }
+    }
+  }
+
+  & .title-courses {
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+    margin: 16px 0;
+  }
+
+  & .item-course {
+      margin: 24px 0px;
+
+    & .card.course {
+      transition: all 0.35s ease 0s;
+
+      & a {
+        text-decoration: none;
+
+        & img {
+        }
+      }
+
+      & .body-course {
+        & a {
+          text-decoration: none;
+
+          & .title-course {
+            text-align: center;
+            color: #333;
+          }
+        }
+
+        & .description-course {
+          overflow: hidden;
+          height: 3.2rem;
+          display: block;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+
+        & .submit-course {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+    & .card.course:hover {
+      box-shadow: 0 0 30px rgba(59, 45, 45, 0.2);
+      transform: translateY(-10px);
+      transition: all 0.35s ease 0s;
+    }
+  }
+}

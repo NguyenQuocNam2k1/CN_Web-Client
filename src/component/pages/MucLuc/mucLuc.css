@@ -1,0 +1,141 @@
+.container {
+  margin-top: 32px;
+}
+
+.list-course-name {
+  background-color: #466a8a;
+  border-radius: 6px;
+  color: #fff;
+  padding: 0;
+  width: 70%;
+}
+
+.list-course-name .title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 12px;
+  padding: 0;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}
+
+.list-course-name .list-name {
+  list-style: none;
+  font-size: 18px;
+  padding: 0;
+}
+
+.list-course-name .list-name .course-name {
+  margin: 0;
+  color: #fff;
+  padding: 8px 32px;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
+
+.list-course-name .list-name .course-name:hover {
+  background-color: #fff;
+  border-radius: 2px;
+  color: #333;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
+
+.col-9 .lo-trinh {
+  background-color: #466a8a;
+  height: 75px;
+  margin: 12px 0;
+  border-radius: 4px;
+}
+
+.col-9 .lo-trinh .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.col-9 .lo-trinh .title .title-left {
+  padding-left: 20%;
+  font-size: 20px;
+  color: #fff;
+}
+
+.col-9 .lo-trinh .title .title-left p {
+  margin: revert;
+}
+
+.col-9 .lo-trinh .title .title-right a {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: all 0.25s ease 0s;
+  transition: all 0.25s ease 0s;
+}
+
+.col-9 .lo-trinh .title .title-right a:hover {
+  color: #333;
+  opacity: 0.6;
+  -webkit-transition: all 0.25s ease 0s;
+  transition: all 0.25s ease 0s;
+}
+
+.col-9 .title-courses {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  margin: 16px 0;
+}
+
+.col-9 .item-course {
+  margin: 24px 0px;
+}
+
+.col-9 .item-course .card.course {
+  -webkit-transition: all 0.35s ease 0s;
+  transition: all 0.35s ease 0s;
+}
+
+.col-9 .item-course .card.course a {
+  text-decoration: none;
+}
+
+.col-9 .item-course .card.course .body-course a {
+  text-decoration: none;
+}
+
+.col-9 .item-course .card.course .body-course a .title-course {
+  text-align: center;
+  color: #333;
+}
+
+.col-9 .item-course .card.course .body-course .description-course {
+  overflow: hidden;
+  height: 3.2rem;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.col-9 .item-course .card.course .body-course .submit-course {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.col-9 .item-course .card.course:hover {
+  -webkit-box-shadow: 0 0 30px rgba(59, 45, 45, 0.2);
+          box-shadow: 0 0 30px rgba(59, 45, 45, 0.2);
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: all 0.35s ease 0s;
+  transition: all 0.35s ease 0s;
+}
+/*# sourceMappingURL=mucLuc.css.map */

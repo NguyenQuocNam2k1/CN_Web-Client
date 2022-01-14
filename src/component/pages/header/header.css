@@ -1,5 +1,5 @@
 .navbar {
-  margin-bottom: 30px;
+  background-color: #466a8a;
 }
 
 .navbar-brand img {
@@ -22,5 +22,9 @@
 
 .navbar-nav li:first-child {
   margin-left: 100px;
+}
+
+a.nav-link.active {
+  color: #fff !important;
 }
 /*# sourceMappingURL=header.css.map */

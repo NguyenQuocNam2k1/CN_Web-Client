@@ -1,7 +1,9 @@
-.navbar{
-    margin-bottom: 30px;
+.navbar {
+    background-color: #466a8a;
 }
+
 .navbar-brand {
+
     & img {
         width: 46px;
     }
@@ -19,4 +21,8 @@
     & li:first-child {
         margin-left: 100px;
     }
+}
+
+a.nav-link.active {
+    color: #fff !important ;
 }
