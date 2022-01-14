@@ -203,6 +203,7 @@
 }
 
 .homepage_layout_4 {
+  margin-bottom: 200px;
   height: 405px;
   background-color: #ffd300;
 }
@@ -224,7 +225,10 @@
 }
 
 .homepage_layout_4_text {
-  margin: auto;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  margin: 0;
   color: #000000;
 }
 

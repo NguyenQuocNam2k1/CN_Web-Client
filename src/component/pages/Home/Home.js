@@ -65,6 +65,7 @@ function Home(props) {
           <div className='row'>
             <div className='col-6 homepage_layout_4_image'></div>
             <div className='col-6 homepage_layout_4_text'>
+              <div className='col-12'></div>
               <h1>Tham gia ngay thôi!</h1>
               <p>
                 Nếu đã xem tới đây thì bạn chắc hẳn bạn đã khá tò mò rồi nhỉ.

@@ -116,7 +116,7 @@
 
 .homepage_layout_2_image_1 {
   position: relative;
-  background-image: url("../../../images/code-pana.png");
+  background-image: url("../../../images/homeBegin.png");
   height: 75%;
   background-repeat: no-repeat;
   text-align: center;
@@ -125,7 +125,7 @@
 }
 .homepage_layout_2_image_2 {
   position: relative;
-  background-image: url("../../../images/Programming-pana.png");
+  background-image: url("../../../images/homeFrontend.png");
   height: 75%;
   background-repeat: no-repeat;
   text-align: center;
@@ -134,7 +134,7 @@
 }
 .homepage_layout_2_image_3 {
   position: relative;
-  background-image: url("../../../images/control-bro.png");
+  background-image: url("../../../images/homeBackend.png");
   height: 75%;
   background-repeat: no-repeat;
   text-align: center;
@@ -167,6 +167,7 @@
 }
 
 .homepage_layout_4 {
+  margin-bottom: 200px;
   height: 405px;
   background-color: #ffd300;
   & .container {
@@ -178,14 +179,16 @@
 }
 
 .homepage_layout_4_image {
-  background-image: url("../../../images/Overcome-bro.png");
+  background-image: url("../../../images/homeRegister.png");
   background-size: contain;
   background-repeat: no-repeat;
   height: 96%;
   background-position: center;
 }
 .homepage_layout_4_text {
-  margin: auto;
+  text-align: center;
+  display: grid;
+  margin: 0;
   color: #000000;
   & h1 {
     font-weight: bold;
