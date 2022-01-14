@@ -1,28 +1,19 @@
-.navbar {
-    background-color: #466a8a;
-}
-
 .navbar-brand {
-
-    & img {
-        width: 46px;
-    }
+  & img {
+    width: 46px;
+  }
 }
 
 .navbar-nav {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    & li {
-        margin: 0 20px;
-        font-size: 20px;
-    }
+  & li {
+    margin: 0 20px;
+    font-size: 20px;
+  }
 
-    & li:first-child {
-        margin-left: 100px;
-    }
-}
-
-a.nav-link.active {
-    color: #fff !important ;
+  & li:first-child {
+    margin-left: 100px;
+  }
 }
