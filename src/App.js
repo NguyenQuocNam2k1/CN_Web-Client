@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
 import Font_End from "component/pages/Font-End/Font_End";
 
+
 function App() {
   return (
     <div className='App'>

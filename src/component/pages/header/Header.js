@@ -6,7 +6,7 @@ import './header.css';
 
 function Header() {
   return (
-      <nav className="navbar navbar-expand-lg navbar-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-lg">
           <Link className="navbar-brand" to="/">
             <img className="img" src="https://fullstack.edu.vn/assets/icon/f8_icon.png" alt="logo"></img>
@@ -17,7 +17,7 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="#">Mục lục</Link>
+                <Link className="nav-link active" aria-current="page" to="/muc-luc">Mục lục</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="#">Lộ trình</Link>

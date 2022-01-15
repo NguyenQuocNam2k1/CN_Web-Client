@@ -1,28 +1,40 @@
 .navbar {
-    background-color: #466a8a;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 100;
+    box-shadow: 0 0 10px #c7afaf;
+
 }
 
 .navbar-brand {
-
-    & img {
-        width: 46px;
-    }
+  & img {
+    width: 46px;
+  }
 }
 
 .navbar-nav {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    & li {
-        margin: 0 20px;
-        font-size: 20px;
-    }
+  & li {
+    margin: 0 20px;
+    font-size: 20px;
+  }
 
-    & li:first-child {
-        margin-left: 100px;
-    }
+  & li:first-child {
+    margin-left: 100px;
+  }
 }
 
-a.nav-link.active {
-    color: #fff !important ;
+.nav-link.active {
+    transition: all 0.1s ease 0s;
+}
+
+.nav-link.active:hover {
+  opacity: 0.8;
+  transition: all 0.1s ease 0s;
 }

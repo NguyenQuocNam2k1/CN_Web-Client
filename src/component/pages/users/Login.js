@@ -35,17 +35,18 @@ function Login(props) {
         userName: '',
         passWord: '',
     };
- 
+
     return (
 
-        <div className="photo-edit__form">
-            <h1>Login</h1>
-
-            <LoginForm
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-                auth={auth}
-            />
+        <div className="background-login">
+            <div className="photo-edit__form">
+                <h1>Login</h1>
+                <LoginForm
+                    initialValues={initialValues}
+                    onSubmit={handleSubmit}
+                    auth={auth}
+                />
+            </div>
         </div>
 
     );

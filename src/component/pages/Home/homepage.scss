@@ -1,3 +1,7 @@
+.homepage-container {
+  margin-top: 130px;
+}
+
 .homepage_layout_1 {
   height: 550px;
   padding-top: 20px;
@@ -6,7 +10,7 @@
     max-height: 550px;
     & div {
       background-image: url("../../../images/home-icon.png");
-      height: 75%;
+      height: 100%;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -14,6 +18,7 @@
   }
   & .homepage_layout_1_layout {
     margin: auto;
+    text-align: center;
     & h1 {
       font-size: 45px;
       color: #000000;
@@ -27,8 +32,7 @@
     }
     & .list_logo {
       display: flex;
-      width: 200px;
-      justify-content: space-between;
+      justify-content: center;
       & .logo {
         width: 50px;
         height: 50px;
@@ -44,6 +48,7 @@
       }
       & .logo_facebook {
         background-image: url("../../../images/facebook.png");
+        margin: 0 24px;
       }
       & .logo_github {
         background-image: url("../../../images/github.png");
@@ -88,17 +93,15 @@
 
   & button {
     background: #ffd300;
-    border-radius: 25px;
+    border-radius: 26px;
     text-align: center;
     width: 172px;
     border: none;
-    height: 50px;
+    height: 52px;
     font-weight: 700;
     font-size: 25px;
-    line-height: 30px;
     color: #ffffff;
-    bottom: 0;
-    position: absolute;
+    margin-top: calc(100% + 52px);
   }
   & a {
     display: flex;
@@ -106,7 +109,7 @@
     text-decoration: none;
   }
   & .justify-content-around {
-    height: 550px;
+    margin-bottom: 12%;
     & .col-xl-4 {
       min-height: 300px;
       max-height: 480px;
@@ -116,8 +119,8 @@
 
 .homepage_layout_2_image_1 {
   position: relative;
-  background-image: url("../../../images/code-pana.png");
-  height: 75%;
+  background-image: url("../../../images/homeBegin.png");
+  height: 100%;
   background-repeat: no-repeat;
   text-align: center;
   background-size: contain;
@@ -125,8 +128,8 @@
 }
 .homepage_layout_2_image_2 {
   position: relative;
-  background-image: url("../../../images/control-bro.png");
-  height: 75%;
+  background-image: url("../../../images/homeFrontend.png");
+  height: 100%;
   background-repeat: no-repeat;
   text-align: center;
   background-size: contain;
@@ -134,8 +137,8 @@
 }
 .homepage_layout_2_image_3 {
   position: relative;
-  background-image: url("../../../images/control-bro.png");
-  height: 75%;
+  background-image: url("../../../images/homeBackend.png");
+  height: 100%;
   background-repeat: no-repeat;
   text-align: center;
   background-size: contain;
@@ -145,7 +148,7 @@
 .homepage_layout_3 {
   background: #466a8a;
   height: 310px;
-  margin-top: 30px;
+  margin-top: 60px;
   text-align: center;
   font-weight: 600;
   & {
@@ -167,6 +170,7 @@
 }
 
 .homepage_layout_4 {
+  margin-bottom: 200px;
   height: 405px;
   background-color: #ffd300;
   & .container {
@@ -178,14 +182,16 @@
 }
 
 .homepage_layout_4_image {
-  background-image: url("../../../images/control-bro.png");
+  background-image: url("../../../images/homeRegister.png");
   background-size: contain;
   background-repeat: no-repeat;
   height: 96%;
   background-position: center;
 }
 .homepage_layout_4_text {
-  margin: auto;
+  text-align: center;
+  display: grid;
+  margin: 0;
   color: #000000;
   & h1 {
     font-weight: bold;

@@ -1,9 +1,21 @@
+.background-login {
+  background-image: url(../../../public/tom.jpg);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-position: bottom;
+  background-size: cover;
+  height: 100vh;
+}
+
 .photo-edit__form {
   background-image: url(../../../public/background-login.png);
   margin: 2rem auto 1rem auto;
   max-width: 25rem;
   padding: 50px;
   border-radius: 15px;
+  margin-top: 150px;
 }
 
 .photo-edit__form label {
