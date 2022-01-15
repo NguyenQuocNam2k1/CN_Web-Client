@@ -66,6 +66,7 @@
   border-radius: 25px;
   font-weight: 750;
   margin-bottom: 21px;
+  transition: all 0.3s ease 0s;
   &:hover {
     cursor: pointer;
     background-color: #003a6d;
@@ -203,3 +204,16 @@
     text-align: justify;
   }
 }
+.homepage-container button,
+.homepage_layout_4 button {
+  transition: all 0.3s ease 0s;
+}
+
+.homepage-container button:hover,
+.homepage_layout_4 button:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgb(175, 171, 171);
+  transition: all 0.3s ease 0s;
+}
+
+

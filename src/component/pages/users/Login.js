@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../../../redux/actions/userAction.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 Login.propTypes = {};
 
@@ -46,8 +46,17 @@ function Login(props) {
                     onSubmit={handleSubmit}
                     auth={auth}
                 />
+                <div className="login-other">
+                    <p>Hoặc đăng nhập bằng</p>
+                    <div className='list_logo'>
+                        <div className='logo logo_gg'></div>
+                        <div className='logo logo_facebook'></div>
+                        <div className='logo logo_github'></div>
+                    </div>
+                    <button className='btn-app'><Link to='/user/register'>Tạo tài khoản</Link></button>
+                </div>
             </div>
-        </div>
+        </div >
 
     );
 }

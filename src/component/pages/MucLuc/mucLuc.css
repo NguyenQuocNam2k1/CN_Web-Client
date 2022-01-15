@@ -32,18 +32,51 @@
   list-style: none;
   font-size: 18px;
   padding: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.list-course-name .list-name .course-name {
+.list-course-name .list-name .course-name p {
   margin: 0;
   color: #333;
   font-size: 20px;
   padding: 16px 32px;
+  text-align: left;
   -webkit-transition: all 0.1s ease 0s;
   transition: all 0.1s ease 0s;
 }
 
-.list-course-name .list-name .course-name:hover {
+.list-course-name .list-name .course-name ul.list-name-children {
+  list-style: none;
+  display: none;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.list-course-name .list-name .course-name ul.list-name-children a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.list-course-name .list-name .course-name ul.list-name-children a .course-children {
+  color: #333;
+  padding: 8px 8px;
+  margin-left: 20px;
+  text-align: left;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
+
+.list-course-name .list-name .course-name ul.list-name-children a .course-children:hover {
+  background-color: #c3c3c3;
+  border-radius: 4px;
+  color: #211a1a;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
+
+.list-course-name .list-name .course-name p:hover {
   background-color: #c3c3c3;
   border-radius: 4px;
   color: #211a1a;
@@ -146,5 +179,12 @@
           transform: translateY(-10px);
   -webkit-transition: all 0.35s ease 0s;
   transition: all 0.35s ease 0s;
+}
+
+.list-course-name .list-name .course-name:hover ul.list-name-children {
+  display: block;
+  opacity: 1;
+  -webkit-animation: fadeIn ease-in 0.3ss;
+          animation: fadeIn ease-in 0.3ss;
 }
 /*# sourceMappingURL=mucLuc.css.map */

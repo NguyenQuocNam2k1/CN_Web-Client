@@ -82,6 +82,8 @@
   border-radius: 25px;
   font-weight: 750;
   margin-bottom: 21px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .button_homepage:hover {
@@ -244,5 +246,21 @@
   font-weight: normal;
   font-size: 25px;
   text-align: justify;
+}
+
+.homepage-container button,
+.homepage_layout_4 button {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.homepage-container button:hover,
+.homepage_layout_4 button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0 0 10px #afabab;
+          box-shadow: 0 0 10px #afabab;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 /*# sourceMappingURL=homepage.css.map */

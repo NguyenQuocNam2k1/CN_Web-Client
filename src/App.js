@@ -5,6 +5,7 @@ import React from "react";
 import Header from "component/pages/header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
+import "./App.css";
 
 function App() {
   return (

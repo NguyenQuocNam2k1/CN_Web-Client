@@ -11,14 +11,47 @@ function MucLuc(props) {
                     <div className="list-course-name">
                         <div className="title">Ngôn ngữ</div>
                         <ul className="list-name">
-                            <li className="course-name">HTML & CSS</li>
-                            <li className="course-name">Python</li>
-                            <li className="course-name">JavaScript</li>
-                            <li className="course-name">Java</li>
-                            <li className="course-name">SQL</li>
-                            <li className="course-name">C++</li>
-                            <li className="course-name">R</li>
-                            <li className="course-name">C#</li>
+
+                            <li className="course-name">
+                                <p>HTML & CSS</p>
+                                <ul className="list-name-children">
+                                    <Link to="/">
+                                        <li className="course-children">HTML basic</li>
+                                    </Link>
+                                    <Link to="/">
+                                        <li className="course-children">HTML nâng cao</li>
+                                    </Link>
+                                </ul>
+                            </li>
+
+                            <li className="course-name">
+                                <p>Python</p>
+                            </li>
+
+                            <li className="course-name">
+                                <p>JavaScript</p>
+                            </li>
+
+                            <li className="course-name">
+                                <p>Java</p>
+                            </li>
+
+                            <li className="course-name">
+                                <p>SQL</p>
+                            </li>
+
+                            <li className="course-name">
+                                <p>C++</p>
+                            </li>
+
+                            <li className="course-name">
+                                <p>R</p>
+                            </li>
+
+                            <li className="course-name">
+                                <p>C#</p>
+                            </li>
+                            
                         </ul>
                     </div>
                 </div>
