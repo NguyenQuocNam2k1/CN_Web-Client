@@ -5,7 +5,12 @@ import React from "react";
 import Header from "component/pages/header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
+<<<<<<< HEAD
 import "./App.css";
+=======
+import Font_End from "component/pages/Font-End/Font_End";
+
+>>>>>>> ae89cbc22396e6cf401bbb7aa107535c2bf386cd
 
 function App() {
   return (
@@ -14,8 +19,9 @@ function App() {
         <Header />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/user' component={User} />
-          <Route path='/muc-luc' component={MucLuc} />
+          <Route exact path='/user' component={User} />
+          <Route exact path='/muc-luc' component={MucLuc} />
+          <Route exact path="/font-end" component={Font_End} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
