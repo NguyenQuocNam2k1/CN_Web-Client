@@ -1,3 +1,7 @@
+.homepage-container {
+  margin-top: 130px;
+}
+
 .homepage_layout_1 {
   height: 550px;
   padding-top: 20px;
@@ -10,7 +14,7 @@
 
 .homepage_layout_1 .homepage_layout_1_image div {
   background-image: url("../../../images/home-icon.png");
-  height: 75%;
+  height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,6 +22,7 @@
 
 .homepage_layout_1 .homepage_layout_1_layout {
   margin: auto;
+  text-align: center;
 }
 
 .homepage_layout_1 .homepage_layout_1_layout h1 {
@@ -37,10 +42,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 200px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .homepage_layout_1 .homepage_layout_1_layout .list_logo .logo {
@@ -61,6 +65,7 @@
 
 .homepage_layout_1 .homepage_layout_1_layout .list_logo .logo_facebook {
   background-image: url("../../../images/facebook.png");
+  margin: 0 24px;
 }
 
 .homepage_layout_1 .homepage_layout_1_layout .list_logo .logo_github {
@@ -107,17 +112,15 @@
 
 .homepage_layout_2 button {
   background: #ffd300;
-  border-radius: 25px;
+  border-radius: 26px;
   text-align: center;
   width: 172px;
   border: none;
-  height: 50px;
+  height: 52px;
   font-weight: 700;
   font-size: 25px;
-  line-height: 30px;
   color: #ffffff;
-  bottom: 0;
-  position: absolute;
+  margin-top: calc(100% + 52px);
 }
 
 .homepage_layout_2 a {
@@ -131,7 +134,7 @@
 }
 
 .homepage_layout_2 .justify-content-around {
-  height: 550px;
+  margin-bottom: 12%;
 }
 
 .homepage_layout_2 .justify-content-around .col-xl-4 {
@@ -142,7 +145,7 @@
 .homepage_layout_2_image_1 {
   position: relative;
   background-image: url("../../../images/homeBegin.png");
-  height: 75%;
+  height: 100%;
   background-repeat: no-repeat;
   text-align: center;
   background-size: contain;
@@ -152,7 +155,7 @@
 .homepage_layout_2_image_2 {
   position: relative;
   background-image: url("../../../images/homeFrontend.png");
-  height: 75%;
+  height: 100%;
   background-repeat: no-repeat;
   text-align: center;
   background-size: contain;
@@ -162,7 +165,7 @@
 .homepage_layout_2_image_3 {
   position: relative;
   background-image: url("../../../images/homeBackend.png");
-  height: 75%;
+  height: 100%;
   background-repeat: no-repeat;
   text-align: center;
   background-size: contain;
@@ -172,7 +175,7 @@
 .homepage_layout_3 {
   background: #466a8a;
   height: 310px;
-  margin-top: 30px;
+  margin-top: 60px;
   text-align: center;
   font-weight: 600;
 }

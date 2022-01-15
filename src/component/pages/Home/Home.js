@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Home(props) {
   return (
     <>
-      <div className='container'>
+      <div className='container homepage-container'>
         <div className='row homepage_layout_1'>
           <div className='col-6 homepage_layout_1_image'>
             <div></div>
@@ -31,24 +31,24 @@ function Home(props) {
                 <Link to='/user/register'>
                   <button>Chi tiết</button>
                 </Link>
+                <div className='homepage_layout_2_text'>Mới bắt đầu</div>
               </div>
-              <p className='homepage_layout_2_text'>Mới bắt đầu</p>
             </div>
             <div className='col-xl-4 col-md-4'>
               <div className='homepage_layout_2_image_2'>
                 <Link to='/user/register'>
                   <button>Chi tiết</button>
                 </Link>
+                <div className='homepage_layout_2_text'>Font-End</div>
               </div>
-              <p className='homepage_layout_2_text'>Font-End</p>
             </div>
             <div className='col-xl-4 col-md-4'>
               <div className='homepage_layout_2_image_3'>
                 <Link to='/user/register'>
                   <button>Chi tiết</button>
                 </Link>
+                <div className='homepage_layout_2_text'>Back-End</div>
               </div>
-              <p className='homepage_layout_2_text'>Back-End</p>
             </div>
           </div>
         </div>

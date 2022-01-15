@@ -3,11 +3,11 @@ import "./mucLuc.css";
 
 function MucLuc(props) {
     return (
-        <div className="container mt-16">
+        <div className="container mt-16 muc-luc">
             <div className="row">
 
                 {/* Layout */}
-                <div className="col-3">
+                <div className="col-3 list-name">
                     <div className="list-course-name">
                         <div className="title">Ngôn ngữ</div>
                         <ul className="list-name">
@@ -24,7 +24,7 @@ function MucLuc(props) {
                 </div>
 
                 {/*  Khoa hoc */}
-                <div className="col-9">
+                <div className="col-9 muc-luc">
 
                     {/* Layout tieu de */}
                     <div className="lo-trinh">

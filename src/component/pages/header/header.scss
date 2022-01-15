@@ -1,5 +1,13 @@
 .navbar {
-    background-color: #466a8a;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 100;
+    box-shadow: 0 0 10px #c7afaf;
+
 }
 
 .navbar-brand {
@@ -23,5 +31,10 @@
 }
 
 .nav-link.active {
-    color: #fff !important;
+    transition: all 0.1s ease 0s;
+}
+
+.nav-link.active:hover {
+  opacity: 0.8;
+  transition: all 0.1s ease 0s;
 }
