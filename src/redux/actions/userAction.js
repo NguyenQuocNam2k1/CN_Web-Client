@@ -16,7 +16,7 @@ export const logIn = (userName , password) => async (dispatch) => {
 
 export const logInFB = () => async (dispatch) => {
     try {
-        const response = await api.get("/api/user/auth/facebook");
+        const response = await api.get("/api/user/auth/facebook" , {headers: {'Access-Control-Allow-Origin': '*'}});
         console.log(response);
     } catch (error) {
         console.log("Error");
