@@ -18,7 +18,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/user' component={User} />
           <Route exact path='/muc-luc' component={MucLuc} />
-          <Route exact path="/font-end" component={Font_End} />
+          <Route exact path="/front-end" component={Font_End} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

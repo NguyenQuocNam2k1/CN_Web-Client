@@ -50,11 +50,16 @@
         opacity: 0;
         transition: all 0.2s ease 0s;
 
-        & a {
+        & a:first-child li{
+          border-top: 1px solid #c3c3c3;
+        }
+
+        & a {         
           text-decoration: none;
           font-size: 16px;
 
           & .course-children {
+            border-bottom: 1px solid #c3c3c3;
             color: #333;
             padding: 8px 8px;
             margin-left: 20px;
@@ -176,5 +181,5 @@
 .list-course-name .list-name .course-name:hover ul.list-name-children {
   display: block;
   opacity: 1;
-  animation: fadeIn ease-in 0.3ss
+  animation: fadeIn ease-in 0.3s;
 }
