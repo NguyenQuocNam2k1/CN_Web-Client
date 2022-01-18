@@ -13,3 +13,12 @@ export const logIn = (userName , password) => async (dispatch) => {
         dispatch({ type: UserTypes.LOG_IN, payload: err.response.data }); 
     }
 }
+
+export const logInFB = () => async (dispatch) => {
+    try {
+        const response = await api.get("/api/user/auth/facebook");
+        console.log(response);
+    } catch (error) {
+        console.log("Error");
+    }
+}

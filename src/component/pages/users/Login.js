@@ -1,14 +1,15 @@
 import LoginForm from 'custom-fields/FormLogin';
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../../../redux/actions/userAction.js";
+import { logIn , logInFB } from "../../../redux/actions/userAction.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Redirect } from 'react-router-dom';
+import axios from "axios";
 
 Login.propTypes = {};
 
 function Login(props) {
-    const dispatch = useDispatch();;
+    const dispatch = useDispatch();
     const auth = useSelector(state => state.users.auth);
     const listInput = document.getElementsByTagName('input');
 
@@ -31,6 +32,12 @@ function Login(props) {
         dispatch(logIn(values.userName.trim(), values.passWord.trim()));
     }
 
+    const handleClick = (value) => {
+        // console.log(value.className);
+        // axios.get("https://14af-117-7-155-144.ngrok.io/api/user/auth/facebook")
+        dispatch(logInFB())
+    }
+
     const initialValues = {
         userName: '',
         passWord: '',
@@ -50,7 +57,7 @@ function Login(props) {
                     <p>Hoặc đăng nhập bằng</p>
                     <div className='list_logo'>
                         <div className='logo logo_gg'></div>
-                        <div className='logo logo_facebook'></div>
+                        <div className='logo logo_facebook' onClick={(event) => handleClick(event.target)}></div>
                         <div className='logo logo_github'></div>
                     </div>
                     <button className='btn-app'><Link to='/user/register'>Tạo tài khoản</Link></button>
