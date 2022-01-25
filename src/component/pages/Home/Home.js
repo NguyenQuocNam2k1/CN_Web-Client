@@ -1,14 +1,21 @@
 import "./homepage.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {test} from "../../../redux/actions/userAction";
 
 function Home(props) {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(test());
+  }
   return (
     <>
       <div className='container homepage-container'>
+      <div onClick={handleClick}>Test API</div>
         <div className='row homepage_layout_1'>
           <div className='col-6 homepage_layout_1_image'>
             <div></div>
-            {/* Thẻ div bên trên là chứa background. yêu cầu không ai được xóa */}  
+            {/* Thẻ div bên trên là chứa background. yêu cầu không ai được xóa */}
           </div>
           <div className='col-6 homepage_layout_1_layout'>
             <h1>Tham gia khóa học MIỄN PHÍ</h1>

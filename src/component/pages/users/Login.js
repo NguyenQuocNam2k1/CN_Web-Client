@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { logIn , logInFB } from "../../../redux/actions/userAction.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Redirect } from 'react-router-dom';
-import axios from "axios";
 
 Login.propTypes = {};
 
@@ -34,7 +33,6 @@ function Login(props) {
 
     const handleClick = (value) => {
         // console.log(value.className);
-        // axios.get("https://14af-117-7-155-144.ngrok.io/api/user/auth/facebook")
         dispatch(logInFB())
     }
 
