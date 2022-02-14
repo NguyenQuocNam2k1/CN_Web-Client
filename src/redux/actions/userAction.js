@@ -2,15 +2,21 @@ import { UserTypes } from "../constants/action-types";
 import api from "../../apis/index.js";
 
 export const logIn = (username , password) => async (dispatch) => { 
-    try {
-        const response = await api.post("/api/user/logIn" , {
-            username,
-            password
-        });
-        dispatch({ type: UserTypes.LOG_IN, payload: response.data }); 
-    } catch (err) {
-        dispatch({ type: UserTypes.LOG_IN, payload: err.response.data }); 
-    }
+     const response = api.post("/api/user/login",{
+        username,
+        password
+    })
+    // const response = api.get("/");
+    console.log(response);
+    // try {
+    //     const response = await api.post("/api/user/logIn" , {
+    //         username,
+    //         password
+    //     });
+    //     dispatch({ type: UserTypes.LOG_IN, payload: response.data }); 
+    // } catch (err) {
+    //     dispatch({ type: UserTypes.LOG_IN, payload: err.response.data }); 
+    // }
 }
 
 export const logInFB = () => async (dispatch) => {
@@ -24,7 +30,6 @@ export const logInFB = () => async (dispatch) => {
 
 
 export const test = () => async (dispatch) => {
-    console.log("abc");
     try {
         const response = await api.get("/api/user/login/success");
         console.log(response);
