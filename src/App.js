@@ -5,8 +5,9 @@ import React from "react";
 import Header from "component/pages/header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
-import "./App.css";
+import LoTrinh from "component/pages/LoTrinh/LoTrinh";
 import Font_End from "component/pages/Font-End/Font_End";
+import "./App.css";
 
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/user' component={User} />
           <Route exact path='/muc-luc' component={MucLuc} />
-          <Route exact path="/front-end" component={Font_End} />
+          <Route exact path='/lo-trinh' component={LoTrinh} />
+          <Route exact path="/font-end" component={Font_End} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

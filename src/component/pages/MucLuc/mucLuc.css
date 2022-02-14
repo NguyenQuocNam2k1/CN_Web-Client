@@ -54,17 +54,12 @@
   transition: all 0.2s ease 0s;
 }
 
-.list-course-name .list-name .course-name ul.list-name-children a:first-child li {
-  border-top: 1px solid #c3c3c3;
-}
-
 .list-course-name .list-name .course-name ul.list-name-children a {
   text-decoration: none;
   font-size: 16px;
 }
 
 .list-course-name .list-name .course-name ul.list-name-children a .course-children {
-  border-bottom: 1px solid #c3c3c3;
   color: #333;
   padding: 8px 8px;
   margin-left: 20px;
@@ -189,7 +184,7 @@
 .list-course-name .list-name .course-name:hover ul.list-name-children {
   display: block;
   opacity: 1;
-  -webkit-animation: fadeIn ease-in 0.3s;
-          animation: fadeIn ease-in 0.3s;
+  -webkit-animation: fadeIn ease-in 0.3ss;
+          animation: fadeIn ease-in 0.3ss;
 }
 /*# sourceMappingURL=mucLuc.css.map */

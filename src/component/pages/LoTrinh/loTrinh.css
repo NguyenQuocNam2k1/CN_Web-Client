@@ -1,0 +1,30 @@
+.lo-trinh {
+  margin-top: 120px;
+}
+
+.lt-btn {
+  border-radius: 18px;
+  color: white;
+  width: 142px;
+}
+
+.lt-title {
+  text-align: left;
+}
+
+.lt-card {
+  -webkit-box-shadow: 1px 1px 1px 1px #c7afaf;
+          box-shadow: 1px 1px 1px 1px #c7afaf;
+}
+
+.lt-card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=lotrinh.css.map */

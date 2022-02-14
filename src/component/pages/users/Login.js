@@ -55,7 +55,7 @@ function Login(props) {
                     <p>Hoặc đăng nhập bằng</p>
                     <div className='list_logo'>
                         <div className='logo logo_gg'></div>
-                        <div className='logo logo_facebook' onClick={(event) => handleClick(event.target)}></div>
+                        <div className='logo logo_facebook'></div>
                         <div className='logo logo_github'></div>
                     </div>
                     <button className='btn-app'><Link to='/user/register'>Tạo tài khoản</Link></button>
