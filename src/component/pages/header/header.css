@@ -1,3 +1,15 @@
+.navbar {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 100;
+  -webkit-box-shadow: 0 0 10px #c7afaf;
+          box-shadow: 0 0 10px #c7afaf;
+}
+
 .navbar-brand img {
   width: 46px;
 }
@@ -36,5 +48,38 @@
 
 .navbar-nav .nav-block-item .block-list .block-list-item .list-item-link ul {
   list-style: none;
+}
+
+.navbar-nav li {
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+.navbar-nav li:first-child {
+  margin-left: 100px;
+}
+
+.nav-link.active {
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
+
+.nav-link.active:hover {
+  opacity: 0.8;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
+
+.search-input {
+  font-style: italic;
+  border-radius: 18px;
+}
+
+.img-input {
+  width: 20px;
+}
+
+.login-btn {
+  color: #466A8A;
 }
 /*# sourceMappingURL=header.css.map */

@@ -27,7 +27,7 @@ function Register(props) {
             }
             iconLoading[0].removeAttribute("class");
 
-            
+
             values.preventDefault();
         };
 
@@ -63,16 +63,16 @@ function Register(props) {
 
     return (
 
+        <div className="background-login">
+            <div className="photo-edit__form">
+                <h1>Register</h1>
 
-        <div className="photo-edit__form">
-            <h1>Register</h1>
-
-            <FormRegister
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-            />
+                <FormRegister
+                    initialValues={initialValues}
+                    onSubmit={handleSubmit}
+                />
+            </div>
         </div>
-
     );
 }
 

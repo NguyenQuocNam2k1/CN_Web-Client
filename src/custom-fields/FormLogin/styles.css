@@ -1,9 +1,23 @@
+.background-login {
+  background-image: url(../../../public/troi.jpg);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-position: bottom;
+  background-size: cover;
+  height: 100vh;
+}
+
 .photo-edit__form {
   background-image: url(../../../public/background-login.png);
   margin: 2rem auto 1rem auto;
   max-width: 25rem;
-  padding: 50px;
+  padding: 30px 50px;
   border-radius: 15px;
+  margin-top: 150px;
+  -webkit-box-shadow: 0 0 20px #dcc9c9;
+          box-shadow: 0 0 20px #dcc9c9;
 }
 
 .photo-edit__form label {
@@ -34,5 +48,63 @@
 .photo-edit__form .error-login {
   margin-top: 10px;
   color: #e82424;
+}
+
+.login-other {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.login-other .logo {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 10px;
+}
+
+.login-other .logo:hover {
+  cursor: pointer;
+}
+
+.login-other .logo_gg {
+  background-image: url("../../images/google.png");
+}
+
+.login-other .logo_facebook {
+  background-image: url("../../images/facebook.png");
+  margin: 0 24px;
+}
+
+.login-other .logo_github {
+  background-image: url("../../images/github.png");
+}
+
+.login-other .list_logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-other p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.login-other a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.login-other a:hover {
+  color: #fff;
 }
 /*# sourceMappingURL=styles.css.map */

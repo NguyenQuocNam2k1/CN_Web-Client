@@ -1,50 +1,105 @@
+.homepage-container {
+  margin-top: 130px;
+}
+
 .homepage_layout_1 {
-  height: 530px;
+  height: 550px;
+  padding-top: 20px;
 }
 
-.homepage_layout_1 .col-6 {
+.homepage_layout_1 .homepage_layout_1_image {
+  min-height: 350px;
+  max-height: 550px;
+}
+
+.homepage_layout_1 .homepage_layout_1_image div {
+  background-image: url("../../../images/home-icon.png");
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.homepage_layout_1 .homepage_layout_1_layout {
   margin: auto;
+  text-align: center;
 }
 
-.homepage_layout_1 .col-6 h1 {
-  width: 528px;
-  height: 45px;
+.homepage_layout_1 .homepage_layout_1_layout h1 {
   font-size: 45px;
-  line-height: 45px;
   color: #000000;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: bold;
 }
 
-.homepage_layout_1 .col-6 p {
+.homepage_layout_1 .homepage_layout_1_layout p {
   font-size: 20px;
-  line-height: 20px;
   color: #000000;
+  font-weight: normal;
+}
+
+.homepage_layout_1 .homepage_layout_1_layout .list_logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.homepage_layout_1 .homepage_layout_1_layout .list_logo .logo {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 10px;
+}
+
+.homepage_layout_1 .homepage_layout_1_layout .list_logo .logo:hover {
+  cursor: pointer;
+}
+
+.homepage_layout_1 .homepage_layout_1_layout .list_logo .logo_gg {
+  background-image: url("../../../images/google.png");
+}
+
+.homepage_layout_1 .homepage_layout_1_layout .list_logo .logo_facebook {
+  background-image: url("../../../images/facebook.png");
+  margin: 0 24px;
+}
+
+.homepage_layout_1 .homepage_layout_1_layout .list_logo .logo_github {
+  background-image: url("../../../images/github.png");
 }
 
 .button_homepage {
   width: 150px;
-  height: 50px;
+  height: 45px;
   border: none;
-  background: #466a8a;
+  background-color: #466a8a;
   color: #ffffff;
   font-size: 23px;
   border-radius: 25px;
   font-weight: 750;
   margin-bottom: 21px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.button_homepage:hover {
+  cursor: pointer;
+  background-color: #003a6d;
 }
 
 .homepage_layout_2 {
-  height: 610px;
-  margin-top: 60px;
+  min-height: 350px;
 }
 
 .homepage_layout_2 h1 {
-  font-size: 50px;
-  line-height: 50px;
+  font-size: 40px;
   color: #000000;
-  margin-bottom: 20px;
   font-weight: bold;
+  margin: 0;
 }
 
 .homepage_layout_2 .homepage_layout_2_text {
@@ -53,18 +108,159 @@
   font-size: 35px;
   line-height: 35px;
   color: #000000;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.homepage_layout_2 .homepage_layout_2_image button {
+.homepage_layout_2 button {
   background: #ffd300;
-  border-radius: 25px;
+  border-radius: 26px;
   text-align: center;
   width: 172px;
   border: none;
-  height: 50px;
+  height: 52px;
   font-weight: 700;
   font-size: 25px;
-  line-height: 30px;
   color: #ffffff;
+  margin-top: calc(100% + 52px);
+}
+
+.homepage_layout_2 a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+}
+
+.homepage_layout_2 .justify-content-around {
+  margin-bottom: 12%;
+}
+
+.homepage_layout_2 .justify-content-around .col-xl-4 {
+  min-height: 300px;
+  max-height: 480px;
+}
+
+.homepage_layout_2_image_1 {
+  position: relative;
+  background-image: url("../../../images/homeBegin.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-size: contain;
+  background-position: center;
+}
+
+.homepage_layout_2_image_2 {
+  position: relative;
+  background-image: url("../../../images/homeFrontend.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-size: contain;
+  background-position: center;
+}
+
+.homepage_layout_2_image_3 {
+  position: relative;
+  background-image: url("../../../images/homeBackend.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-size: contain;
+  background-position: center;
+}
+
+.homepage_layout_3 {
+  background: #466a8a;
+  height: 310px;
+  margin-top: 60px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.homepage_layout_3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.homepage_layout_3 h1 {
+  font-size: 120px;
+  line-height: 120px;
+  color: #ffffff;
+}
+
+.homepage_layout_3 h2 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 40px;
+  color: #ffffff;
+}
+
+.homepage_layout_4 {
+  margin-bottom: 200px;
+  height: 405px;
+  background-color: #ffd300;
+}
+
+.homepage_layout_4 .container {
+  height: 100%;
+}
+
+.homepage_layout_4 .container .row {
+  height: 100%;
+}
+
+.homepage_layout_4_image {
+  background-image: url("../../../images/homeRegister.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 96%;
+  background-position: center;
+}
+
+.homepage_layout_4_text {
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  margin: 0;
+  color: #000000;
+}
+
+.homepage_layout_4_text h1 {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.homepage_layout_4_text p {
+  font-weight: normal;
+  font-size: 25px;
+  text-align: justify;
+}
+
+.homepage-container button,
+.homepage_layout_4 button {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.homepage-container button:hover,
+.homepage_layout_4 button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0 0 10px #afabab;
+          box-shadow: 0 0 10px #afabab;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 /*# sourceMappingURL=homepage.css.map */
