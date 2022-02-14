@@ -1,7 +1,13 @@
 import "./homepage.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {test} from "../../../redux/actions/userAction";
 
 function Home(props) {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(test());
+  }
   return (
     <>
       <div className='container homepage-container'>
