@@ -15,7 +15,6 @@ function User(props) {
 
       <Route exact path={`${match.url}`} component={Login} />
       <Route exact path={`${match.url}/register`} component={Register} />
-
       <Route component={NotFound} />
     </Switch>
   );
