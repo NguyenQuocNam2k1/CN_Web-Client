@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./mucLuc.css";
 
 function MucLuc(props) {
+    console.log(window.screen.height);
     return (
         <div className="container mt-16 muc-luc">
             <div className="row">
@@ -90,7 +91,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +109,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +127,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +145,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +163,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +181,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>

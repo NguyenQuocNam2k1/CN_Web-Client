@@ -8,7 +8,7 @@ User.propTypes = {};
 
 function User(props) {
   const match = useRouteMatch();
-
+  console.log(match)
   return (
 
     <Switch>
