@@ -90,7 +90,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@ function MucLuc(props) {
                         {/* item course */}
                         <div className="col-4 item-course">
                             <div className="card course">
-                                <Link to="/cource">
+                                <Link to="/course">
                                     <img src="https://itcafe.vn/wp-content/uploads/2021/01/anh-gai-xinh-4.jpg" className="card-img-top" alt="..."></img>
                                 </Link>
                                 <div className="card-body body-course">
@@ -162,7 +162,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@ function MucLuc(props) {
                         {/* item course */}
                         <div className="col-4 item-course">
                             <div className="card course">
-                                <Link to="/cource">
+                                <Link to="/course">
                                     <img src="https://itcafe.vn/wp-content/uploads/2021/01/anh-gai-xinh-4.jpg" className="card-img-top" alt="..."></img>
                                 </Link>
                                 <div className="card-body body-course">
@@ -180,7 +180,7 @@ function MucLuc(props) {
                                     </Link>
                                     <p className="card-text description-course">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div className="submit-course">
-                                        <Link to="/course" class="btn btn-primary">Đăng ký</Link>
+                                        <Link to="/course" className="btn btn-primary">Đăng ký</Link>
                                     </div>
                                 </div>
                             </div>
