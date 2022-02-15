@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./mucLuc.css";
 
 function MucLuc(props) {
+    console.log(window.screen.height);
     return (
         <div className="container mt-16 muc-luc">
             <div className="row">

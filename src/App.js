@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
 import LoTrinh from "component/pages/LoTrinh/LoTrinh";
 import Font_End from "component/pages/Font-End/Font_End";
+import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/font-end" component={Font_End} />
           {/* <Route component={NotFound} /> */}
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );
