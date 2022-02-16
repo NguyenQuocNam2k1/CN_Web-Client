@@ -1,7 +1,8 @@
 import { UserTypes } from "../constants/action-types";
 
 const initialState = {
-    auth: {},
+    auth: false,
+    logIn: {}
 }
 
 export const userReducer = (state = initialState, { type, payload }) => {
@@ -21,7 +22,7 @@ export const userReducer = (state = initialState, { type, payload }) => {
             }
             return {
                 ...state,
-                auth: payload,
+                logIn: payload.message,
             };
         default:
             return state;
