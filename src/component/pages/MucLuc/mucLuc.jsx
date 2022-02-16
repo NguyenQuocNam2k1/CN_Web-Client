@@ -11,7 +11,6 @@ function MucLuc(props) {
     dispatch(getAllCourseList());
   }, []);
   const courseList = useSelector((state) => state.courses.courseList);
-
   return (
     <div className="container mt-16 muc-luc">
       {courseList.length === 0 ? (

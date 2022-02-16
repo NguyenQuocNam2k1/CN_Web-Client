@@ -26,7 +26,7 @@
 }
 
 .homepage_layout_1 .homepage_layout_1_layout h1 {
-  font-size: 45px;
+  font-size: 39px;
   color: #000000;
   margin-bottom: 25px;
   font-weight: bold;
@@ -93,6 +93,27 @@
 
 .homepage_layout_2 {
   min-height: 350px;
+  margin-top: 20px;
+}
+
+.homepage_layout_2 .homepage_layout_2_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.homepage_layout_2 .homepage_layout_2_left div {
+  margin: auto;
+}
+
+.homepage_layout_2 .homepage_layout_2_left div p {
+  margin-top: 23px;
+  font-weight: 520;
+  font-size: 18px;
+  width: 83%;
+  font-family: Josefin Sans;
+  font-style: normal;
+  color: #10162f;
 }
 
 .homepage_layout_2 h1 {
@@ -102,49 +123,12 @@
   margin: 0;
 }
 
-.homepage_layout_2 .homepage_layout_2_text {
-  text-align: center;
-  font-weight: 600;
-  font-size: 35px;
-  line-height: 35px;
-  color: #000000;
-  padding-top: 20px;
-  padding-bottom: 20px;
+.homepage_layout_2 .background_1_layout_2 {
+  min-height: 270px;
+  max-height: 320px;
 }
 
-.homepage_layout_2 button {
-  background: #ffd300;
-  border-radius: 26px;
-  text-align: center;
-  width: 172px;
-  border: none;
-  height: 52px;
-  font-weight: 700;
-  font-size: 25px;
-  color: #ffffff;
-  margin-top: calc(100% + 52px);
-}
-
-.homepage_layout_2 a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-decoration: none;
-}
-
-.homepage_layout_2 .justify-content-around {
-  margin-bottom: 12%;
-}
-
-.homepage_layout_2 .justify-content-around .col-xl-4 {
-  min-height: 300px;
-  max-height: 480px;
-}
-
-.homepage_layout_2_image_1 {
+.homepage_layout_2 .background_1_layout_2 div {
   position: relative;
   background-image: url("../../../images/homeBegin.png");
   height: 100%;
@@ -154,7 +138,24 @@
   background-position: center;
 }
 
-.homepage_layout_2_image_2 {
+.homepage_layout_2 .background_1_layout_2 div button {
+  border-radius: 25px;
+  width: 110px;
+  height: 34px;
+  border: none;
+  background: #ffd300;
+  font-weight: 600;
+  color: #ffffff;
+  bottom: 0;
+  margin-top: calc(70%);
+}
+
+.homepage_layout_2 .background_2_layout_2 {
+  min-height: 270px;
+  max-height: 320px;
+}
+
+.homepage_layout_2 .background_2_layout_2 div {
   position: relative;
   background-image: url("../../../images/homeFrontend.png");
   height: 100%;
@@ -164,9 +165,26 @@
   background-position: center;
 }
 
-.homepage_layout_2_image_3 {
+.homepage_layout_2 .background_2_layout_2 div button {
+  border-radius: 25px;
+  width: 110px;
+  height: 34px;
+  border: none;
+  background: #ffd300;
+  font-weight: 600;
+  color: #ffffff;
+  bottom: 0;
+  margin-top: calc(70%);
+}
+
+.homepage_layout_2 .background_3_layout_2 {
+  min-height: 270px;
+  max-height: 320px;
+}
+
+.homepage_layout_2 .background_3_layout_2 div {
   position: relative;
-  background-image: url("../../../images/homeBackend.png");
+  background-image: url("../../../images/homeRegister.png");
   height: 100%;
   background-repeat: no-repeat;
   text-align: center;
@@ -174,10 +192,56 @@
   background-position: center;
 }
 
+.homepage_layout_2 .background_3_layout_2 div button {
+  border-radius: 25px;
+  width: 110px;
+  height: 34px;
+  border: none;
+  background: #ffd300;
+  font-weight: 600;
+  color: #ffffff;
+  bottom: 0;
+  margin-top: calc(70%);
+}
+
+.homepage_layout_2 .background_4_layout_2 {
+  min-height: 270px;
+  max-height: 320px;
+}
+
+.homepage_layout_2 .background_4_layout_2 div {
+  position: relative;
+  background-image: url("../../../images/homeBegin.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-size: contain;
+  background-position: center;
+}
+
+.homepage_layout_2 .background_4_layout_2 div button {
+  border-radius: 25px;
+  width: 110px;
+  height: 34px;
+  border: none;
+  background: #ffd300;
+  font-weight: 600;
+  color: #ffffff;
+  bottom: 0;
+  margin-top: calc(70%);
+}
+
+.btn-app-layout_2 {
+  border-radius: 30px;
+  color: #ffffff;
+  width: 290px;
+  margin-top: 20px;
+  height: 48px;
+}
+
 .homepage_layout_3 {
   background: #466a8a;
   height: 310px;
-  margin-top: 60px;
   text-align: center;
   font-weight: 600;
 }
@@ -262,5 +326,41 @@
           box-shadow: 0 0 10px #afabab;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+}
+
+.homepage_layout_5 {
+  height: 450px;
+}
+
+.homepage_layout_5 .homepage_layout_5_left {
+  height: 450px;
+}
+
+.homepage_layout_5 .homepage_layout_5_left .background_layout_5 {
+  background-image: url("../../../images/education.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-position: left;
+  margin-top: 10px;
+}
+
+.homepage_layout_5 .homepage_layout_5_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.homepage_layout_5 .homepage_layout_5_right div {
+  margin: auto;
+}
+
+.background_layout_6 {
+  background-image: url("../../../images/education.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-position: left;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=homepage.css.map */

@@ -37,20 +37,11 @@
   }
 } */
 
-.btn-app {
-  font-size: 16px;
-  border: 1px solid #0d6efd;
-  background-color: #0d6efd;
-  border-radius: 4px;
-  padding: 6px 12px;
-  transition: all 0.3s ease 0s;
-}
  
 .btn-app {
   font-size: 16px;
-  border: 1px solid #0d6efd;
-  background-color: #0d6efd;
-  border-radius: 4px;
+  border: 1px solid #466a8a;
+  background-color: #466a8a;
   padding: 6px 12px;
   transition: all 0.3s ease 0s;
 }

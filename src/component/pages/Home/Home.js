@@ -1,79 +1,128 @@
 import "./homepage.css";
 import { Link } from "react-router-dom";
 
-
 function Home(props) {
   return (
     <>
-      <div className='container homepage-container'>
-        <div className='row homepage_layout_1'>
-          <div className='col-6 homepage_layout_1_image'>
+      <div className="container homepage-container">
+        <div className="row homepage_layout_1">
+          <div className="col-6 homepage_layout_1_image">
             <div></div>
-            {/* Thẻ div bên trên là chứa background. yêu cầu không ai được xóa */}  
+            {/* Thẻ div bên trên là chứa background. yêu cầu không ai được xóa */}
           </div>
-          <div className='col-6 homepage_layout_1_layout'>
+          <div className="col-6 homepage_layout_1_layout">
             <h1>Tham gia khóa học MIỄN PHÍ</h1>
-            <Link to='/user/register'>
-              <button className='button_homepage'>Đăng ký</button>
+            <Link to="/user/register">
+              <button className="button_homepage">Đăng ký</button>
             </Link>
             <p>Hoặc đăng ký bằng</p>
-            <div className='list_logo'>
-              <div className='logo logo_gg'></div>
-              <div className='logo logo_facebook'></div>
-              <div className='logo logo_github'></div>
+            <div className="list_logo">
+              <div className="logo logo_gg"></div>
+              <div className="logo logo_facebook"></div>
+              <div className="logo logo_github"></div>
             </div>
           </div>
         </div>
-        <div className='homepage_layout_2'>
-          <h1>Lộ trình</h1>
-          <div className='row justify-content-around'>
-            <div className='col-xl-4 col-md-4'>
-              <div className='homepage_layout_2_image_1'>
-                <Link to='/user/register'>
-                  <button>Chi tiết</button>
-                </Link>
-                <div className='homepage_layout_2_text'>Mới bắt đầu</div>
+        <div className="homepage_layout_2">
+          <div className="row">
+            <div className="col-5 homepage_layout_2_left">
+              <div>
+                <h1>
+                  MỤC TIÊU <br /> của bạn là gì?
+                </h1>
+                <p>
+                  Một trong những điều quan trọng nhất bạn cần làm khi học lập
+                  trình đó là xác định đúng mục tiêu học tập của mình.
+                </p>
+                <button className="btn-app-layout_2 btn-app">
+                  Xem chi tiết
+                </button>
               </div>
             </div>
-            <div className='col-xl-4 col-md-4'>
-              <div className='homepage_layout_2_image_2'>
-                <Link to='/user/register'>
-                  <button>Chi tiết</button>
-                </Link>
-                <div className='homepage_layout_2_text'>Font-End</div>
+            <div className="col-7">
+              <div className="row">
+                <div className="background_1_layout_2 col-6">
+                  <div>
+                    <button>Beginner</button>
+                  </div>
+                </div>
+                <div className="background_2_layout_2 col-6">
+                  <div>
+                    <button>Beginner</button>
+                  </div>
+                </div>
+                <div className="background_3_layout_2 col-6">
+                  <div>
+                    <button>Beginner</button>
+                  </div>
+                </div>
+                <div className="background_4_layout_2 col-6">
+                  <div>
+                    <button>Beginner</button>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className='col-xl-4 col-md-4'>
-              <div className='homepage_layout_2_image_3'>
-                <Link to='/user/register'>
-                  <button>Chi tiết</button>
-                </Link>
-                <div className='homepage_layout_2_text'>Back-End</div>
+          </div>
+        </div>
+        <div className="homepage_layout_5">
+          <div className="row">
+            <div className="col-6">
+              <div className="homepage_layout_5_left">
+                <div className="background_layout_5"></div>
+              </div>
+            </div>
+            <div className="col-6 homepage_layout_5_right">
+              <div>
+                <h1>Bạn đang là học viên của CoCoders?</h1>
+                <button className="btn-app-layout_2 btn-app">
+                  Xem khóa đang học
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className='homepage_layout_3'>
+      <div className="homepage_layout_3">
         <div>
           <h1>120.000+</h1>
           <br />
           <h2>nguời khác đã học</h2>
         </div>
       </div>
-      <div className='homepage_layout_4'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-6 homepage_layout_4_image'></div>
-            <div className='col-6 homepage_layout_4_text'>
-              <div className='col-12'></div>
+      {/* Layout 6 */}
+      <div className="container">
+        <div className="homepage_layout_5">
+          <div className="row">
+            <div className="col-6 homepage_layout_5_right">
+              <div>
+                <h1>Kiểm tra năng lực với hệ thống bài kiểm tra</h1>
+                <button className="btn-app-layout_2 btn-app">
+                  Xem chi tiết
+                </button>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="homepage_layout_5_left">
+                <div className="background_layout_6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="homepage_layout_4">
+        <div className="container">
+          <div className="row">
+            <div className="col-6 homepage_layout_4_image"></div>
+            <div className="col-6 homepage_layout_4_text">
+              <div className="col-12"></div>
               <h1>Tham gia ngay thôi!</h1>
               <p>
                 Nếu đã xem tới đây thì bạn chắc hẳn bạn đã khá tò mò rồi nhỉ.
                 Đăng ký ngay để học và hoàn thành mục tiêu thôi nào
               </p>
-              <Link to='/user/register'>
-                <button className='button_homepage'>Đăng ký</button>
+              <Link to="/user/register">
+                <button className="button_homepage">Đăng ký</button>
               </Link>
             </div>
           </div>
