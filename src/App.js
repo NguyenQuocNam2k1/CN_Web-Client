@@ -1,5 +1,5 @@
 import Home from "component/pages/Home/Home";
-import NotFound from "component/NotFound";
+import NotFound from "component/container/NotFound";
 import User from "component/pages/users";
 import React from "react";
 import Header from "component/pages/header/Header";
@@ -10,6 +10,7 @@ import Font_End from "component/pages/Font-End/Font_End";
 import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
+
 
 
 function App() {
