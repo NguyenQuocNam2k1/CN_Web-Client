@@ -184,7 +184,7 @@
 .list-course-name .list-name .course-name:hover ul.list-name-children {
   display: block;
   opacity: 1;
-  -webkit-animation: fadeIn ease-in 0.3ss;
-          animation: fadeIn ease-in 0.3ss;
+  -webkit-animation: fadeIn ease-in 0.3s;
+          animation: fadeIn ease-in 0.3s;
 }
 /*# sourceMappingURL=mucLuc.css.map */
