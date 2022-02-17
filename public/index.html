@@ -22,15 +22,15 @@
   <script>
     function fixFooter() {
       const nodeLoading = document.querySelector('.loading');
-      if (nodeLoading !== undefined) {
+      if (nodeLoading !== null) {
         const footer = document.querySelector(".container-footer");
-        if (footer !== undefined) {
+        if (footer !==null) {
           footer.style.position = 'fixed';
           footer.style.bottom = 0;
           footer.style.right = 0;
           footer.style.left = 0;
         }
-      }
+      }    
     }
     
     setTimeout(fixFooter, 3000);

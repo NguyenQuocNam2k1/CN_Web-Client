@@ -4,7 +4,7 @@ import "./loTrinh.css";
 import homeBegin from "../../../images/homeBegin.png"
 import homeFrontend from "../../../images/homeFrontend.png"
 import homeBackend from "../../../images/homeBackend.png"
-/* import homeDataScience from "../../../images/homeScience.png" */
+import homeDataScience from "../../../images/homeScience.png"
 
 function LoTrinh(props) {
     return (
@@ -65,7 +65,7 @@ function LoTrinh(props) {
                     <div className="card mb-3 lt-card">
                         <div className="row g-0">
                             <div className="col-md-4">
-                            <img src="..." className="img-fluid rounded-start" alt="..." />
+                            <img src={homeDataScience} className="img-fluid rounded-start" alt="..." />
                             </div>
                             <div className="col-md-8 lt-card-body">
                             <div className="card-body">
