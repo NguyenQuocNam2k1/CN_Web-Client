@@ -7,7 +7,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 Login.propTypes = {};
 
-function Login(props) {
+function Login() {
     const dispatch = useDispatch();
     const auth = useSelector(state => state.users.auth);
     const listInput = document.getElementsByTagName('input');
@@ -27,13 +27,7 @@ function Login(props) {
     }
 
     const handleSubmit = (values) => {
-
         dispatch(logIn(values.userName.trim(), values.passWord.trim()));
-    }
-
-    const handleClick = (value) => {
-        // console.log(value.className);
-        dispatch(logInFB())
     }
 
     const initialValues = {

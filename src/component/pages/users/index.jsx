@@ -1,4 +1,4 @@
-import NotFound from 'component/NotFound';
+import NotFound from 'component/container/NotFound';
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Login from './Login';
@@ -12,11 +12,9 @@ function User(props) {
   return (
 
     <Switch>
-
       <Route exact path={`${match.url}`} component={Login} />
-      <Route exact path={`${match.url}/register`} component={Register} />
+      <Route exact path='user/register' component={Register} />
 
-      <Route component={NotFound} />
     </Switch>
   );
 }

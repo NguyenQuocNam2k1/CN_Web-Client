@@ -11,9 +11,12 @@ function Learning(props) {
             <div className="row">
                 <div className="col-3">
                     <div className="card ln-card">
+                        
                         <Link className="ln-link">
-                            <img src={homeBegin} className="img-fluid rounded-start ln-img" alt="..."></img>
-                            <button className="btn ln-btn">Hoc tiep</button>
+                            <div className="background">
+
+                            </div>
+                            <button className="btn btn-app ln-btn">Học tiếp</button>
                         </Link>
                         
                         <div className="card-body">
@@ -22,8 +25,6 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     )
