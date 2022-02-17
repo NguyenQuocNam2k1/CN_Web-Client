@@ -1,5 +1,4 @@
 
-import { Link } from "react-router-dom";
 import "./loTrinh.css";
 import homeBegin from "../../../images/homeBegin.png"
 import homeFrontend from "../../../images/homeFrontend.png"

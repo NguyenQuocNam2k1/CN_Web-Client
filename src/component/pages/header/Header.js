@@ -26,7 +26,7 @@ function Header() {
                 <Link className="nav-link active" aria-current="page" to="#">Kiểm tra</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="#">Đang học</Link>
+                <Link className="nav-link active" aria-current="page" to="/learning">Đang học</Link>
               </li>
             </ul>
             <form className="d-flex">
