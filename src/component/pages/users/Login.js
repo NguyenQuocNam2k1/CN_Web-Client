@@ -1,7 +1,7 @@
 import LoginForm from 'custom-fields/FormLogin';
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { logIn  } from "../../../redux/actions/userAction.js";
+import { logIn , logInFB } from "../../../redux/actions/userAction.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Redirect } from 'react-router-dom';
 

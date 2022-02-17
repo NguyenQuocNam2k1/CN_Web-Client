@@ -1,22 +1,31 @@
-
-svg{
-  width: 3.75em;
-  animation: 1.5s spin ease infinite;
+.loading {
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  display: flex;
 }
 
-.ring {
-  fill: none;
-  stroke: hsla(341, 97%, 59%, 0.3);
-  stroke-width: 2;
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
 }
-
-.ball {
-  fill: #fc2f70;
-  stroke: none;
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #466a8a;
+  border-color: #466a8a transparent #466a8a transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
 }
-
-@keyframes spin {
-  to {
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
     transform: rotate(360deg);
   }
 }

@@ -1,1 +1,21 @@
-/* No CSS *//*# sourceMappingURL=footer.css.map */
+.col-3.footer-title h3 {
+  font-weight: 600;
+}
+
+.col-3.footer-title ul {
+  list-style: none;
+  padding: 0;
+}
+
+.col-3.footer-title ul li {
+  padding-top: 8px;
+}
+
+.col-3.footer-title span {
+  margin-left: 10px;
+}
+
+.col-3.logo {
+  text-align: center;
+}
+/*# sourceMappingURL=footer.css.map */

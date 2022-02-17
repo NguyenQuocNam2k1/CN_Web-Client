@@ -1,29 +1,52 @@
-svg {
-  width: 3.75em;
-  -webkit-animation: 1.5s spin ease infinite;
-          animation: 1.5s spin ease infinite;
+.loading {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.ring {
-  fill: none;
-  stroke: rgba(252, 49, 113, 0.3);
-  stroke-width: 2;
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
 }
 
-.ball {
-  fill: #fc2f70;
-  stroke: none;
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #466a8a;
+  border-color: #466a8a transparent #466a8a transparent;
+  -webkit-animation: lds-dual-ring 1.2s linear infinite;
+          animation: lds-dual-ring 1.2s linear infinite;
 }
 
-@-webkit-keyframes spin {
-  to {
+@-webkit-keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
 }
 
-@keyframes spin {
-  to {
+@keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
