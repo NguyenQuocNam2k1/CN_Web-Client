@@ -3,7 +3,7 @@ import NotFound from "component/container/NotFound";
 import User from "component/pages/users";
 import React from "react";
 import Header from "component/pages/header/Header";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, useRouteMatch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
 import LoTrinh from "component/pages/LoTrinh/LoTrinh";
 import Font_End from "component/pages/Font-End/Font_End";
@@ -14,6 +14,7 @@ import Register from "component/pages/users/Register";
 
 
 function App() {
+
   return (
     <div className='App'>
       <BrowserRouter>
@@ -27,7 +28,7 @@ function App() {
           <Route exact path="/font-end" component={Font_End} />
           {/* <Route component={NotFound} /> */}
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

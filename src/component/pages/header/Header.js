@@ -5,6 +5,7 @@ import search from "./../../../images/search.png"
 
 
 function Header() {
+
   return (
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-lg">
@@ -33,7 +34,9 @@ function Header() {
               <input className="form-control me-2 search-input" type="search" placeholder="Tìm kiếm...." aria-label="Search" />
                <button className="btn" type="submit"> <img src={search} className="img-input" alt="img-input" /> </button> 
             </form>
-            <button className="btn login-btn" type="text"><strong>LOG IN</strong></button>
+            <Link  to="/user">
+               <button className="btn login-btn" type="text" ><strong>LOG IN</strong></button>
+            </Link>
           </div>
         </div>
       </nav>
