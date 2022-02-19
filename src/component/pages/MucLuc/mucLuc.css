@@ -152,6 +152,11 @@
 .col-9.muc-luc .item-course .card.course .body-course a .title-course {
   text-align: center;
   color: #333;
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .col-9.muc-luc .item-course .card.course .body-course .description-course {

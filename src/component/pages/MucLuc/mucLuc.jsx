@@ -96,6 +96,7 @@ function MucLuc(props) {
                           src={course.image}
                           className="card-img-top"
                           alt="anh-khoa-hoc"
+                          style={{height: "182px"}}
                         ></img>
                       </Link>
                       <div className="card-body body-course">
