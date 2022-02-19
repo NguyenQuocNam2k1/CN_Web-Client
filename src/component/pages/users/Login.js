@@ -1,7 +1,7 @@
 import LoginForm from 'custom-fields/FormLogin';
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { logIn , logInFB } from "../../../redux/actions/userAction.js";
+import { logIn, logInFB } from "../../../redux/actions/userAction.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Redirect } from 'react-router-dom';
 
@@ -36,26 +36,27 @@ function Login() {
     };
 
     return (
-
-        <div className="background-login">
-            <div className="photo-edit__form">
-                <h1>Login</h1>
-                <LoginForm
-                    initialValues={initialValues}
-                    onSubmit={handleSubmit}
-                    auth={auth}
-                />
-                <div className="login-other">
-                    <p>Hoặc đăng nhập bằng</p>
-                    <div className='list_logo'>
-                        <div className='logo logo_gg'></div>
-                        <div className='logo logo_facebook'></div>
-                        <div className='logo logo_github'></div>
+        <div className="page-login">
+            <div className="background-login">
+                <div className="photo-edit__form">
+                    <h1>Login</h1>
+                    <LoginForm
+                        initialValues={initialValues}
+                        onSubmit={handleSubmit}
+                        auth={auth}
+                    />
+                    <div className="login-other">
+                        <p>Hoặc đăng nhập bằng</p>
+                        <div className='list_logo'>
+                            <div className='logo logo_gg'></div>
+                            <div className='logo logo_facebook'></div>
+                            <div className='logo logo_github'></div>
+                        </div>
+                        <button className='btn-app'><Link to='/user/register'>Tạo tài khoản</Link></button>
                     </div>
-                    <button className='btn-app'><Link to='/user/register'>Tạo tài khoản</Link></button>
                 </div>
-            </div>
-        </div >
+            </div >
+        </div>
 
     );
 }

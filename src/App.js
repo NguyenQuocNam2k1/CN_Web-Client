@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
 import LoTrinh from "component/pages/LoTrinh/LoTrinh";
 import RouterDetail from "component/pages/routerDetail/index";
+import Learning from "component/pages/learning/Learning";
 import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
@@ -37,7 +38,7 @@ function App() {
           </Route>
           {/* <Route component={NotFound} /> */}
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );

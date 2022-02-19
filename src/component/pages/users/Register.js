@@ -62,15 +62,16 @@ function Register(props) {
     };
 
     return (
+        <div className="page-register">
+            <div className="background-login">
+                <div className="photo-edit__form">
+                    <h1>Register</h1>
 
-        <div className="background-login">
-            <div className="photo-edit__form">
-                <h1>Register</h1>
-
-                <FormRegister
-                    initialValues={initialValues}
-                    onSubmit={handleSubmit}
-                />
+                    <FormRegister
+                        initialValues={initialValues}
+                        onSubmit={handleSubmit}
+                    />
+                </div>
             </div>
         </div>
     );
