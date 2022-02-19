@@ -6,6 +6,9 @@ import search from "./../../../images/search.png"
 
 function Header() {
 
+  const hideHF = () => {
+    localStorage.setItem("isHide", true);
+  }
   return (
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-lg">
@@ -35,7 +38,7 @@ function Header() {
                <button className="btn" type="submit"> <img src={search} className="img-input" alt="img-input" /> </button> 
             </form>
             <Link  to="/user">
-               <button className="btn login-btn" type="text" ><strong>LOG IN</strong></button>
+               <button className="btn login-btn" type="text" onClick={()=> hideHF()}><strong>LOG IN</strong></button>
             </Link>
           </div>
         </div>
