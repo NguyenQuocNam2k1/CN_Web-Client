@@ -12,6 +12,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: all 0.3s ease 0s;
+}
+
+.ln-link {
     position: relative;
 }
 
@@ -23,17 +27,17 @@
     transform: translate(-50%, -50%);
     color: white;
     display: none;
+    transition: all 0.3s ease 0s;
   }
 .ln-link:hover .ln-btn{
     display: block;
     opacity: 1;
-    z-index: 2;
+    transition: all 0.3s ease 0s;
 }
 
 .ln-link:hover .background{
     opacity: 0.8;
-    transition: 0.2s;
-
+    transition: all 0.3s ease 0s;
 }
 .ln-views{
     font-style: italic;
