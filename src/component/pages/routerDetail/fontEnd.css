@@ -1,37 +1,43 @@
 .font_layout_1 {
   background-color: #466a8a;
-  margin-top: 130px;
+  margin-top: 82px;
   color: #ffffff;
 }
 
 .font_layout_1 .font_layout_1_child {
-  padding: 40px 90px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.font_layout_1 .font_layout_1_child .font_layout_1_child_w {
+  width: 80%;
 }
 
 .font_layout_1 .font_layout_1_child h1 {
   font-weight: bold;
-  font-size: 60px;
+  font-size: 45px;
   margin: 0;
 }
 
 .font_layout_1 .font_layout_1_child .font_layout_1_text {
   font-size: 20px;
-  margin-top: 25px;
+  margin-top: 20px;
+  text-align: justify;
 }
 
 .font_layout_2 {
-  margin-top: 25px;
+  margin-top: 35px;
+  width: 80%;
 }
 
 .font_layout_2 h2 {
-  font-weight: 700;
-  font-size: 30px;
+  font-weight: bold;
+  font-size: 40px;
   color: #10162f;
 }
 
 .font_layout_2 .description_course {
-  font-weight: 450;
-  font-size: 18px;
+  font-size: 19px;
   color: #10162f;
 }
 
@@ -49,7 +55,20 @@
   padding: 30px 20px;
 }
 
-.font_layout_2 .courser .font_courser .font_courser_image {
-  background-color: #04013f;
+.font_layout_2 .courser .font_courser .font_courser_text {
+  font-weight: bold;
+}
+
+.font_layout_2 .courser .font_courser .font_courser_text h4 {
+  font-size: 18px;
+  text-align: justify;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.font_layout_2 .courser .font_courser .font_courser_image img {
+  width: 100%;
 }
 /*# sourceMappingURL=fontEnd.css.map */

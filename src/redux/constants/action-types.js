@@ -5,4 +5,5 @@ export const UserTypes = {
 
 export const CourseType = {
     GET_COURSE_LISTS : "GET_COURSE_LISTS",
+    GET_ROUTER_DETAIL: "GET_ROUTER_DETAIL"
 }
