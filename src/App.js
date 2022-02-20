@@ -36,6 +36,9 @@ function App() {
           <Route exact path="/chi-tiet-lo-trinh">
              <RouterDetail />
           </Route>
+          <Route exact path="/learning">
+            <Learning />
+          </Route>
           {/* <Route component={NotFound} /> */}
         </Switch>
         <Footer />
