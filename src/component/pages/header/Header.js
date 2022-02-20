@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 import search from "./../../../images/search.png";
+import logo from "./../../../images/logo.png";
 
 function Header() {
   const match = useLocation().pathname;
@@ -15,7 +16,7 @@ function Header() {
             <Link className="navbar-brand" to="/">
               <img
                 className="img"
-                src="https://fullstack.edu.vn/assets/icon/f8_icon.png"
+                src={logo}
                 alt="logo"
               ></img>
             </Link>
