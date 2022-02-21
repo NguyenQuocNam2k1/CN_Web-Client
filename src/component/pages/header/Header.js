@@ -76,12 +76,11 @@ function Header() {
                   aria-label="Search"
                 />
                 <button className="btn" type="submit">
-                  {" "}
                   <img
                     src={search}
                     className="img-input"
                     alt="img-input"
-                  />{" "}
+                  />
                 </button>
               </form>
               <Link to="/user">
