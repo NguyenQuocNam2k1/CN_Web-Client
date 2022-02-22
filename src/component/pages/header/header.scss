@@ -87,5 +87,24 @@
 }
 .login-btn {
   color: #466A8A;
-
 }
+
+.avatar{
+  position: relative;
+  & .avatar_list{
+    position: absolute;
+    background: aliceblue;
+    width: 200px;
+    list-style: none;
+    left: -50px;
+    margin-top: 20px;
+    padding-left: 0px;
+    & li:hover{
+      background-color: rgb(180, 70, 70);
+    }
+    & li{
+      padding: 4px 12px;
+    }
+  }
+}
+

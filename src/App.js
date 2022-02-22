@@ -15,25 +15,6 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
 function App() {
-  // Configure Firebase.
-  const config = {
-    apiKey: "AIzaSyDEBJiGDVkx9zf4tQT63J9ZirekqOl8WAc",
-    authDomain: "cnweb-c5420.firebaseapp.com",
-  };
-  firebase.initializeApp(config);
-  useEffect(() => {
-    const unregisterAuthObserver = firebase.auth().onAuthStateChanged(async (user) => {
-      if(!user){
-        console.log("User not login");
-        return;
-      }
-      console.log("User loggined: " , user.displayName);
-
-      const token = await user.getIdToken();
-      console.log("Token: " , token);
-    });
-    return () => unregisterAuthObserver();
-  }, []);
 
   return (
     <div className="App">

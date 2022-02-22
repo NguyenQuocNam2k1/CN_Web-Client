@@ -6,6 +6,7 @@ import logo from "./../../../images/logo.png";
 
 function Header() {
   const match = useLocation().pathname;
+  const dataUser = localStorage.getItem("userData");
   return (
     <>
       {match === "/user" || match === "/user/register" ? (
@@ -14,11 +15,7 @@ function Header() {
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container-lg">
             <Link className="navbar-brand" to="/">
-              <img
-                className="img"
-                src={logo}
-                alt="logo"
-              ></img>
+              <img className="img" src={logo} alt="logo"></img>
             </Link>
             <button
               className="navbar-toggler"
@@ -73,18 +70,29 @@ function Header() {
                   aria-label="Search"
                 />
                 <button className="btn" type="submit">
-                  <img
-                    src={search}
-                    className="img-input"
-                    alt="img-input"
-                  />
+                  <img src={search} className="img-input" alt="img-input" />
                 </button>
               </form>
-              <Link to="/user">
+              {/* <Link to="/user">
                 <button className="btn login-btn" type="text">
                   <strong>LOG IN</strong>
                 </button>
-              </Link>
+              </Link> */}
+              <div className="avatar">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                  className="rounded-circle"
+                  style={{"width": "40px"}}
+                  alt="Avatar"
+                />
+                  <ul className="avatar_list">
+                    <li>A</li>
+                    <li>A</li>
+                    <li>A</li>
+                    <li>A</li>
+                    <li>A</li>
+                  </ul>
+              </div>
             </div>
           </div>
         </nav>
