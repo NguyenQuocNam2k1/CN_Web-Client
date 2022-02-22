@@ -1,27 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginForm from "custom-fields/FormLogin";
-import firebase from "firebase/compat/app";
 import React from "react";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { logIn } from "../../../redux/actions/userAction.js";
+import {signInWithFirebase} from "../../config/functionFirebase";
 
 function Login() {
-  // Configure FirebaseUI.
-  const uiConfig = {
-    signInFlow: "redirect",
-    signInSuccessUrl: "/",
-    signInOptions: [
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    ],
-    callbacks: {
-      signInSuccessWithAuthResult: () => false,
-    },
-  };
-  //   End Configure FirebaseUI.
-
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.users.auth);
   const listInput = document.getElementsByTagName("input");
@@ -58,10 +43,7 @@ function Login() {
     <div className="page-login">
       <div className="background-login">
         <div className="photo-edit__form">
-          <StyledFirebaseAuth
-            uiConfig={uiConfig}
-            firebaseAuth={firebase.auth()}
-          />
+          <button onClick={() => signInWithFirebase('GG')}>Sing in with FB</button>
           <h1>Login</h1>
           <LoginForm
             initialValues={initialValues}
