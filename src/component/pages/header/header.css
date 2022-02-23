@@ -55,8 +55,8 @@
   font-size: 20px;
 }
 
-.navbar-nav li:first-child {
-  margin-left: 100px;
+ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
+  margin: auto;
 }
 
 .nav-link.active {
@@ -71,8 +71,12 @@
 }
 
 .search-input {
-  font-style: italic;
   border-radius: 18px;
+}
+
+input.form-control.me-2.search-input {
+  width: 300px;
+  padding-left: 45px;
 }
 
 .img-input {
@@ -80,6 +84,118 @@
 }
 
 .login-btn {
-  color: #466A8A;
+  font-size: 16px;
+  border: 1px solid #466a8a;
+  background-color: #466a8a;
+  padding: 6px 32px;
+  border-radius: 40px;
+}
+
+.login-btn p {
+  line-height: 28px;
+  white-space: nowrap;
+  font-size: 16px;
+  margin: auto;
+  color: #fff;
+  font-weight: 700;
+}
+
+.avatar {
+  position: relative;
+  margin-left: 20px;
+  display: none;
+}
+
+.avatar .avatar_list {
+  position: absolute;
+  background: aliceblue;
+  width: 170px;
+  list-style: none;
+  left: -110px;
+  margin-top: 14px;
+  padding-left: 0px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 10px #c3c3c3a2;
+          box-shadow: 0 0 10px #c3c3c3a2;
+  display: none;
+}
+
+.avatar .avatar_list li:hover {
+  background-color: #466a8a;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.avatar .avatar_list li {
+  padding: 6px 12px;
+}
+
+.avatar .avatar_list::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -24px;
+  left: 120px;
+  border-style: solid;
+  border-color: transparent transparent #e5ecf3 transparent;
+  border-width: 12px 10px;
+}
+
+.avatar .avatar_list::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -20px;
+  left: 106px;
+  width: 50px;
+  height: 25px;
+}
+
+.avatar:hover .avatar_list {
+  display: block;
+  -webkit-animation: appear 0.3s ease 0s;
+          animation: appear 0.3s ease 0s;
+}
+
+.header_scroll {
+  -webkit-animation: animationHeader 1s ease;
+          animation: animationHeader 1s ease;
+  z-index: 1;
+}
+
+@-webkit-keyframes animationHeader {
+  from {
+    margin-top: -10%;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animationHeader {
+  from {
+    margin-top: -10%;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+.collapse.navbar-collapse a .btn.login-btn {
+  margin-left: 60px;
+}
+
+.d-flex {
+  position: relative;
+}
+
+.btn.btn-search {
+  position: absolute;
+  left: 6px;
 }
 /*# sourceMappingURL=header.css.map */

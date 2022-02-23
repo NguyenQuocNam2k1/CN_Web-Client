@@ -5,7 +5,9 @@ import homeFrontend from "../../../images/homeFrontend.png"
 import homeBackend from "../../../images/homeBackend.png"
 import { useDispatch } from "react-redux";
 import { getRouterDetail } from "../../../redux/actions/courseAction.js";
+import { Link } from "react-router-dom";
 /* import homeDataScience from "../../../images/homeScience.png" */
+import homeDataScience from "../../../images/homeScience.png"
 
 function LoTrinh() {
     const dispatch = useDispatch();

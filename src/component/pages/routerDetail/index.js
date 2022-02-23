@@ -25,7 +25,6 @@ const BE = [
 
 function Index() {
   const dataRouteDetail = useSelector((state) => state.courses.routerDetail);
-  console.log(dataRouteDetail);
   return (
     <>
       {dataRouteDetail.length === 0 ? (

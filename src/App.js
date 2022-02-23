@@ -1,7 +1,7 @@
 import Home from "component/pages/Home/Home";
 import NotFound from "component/container/NotFound";
 import User from "component/pages/users";
-import React from "react";
+import React  from "react";
 import Header from "component/pages/header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
@@ -15,9 +15,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+            <Header />
         <Switch>
           <Route exact path="/">
-            <Header />
             <Home />
           </Route>
           <Route exact path="/user">
@@ -27,15 +27,12 @@ function App() {
             <Register />
           </Route>
           <Route exact path="/muc-luc">
-            <Header />
             <MucLuc />
           </Route>
           <Route exact path="/lo-trinh">
-            <Header />
             <LoTrinh />
           </Route>
           <Route exact path="/chi-tiet-lo-trinh">
-            <Header />
              <RouterDetail />
           </Route>
           {/* <Route component={NotFound} /> */}
