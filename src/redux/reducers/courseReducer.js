@@ -8,7 +8,6 @@ const initialState = {
 export const courseReducer = (state = initialState , {type , payload}) => {
     switch (type) {
         case CourseType.GET_COURSE_LISTS:
-            console.log(payload);
             return {...state , courseList : payload}
         case CourseType.GET_ROUTER_DETAIL:
             return {...state , routerDetail: payload}

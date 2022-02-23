@@ -1,7 +1,8 @@
 import Home from "component/pages/Home/Home";
 import NotFound from "component/container/NotFound";
 import User from "component/pages/users";
-import React , {useEffect , useState} from "react";
+import React , {useEffect} from "react";
+import { useDispatch } from "react-redux";
 import Header from "component/pages/header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
@@ -11,11 +12,13 @@ import Learning from "component/pages/learning/Learning";
 import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import { getAllCourseList } from "redux/actions/courseAction";
 
 function App() {
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCourseList());
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>

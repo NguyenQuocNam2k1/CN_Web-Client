@@ -10,8 +10,8 @@
           box-shadow: 0 0 10px #c7afaf;
 }
 
-.navbar-brand img {
-  width: 46px;
+.navbar-brand .img {
+  width: 220px;
 }
 
 .navbar-nav {
@@ -56,18 +56,19 @@
 }
 
 .navbar-nav li:first-child {
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 .nav-link.active {
-  -webkit-transition: all 0.1s ease 0s;
-  transition: all 0.1s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .nav-link.active:hover {
-  opacity: 0.8;
-  -webkit-transition: all 0.1s ease 0s;
-  transition: all 0.1s ease 0s;
+  cursor: pointer;
+  opacity: 0.3;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .search-input {
@@ -80,7 +81,20 @@
 }
 
 .login-btn {
-  color: #466A8A;
+  font-size: 16px;
+  border: 1px solid #466a8a;
+  background-color: #466a8a;
+  padding: 6px 32px;
+  border-radius: 40px;
+}
+
+.login-btn p {
+  line-height: 28px;
+  white-space: nowrap;
+  font-size: 16px;
+  margin: auto;
+  color: #fff;
+  font-weight: 700;
 }
 
 .avatar {
@@ -103,5 +117,42 @@
 
 .avatar .avatar_list li {
   padding: 4px 12px;
+}
+
+.txt_header {
+  font-family: Josefin Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.header_scroll {
+  -webkit-animation: animationHeader 1s ease;
+          animation: animationHeader 1s ease;
+  z-index: 1;
+}
+
+@-webkit-keyframes animationHeader {
+  from {
+    margin-top: -10%;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animationHeader {
+  from {
+    margin-top: -10%;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=header.css.map */

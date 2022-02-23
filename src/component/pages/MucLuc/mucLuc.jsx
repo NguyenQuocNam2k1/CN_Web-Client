@@ -1,21 +1,13 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllCourseList } from "redux/actions/courseAction";
 import Loading from "component/container/loading/Loading";
 import "./mucLuc.css";
 
 function MucLuc(props) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllCourseList());
-  }, []);
   const courseList = useSelector((state) => state.courses.courseList);
-  // const courseList = [];
-  console.log(courseList);
   return (
     <div className="container mt-16 muc-luc">
-      {!courseList ? (
+      {courseList.length === 0 || !courseList ? (
         <>
           <Loading />
         </>
