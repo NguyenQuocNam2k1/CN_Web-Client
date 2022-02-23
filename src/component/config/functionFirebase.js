@@ -23,7 +23,7 @@ export const signInWithFirebase = (typeLogin) => {
     .then(async (user) => {
       const data = user.user.providerData[0];
       const token = await user.user.getIdToken();
-      await fetch("http://localhost:5000/api/user/loginFirebase", {
+      await fetch("https://cn-web.herokuapp.com/api/user/loginFirebase", {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
