@@ -1,7 +1,8 @@
 import Home from "component/pages/Home/Home";
 import NotFound from "component/container/NotFound";
 import User from "component/pages/users";
-import React  from "react";
+import React , {useEffect} from "react";
+import { useDispatch } from "react-redux";
 import Header from "component/pages/header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
@@ -11,12 +12,17 @@ import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
 import Learning from "component/pages/learning/Learning";
+import { getAllCourseList } from "redux/actions/courseAction";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCourseList());
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
-            <Header />
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -34,7 +40,7 @@ function App() {
             <LoTrinh />
           </Route>
           <Route exact path="/chi-tiet-lo-trinh">
-             <RouterDetail />
+            <RouterDetail />
           </Route>
           <Route exact path="/learning">
              <Learning />

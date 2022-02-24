@@ -1,39 +1,43 @@
-import LoginForm from 'custom-fields/FormLogin';
-import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import LoginForm from "custom-fields/FormLogin";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logIn, logInFB } from "../../../redux/actions/userAction.js";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, Redirect } from 'react-router-dom';
-
-Login.propTypes = {};
+import { Link, Redirect } from "react-router-dom";
+import { logIn } from "../../../redux/actions/userAction.js";
+import {signInWithFirebase} from "../../config/functionFirebase";
 
 function Login() {
-    const dispatch = useDispatch();
-    const auth = useSelector(state => state.users.auth);
-    const listInput = document.getElementsByTagName('input');
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.users.auth);
+  const listInput = document.getElementsByTagName("input");
 
-    if (auth.status === "200") {
-        document.getElementsByClassName('spinner-border-small spinner-border')[0].style.display = "none";
-        return <Redirect to="/" />
+  if (auth.status === "200") {
+    document.getElementsByClassName(
+      "spinner-border-small spinner-border"
+    )[0].style.display = "none";
+    return <Redirect to="/" />;
+  }
+
+  if (auth.status === "500") {
+    document.getElementsByClassName(
+      "spinner-border-small spinner-border"
+    )[0].style.display = "none";
+    for (let i = 0; i < listInput.length; i++) {
+      listInput[i].addEventListener("focus", function (e) {
+        document.getElementsByClassName("error-login")[0].style.display =
+          "none";
+      });
     }
+  }
 
-    if (auth.status === "500") {
-        document.getElementsByClassName('spinner-border-small spinner-border')[0].style.display = "none";
-        for (let i = 0; i < listInput.length; i++) {
-            listInput[i].addEventListener('focus', function (e) {
-                document.getElementsByClassName('error-login')[0].style.display = "none";
-            })
-        };
-    }
+  const handleSubmit = (values) => {
+    dispatch(logIn(values.userName.trim(), values.passWord.trim()));
+  };
 
-    const handleSubmit = (values) => {
-        dispatch(logIn(values.userName.trim(), values.passWord.trim()));
-    }
-
-    const initialValues = {
-        userName: '',
-        passWord: '',
-    };
+  const initialValues = {
+    userName: "",
+    passWord: "",
+  };
 
     return (
         <div className="page-login">
@@ -57,8 +61,7 @@ function Login() {
                     </div>
                 </div>
         </div>
-
-    );
+  );
 }
 
 export default Login;

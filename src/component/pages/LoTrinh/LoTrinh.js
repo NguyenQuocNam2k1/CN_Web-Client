@@ -82,7 +82,7 @@ function LoTrinh() {
                             </div>
                             <div className="col-md-8 lt-card-body">
                             <div className="card-body">
-                                <h5 className="card-title">Data Science</h5>\
+                                <h5 className="card-title">Data Science</h5>
                                 <Link to="/chi-tiet-lo-trinh">
                                    <button className="btn btn-warning lt-btn" onClick={(e) => handleClick(e.target)}>Chi tiết</button>
                                 </Link>
