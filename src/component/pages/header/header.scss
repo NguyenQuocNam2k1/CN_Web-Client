@@ -95,6 +95,11 @@
     font-weight: 700;
   }
 }
+.login-btn:hover{
+  background-color: #245988;
+  border: 1px solid #245988;
+  cursor: pointer;
+}
 
 .avatar {
   position: relative;

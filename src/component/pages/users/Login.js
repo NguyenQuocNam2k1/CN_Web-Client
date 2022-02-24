@@ -43,7 +43,7 @@ function Login() {
     <div className="page-login">
       <div className="background-login">
         <div className="photo-edit__form">
-          <button onClick={() => signInWithFirebase('GG')}>Sing in with FB</button>
+          <button onClick={() => signInWithFirebase('GH')}>Sing in with FB</button>
           <h1>Login</h1>
           <LoginForm
             initialValues={initialValues}
