@@ -4,8 +4,40 @@ import "./header.css";
 import search from "./../../../images/search.png";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import logo from '../../../images/cocoders-logo.png'
+import { useEffect } from "react";
 
 function Header() {
+
+  const [valueInput, setValueInput] = useState('');
+
+  //Search
+  const searchFunction = () => {
+    const inputSearch = document.querySelector('#search-input');
+    const listCourses = document.querySelector('.listCourses');
+    const menuCourses = Array.from(document.querySelectorAll('.menu-items'));
+
+    const value = valueInput.toLowerCase();
+    console.log(value);
+
+    menuCourses.forEach( (item) => {
+      let text = item.innerText.toLowerCase();
+      if(text.indexOf(value) > -1) {
+        listCourses.style.display = 'block';
+        item.style.display = 'block';
+      }
+      else {
+        item.style.display = 'none';
+      }
+    })
+  }
+
+  const hidenListCourses = () => {
+    const listCourses = document.querySelector('.listCourses');
+    listCourses.style.display = 'none';
+  }
+
+
   const match = useLocation().pathname;
   const courseList = useSelector((state) => state.courses.courseList);
 
@@ -23,7 +55,7 @@ function Header() {
             <Link className="navbar-brand" to="/">
               <img
                 className="img"
-                src="../../../images/google.png"
+                src={logo}
                 alt="logo"
               ></img>
             </Link>
@@ -67,17 +99,22 @@ function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="#">
+                  <Link className="nav-link active" aria-current="page" to="/learning">
                     Đang học
                   </Link>
                 </li>
               </ul>
+
               <form className="d-flex">
                 <input
+                  id="search-input"
                   className="form-control me-2 search-input"
                   type="search"
                   placeholder="Tìm kiếm khóa hoc ..."
                   aria-label="Search"
+                  onKeyUp={searchFunction}
+                  onChange={e => setValueInput(e.target.value)}
+                  onBlur={hidenListCourses}
                 />
                 <div className="btn btn-search" type="submit">
                   <img
@@ -86,7 +123,16 @@ function Header() {
                     alt="img-input"
                   />
                 </div>
+                <ul className="listCourses">
+                  <p>{`Kết quả cho '${valueInput}'`}</p>
+                  <li className="menu-items">Khóa học HTML & CSS</li>
+                  <li className="menu-items">Khóa học JavaScrip</li>
+                  <li className="menu-items">Khóa học NodeJs</li>
+                  <li className="menu-items">Khóa học ReactJs</li>
+                  <li className="menu-items">Khóa học Vue</li>
+                </ul>
               </form>
+
               <Link to="/user">
                 <button className="btn login-btn" type="text">
                   <p>Đăng nhập</p>
@@ -101,6 +147,15 @@ function Header() {
                   alt="Avatar"
                 />
                 <ul className="avatar_list">
+                  <p style={{'borderBottom': '1px solid rgb(233 222 222)', 'padding': '12px', 'marginBottom': 0}}>
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                      className="rounded-circle"
+                      style={{ "width": "40px" }}
+                      alt="Avatar"
+                    />
+                    <strong className="information-avatar" style={{'marginLeft': '12px'}}>Bùi Thịnh</strong>
+                  </p>
                   <li>Viết blog</li>
                   <li>Bài viết của tôi</li>
                   <li>Bài viết đã lưu</li>

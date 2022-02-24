@@ -10,6 +10,7 @@ import RouterDetail from "component/pages/routerDetail/index";
 import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
+import Learning from "component/pages/learning/Learning";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route exact path="/chi-tiet-lo-trinh">
              <RouterDetail />
+          </Route>
+          <Route exact path="/learning">
+             <Learning />
           </Route>
           {/* <Route component={NotFound} /> */}
         </Switch>

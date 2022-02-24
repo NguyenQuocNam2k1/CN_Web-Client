@@ -37,7 +37,6 @@ function Login() {
 
     return (
         <div className="page-login">
-            <div className="background-login">
                 <div className="photo-edit__form">
                     <h1>Login</h1>
                     <LoginForm
@@ -52,10 +51,11 @@ function Login() {
                             <div className='logo logo_facebook'></div>
                             <div className='logo logo_github'></div>
                         </div>
-                        <button className='btn-app'><Link to='/user/register'>Tạo tài khoản</Link></button>
+                        <Link to='/user/register'>
+                            <button className='btn btn-primary' style={{'padding': '8px 28px'}}>Tạo tài khoản</button>
+                        </Link>
                     </div>
                 </div>
-            </div >
         </div>
 
     );
