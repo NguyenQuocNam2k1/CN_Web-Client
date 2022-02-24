@@ -10,8 +10,8 @@
           box-shadow: 0 0 10px #c7afaf;
 }
 
-.navbar-brand img {
-  width: 46px;
+.navbar-brand .img {
+  width: 220px;
 }
 
 .navbar-nav {
@@ -65,9 +65,10 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
 }
 
 .nav-link.active:hover {
-  opacity: 0.8;
-  -webkit-transition: all 0.1s ease 0s;
-  transition: all 0.1s ease 0s;
+  cursor: pointer;
+  opacity: 0.3;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .search-input {
