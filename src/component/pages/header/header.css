@@ -55,18 +55,13 @@
   font-size: 20px;
 }
 
-<<<<<<< HEAD
-.navbar-nav li:first-child {
-  margin-left: 50px;
-=======
 ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
   margin: auto;
->>>>>>> 1a980b4e581e49fab601f7097cf692b16af09c9c
 }
 
 .nav-link.active {
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
 }
 
 .nav-link.active:hover {
@@ -106,50 +101,14 @@ input.form-control.me-2.search-input {
   font-weight: 700;
 }
 
-<<<<<<< HEAD
-.login-btn:hover {
-  background-color: #245988;
-  border: 1px solid #245988;
-  cursor: pointer;
-}
-
-.avatar {
-  position: relative;
-=======
 .avatar {
   position: relative;
   margin-left: 20px;
-  display: none;
->>>>>>> 1a980b4e581e49fab601f7097cf692b16af09c9c
 }
 
 .avatar .avatar_list {
   position: absolute;
   background: aliceblue;
-<<<<<<< HEAD
-  width: 200px;
-  list-style: none;
-  left: -50px;
-  margin-top: 20px;
-  padding-left: 0px;
-}
-
-.avatar .avatar_list li:hover {
-  background-color: #b44646;
-}
-
-.avatar .avatar_list li {
-  padding: 4px 12px;
-}
-
-.txt_header {
-  font-family: Josefin Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 24px;
-  color: #000000;
-=======
   width: 170px;
   list-style: none;
   left: -110px;
@@ -197,7 +156,6 @@ input.form-control.me-2.search-input {
   display: block;
   -webkit-animation: appear 0.3s ease 0s;
           animation: appear 0.3s ease 0s;
->>>>>>> 1a980b4e581e49fab601f7097cf692b16af09c9c
 }
 
 .header_scroll {
@@ -226,8 +184,6 @@ input.form-control.me-2.search-input {
     margin-top: 0;
     opacity: 1;
   }
-<<<<<<< HEAD
-=======
 }
 
 .collapse.navbar-collapse a .btn.login-btn {
@@ -241,6 +197,5 @@ input.form-control.me-2.search-input {
 .btn.btn-search {
   position: absolute;
   left: 6px;
->>>>>>> 1a980b4e581e49fab601f7097cf692b16af09c9c
 }
 /*# sourceMappingURL=header.css.map */

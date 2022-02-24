@@ -2,24 +2,29 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 import search from "./../../../images/search.png";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import {getCookie} from "../../config/cookie.js";
+import {logOut} from "../../config/functionFirebase.js";
 
 function Header() {
   const match = useLocation().pathname;
-  const courseList = useSelector((state) => state.courses.courseList);
+  const token = getCookie('CCD') || "";
+  let authUser = JSON.parse(localStorage.getItem("authUser"))|| "";
 
   const [scrolled, setScrolled] = useState(0);
   window.addEventListener("scroll", () => {
     setScrolled(window.scrollY);
   });
+
+
   return (
     <>
       {match === "/user" || match === "/user/register" ? (
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
-          <div className={scrolled > 10 ? "header_scroll container" : "container"}>
+          <div
+            className={scrolled > 10 ? "header_scroll container" : "container"}
+          >
             <Link className="navbar-brand" to="/">
               <img
                 className="img"
@@ -80,40 +85,37 @@ function Header() {
                   aria-label="Search"
                 />
                 <div className="btn btn-search" type="submit">
-                  <img
-                    src={search}
-                    className="img-input"
-                    alt="img-input"
-                  />
+                  <img src={search} className="img-input" alt="img-input" />
                 </div>
               </form>
-              <Link to="/user">
-                <button className="btn login-btn" type="text">
-                  <p>Đăng nhập</p>
-                </button>
-              </Link>
-
-              <div className="avatar">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                  className="rounded-circle"
-                  style={{ "width": "40px" }}
-                  alt="Avatar"
-                />
-                <ul className="avatar_list">
-                  <li>Viết blog</li>
-                  <li>Bài viết của tôi</li>
-                  <li>Bài viết đã lưu</li>
-                  <li>Cài đặt</li>
-                  <li>Đăng xuất</li>
-                </ul>
-              </div>
-
+              {/* Check login */}
+              {!token ? (
+                <Link to="/user">
+                  <button className="btn login-btn" type="text">
+                    <p>Đăng nhập</p>
+                  </button>
+                </Link>
+              ) : (
+                <div className="avatar">
+                  <img
+                    src={authUser.image || authUser.photoURL}
+                    className="rounded-circle"
+                    style={{ width: "40px" }}
+                    alt="Avatar"
+                  />
+                  <ul className="avatar_list">
+                    <li>Viết blog</li>
+                    <li>Bài viết của tôi</li>
+                    <li>Bài viết đã lưu</li>
+                    <li>Cài đặt</li>
+                    <li onClick={logOut}>Đăng xuất</li>
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
-        </nav >
-      )
-      }
+        </nav>
+      )}
     </>
   );
 }

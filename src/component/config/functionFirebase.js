@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { authentication } from "./firebase.js";
+import { setCookie , getCookie } from "./cookie.js";
 
 const providerFB = new FacebookAuthProvider();
 const providerGG = new GoogleAuthProvider();
@@ -37,16 +38,9 @@ export const signInWithFirebase = (typeLogin) => {
       })
         .then((res) => {
           if (res.status === 200) {
-            // Set a Cookie
-            function setCookie(nameCookie, valueCookie, numberDays) {
-              let date = new Date();
-              date.setTime(date.getTime() + numberDays * 24 * 24 * 60 * 1000);
-              const expires = "expires=" + date.toUTCString();
-              document.cookie =
-                nameCookie + "=" +`Bear ${valueCookie}` + "; " + expires +"; path=/";
-            }
             // Apply setCookie
             setCookie("CCD", token, 1);
+            localStorage.setItem("authUser" , JSON.stringify(data));
             window.location.replace("/");
           }
         })
@@ -84,7 +78,9 @@ export function logOut() {
   const auth = getAuth();
   signOut(auth)
     .then(() => {
-      console.log("okeoke");
+      const token = getCookie('CCD') || "";
+      setCookie("CCD", token, 1/(24*60*60*1000));
+      window.location.replace("/user");
     })
     .catch((error) => {
       console.log(error);
