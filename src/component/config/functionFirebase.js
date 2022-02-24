@@ -8,7 +8,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { authentication } from "./firebase.js";
-import { setCookie , getCookie } from "./cookie.js";
+import { setCookie, getCookie } from "./cookie.js";
 
 const providerFB = new FacebookAuthProvider();
 const providerGG = new GoogleAuthProvider();
@@ -36,20 +36,22 @@ export const signInWithFirebase = (typeLogin) => {
         referrerPolicy: "no-referrer",
         body: JSON.stringify(data),
       })
-        .then((res) => {
+        .then(async (res) => {
           if (res.status === 200) {
             // Apply setCookie
+            await res.json()
+              .then((user) => localStorage.setItem("authUser" , JSON.stringify(user.data[0])))
+              .catch((err) => console.log(err));
             setCookie("CCD", token, 1);
-            localStorage.setItem("authUser" , JSON.stringify(data));
             window.location.replace("/");
           }
         })
         .catch((err) => {
           console.log(err);
         });
-      })
-      .catch((error) => {
-        if (error.email) {
+    })
+    .catch((error) => {
+      if (error.email) {
         return console.log("Email đã được dùng để xác thực");
       }
       // The AuthCredential type that was used.
@@ -69,7 +71,7 @@ export function getDataUser() {
       return user.providerData[0];
     } else {
       console.log("error");
-      return null
+      return null;
     }
   });
 }
@@ -78,8 +80,8 @@ export function logOut() {
   const auth = getAuth();
   signOut(auth)
     .then(() => {
-      const token = getCookie('CCD') || "";
-      setCookie("CCD", token, 1/(24*60*60*1000));
+      const token = getCookie("CCD") || "";
+      setCookie("CCD", token, 1 / (24 * 60 * 60 * 1000));
       window.location.replace("/user");
     })
     .catch((error) => {
