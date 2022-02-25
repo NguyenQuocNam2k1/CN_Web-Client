@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import socketIOClient from "socket.io-client";
-import "./socketIO.css";
+// import "./socketIO.css";
 
 const host = "http://localhost:5000";
 
