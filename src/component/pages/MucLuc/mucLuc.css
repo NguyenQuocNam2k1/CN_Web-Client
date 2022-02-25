@@ -192,4 +192,8 @@
   -webkit-animation: fadeIn ease-in 0.3s;
           animation: fadeIn ease-in 0.3s;
 }
+
+.card.course img {
+  height: 240px !important;
+}
 /*# sourceMappingURL=mucLuc.css.map */

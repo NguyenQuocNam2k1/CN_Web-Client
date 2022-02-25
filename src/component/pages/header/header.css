@@ -104,6 +104,7 @@ input.form-control.me-2.search-input {
 .avatar {
   position: relative;
   margin-left: 20px;
+  display: none;
 }
 
 .avatar .avatar_list {
@@ -114,7 +115,7 @@ input.form-control.me-2.search-input {
   left: -110px;
   margin-top: 14px;
   padding-left: 0px;
-  border-radius: 4px;
+  border-radius: 6px;
   -webkit-box-shadow: 0 0 10px #c3c3c3a2;
           box-shadow: 0 0 10px #c3c3c3a2;
   display: none;
@@ -122,13 +123,14 @@ input.form-control.me-2.search-input {
 
 .avatar .avatar_list li:hover {
   background-color: #466a8a;
-  border-radius: 4px;
+  border-radius: 6px;
   -webkit-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
 }
 
 .avatar .avatar_list li {
   padding: 6px 12px;
+  border-top: 1px solid #e5dddd;
 }
 
 .avatar .avatar_list::before {
@@ -197,5 +199,68 @@ input.form-control.me-2.search-input {
 .btn.btn-search {
   position: absolute;
   left: 6px;
+}
+
+form.d-flex {
+  position: relative;
+}
+
+form.d-flex ul.listCourses {
+  position: absolute;
+  top: 34px;
+  width: 100%;
+  max-height: 40vh;
+  background: aliceblue;
+  list-style: none;
+  margin-top: 14px;
+  padding-left: 0px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 0 10px #c3c3c3a2;
+          box-shadow: 0 0 10px #c3c3c3a2;
+  display: none;
+}
+
+form.d-flex ul.listCourses li:hover {
+  background-color: #466a8a;
+  border-radius: 6px;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+form.d-flex ul.listCourses li {
+  padding: 10px 24px;
+  border-top: 1px solid #e5dddd;
+  display: none;
+}
+
+form.d-flex ul.listCourses p {
+  padding: 12px;
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+form.d-flex ul.listCourses::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -19px;
+  width: 100%;
+  height: 25px;
+}
+
+/* form.d-flex:hover ul.listCourses {
+  display: block;
+  animation: appear 0.3s ease 0s;
+} */
+@keyframes animationHeader {
+  from {
+    margin-top: -10%;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=header.css.map */

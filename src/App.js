@@ -11,6 +11,7 @@ import RouterDetail from "component/pages/routerDetail/index";
 import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
+import Learning from "component/pages/learning/Learning";
 import { getAllCourseList } from "redux/actions/courseAction";
 import Socket from "component/config/socketIO.js";
 
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route exact path="/socket">
             <Socket />
+          </Route>
+          <Route exact path="/learning">
+             <Learning />
           </Route>
           {/* <Route component={NotFound} /> */}
         </Switch>

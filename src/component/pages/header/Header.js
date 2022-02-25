@@ -1,11 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 import search from "./../../../images/search.png";
 import {getCookie} from "../../config/cookie.js";
 import {logOut} from "../../config/functionFirebase.js";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import logo from '../../../images/cocoders-logo.png'
+import { useEffect } from "react";
 
 function Header() {
+
+  const [valueInput, setValueInput] = useState('');
+
+  //Search
+  const searchFunction = () => {
+    const inputSearch = document.querySelector('#search-input');
+    const listCourses = document.querySelector('.listCourses');
+    const menuCourses = Array.from(document.querySelectorAll('.menu-items'));
+
+    const value = valueInput.toLowerCase();
+    console.log(value);
+
+    menuCourses.forEach( (item) => {
+      let text = item.innerText.toLowerCase();
+      if(text.indexOf(value) > -1) {
+        listCourses.style.display = 'block';
+        item.style.display = 'block';
+      }
+      else {
+        item.style.display = 'none';
+      }
+    })
+  }
+
+  const hidenListCourses = () => {
+    const listCourses = document.querySelector('.listCourses');
+    listCourses.style.display = 'none';
+  }
+
+
   const match = useLocation().pathname;
   const token = getCookie('CCD') || "";
   let authUser = JSON.parse(localStorage.getItem("authUser")) || "";
@@ -28,7 +62,7 @@ function Header() {
             <Link className="navbar-brand" to="/">
               <img
                 className="img"
-                src="../../../images/google.png"
+                src={logo}
                 alt="logo"
               ></img>
             </Link>
@@ -50,7 +84,7 @@ function Header() {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item nav-block-item">
                   <Link
-                    className="nav-link active txt_header"
+                    className="nav-link active "
                     aria-current="page"
                     to="/muc-luc"
                   >
@@ -59,7 +93,7 @@ function Header() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active txt_header"
+                    className="nav-link active"
                     aria-current="page"
                     to="/lo-trinh"
                   >
@@ -72,21 +106,33 @@ function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="#">
+                  <Link className="nav-link active" aria-current="page" to="/learning">
                     Đang học
                   </Link>
                 </li>
               </ul>
               <form className="d-flex">
                 <input
+                  id="search-input"
                   className="form-control me-2 search-input"
                   type="search"
                   placeholder="Tìm kiếm khóa hoc ..."
                   aria-label="Search"
+                  onKeyUp={searchFunction}
+                  onChange={e => setValueInput(e.target.value)}
+                  onBlur={hidenListCourses}
                 />
                 <div className="btn btn-search" type="submit">
                   <img src={search} className="img-input" alt="img-input" />
                 </div>
+                <ul className="listCourses">
+                  <p>{`Kết quả cho '${valueInput}'`}</p>
+                  <li className="menu-items">Khóa học HTML & CSS</li>
+                  <li className="menu-items">Khóa học JavaScrip</li>
+                  <li className="menu-items">Khóa học NodeJs</li>
+                  <li className="menu-items">Khóa học ReactJs</li>
+                  <li className="menu-items">Khóa học Vue</li>
+                </ul>
               </form>
               {/* Check login */}
               {!token ? (
