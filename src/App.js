@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MucLuc from "component/pages/MucLuc/mucLuc";
 import LoTrinh from "component/pages/LoTrinh/LoTrinh";
 import RouterDetail from "component/pages/routerDetail/index";
+import CourseDetail from "component/pages/courseDetail/CourseDetail";
 import Learning from "component/pages/learning/Learning";
 import Footer from "component/pages/footer/Footer";
 import "./App.css";
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/muc-luc">
             <MucLuc />
+          </Route>
+          <Route exact path="/courseDetail">
+            <CourseDetail />
           </Route>
           <Route exact path="/lo-trinh">
             <LoTrinh />

@@ -55,7 +55,10 @@ function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="#">
+                  <Link 
+                    className="nav-link active" 
+                    aria-current="page" 
+                    to="/courseDetail">
                     Kiểm tra
                   </Link>
                 </li>

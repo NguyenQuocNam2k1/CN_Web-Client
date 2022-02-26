@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Loading from "component/container/loading/Loading";
 import "./fontEnd.css";
+import {Link} from "react-router-dom";
 
 const FE = [
   { title: "Font-end" },
@@ -69,7 +70,9 @@ function Index() {
                       <div className="col-7 font_courser_text">
                         <h3><b>{value.name}</b></h3>
                         <h4>{value.description}</h4>
+                        <Link to="/courseDetail">
                         <button className="btn-app-y">Xem khóa học</button>
+                        </Link>
                       </div>
                     </div>
                   </div>

@@ -8,8 +8,11 @@
         list-style: none;
         padding: 0;
 
-        & li {
+        & .footer-list {
             padding-top: 8px;
+            position: relative;
+            width: fit-content;
+
         }
     }
     
@@ -21,3 +24,25 @@
 .col-3.logo {
     text-align: center;
 }
+
+
+
+  
+.footer-list::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #616161;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+.footer-list:hover::before {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+  
