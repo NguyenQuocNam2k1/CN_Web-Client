@@ -1,7 +1,7 @@
 import Home from "component/pages/Home/Home";
 import NotFound from "component/container/NotFound";
 import User from "component/pages/users";
-import React , {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Header from "component/pages/header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -14,11 +14,15 @@ import Register from "component/pages/users/Register";
 import Learning from "component/pages/learning/Learning";
 import { getAllCourseList } from "redux/actions/courseAction";
 import Socket from "component/config/socketIO.js";
+import AOS from "aos";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
     dispatch(getAllCourseList());
   }, []);
   return (
@@ -48,7 +52,7 @@ function App() {
             <Socket />
           </Route>
           <Route exact path="/learning">
-             <Learning />
+            <Learning />
           </Route>
           {/* <Route component={NotFound} /> */}
         </Switch>

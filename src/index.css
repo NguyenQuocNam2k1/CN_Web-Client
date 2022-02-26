@@ -1,3 +1,4 @@
+@import "aos/dist/aos.css";
 body {
   margin: 0;
   font-family: 'Josefin Sans', sans-serif;
@@ -5,4 +6,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-

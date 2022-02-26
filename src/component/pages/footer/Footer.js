@@ -10,7 +10,8 @@ function Footer(props) {
       {match === "/user" || match === "/user/register" ? (
         <></>
       ) : (
-        <div className="container-footer">
+        <div style={{"borderTop": "1px solid #E5E5E5"}}>
+          <div className="container container-footer">
           <div className="row">
             <div className="col-3 logo">
               <Link className="navbar-brand" to="/">
@@ -61,6 +62,7 @@ function Footer(props) {
                 </li>
               </ul>
             </div>
+          </div>
           </div>
         </div>
       )
