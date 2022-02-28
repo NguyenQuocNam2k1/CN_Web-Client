@@ -1,0 +1,87 @@
+.course-detail {
+    margin-top: 82px;
+    margin-bottom: 140px;
+    & .cd-header {
+        display: flex;
+        height: 120px;
+        width: 100%;
+        background-color: #0a58ca; 
+        justify-content: space-between;
+        & .cd-header-title {
+            font-weight: bold;
+            font-size: 60px;
+            line-height: 126px;
+            color: #FFFFFF;
+            padding-left: 100px;
+        }
+        & button {
+            margin: 44px;
+        }
+    }
+}
+
+.cd-body-lesson-1 {
+    height: 44px;
+    width: 727px;
+    padding-left: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.28);
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    border-radius: 16px;
+    background: #f5f5f5;
+    margin-bottom: 8px;
+    line-height: 46px;
+    & a {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+.cd-body-lesson-1:hover {
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+
+}
+.cd-body {
+    margin-top: 10px ;
+    padding-left: 100px;
+
+    & li {
+        box-sizing: border-box;
+        width: 50%;
+        float: left;
+        list-style: none;
+    }
+    & .cd-body-title {
+        margin-top:20px;
+        font-weight: 600;
+        font-size: 35px;
+        line-height: 35px;
+        color: #10162F;
+        
+    }
+    & .cd-body-count {
+
+        & .cbc {
+            border: 1px solid rgba(0, 0, 0, 0.28);
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+            width: 300px;
+            height: 177px;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 20px;
+            color: #616161;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            & .number {
+                font-weight: 600;
+                font-size: 50px;
+                line-height: 50px;
+                color: #616161;
+            }
+        }
+    }
+}
+
+

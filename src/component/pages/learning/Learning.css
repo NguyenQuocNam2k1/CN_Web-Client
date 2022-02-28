@@ -28,6 +28,9 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   color: white;
+  background-color: #10162F;
+  font-weight: 500;
+  border-radius: 20px;
   display: none;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;

@@ -9,6 +9,20 @@ export const HTML_CSS_ZH = {
         "Biết cách làm giao diện web responsive",
         "Sở hữu 2 giao diện web khi học xong khóa học",
         "Biết cách tự học những kiến thức mới"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ],
+    contents: [
+        "Bài 1: Bắt đầu",
+        "Bài 2: Làm quen với HTML",
+        "Bài 3: Làm quen với CSS",
+        "Bài 4: Đệm viền và khoảng lề",
+        "Bài 5: Thuộc tính tạo nền",
+        "Bài 6: Thuộc tính vị trí",
     ]
 }
 

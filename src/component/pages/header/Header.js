@@ -6,7 +6,7 @@ import { getCookie } from "../../config/cookie.js";
 import { logOut } from "../../config/functionFirebase.js";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import logo from "../../../images/cocoders-logo.png";
+import logo from "../../../images/logo.svg";
 import { useEffect } from "react";
 
 function Header() {
