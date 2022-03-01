@@ -17,6 +17,9 @@ export const courseReducer = (state = initialState, { type, payload }) => {
       return { ...state, typeCourse: payload };
     case CourseType.GET_COURSE_BY_ID:
       return { ...state, courseById: payload };
+    case CourseType.GET_LESSON_BY_COURSE:
+      localStorage.setItem("LessonByCourse", JSON.stringify(payload))
+      return {...state}
     default:
       return state;
   }

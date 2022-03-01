@@ -1,4 +1,4 @@
-export const HTML_CSS_ZH = {
+export const HTML_CSSZH = {
     course:"HTML, CSS từ Zero đến Hero",
     review: [
         "Biết cách xây dựng giao diện web với HTML, CSS",
@@ -106,3 +106,9 @@ export const nodeJS = {
     ]
 }
 
+export const python_basic = [];
+export const python_advance = [];
+export const java_basic = [];
+export const java_advance = [];
+export const lapTrinh_R_1 = [];
+export const lapTrinh_R_2 = [];

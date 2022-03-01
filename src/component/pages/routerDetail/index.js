@@ -3,7 +3,8 @@ import { useSelector, useDispatch} from "react-redux";
 import Loading from "component/container/loading/Loading";
 import "./fontEnd.css";
 import {Link , useParams} from "react-router-dom";
-import { getRouterDetail } from "redux/actions/courseAction";
+import { getRouterDetail, getLessonByCourse } from "redux/actions/courseAction";
+
 
 const FE = [
   { title: "Front-end" },
@@ -28,11 +29,13 @@ const BE = [
 function Index() {
   const dispatch = useDispatch();
   const {slug} = useParams();
-  console.log(slug)
   useEffect(()=>{
       dispatch(getRouterDetail(slug));
     },[]);
   const {routerDetail} = useSelector((state) => state.courses);
+  const handleClick = (idCourse) => {
+    dispatch(getLessonByCourse(idCourse))
+  }
   return (
     <>
       {routerDetail.length === 0 ? (
@@ -65,6 +68,7 @@ function Index() {
           </div>
           <div className="container">
             {routerDetail.map((value) => {
+              // console.log(value)
               return (
                 <div className="font_layout_2" key={value._id}>
                   <h2>{value.name}</h2>
@@ -77,8 +81,8 @@ function Index() {
                       <div className="col-7 font_courser_text">
                         <h3><b>{value.name}</b></h3>
                         <h4>{value.description}</h4>
-                        <Link to="/courseDetail">
-                        <button className="button_jelly btn-app-rt">Xem khóa học</button>
+                        <Link to={{pathname:`/courseDetail/${value.idCoursesList}`}}>
+                        <button onClick={()=>handleClick(value._id)} className="button_jelly btn-app-rt">Xem khóa học</button>
                         </Link>
                       </div>
                     </div>

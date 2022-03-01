@@ -10,7 +10,7 @@ export const getAllCourseList = () => async(dispatch) =>{
     }
 }
 
-//List router detail
+
 export const getRouterDetail = (typeCourse) => async(dispatch) => {
     try {
         const response = await api.post("/api/course/courseByRoute" , {typeCourse});
@@ -19,12 +19,22 @@ export const getRouterDetail = (typeCourse) => async(dispatch) => {
         console.log("Error:",err);
     }
 }
-// End
+
 
 export const getCourseById = (_id) => async(dispatch) => {
     try {
         const response = await api.post("/api/course/getCouser" , {_id});
         dispatch({type: CourseType.GET_COURSE_BY_ID, payload: response.data.data});
+    } catch (err) {
+        console.log("Error:",err);
+    }
+}
+
+
+export const getLessonByCourse = (listCourse) => async(dispatch) => {
+    try {
+        const response = await api.post("/api/course/lessonByIdCourse" , {listCourse});
+        dispatch({type: CourseType.GET_LESSON_BY_COURSE, payload: response.data.data});
     } catch (err) {
         console.log("Error:",err);
     }
