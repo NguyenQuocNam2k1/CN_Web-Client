@@ -31,9 +31,13 @@
     background: #f5f5f5;
     margin-bottom: 8px;
     line-height: 46px;
+    & span {
+        padding-left: 4px;
+    }
     & a {
         text-decoration: none;
         color: #333;
+
     }
 }
 
@@ -44,21 +48,28 @@
 .cd-body {
     margin-top: 10px ;
     padding-left: 100px;
+    & .cd-body-learn{
+        & li {
+            box-sizing: border-box;
+            width: 50%;
+            float: left;
+            list-style: none;
+            padding: 0 24px 10px 0;
+            & span {
+                padding-left: 4px;
+            }
+        }
+        & .cd-body-title {
+            margin-top:20px;
+            font-weight: 600;
+            font-size: 35px;
+            line-height: 35px;
+            color: #10162F;
 
-    & li {
-        box-sizing: border-box;
-        width: 50%;
-        float: left;
-        list-style: none;
+        }
     }
-    & .cd-body-title {
-        margin-top:20px;
-        font-weight: 600;
-        font-size: 35px;
-        line-height: 35px;
-        color: #10162F;
-        
-    }
+
+    
     & .cd-body-count {
 
         & .cbc {

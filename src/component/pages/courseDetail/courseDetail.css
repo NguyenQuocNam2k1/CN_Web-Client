@@ -41,6 +41,10 @@
   line-height: 46px;
 }
 
+.cd-body-lesson-1 span {
+  padding-left: 4px;
+}
+
 .cd-body-lesson-1 a {
   text-decoration: none;
   color: #333;
@@ -56,15 +60,20 @@
   padding-left: 100px;
 }
 
-.cd-body li {
+.cd-body .cd-body-learn li {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 50%;
   float: left;
   list-style: none;
+  padding: 0 24px 10px 0;
 }
 
-.cd-body .cd-body-title {
+.cd-body .cd-body-learn li span {
+  padding-left: 4px;
+}
+
+.cd-body .cd-body-learn .cd-body-title {
   margin-top: 20px;
   font-weight: 600;
   font-size: 35px;
