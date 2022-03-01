@@ -7,7 +7,7 @@ function Footer(props) {
   const match = useLocation().pathname;
   return (
     <>
-      {match === "/user" || match === "/user/register" ? (
+      {match === "/user" || match === "/user/register" || match === "/learning/detail" ? (
         <></>
       ) : (
         <div className="container-footer">

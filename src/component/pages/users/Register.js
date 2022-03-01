@@ -21,7 +21,7 @@ function Register(props) {
             inputEmail.value = '';
 
             const hasErrorEmail = document.getElementsByClassName('invalid-feedback email')[0];
-            var htmlErrorEmail = '<div class="invalid-feedback email">Bạn nhập email không hợp lệ !!!</div>';
+            var htmlErrorEmail = '<div className="invalid-feedback email">Bạn nhập email không hợp lệ !!!</div>';
             if (hasErrorEmail === undefined) {
                 inputEmail.insertAdjacentHTML('afterend', htmlErrorEmail);
             }
@@ -40,7 +40,7 @@ function Register(props) {
             inputAgainPassword.value = '';
 
             const hasErrorAgainPassWord = document.getElementsByClassName('invalid-feedback againPassWord')[0];
-            var htmlErrorAgainPassWord = '<div class="invalid-feedback againPassWord">Nhập lại cũng sai !!!</div>';
+            var htmlErrorAgainPassWord = '<div className="invalid-feedback againPassWord">Nhập lại cũng sai !!!</div>';
             if (hasErrorAgainPassWord === undefined) {
                 inputAgainPassword.insertAdjacentHTML('afterend', htmlErrorAgainPassWord);
             }

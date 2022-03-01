@@ -12,6 +12,7 @@ import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
 import Learning from "component/pages/learning/Learning";
+import DetailCourse from 'component/pages/learning/detail-course/DetailCourse';
 import { getAllCourseList } from "redux/actions/courseAction";
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route exact path="/learning">
              <Learning />
+          </Route>
+          <Route exact path="/learning/detail">
+             <DetailCourse />
           </Route>
           {/* <Route component={NotFound} /> */}
         </Switch>

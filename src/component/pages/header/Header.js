@@ -47,7 +47,7 @@ function Header() {
   });
   return (
     <>
-      {match === "/user" || match === "/user/register" ? (
+      {match === "/user" || match === "/user/register" || match === "/learning/detail" ? (
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">

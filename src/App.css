@@ -37,13 +37,14 @@
   }
 } */
 
- 
 .btn-app {
+  border-radius: 6px;
   font-size: 16px;
   border: 1px solid #466a8a;
   background-color: #466a8a;
   padding: 6px 12px;
   transition: all 0.3s ease 0s;
+  color: #fff;
 }
 
 .btn-app:hover {
@@ -55,43 +56,35 @@
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
-      transform: scale(0);
+    opacity: 0;
+    transform: scale(0);
   }
   to {
-      opacity: 1;
-      transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
 @keyframes appear {
   from {
-      opacity: 0;
+    opacity: 0;
   }
-  to{
-      opacity: 1;
+  to {
+    opacity: 1;
   }
 }
 
-
 .btn-app-y {
   font-size: 16px;
-  border: 1px solid #FFD300;
-  background-color: #FFD300;
+  border: 1px solid #ffd300;
+  background-color: #ffd300;
   padding: 6px 12px;
   transition: all 0.3s ease 0s;
 }
 
 .btn-app-y:hover {
   color: #fff;
-  border-color: #FFD300;
-  background-color: #FFD300;
+  border-color: #ffd300;
+  background-color: #ffd300;
   transition: all 0.3s ease 0s;
 }
-
-
-
-
-
-
-
