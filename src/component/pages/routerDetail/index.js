@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useRef } from "react";
 import { useSelector } from "react-redux";
 import Loading from "component/container/loading/Loading";
 import "./fontEnd.css";
@@ -25,7 +25,10 @@ const BE = [
 ];
 
 function Index() {
+  var valueRef = useRef;
   const dataRouteDetail = useSelector((state) => state.courses.routerDetail);
+  valueRef.current = dataRouteDetail;
+  console.log(valueRef.current);
   return (
     <>
       {dataRouteDetail.length === 0 ? (
@@ -71,7 +74,7 @@ function Index() {
                         <h3><b>{value.name}</b></h3>
                         <h4>{value.description}</h4>
                         <Link to="/courseDetail">
-                        <button className="btn-app-y">Xem khóa học</button>
+                        <button className="button_jelly btn-app-rt">Xem khóa học</button>
                         </Link>
                       </div>
                     </div>

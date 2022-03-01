@@ -44,20 +44,32 @@
       padding: 30px 20px;
       & .font_courser_text {
         font-weight: bold;
+        position: relative;
         & h4 {
           font-size: 18px;
           text-align: justify;
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
+          -webkit-line-clamp: 4;
         }
       }
       & .font_courser_image {
         & img {
           width: 100%;
+          height: 210px;
+          border-radius: 7px;
         }
       }
     }
   }
 }
+.btn-app-rt{
+  position: absolute;
+  background-color: #FFD300 !important;
+  border-radius: 25px;
+  font-size: 20px !important;
+  font-weight: 550;
+  bottom: 0px;
+}
+

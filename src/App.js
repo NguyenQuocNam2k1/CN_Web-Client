@@ -14,7 +14,6 @@ import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
 import { getAllCourseList } from "redux/actions/courseAction";
-import Socket from "component/config/socketIO.js";
 import AOS from "aos";
 
 function App() {
@@ -51,9 +50,6 @@ function App() {
           </Route>
           <Route exact path="/chi-tiet-lo-trinh">
             <RouterDetail />
-          </Route>
-          <Route exact path="/socket">
-            <Socket />
           </Route>
           <Route exact path="/learning">
             <Learning />
