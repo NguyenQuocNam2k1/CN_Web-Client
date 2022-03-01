@@ -2,35 +2,65 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 import search from "./../../../images/search.png";
-import logo from "./../../../images/logo.png";
+import { getCookie } from "../../config/cookie.js";
+import { logOut } from "../../config/functionFirebase.js";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import logo from "../../../images/cocoders-logo.png";
+import { useEffect } from "react";
 
 function Header() {
+  const [valueInput, setValueInput] = useState("");
+  const dataListCourse = useSelector((state) => state.courses.courseList);
+
+  //Search
+  const searchFunction = () => {
+    const inputSearch = document.querySelector("#search-input");
+    const listCourses = document.querySelector(".listCourses");
+    const menuCourses = Array.from(document.querySelectorAll(".menu-items"));
+   
+
+    const value = valueInput.toLowerCase();
+
+    menuCourses.forEach((item) => {
+      let text = item.innerText.toLowerCase();
+      if(text.includes(value)) {
+        listCourses.style.display = "block";
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  };
+
+  const hidenListCourses = () => {
+    const listCourses = document.querySelector(".listCourses");
+    listCourses.style.display = "none";
+    const inputSearch = document.querySelector("#search-input");
+    inputSearch.value = "";
+  };
+
   const match = useLocation().pathname;
+  const token = getCookie("CCD") || "";
+  let authUser = JSON.parse(localStorage.getItem("authUser")) || "";
+
+  const [scrolled, setScrolled] = useState(0);
+  window.addEventListener("scroll", () => {
+    setScrolled(window.scrollY);
+  });
+
   return (
     <>
       {match === "/user" || match === "/user/register" ? (
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
-          <div className="container-lg">
+          <div
+            className={scrolled > 10 ? "header_scroll container" : "container"}
+          >
             <Link className="navbar-brand" to="/">
-              <img
-                className="img"
-                src={logo}
-                alt="logo"
-              ></img>
+              <img className="img" src={logo} alt="logo"></img>
             </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
             <div
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
@@ -55,42 +85,69 @@ function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link 
-                    className="nav-link active" 
-                    aria-current="page" 
-                    to="/courseDetail">
-                    Kiểm tra
+                  <Link className="nav-link active" aria-current="page" to="#">
+                    Blog
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link 
-                    className="nav-link active" 
-                    aria-current="page" 
-                    to="/learning">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/learning"
+                  >
                     Đang học
                   </Link>
                 </li>
               </ul>
               <form className="d-flex">
                 <input
+                  id="search-input"
                   className="form-control me-2 search-input"
                   type="search"
-                  placeholder="Tìm kiếm...."
+                  placeholder="Tìm kiếm khóa hoc ..."
                   aria-label="Search"
+                  onKeyUp={searchFunction}
+                  onChange={(e) => setValueInput(e.target.value)}
+                  onBlur={hidenListCourses}
                 />
-                <button className="btn" type="submit">
-                  <img
-                    src={search}
-                    className="img-input"
-                    alt="img-input"
-                  />
-                </button>
+                <div className="btn btn-search" type="submit">
+                  <img src={search} className="img-input" alt="img-input" />
+                </div>
+                <ul className="listCourses">
+                  <p>{`Kết quả cho '${valueInput}'`}</p>
+                  {dataListCourse.map((course, index) => {
+                    return (
+                      <li className="menu-items" key={index}>
+                        {course.name}
+                      </li>
+                    );
+                  })}
+                </ul>
               </form>
-              <Link to="/user">
-                <button className="btn login-btn" type="text">
-                  <strong>LOG IN</strong>
-                </button>
-              </Link>
+              {/* Check login */}
+              {!token ? (
+                <Link to="/user">
+                  <button className="btn login-btn" type="text">
+                    <p>Đăng nhập</p>
+                  </button>
+                </Link>
+              ) : (
+                <div className="avatar">
+                  <img
+                    src={authUser.image}
+                    className="rounded-circle"
+                    style={{ width: "40px" }}
+                    alt="Avatar"
+                  />
+                  <ul className="avatar_list">
+                    <li>Viết blog</li>
+                    <li>Bài viết của tôi</li>
+                    <li>Bài viết đã lưu</li>
+                    <li>Cài đặt</li>
+                    <li onClick={logOut}>Đăng xuất</li>
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </nav>

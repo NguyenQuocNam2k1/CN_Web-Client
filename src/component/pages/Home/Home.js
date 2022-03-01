@@ -7,10 +7,10 @@ function Home(props) {
       <div className="container homepage-container">
         <div className="row homepage_layout_1">
           <div className="col-6 homepage_layout_1_image">
-            <div></div>
+            <div data-aos="fade-right"></div>
             {/* Thẻ div bên trên là chứa background. yêu cầu không ai được xóa */}
           </div>
-          <div className="col-6 homepage_layout_1_layout">
+          <div className="col-6 homepage_layout_1_layout" data-aos="fade-left">
             <h1>Tham gia khóa học MIỄN PHÍ</h1>
             <Link to="/user/register">
               <button className="button_homepage">Đăng ký</button>
@@ -25,7 +25,7 @@ function Home(props) {
         </div>
         <div className="homepage_layout_2">
           <div className="row">
-            <div className="col-5 homepage_layout_2_left">
+            <div className="col-5 homepage_layout_2_left" data-aos="fade-up-right"> 
               <div>
                 <h1>
                   MỤC TIÊU <br /> của bạn là gì?
@@ -41,22 +41,22 @@ function Home(props) {
             </div>
             <div className="col-7">
               <div className="row">
-                <div className="background_1_layout_2 col-6">
+                <div className="background_1_layout_2 col-6" data-aos="fade-down">
                   <div>
                     <button>Beginner</button>
                   </div>
                 </div>
-                <div className="background_2_layout_2 col-6">
+                <div className="background_2_layout_2 col-6" data-aos="fade-down">
                   <div>
                     <button>Beginner</button>
                   </div>
                 </div>
-                <div className="background_3_layout_2 col-6">
+                <div className="background_3_layout_2 col-6" data-aos="fade-up">
                   <div>
                     <button>Beginner</button>
                   </div>
                 </div>
-                <div className="background_4_layout_2 col-6">
+                <div className="background_4_layout_2 col-6" data-aos="fade-up">
                   <div>
                     <button>Beginner</button>
                   </div>

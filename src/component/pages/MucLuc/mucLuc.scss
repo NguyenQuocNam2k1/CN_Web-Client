@@ -8,13 +8,11 @@
 }
 
 .list-course-name {
-  position: fixed;
   top: 132px;
   background-color: #fff;
   border-radius: 6px;
   color: #333;
   padding-right: 20px;
-  width: 20%;
   max-width: 300px;
   z-index: 100;
 
@@ -184,3 +182,9 @@
   opacity: 1;
   animation: fadeIn ease-in 0.3s;
 }
+
+.card.course img {
+  height: 240px !important;
+}
+
+

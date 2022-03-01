@@ -12,9 +12,8 @@ function Learning(props) {
                     <div className="card ln-card">
                         <Link className="ln-link">
                             <div className="background">
-
+                            <button className="ln-btn">Học tiếp</button>
                             </div>
-                            <button className="btn btn-app ln-btn">Học tiếp</button>
                         </Link>
                         
                         <div className="card-body">
@@ -23,14 +22,12 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-
                 <div className="col-3">
                     <div className="card ln-card">
                         <Link className="ln-link">
                             <div className="background">
-
+                            <button className="ln-btn">Học tiếp</button>
                             </div>
-                            <button className="btn btn-app ln-btn">Học tiếp</button>
                         </Link>
                         
                         <div className="card-body">
@@ -39,15 +36,12 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-
-
                 <div className="col-3">
                     <div className="card ln-card">
                         <Link className="ln-link">
                             <div className="background">
-
+                            <button className="ln-btn">Học tiếp</button>
                             </div>
-                            <button className="btn btn-app ln-btn">Học tiếp</button>
                         </Link>
                         
                         <div className="card-body">
@@ -56,15 +50,12 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-
-
                 <div className="col-3">
                     <div className="card ln-card">
                         <Link className="ln-link">
                             <div className="background">
-
+                            <button className="ln-btn">Học tiếp</button>
                             </div>
-                            <button className="btn btn-app ln-btn">Học tiếp</button>
                         </Link>
                         
                         <div className="card-body">
@@ -73,14 +64,12 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-
                 <div className="col-3">
                     <div className="card ln-card">
                         <Link className="ln-link">
                             <div className="background">
-
+                            <button className="ln-btn">Học tiếp</button>
                             </div>
-                            <button className="btn btn-app ln-btn">Học tiếp</button>
                         </Link>
                         
                         <div className="card-body">
@@ -89,6 +78,14 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
+                
+
+                
+
+
+                
+
+
 
                 
             </div>

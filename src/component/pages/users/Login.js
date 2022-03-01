@@ -1,43 +1,46 @@
-import LoginForm from 'custom-fields/FormLogin';
-import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import LoginForm from "custom-fields/FormLogin";
+import React  from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logIn, logInFB } from "../../../redux/actions/userAction.js";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, Redirect } from 'react-router-dom';
-
-Login.propTypes = {};
+import { Link, Redirect } from "react-router-dom";
+import { logIn } from "../../../redux/actions/userAction.js";
+import {signInWithFirebase} from "../../config/functionFirebase";
 
 function Login() {
-    const dispatch = useDispatch();
-    const auth = useSelector(state => state.users.auth);
-    const listInput = document.getElementsByTagName('input');
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.users.dataUser);
+  const listInput = document.getElementsByTagName("input");
 
-    if (auth.status === "200") {
-        document.getElementsByClassName('spinner-border-small spinner-border')[0].style.display = "none";
-        return <Redirect to="/" />
+  if (auth.status === "200") {
+    document.getElementsByClassName(
+      "spinner-border-small spinner-border"
+    )[0].style.display = "none";
+    return <Redirect to="/" />;
+  }
+
+  if (auth.status === "401") {
+    document.getElementsByClassName(
+      "spinner-border-small spinner-border"
+    )[0].style.display = "none";
+    for (let i = 0; i < listInput.length; i++) {
+      listInput[i].addEventListener("focus", function (e) {
+        document.getElementsByClassName("error-login")[0].style.display =
+          "none";
+      });
     }
+  }
 
-    if (auth.status === "500") {
-        document.getElementsByClassName('spinner-border-small spinner-border')[0].style.display = "none";
-        for (let i = 0; i < listInput.length; i++) {
-            listInput[i].addEventListener('focus', function (e) {
-                document.getElementsByClassName('error-login')[0].style.display = "none";
-            })
-        };
-    }
+  const handleSubmit = (values) => {
+    dispatch(logIn(values.userName.trim(), values.passWord.trim()));
+  };
 
-    const handleSubmit = (values) => {
-        dispatch(logIn(values.userName.trim(), values.passWord.trim()));
-    }
-
-    const initialValues = {
-        userName: '',
-        passWord: '',
-    };
+  const initialValues = {
+    userName: "",
+    passWord: "",
+  };
 
     return (
         <div className="page-login">
-            <div className="background-login">
                 <div className="photo-edit__form">
                     <h1>Login</h1>
                     <LoginForm
@@ -48,17 +51,17 @@ function Login() {
                     <div className="login-other">
                         <p>Hoặc đăng nhập bằng</p>
                         <div className='list_logo'>
-                            <div className='logo logo_gg'></div>
-                            <div className='logo logo_facebook'></div>
-                            <div className='logo logo_github'></div>
+                            <div className='logo logo_gg' onClick={() => signInWithFirebase('GG')}></div>
+                            <div className='logo logo_facebook' onClick={() => signInWithFirebase('FB')}></div>
+                            <div className='logo logo_github'onClick={() => signInWithFirebase('GH')}></div>
                         </div>
-                        <button className='btn-app'><Link to='/user/register'>Tạo tài khoản</Link></button>
+                        <Link to='/user/register'>
+                            <button className='btn btn-primary' style={{'padding': '8px 28px'}}>Tạo tài khoản</button>
+                        </Link>
                     </div>
                 </div>
-            </div >
         </div>
-
-    );
+  );
 }
 
 export default Login;

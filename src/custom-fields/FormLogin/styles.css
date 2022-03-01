@@ -1,3 +1,10 @@
+.page-login, .page-register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+}
+
 .background-login {
   background-image: url(../../../public/troi.jpg);
   position: fixed;
@@ -11,13 +18,12 @@
 
 .photo-edit__form {
   background-image: url(../../../public/background-login.png);
-  margin: 2rem auto 1rem auto;
-  max-width: 25rem;
+  margin: auto;
+  width: 380px;
   padding: 30px 50px;
   border-radius: 15px;
-  margin-top: 150px;
-  -webkit-box-shadow: 0 0 20px #dcc9c9;
-          box-shadow: 0 0 20px #dcc9c9;
+  -webkit-box-shadow: 0 0 20px #eee2e2;
+          box-shadow: 0 0 20px #eee2e2;
 }
 
 .photo-edit__form label {
@@ -59,11 +65,18 @@
 }
 
 .login-other .logo {
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
   background-position: center;
   background-size: contain;
   border-radius: 10px;
+}
+
+.btn.btn-primary {
+  border-radius: 30px;
+  padding: 8px 44px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .login-other .logo:hover {
@@ -106,5 +119,9 @@
 
 .login-other a:hover {
   color: #fff;
+}
+
+.form-label {
+  margin-bottom: 2px;
 }
 /*# sourceMappingURL=styles.css.map */
