@@ -1,7 +1,8 @@
-import React from "react";
+import React , { useRef } from "react";
 import { useSelector } from "react-redux";
 import Loading from "component/container/loading/Loading";
 import "./fontEnd.css";
+import {Link} from "react-router-dom";
 
 const FE = [
   { title: "Font-end" },
@@ -24,7 +25,10 @@ const BE = [
 ];
 
 function Index() {
+  var valueRef = useRef;
   const dataRouteDetail = useSelector((state) => state.courses.routerDetail);
+  valueRef.current = dataRouteDetail;
+  console.log(valueRef.current);
   return (
     <>
       {dataRouteDetail.length === 0 ? (
@@ -69,7 +73,9 @@ function Index() {
                       <div className="col-7 font_courser_text">
                         <h3><b>{value.name}</b></h3>
                         <h4>{value.description}</h4>
-                        <button className="btn-app-y">Xem khóa học</button>
+                        <Link to="/courseDetail">
+                        <button className="button_jelly btn-app-rt">Xem khóa học</button>
+                        </Link>
                       </div>
                     </div>
                   </div>

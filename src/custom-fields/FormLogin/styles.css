@@ -120,4 +120,8 @@
 .login-other a:hover {
   color: #fff;
 }
+
+.form-label {
+  margin-bottom: 2px;
+}
 /*# sourceMappingURL=styles.css.map */

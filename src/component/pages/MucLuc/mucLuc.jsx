@@ -1,10 +1,16 @@
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch  } from "react-redux";
 import { Link } from "react-router-dom";
 import Loading from "component/container/loading/Loading";
+import { getCourseById } from "redux/actions/courseAction";
 import "./mucLuc.css";
 
 function MucLuc(props) {
+  const dispatch = useDispatch();
+
   const courseList = useSelector((state) => state.courses.courseList);
+  const handleClick = (idCourse) => {
+    dispatch(getCourseById(idCourse))
+  }
   return (
     <div className="container mt-16 muc-luc">
       {courseList.length === 0 || !courseList ? (
@@ -89,7 +95,7 @@ function MucLuc(props) {
                           src={course.image}
                           className="card-img-top"
                           alt="anh-khoa-hoc"
-                          style={{height: "182px"}}
+                          style={{"height": "182px"}}
                         ></img>
                       </Link>
                       <div className="card-body body-course">
@@ -102,8 +108,11 @@ function MucLuc(props) {
                           {course.description}
                         </p>
                         <div className="submit-course">
-                          <Link to="/course" className="btn btn-primary">
-                            Đăng ký
+                          <Link to="#" 
+                          className="btn btn-primary button_jelly"
+                          onClick={()=>handleClick(course._id)} 
+                          style={{"fontSize":"18px" , "padding":"6px 41px" , "fontWeight":"500"}}>
+                            Chi tiết
                           </Link>
                         </div>
                       </div>
