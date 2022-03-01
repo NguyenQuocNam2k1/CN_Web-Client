@@ -3,18 +3,11 @@ import "./loTrinh.css";
 import homeBegin from "../../../images/homeBegin.png"
 import homeFrontend from "../../../images/homeFrontend.png"
 import homeBackend from "../../../images/homeBackend.png"
-import { useDispatch } from "react-redux";
-import { getRouterDetail } from "../../../redux/actions/courseAction.js";
 import { Link } from "react-router-dom";
-/* import homeDataScience from "../../../images/homeScience.png" */
 import homeDataScience from "../../../images/homeScience.png"
 
 function LoTrinh() {
-    const dispatch = useDispatch();
-    const handleClick = (value) => {
-        const nameRouter = value.parentElement.previousElementSibling.textContent;
-        dispatch(getRouterDetail("FE"));
-    }
+
     return (
         <div className="container lo-trinh">
             <div className="row">
@@ -32,8 +25,8 @@ function LoTrinh() {
                                 <div className="col-md-8 lt-card-body">
                                 <div className="card-body ">
                                     <h5 className="card-title">Mới bắt đầu</h5>
-                                    <Link to="/chi-tiet-lo-trinh">
-                                      <button className="btn btn-warning lt-btn" onClick={(e) => handleClick(e.target)}>Chi tiết</button>
+                                    <Link to="/chi-tiet-lo-trinh/moi-bat-dau">
+                                      <button className="btn btn-warning lt-btn" >Chi tiết</button>
                                     </Link>
                                 </div>
                                 </div>
@@ -49,8 +42,8 @@ function LoTrinh() {
                             <div className="col-md-8 lt-card-body">
                             <div className="card-body">
                                 <h5 className="card-title">Front-end</h5>
-                                <Link to="/chi-tiet-lo-trinh">
-                                  <button className="btn btn-warning lt-btn" onClick={(e) => handleClick(e.target)}>Chi tiết</button>
+                                <Link to="/chi-tiet-lo-trinh/front-end">
+                                  <button className="btn btn-warning lt-btn" >Chi tiết</button>
                                 </Link>
                             </div>
                             </div>
@@ -66,8 +59,8 @@ function LoTrinh() {
                             <div className="col-md-8 lt-card-body">
                             <div className="card-body">
                                 <h5 className="card-title">Back-end</h5>
-                                <Link to="/chi-tiet-lo-trinh">
-                                  <button className="btn btn-warning lt-btn" onClick={(e) => handleClick(e.target)}>Chi tiết</button>
+                                <Link to="/chi-tiet-lo-trinh/back-end">
+                                  <button className="btn btn-warning lt-btn" >Chi tiết</button>
                                 </Link>
                             </div>
                             </div>
@@ -83,8 +76,8 @@ function LoTrinh() {
                             <div className="col-md-8 lt-card-body">
                             <div className="card-body">
                                 <h5 className="card-title">Data Science</h5>
-                                <Link to="/chi-tiet-lo-trinh">
-                                   <button className="btn btn-warning lt-btn" onClick={(e) => handleClick(e.target)}>Chi tiết</button>
+                                <Link to="/chi-tiet-lo-trinh/data-science">
+                                   <button className="btn btn-warning lt-btn" >Chi tiết</button>
                                 </Link>
                             </div>
                             </div>

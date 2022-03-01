@@ -42,7 +42,8 @@ function Header() {
 
   const match = useLocation().pathname;
   const token = getCookie("CCD") || "";
-  let authUser = JSON.parse(localStorage.getItem("authUser")) || "";
+  let authUser = JSON.parse(localStorage.getItem("authUser")) ;
+
 
   const [scrolled, setScrolled] = useState(0);
   window.addEventListener("scroll", () => {

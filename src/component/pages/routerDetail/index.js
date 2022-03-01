@@ -1,11 +1,12 @@
-import React , { useRef } from "react";
-import { useSelector } from "react-redux";
+import React , {useEffect} from "react";
+import { useSelector, useDispatch} from "react-redux";
 import Loading from "component/container/loading/Loading";
 import "./fontEnd.css";
-import {Link} from "react-router-dom";
+import {Link , useParams} from "react-router-dom";
+import { getRouterDetail } from "redux/actions/courseAction";
 
 const FE = [
-  { title: "Font-end" },
+  { title: "Front-end" },
   {
     ds: "Hầu hết các websites hoặc ứng dụng di động đều có 2 phần là Front-end và Back-end. Front-end là phần giao diện người dùng nhìn thấy và có thể tương tác, đó chính là các ứng dụng mobile hay những website bạn đã từng sử dụng. Vì vậy, nhiệm vụ của lập trình viên Front-end là xây dựng các giao diện đẹp, dễ sử dụng và tối ưu trải nghiệm người dùng",
   },
@@ -25,13 +26,16 @@ const BE = [
 ];
 
 function Index() {
-  var valueRef = useRef;
-  const dataRouteDetail = useSelector((state) => state.courses.routerDetail);
-  valueRef.current = dataRouteDetail;
-  console.log(valueRef.current);
+  const dispatch = useDispatch();
+  const {slug} = useParams();
+  console.log(slug)
+  useEffect(()=>{
+      dispatch(getRouterDetail(slug));
+    },[]);
+  const {routerDetail} = useSelector((state) => state.courses);
   return (
     <>
-      {dataRouteDetail.length === 0 ? (
+      {routerDetail.length === 0 ? (
         <>
           <Loading />
         </>
@@ -40,7 +44,7 @@ function Index() {
           <div className="font_layout_1">
             <div className="container font_layout_1_child">
               <div className="font_layout_1_child_w">
-                <h1>Font-end</h1>
+                <h1>Front-end</h1>
                 <div className="font_layout_1_text">
                   Hầu hết các websites hoặc ứng dụng di động đều có 2 phần là
                   Front-end và Back-end. Front-end là phần giao diện người dùng
@@ -60,7 +64,7 @@ function Index() {
             </div>
           </div>
           <div className="container">
-            {dataRouteDetail.map((value) => {
+            {routerDetail.map((value) => {
               return (
                 <div className="font_layout_2" key={value._id}>
                   <h2>{value.name}</h2>
@@ -84,7 +88,7 @@ function Index() {
             })}
           </div>
         </>
-      )}
+       )} 
     </>
   );
 }

@@ -16,6 +16,7 @@ import Register from "component/pages/users/Register";
 import { getAllCourseList } from "redux/actions/courseAction";
 import AOS from "aos";
 
+
 function App() {
   const dispatch = useDispatch();
 
@@ -48,7 +49,7 @@ function App() {
           <Route exact path="/lo-trinh">
             <LoTrinh />
           </Route>
-          <Route exact path="/chi-tiet-lo-trinh">
+          <Route exact path="/chi-tiet-lo-trinh/:slug">
             <RouterDetail />
           </Route>
           <Route exact path="/learning">

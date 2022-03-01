@@ -18,7 +18,7 @@ function Footer(props) {
                   className="img"
                   src={logo}
                   alt="logo"
-                  style={{"marginTop":"calc(-25.9%);"}}
+                  style={{"marginTop":"-26%"}}
                 ></img>
               </Link>
             </div>

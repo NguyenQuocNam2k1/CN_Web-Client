@@ -10,6 +10,7 @@ export const getAllCourseList = () => async(dispatch) =>{
     }
 }
 
+//List router detail
 export const getRouterDetail = (typeCourse) => async(dispatch) => {
     try {
         const response = await api.post("/api/course/courseByRoute" , {typeCourse});
@@ -18,6 +19,7 @@ export const getRouterDetail = (typeCourse) => async(dispatch) => {
         console.log("Error:",err);
     }
 }
+// End
 
 export const getCourseById = (_id) => async(dispatch) => {
     try {

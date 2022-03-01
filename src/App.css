@@ -62,7 +62,8 @@
   font-size: inherit;
   font-family: inherit;
   color: white;
-  padding: 0.5em 1em;
+  padding: 6px 41px;
+  font-weight: 500;
   outline: none;
   border: none;
 }

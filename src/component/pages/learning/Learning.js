@@ -77,17 +77,7 @@ function Learning(props) {
                             <p className="card-text ln-views">180.000 lượt xem</p>
                         </div>
                     </div>
-                </div>
-                
-
-                
-
-
-                
-
-
-
-                
+                </div> 
             </div>
         </div>
     )
