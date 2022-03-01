@@ -55,16 +55,13 @@ function App() {
           <Route exact path="/learning">
             <Learning />
           </Route>
-          <Route exact path="/learning">
-            <Learning />
-          </Route>
           <Route exact path="/learning/detail">
              <DetailCourse />
           </Route>
           {/* <Route component={NotFound} /> */}
         </Switch>
         <Footer />
-      </BrowserRouter>
+  </BrowserRouter>
     </div>
   );
 }
