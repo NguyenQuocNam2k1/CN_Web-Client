@@ -13,6 +13,7 @@ import Learning from "component/pages/learning/Learning";
 import Footer from "component/pages/footer/Footer";
 import "./App.css";
 import Register from "component/pages/users/Register";
+import DetailCourse from 'component/pages/learning/detail-course/DetailCourse';
 import { getAllCourseList } from "redux/actions/courseAction";
 import AOS from "aos";
 
