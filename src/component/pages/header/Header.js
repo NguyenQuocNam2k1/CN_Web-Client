@@ -1,30 +1,30 @@
-import React from "react";
+import React ,{ useEffect , useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 import search from "./../../../images/search.png";
 import { getCookie } from "../../config/cookie.js";
 import { logOut } from "../../config/functionFirebase.js";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import logo from "../../../images/logo.svg";
-import { useEffect } from "react";
+import { getLessonByCourse } from "redux/actions/courseAction";
+
 
 function Header() {
   const [valueInput, setValueInput] = useState("");
   const dataListCourse = useSelector((state) => state.courses.courseList);
+  const dispatch = useDispatch();
 
   //Search
   const searchFunction = () => {
     const inputSearch = document.querySelector("#search-input");
     const listCourses = document.querySelector(".listCourses");
     const menuCourses = Array.from(document.querySelectorAll(".menu-items"));
-   
 
     const value = valueInput.toLowerCase();
 
     menuCourses.forEach((item) => {
       let text = item.innerText.toLowerCase();
-      if(text.includes(value)) {
+      if (text.includes(value)) {
         listCourses.style.display = "block";
         item.style.display = "block";
       } else {
@@ -35,15 +35,17 @@ function Header() {
 
   const hidenListCourses = () => {
     const listCourses = document.querySelector(".listCourses");
-    listCourses.style.display = "none";
+    setTimeout(()=>{
+      listCourses.style.display = "none";
+    },100)
     const inputSearch = document.querySelector("#search-input");
     inputSearch.value = "";
   };
 
+
   const match = useLocation().pathname;
   const token = getCookie("CCD") || "";
-  let authUser = JSON.parse(localStorage.getItem("authUser")) ;
-
+  let authUser = JSON.parse(localStorage.getItem("authUser"));
 
   const [scrolled, setScrolled] = useState(0);
   window.addEventListener("scroll", () => {
@@ -52,7 +54,9 @@ function Header() {
 
   return (
     <>
-      {match === "/user" || match === "/user/register" || match === "/learning/detail" ? (
+      {match === "/user" ||
+      match === "/user/register" ||
+      match === "/learning/detail" ? (
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -94,7 +98,7 @@ function Header() {
                   <Link
                     className="nav-link active"
                     aria-current="page"
-                    to={!token?"/user":"/learning"}
+                    to={!token ? "/user" : "/learning"}
                   >
                     Đang học
                   </Link>
@@ -118,9 +122,15 @@ function Header() {
                   <p>{`Kết quả cho '${valueInput}'`}</p>
                   {dataListCourse.map((course, index) => {
                     return (
-                      <li className="menu-items" key={index}>
-                        {course.name}
-                      </li>
+                      <Link 
+                       to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
+                        key={index}
+                        onClick={()=> dispatch(getLessonByCourse(course._id))}
+                      >
+                        <li className="menu-items">
+                          {course.name}
+                        </li>
+                      </Link>
                     );
                   })}
                 </ul>

@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 
 function courseDetail(props) {
   const nameCourse = useParams().slug;
+  console.log(nameCourse)
   const [LessonOfCourse, setLessonOfCourse] = useState([]);
   useEffect(() => {
     setTimeout(() => {
       setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
+      console.log(LessonOfCourse)
     }, 500);
-  }, []);
+  }, [nameCourse]);
 
   //   const listReview = dbCourseFix[`${nameCourse}`].review.map((r, index) => {
   //     return (

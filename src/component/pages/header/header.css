@@ -232,6 +232,11 @@ form.d-flex ul.listCourses {
   display: none;
 }
 
+form.d-flex ul.listCourses a {
+  text-decoration: none;
+  color: black;
+}
+
 form.d-flex ul.listCourses li:hover {
   background-color: #466a8a;
   border-radius: 6px;

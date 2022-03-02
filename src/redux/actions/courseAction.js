@@ -26,7 +26,6 @@ export const getLessonByCourse = (listCourse) => async(dispatch) => {
         const response = await api.post("/api/course/lessonByIdCourse" , {listCourse});
         dispatch({type: CourseType.GET_LESSON_BY_COURSE, payload: response.data.data});
     } catch (err) {
-        console.log("híhi")
         localStorage.setItem("LessonByCourse", JSON.stringify([]))
     }
 }

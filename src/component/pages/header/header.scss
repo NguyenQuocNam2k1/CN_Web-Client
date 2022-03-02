@@ -204,7 +204,10 @@ form.d-flex {
     border-radius: 6px;
     box-shadow: 0 0 10px hsla(0, 0%, 76%, 0.635);
     display: none;
-
+    & a{
+      text-decoration: none;
+      color: black;
+    }
     & li:hover {
       background-color: #466a8a;
       border-radius: 6px;
