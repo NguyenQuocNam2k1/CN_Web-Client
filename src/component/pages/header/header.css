@@ -259,15 +259,4 @@ form.d-flex ul.listCourses::after {
   width: 100%;
   height: 25px;
 }
-
-@keyframes animationHeader {
-  from {
-    margin-top: -10%;
-    opacity: 0;
-  }
-  to {
-    margin-top: 0;
-    opacity: 1;
-  }
-}
 /*# sourceMappingURL=header.css.map */
