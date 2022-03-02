@@ -25,6 +25,12 @@ export const NM = {
         "Các khái niệm, thuật ngữ cốt lõi khi triển khai ứng dụng",
         "Các mô hình, kiến trúc cơ bản khi triển khai ứng dụng",
         "Hiểu hơn về cách internet và máy vi tính hoạt động",
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
     ]
 }
 
@@ -39,6 +45,12 @@ export const JS_Basic = {
         "Có nền tảng để học các thư viện và framework JS",
         "Thành thạo DOM APIs để tương tác với trang web",
         "Nâng cao tư duy với các bài kiểm tra với testcases"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
     ]
 }
 
@@ -51,6 +63,12 @@ export const JS_Advanced = {
         "Các kiến thức nâng cao của Javascript giúp code trở nên tối ưu hơn",
         "Hiểu được các khái niệm khó như từ khóa this, phương thức bind, call, apply & xử lý bất đồng bộ",
         "Nâng cao cơ hội thành công khi phỏng vấn xin việc nhờ kiến thức chuyên môn vững chắc"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
     ]
 }
 
@@ -69,6 +87,12 @@ export const reactjs = {
         "Thành thạo sử dụng Redux vào dự án",
         "Xây dựng sản phẩm thực tế (clone Tiktok)",
         "Đủ hành trang tự tin apply đi xin việc"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
     ]
 }
 
@@ -79,6 +103,12 @@ export const responsive_grid = {
         "Tự tay xây dựng được thư viện CSS Grid",
         "Hiểu được tư tưởng thiết kế với Grid system",
         "Tự hiểu được Grid layout trong bootstrap"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
     ]
 }
 
@@ -95,12 +125,96 @@ export const nodeJS = {
         "Được chia sẻ lại kinh nghiệm làm việc thực tế",
         "Hiểu rõ tư tưởng và cách hoạt động của mô hình MVC",
         "Biết cách deploy (triển khai) website lên internet"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
     ]
 }
 
-export const python_basic = [];
-export const python_advance = [];
-export const java_basic = [];
-export const java_advance = [];
-export const lapTrinh_R_1 = [];
+export const python_basic = {
+    course: "Python cơ bản",
+    review: [
+        "Cài đặt và cấu hình môi trường lập trình trong Python",
+        "Nắm vững các kiến thức cơ bản trong Python",
+        "Biết cách kết nối với cơ sở dữ liệu, đọc và sửa file",
+        "Lập trình và gỡ lỗi trong Python"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+}
+export const python_advance = {
+    course: "Python nâng cao",
+    review: [
+        "Phân tích và xử lý dữ liệu với Python",
+        "Biết cách làm việc với những thư viện của Python",
+        "Hiểu về Numpy, Matplotlib, Pandas",
+        "Lập trình học máy với Python",
+        "Biết về các thuật toán Linear Regression, K-means clustering"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+}
+export const java_basic = {
+    course: "Java cơ bản",
+    review: [
+        "Nắm vững các kiến thức cơ bản của Java",
+        "Hiểu về lập trình hướng đối tượng",
+        "Hiểu các phương thức trong Java",
+        "JDK, JRE và JVM",
+        "Làm việc với file trong Java",
+        "Xử lý ngoại lệ trong Java",
+        "Hiểu và xử lý dữ liệu trong Java",
+        "Collection trong Java",
+        "Inner class trong Java",
+        "Chuyển đổi dữ liệu trong Java"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+}
+export const java_advance = {
+    course: "Java nâng cao",
+    review: [
+        "Biết về Java Generic",
+        "Biết về Java Serialization",
+        "Hiểu về Lập trình mạng",
+        "Biết về Java Multithread",
+        "Cơ bản về Applet"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+}
+export const lapTrinh_R_1 = {
+    course: "Lập trình R",
+    review: [
+        "Làm chủ các kiến thức cơ bản trong R",
+        "Biết cách làm việc với phần mềm RStudio",
+        "Hiểu về factors, list và data frame",
+        "Thống kê và tạo các biểu đồ"
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+}
 export const lapTrinh_R_2 = [];
