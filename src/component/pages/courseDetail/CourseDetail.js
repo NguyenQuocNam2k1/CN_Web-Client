@@ -3,52 +3,50 @@ import * as dbCourseFix from "../../data/index.js";
 import { Link, useParams } from "react-router-dom";
 import Loading from "component/container/loading/Loading";
 import { useEffect, useState } from "react";
+import {useSelector} from "react-redux";
 
 function courseDetail(props) {
   const nameCourse = useParams().slug;
-  console.log(nameCourse)
   const [LessonOfCourse, setLessonOfCourse] = useState([]);
+  const re_render = useSelector(state => state.courses.render);
   useEffect(() => {
-    setTimeout(() => {
       setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
-      console.log(LessonOfCourse)
-    }, 500);
-  }, [nameCourse]);
+  }, [re_render || nameCourse ]);
 
-  //   const listReview = dbCourseFix[`${nameCourse}`].review.map((r, index) => {
-  //     return (
-  //       <li key={`rv${index}`} className="list-detail">
-  //         <svg
-  //           xmlns="http://www.w3.org/2000/svg"
-  //           width="16"
-  //           height="16"
-  //           fill="currentColor"
-  //           className="bi bi-check-lg"
-  //           viewBox="0 0 16 16"
-  //         >
-  //           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-  //         </svg>
-  //         <span>{r}</span>
-  //       </li>
-  //     );
-  //   });
-  //   const listRequire = dbCourseFix[`${nameCourse}`].require.map((req, index) => {
-  //     return (
-  //       <li key={`req${index}`} className="list-detail">
-  //         <svg
-  //           xmlns="http://www.w3.org/2000/svg"
-  //           width="16"
-  //           height="16"
-  //           fill="currentColor"
-  //           className="bi bi-check-lg"
-  //           viewBox="0 0 16 16"
-  //         >
-  //           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-  //         </svg>
-  //         <span>{req}</span>
-  //       </li>
-  //     );
-  //   });
+    const listReview = dbCourseFix[`${nameCourse}`].review.map((r, index) => {
+      return (
+        <li key={`rv${index}`} className="list-detail">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-check-lg"
+            viewBox="0 0 16 16"
+          >
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+          </svg>
+          <span>{r}</span>
+        </li>
+      );
+    });
+    const listRequire = dbCourseFix[`${nameCourse}`].require.map((req, index) => {
+      return (
+        <li key={`req${index}`} className="list-detail">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-check-lg"
+            viewBox="0 0 16 16"
+          >
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+          </svg>
+          <span>{req}</span>
+        </li>
+      );
+    });
   const listContent = LessonOfCourse.map((content) => {
     return (
       <div className="cd-body-lesson-1" key={content._id}>
@@ -79,7 +77,7 @@ function courseDetail(props) {
       ) : (
         <div className="course-detail">
           <div className="cd-header">
-            <h2 className="cd-header-title">HTML & CSS</h2>
+            <h2 className="cd-header-title">{dbCourseFix[`${nameCourse}`].course}</h2>
             <button className="btn-app-y">Vào học</button>
           </div>
           <div className="row cd-body">
@@ -87,11 +85,11 @@ function courseDetail(props) {
               <div className="row cd-body-course">
                 <div className="col-12 cd-body-learn">
                   <h3 className="cd-body-title">Bạn sẽ học được gì?</h3>
-                  {/* <ul>{listReview}</ul> */}
+                  <ul>{listReview}</ul>
                 </div>
                 <div className="col-12 cd-body-learn">
                   <h3 className="cd-body-title">Yêu cầu</h3>
-                  {/* <ul>{listRequire}</ul> */}
+                  <ul>{listRequire}</ul>
                 </div>
                 <div className="col-12 cd-body-learn">
                   <h3 className="cd-body-title">Nội dung khóa học</h3>

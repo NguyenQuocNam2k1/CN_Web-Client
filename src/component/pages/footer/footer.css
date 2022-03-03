@@ -24,6 +24,7 @@
 }
 
 .container-footer {
+  overflow-x: none;
   padding-top: 46px;
   font-size: 18px;
   font-weight: 300;
