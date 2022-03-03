@@ -1,4 +1,4 @@
-import React ,{ useEffect , useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 import search from "./../../../images/search.png";
@@ -35,9 +35,9 @@ function Header() {
 
   const hidenListCourses = () => {
     const listCourses = document.querySelector(".listCourses");
-    setTimeout(()=>{
+    setTimeout(() => {
       listCourses.style.display = "none";
-    },100)
+    }, 100)
     const inputSearch = document.querySelector("#search-input");
     inputSearch.value = "";
   };
@@ -55,8 +55,8 @@ function Header() {
   return (
     <>
       {match === "/user" ||
-      match === "/user/register" ||
-      match === "/learning/detail" ? (
+        match === "/user/register" ||
+        match === "/learning/detail" ? (
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -122,12 +122,13 @@ function Header() {
                   <p>{`Kết quả cho '${valueInput}'`}</p>
                   {dataListCourse.map((course, index) => {
                     return (
-                      <Link 
-                       to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
+                      <Link
+                        to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
                         key={index}
-                        onClick={()=> dispatch(getLessonByCourse(course._id))}
                       >
-                        <li className="menu-items">
+                        <li className="menu-items"
+                          onClick={() => dispatch(getLessonByCourse(course._id))}
+                        >
                           {course.name}
                         </li>
                       </Link>
