@@ -29,8 +29,7 @@ function DetailCourse(props) {
         const tabMenu = document.querySelector('.tab-menu');
         const video = document.querySelector('.video-content');
         iconMenu.style.display = 'block';
-        tabMenu.style.width = '0%';
-        tabMenu.style.opacity = '0';
+        tabMenu.style.right = '-370px';
         video.style.width = '100%';
     }
 
@@ -39,8 +38,7 @@ function DetailCourse(props) {
         const tabMenu = document.querySelector('.tab-menu');
         const video = document.querySelector('.video-content');
         iconMenu.style.display = 'none';
-        tabMenu.style.width = '25%';
-        tabMenu.style.opacity = '1';
+        tabMenu.style.right = '0px';
         video.style.width = '75%';
     }
 
