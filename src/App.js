@@ -40,6 +40,7 @@ function App() {
           <Route exact path="/lo-trinh" component={LoTrinh} />
           <Route exact path="/chi-tiet-lo-trinh/:slug" component={RouterDetail} />
           <Route exact path="/learning" component={Learning}/>
+          <Route exact path="/learning/detail" conponent={DetailCourse}/>
           {/* <Route component={NotFound} /> */}
         </Switch>
         <Footer />

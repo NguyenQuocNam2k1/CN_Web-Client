@@ -5,8 +5,9 @@ import search from "./../../../images/search.png";
 import { getCookie } from "../../config/cookie.js";
 import { logOut } from "../../config/functionFirebase.js";
 import { useSelector, useDispatch } from "react-redux";
-import logo from "../../../images/logo.svg";
+import logo from "../../../images/logo.png";
 import { getLessonByCourse } from "redux/actions/courseAction";
+
 
 
 function Header() {
