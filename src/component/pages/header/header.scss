@@ -204,7 +204,10 @@ form.d-flex {
     border-radius: 6px;
     box-shadow: 0 0 10px hsla(0, 0%, 76%, 0.635);
     display: none;
-
+    & a{
+      text-decoration: none;
+      color: black;
+    }
     & li:hover {
       background-color: #466a8a;
       border-radius: 6px;
@@ -239,13 +242,4 @@ form.d-flex {
 //   animation: appear 0.3s ease 0s;
 // }
 
-@keyframes animationHeader {
-  from {
-    margin-top: -10%;
-    opacity: 0;
-  }
-  to {
-    margin-top: 0;
-    opacity: 1;
-  }
-}
+

@@ -1,7 +1,7 @@
-import { useSelector,useDispatch  } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Loading from "component/container/loading/Loading";
-import { getCourseById } from "redux/actions/courseAction";
+import { getLessonByCourse } from "redux/actions/courseAction";
 import "./mucLuc.css";
 
 function MucLuc(props) {
@@ -9,8 +9,8 @@ function MucLuc(props) {
 
   const courseList = useSelector((state) => state.courses.courseList);
   const handleClick = (idCourse) => {
-    dispatch(getCourseById(idCourse))
-  }
+    dispatch(getLessonByCourse(idCourse));
+  };
   return (
     <div className="container mt-16 muc-luc">
       {courseList.length === 0 || !courseList ? (
@@ -90,28 +90,32 @@ function MucLuc(props) {
                 return (
                   <div className="col-4 item-course" key={course._id}>
                     <div className="card course">
-                      <Link to="/cource">
-                        <img
-                          src={course.image}
-                          className="card-img-top"
-                          alt="anh-khoa-hoc"
-                          style={{"height": "182px"}}
-                        ></img>
-                      </Link>
+                      <img
+                        src={course.image}
+                        className="card-img-top"
+                        alt="anh-khoa-hoc"
+                        style={{ height: "182px" }}
+                      ></img>
+
                       <div className="card-body body-course">
-                        <Link to="/course">
-                          <h5 className="card-title title-course">
-                            {course.name}
-                          </h5>
-                        </Link>
+                        <h5 className="card-title title-course">
+                          {course.name}
+                        </h5>
+
                         <p className="card-text description-course">
                           {course.description}
                         </p>
                         <div className="submit-course">
-                          <Link to="#" 
-                          className="btn btn-primary button_jelly"
-                          onClick={()=>handleClick(course._id)} 
-                          style={{"fontSize":"18px" , "padding":"6px 41px" , "fontWeight":"500"}}>
+                          <Link
+                            to={{pathname:`/courseDetail/${course.idCoursesList}`}}
+                            className="btn btn-primary button_jelly"
+                            onClick={() => handleClick(course._id)}
+                            style={{
+                              fontSize: "18px",
+                              padding: "6px 41px",
+                              fontWeight: "500",
+                            }}
+                          >
                             Chi tiết
                           </Link>
                         </div>

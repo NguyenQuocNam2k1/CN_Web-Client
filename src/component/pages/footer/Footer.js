@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./footer.css";
-import logo from "../../../images/logo.svg";
+import logo from "../../../images/logo.png";
 
 function Footer(props) {
   const match = useLocation().pathname;

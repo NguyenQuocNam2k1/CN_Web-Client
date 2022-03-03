@@ -10,7 +10,7 @@ function Learning(props) {
             <div className="row">
                 <div className="col-3">
                     <div className="card ln-card">
-                        <Link className="ln-link">
+                        <Link to="#" className="ln-link">
                             <div className="background">
                             <button className="ln-btn">Học tiếp</button>
                             </div>
@@ -24,7 +24,7 @@ function Learning(props) {
                 </div>
                 <div className="col-3">
                     <div className="card ln-card">
-                        <Link className="ln-link">
+                        <Link to="#" className="ln-link">
                             <div className="background">
                             <button className="ln-btn">Học tiếp</button>
                             </div>
@@ -38,7 +38,7 @@ function Learning(props) {
                 </div>
                 <div className="col-3">
                     <div className="card ln-card">
-                        <Link className="ln-link">
+                        <Link to="#" className="ln-link">
                             <div className="background">
                             <button className="ln-btn">Học tiếp</button>
                             </div>
@@ -52,7 +52,7 @@ function Learning(props) {
                 </div>
                 <div className="col-3">
                     <div className="card ln-card">
-                        <Link className="ln-link">
+                        <Link to="#" className="ln-link">
                             <div className="background">
                             <button className="ln-btn">Học tiếp</button>
                             </div>
@@ -66,7 +66,7 @@ function Learning(props) {
                 </div>
                 <div className="col-3">
                     <div className="card ln-card">
-                        <Link className="ln-link">
+                        <Link to="#" className="ln-link">
                             <div className="background">
                             <button className="ln-btn">Học tiếp</button>
                             </div>
@@ -77,17 +77,7 @@ function Learning(props) {
                             <p className="card-text ln-views">180.000 lượt xem</p>
                         </div>
                     </div>
-                </div>
-                
-
-                
-
-
-                
-
-
-
-                
+                </div> 
             </div>
         </div>
     )

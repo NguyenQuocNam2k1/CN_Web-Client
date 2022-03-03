@@ -22,7 +22,7 @@ export const signInWithFirebase = (typeLogin) => {
 
   signInWithPopup(authentication, provider)
     .then(async (user) => {
-      const data = user.user.providerData[0];
+      let data = user.user.providerData[0];
       const token = await user.user.getIdToken();
       await fetch("https://cn-web.herokuapp.com/api/user/loginFirebase", {
         method: "POST",
@@ -39,9 +39,8 @@ export const signInWithFirebase = (typeLogin) => {
         .then(async (res) => {
           if (res.status === 200) {
             // Apply setCookie
-            await res.json()
-              .then((user) => localStorage.setItem("authUser" , JSON.stringify(user.data[0])))
-              .catch((err) => console.log(err));
+            data = Object.assign({image:data.photoURL},data);
+            localStorage.setItem("authUser" , JSON.stringify(data))
             setCookie("CCD", token, 1);
             window.location.replace("/");
           }

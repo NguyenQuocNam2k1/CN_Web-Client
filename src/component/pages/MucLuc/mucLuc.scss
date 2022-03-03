@@ -138,11 +138,8 @@
       }
 
       & .body-course {
-        & a {
-          text-decoration: none;
-
-          & .title-course {
-            text-align: center;
+        text-align: center;
+          & .title-course{
             color: #333;
             overflow: hidden;
             // height: 3.2rem;
@@ -151,7 +148,6 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 1;
           }
-        }
 
         & .description-course {
           overflow: hidden;

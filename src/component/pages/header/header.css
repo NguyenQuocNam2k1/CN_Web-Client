@@ -232,6 +232,11 @@ form.d-flex ul.listCourses {
   display: none;
 }
 
+form.d-flex ul.listCourses a {
+  text-decoration: none;
+  color: black;
+}
+
 form.d-flex ul.listCourses li:hover {
   background-color: #466a8a;
   border-radius: 6px;
@@ -258,16 +263,5 @@ form.d-flex ul.listCourses::after {
   top: -19px;
   width: 100%;
   height: 25px;
-}
-
-@keyframes animationHeader {
-  from {
-    margin-top: -10%;
-    opacity: 0;
-  }
-  to {
-    margin-top: 0;
-    opacity: 1;
-  }
 }
 /*# sourceMappingURL=header.css.map */

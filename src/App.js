@@ -17,6 +17,7 @@ import DetailCourse from 'component/pages/learning/detail-course/DetailCourse';
 import { getAllCourseList } from "redux/actions/courseAction";
 import AOS from "aos";
 
+
 function App() {
   const dispatch = useDispatch();
 
@@ -31,33 +32,15 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/user">
-            <User />
-          </Route>
-          <Route exact path="/user/register">
-            <Register />
-          </Route>
-          <Route exact path="/muc-luc">
-            <MucLuc />
-          </Route>
-          <Route exact path="/courseDetail">
-            <CourseDetail />
-          </Route>
-          <Route exact path="/lo-trinh">
-            <LoTrinh />
-          </Route>
-          <Route exact path="/chi-tiet-lo-trinh">
-            <RouterDetail />
-          </Route>
-          <Route exact path="/learning">
-            <Learning />
-          </Route>
-          <Route exact path="/learning/detail">
-             <DetailCourse />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/user" component={User} />
+          <Route exact path="/user/register" component={Register} />
+          <Route exact path="/muc-luc" component={MucLuc} />
+          <Route exact path="/courseDetail/:slug" component={CourseDetail} />
+          <Route exact path="/lo-trinh" component={LoTrinh} />
+          <Route exact path="/chi-tiet-lo-trinh/:slug" component={RouterDetail} />
+          <Route exact path="/learning" component={Learning}/>
+          <Route exact path="/learning/detail" conponent={DetailCourse}/>
           {/* <Route component={NotFound} /> */}
         </Switch>
         <Footer />
