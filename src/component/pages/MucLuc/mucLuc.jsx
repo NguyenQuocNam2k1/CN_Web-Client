@@ -92,7 +92,7 @@ function MucLuc(props) {
                     <div className="card course">
                       <img
                         src={course.image}
-                        className="card-img-top"
+                        className="card-img-top ml-img img-hover-zoom img-hover-zoom--colorize"
                         alt="anh-khoa-hoc"
                         style={{ height: "182px" }}
                       ></img>

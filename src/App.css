@@ -38,7 +38,6 @@
 } */
 
 .btn-app {
-  border-radius: 6px;
   font-size: 16px;
   border: 1px solid #466a8a;
   background-color: #466a8a;
@@ -83,9 +82,9 @@
   font-weight: 600;
   color: #ffffff;
   bottom: 0;
-  margin-top: calc(70%);
 
 }
+
 
 .btn-app-y:hover {
   color: #fff;

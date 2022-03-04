@@ -230,14 +230,6 @@
   margin-top: calc(70%);
 }
 
-.btn-app-layout_2 {
-  border-radius: 30px;
-  color: #ffffff;
-  width: 290px;
-  margin-top: 20px;
-  height: 48px;
-}
-
 .homepage_layout_3 {
   background: #466a8a;
   height: 310px;
@@ -349,5 +341,15 @@
 
 .homepage_layout_5 .homepage_layout_5_right div {
   margin: auto;
+}
+
+.btn-app-layout_2 {
+  border-radius: 30px;
+  color: #ffffff;
+  background-color: #466a8a;
+  border: none;
+  width: 290px;
+  margin-top: 20px;
+  height: 48px;
 }
 /*# sourceMappingURL=homepage.css.map */

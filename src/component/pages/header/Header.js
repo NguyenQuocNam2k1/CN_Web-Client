@@ -146,13 +146,13 @@ function Header() {
                 </Link>
               ) : (
                 <div className="avatar">
-                  <img
+                   <img
                     src={authUser.image}
                     className="rounded-circle"
                     style={{ width: "40px" }}
                     alt="Avatar"
-                  />
-                  <ul className="avatar_list">
+                  /> 
+                    <ul className="avatar_list">
                     <li>Viết blog</li>
                     <li>Bài viết của tôi</li>
                     <li>Bài viết đã lưu</li>

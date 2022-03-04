@@ -80,7 +80,7 @@ function Index() {
                       </div>
                       <div className="col-7 font_courser_text">
                         <h3><b>{value.name}</b></h3>
-                        <h4>{value.description}</h4>
+                        <h4 className="description_course" >{value.description}</h4>
                         <Link to={{pathname:`/courseDetail/${value.idCoursesList}`}}>
                         <button onClick={()=>handleClick(value._id)} className="button_jelly btn-app-rt">Xem khóa học</button>
                         </Link>
