@@ -203,8 +203,6 @@
   transition: -webkit-transform .5s, -webkit-filter 1.5s ease-in-out;
   transition: transform .5s, filter 1.5s ease-in-out;
   transition: transform .5s, filter 1.5s ease-in-out, -webkit-transform .5s, -webkit-filter 1.5s ease-in-out;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 /* The Transformation */
