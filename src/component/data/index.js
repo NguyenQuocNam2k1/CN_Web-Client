@@ -218,3 +218,21 @@ export const lapTrinh_R_1 = {
     ]
 }
 export const lapTrinh_R_2 = [];
+
+
+// slug = html;
+// danhdau.slug
+// danhda={
+//     html:"",
+// }
+// cmt=[
+//     idRoom,
+//     idUser,
+//     content,
+//     res:[
+//      idUser,
+//      content,
+//      countlike   
+//     ],
+//     countLike:
+// ]
