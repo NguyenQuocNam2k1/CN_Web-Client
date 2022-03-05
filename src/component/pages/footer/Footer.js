@@ -10,7 +10,7 @@ function Footer(props) {
       {match === "/user" || match === "/user/register" || match === "/learning/detail" ? (
         <></>
       ) : (
-        <div className="container-footer">
+        <div className="container-footer" id="awan"> 
           <div className="row">
             <div className="col-3 logo">
               <Link className="navbar-brand" to="/">
@@ -28,7 +28,6 @@ function Footer(props) {
                 <li className="footer-list">Home</li>
                 <li className="footer-list">Mục lục</li>
                 <li className="footer-list">Lộ trình</li>
-                <li className="footer-list">Kiểm tra</li>
                 <li className="footer-list">Về chúng tôi</li>
               </ul>
             </div>
