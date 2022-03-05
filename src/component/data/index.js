@@ -18,7 +18,7 @@ export const HTML_CSSZH = {
     ]
 }
 
-export const NM = {
+export const nhap_mon = {
     course:"Kiến Thức Nhập Môn IT",
     review: [
         "Các kiến thức cơ bản, nền móng của ngành IT",
@@ -34,7 +34,7 @@ export const NM = {
     ]
 }
 
-export const JS_Basic = {
+export const javascript_basic = {
     course: "JavaScript Cơ Bản",
     review: [
         "Hiểu chi tiết về các khái niệm cơ bản trong JS",
@@ -54,7 +54,7 @@ export const JS_Basic = {
     ]
 }
 
-export const JS_Advanced = {
+export const javascript_advance = {
     course: "JavaScript Nâng Cao",
     review: [
         "Được học kiến thức miễn phí với nội dung chất lượng hơn mất phí",
