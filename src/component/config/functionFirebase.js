@@ -39,25 +39,33 @@ export const signInWithFirebase = (typeLogin) => {
         .then(async (res) => {
           if (res.status === 200) {
             // Apply setCookie
-            data = Object.assign({image:data.photoURL},data);
-            localStorage.setItem("authUser" , JSON.stringify(data))
+            data = Object.assign({ image: data.photoURL }, data);
+            localStorage.setItem("authUser", JSON.stringify(data));
             setCookie("CCD", token, 1);
             window.location.replace("/");
           }
         })
         .catch((err) => {
-          console.log(err);
+          return "SERVER ERROR";
         });
     })
     .catch((error) => {
       if (error.email) {
-        return console.log("Email đã được dùng để xác thực");
+        const alertLogin = document.querySelector("#alert_login");
+        alertLogin.style.display = "block";
+        setTimeout(() => {
+          alertLogin.style.display = "none";
+        }, 5000);
+        return;
       }
       // The AuthCredential type that was used.
       if (FacebookAuthProvider.credentialFromError(error)) {
-        return console.log(
-          "Email đã được dùng để xác thực bằng phương pháp khác"
-        );
+        const alertLogin = document.querySelector("#alert_login");
+        alertLogin.style.display = "block";
+        setTimeout(() => {
+          alertLogin.style.display = "none";
+        }, 5000);
+        return;
       }
     });
 };
