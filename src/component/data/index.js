@@ -8,7 +8,7 @@ export const HTML_CSSZH = {
         "Biết cách phân tích giao diện website",
         "Biết cách làm giao diện web responsive",
         "Sở hữu 2 giao diện web khi học xong khóa học",
-        "Biết cách tự học những kiến thức mới"
+        "Biết cách tự học những kiến thức mới",
     ],
     require: [
         "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
@@ -18,13 +18,46 @@ export const HTML_CSSZH = {
     ]
 }
 
-export const nhap_mon = {
-    course:"Kiến Thức Nhập Môn IT",
+export const HTML_CSSTT = {
+    course:"HTML, CSS Tricks & Tips",
     review: [
-        "Các kiến thức cơ bản, nền móng của ngành IT",
-        "Các khái niệm, thuật ngữ cốt lõi khi triển khai ứng dụng",
+        "Biết được một số thủ thuật và mẹo để lập trình website đơn giản hơn",
+        "Biết cách phân tích giao diện website",
+        "Biết cách làm giao diện web responsive",
+        "Sở hữu 2 giao diện web khi học xong khóa học",
+        "Biết cách tự học những kiến thức mới",
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+}
+export const lapTrinh_C = {
+    course:"Lập trình C",
+    review: [
+        "Định danh trong ngôn ngữ lập trình C",
+        "Input và Output trong ngôn ngữ C cơ bản",
+        "Các khái niệm cốt lõi như mảng, chuỗi, hàm, đặc tả tập tin,…",
+        "Cấu trúc dữ liệu và giải thuật với ngôn ngữ lập trình C",
         "Các mô hình, kiến trúc cơ bản khi triển khai ứng dụng",
-        "Hiểu hơn về cách internet và máy vi tính hoạt động",
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+}
+
+export const csdl_SQL = {
+    course:"Cơ sở dữ liệu SQL",
+    review: [
+        "Các khái niệm thuật ngữ về cơ sở dữ liệu",
+        "Các xây dựng hệ cơ sở dữ liệu",
+        "Làm quen với ngôn ngữ truy vấn SQL",
+        "Các truy vấn cơ bản trong SQL",
     ],
     require: [
         "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
@@ -96,24 +129,9 @@ export const reactjs = {
     ]
 }
 
-export const responsive_grid = {
-    course: "Responsive Với Grid System",
-    review: [
-        "Biết cách xây dựng website Responsive",
-        "Tự tay xây dựng được thư viện CSS Grid",
-        "Hiểu được tư tưởng thiết kế với Grid system",
-        "Tự hiểu được Grid layout trong bootstrap"
-    ],
-    require: [
-        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
-        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
-        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
-        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
-    ]
-}
 
 export const nodeJS = {
-    course: "Node & ExpressJS",
+    course: "NodeJS",
     review: [
         "Nắm chắc lý thuyết chung trong việc xây dựng web",
         "Xây dựng web với Express bằng kiến thức thực tế",
@@ -217,7 +235,41 @@ export const lapTrinh_R_1 = {
         "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
     ]
 }
-export const lapTrinh_R_2 = [];
+export const lapTrinh_R_2 = {
+    course: "Phân tích dữ liệu với R",
+    review: [
+        "Biết cách đọc, ghi file dữ liệu",
+        "Hiểu về factors, list và data frame",
+        "Xử lý dữ liệu hiệu quả",
+        "Thống kê và tạo các biểu đồ",
+        "Xây dựng được các mô hình dự đoán, phân tích dữ liệu",
+        "Xây dựng hệ ra quyết định dựa trên phân tích dữ liệu",
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+};
+
+export const vuejs = {
+    course: "Vue.js",
+    review: [
+        "Các khái niệm cơ bản trong Vuejs",
+        "Cách xử lý sự kiện trong Vuejs",
+        "Các biểu thức điều kiện và vòng lặp",
+        "Cách xử dụng Vue CLI",
+        "Sử dụng Props, Custom Event, Slot, Ref",
+        "Tìm hiểu về Lifecycle của một ứng dụng Vuejs",
+    ],
+    require: [
+        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
+        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
+        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
+        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
+    ]
+};
 
 
 // slug = html;
@@ -232,7 +284,7 @@ export const lapTrinh_R_2 = [];
 //     res:[
 //      idUser,
 //      content,
-//      countlike   
+//      countlike
 //     ],
 //     countLike:
 // ]

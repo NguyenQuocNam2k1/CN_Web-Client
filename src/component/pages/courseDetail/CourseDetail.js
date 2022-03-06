@@ -10,9 +10,11 @@ import thumbnailHTML from "../../../images/thumbnailHTML.png"
 function courseDetail(props) {
   const nameCourse = useParams().slug;
   const [LessonOfCourse, setLessonOfCourse] = useState([]);
+  const [courseImage , setCourseImage] = useState(" ");
   const re_render = useSelector(state => state.courses.render);
   useEffect(() => {
       setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
+      setCourseImage(JSON.parse(localStorage.getItem("imageListCourse")));
   }, [re_render || nameCourse ]);
 
     const listReview = dbCourseFix[`${nameCourse}`].review.map((r, index) => {
@@ -103,7 +105,7 @@ function courseDetail(props) {
             </div>
 
             <div className="col-3 card cd-body-right">
-              <img src={thumbnailHTML} className="card-img-top" alt="..." />
+              <img src={courseImage} className="card-img-top" alt="..." />
               <div className="card-body cd-card-body">
                 <button className="button_jelly cd-btn">Vào học</button>
                 <div className="cd-card-body-count">

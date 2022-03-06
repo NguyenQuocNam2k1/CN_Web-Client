@@ -124,3 +124,29 @@
   font-size: 15px !important;
   font-weight: 200;
 }
+
+.invalid-feedback{
+  font-weight: 400;
+}
+
+#alert_login{
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  text-align: -webkit-center;
+  background-color: #fff3cd;
+  animation: animationAlert 1.2s ease-in-out;
+  padding: 10px 20px;
+  color: #2c2b2b;
+  border-radius: 7px;
+  margin: 10px 10px 0px 0px;
+}
+
+@keyframes animationAlert{
+  from {right: -30%;}
+  to {right: 0px;}
+}
+.icon_alert{
+  float: left !important;
+  margin-top:6px;
+}
