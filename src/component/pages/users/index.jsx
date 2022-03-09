@@ -14,8 +14,8 @@ function User(props) {
     <Switch>
       <Route exact path={`${match.url}`} component={Login} />
       <Route exact path='user/register' component={Register} />
-
     </Switch>
+
   );
 }
 

@@ -3,9 +3,19 @@ import "./Loading.css";
 
 function Loading() {
   return (
-    <div className="loading">
-      <div className="lds-dual-ring">
-      </div>
+    <div class="lds-spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 }

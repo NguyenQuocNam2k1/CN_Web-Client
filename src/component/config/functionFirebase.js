@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { authentication } from "./firebase.js";
+import { setCookie, getCookie } from "./cookie.js";
 
 const providerFB = new FacebookAuthProvider();
 const providerGG = new GoogleAuthProvider();
@@ -21,7 +22,7 @@ export const signInWithFirebase = (typeLogin) => {
 
   signInWithPopup(authentication, provider)
     .then(async (user) => {
-      const data = user.user.providerData[0];
+      let data = user.user.providerData[0];
       const token = await user.user.getIdToken();
       await fetch("https://cn-web.herokuapp.com/api/user/loginFirebase", {
         method: "POST",
@@ -35,17 +36,11 @@ export const signInWithFirebase = (typeLogin) => {
         referrerPolicy: "no-referrer",
         body: JSON.stringify(data),
       })
-        .then((res) => {
+        .then(async (res) => {
           if (res.status === 200) {
-            // Set a Cookie
-            function setCookie(nameCookie, valueCookie, numberDays) {
-              let date = new Date();
-              date.setTime(date.getTime() + numberDays * 24 * 24 * 60 * 1000);
-              const expires = "expires=" + date.toUTCString();
-              document.cookie =
-                nameCookie + "=" +`Bear ${valueCookie}` + "; " + expires +"; path=/";
-            }
             // Apply setCookie
+            data = Object.assign({image:data.photoURL},data);
+            localStorage.setItem("authUser" , JSON.stringify(data))
             setCookie("CCD", token, 1);
             window.location.replace("/");
           }
@@ -53,9 +48,9 @@ export const signInWithFirebase = (typeLogin) => {
         .catch((err) => {
           console.log(err);
         });
-      })
-      .catch((error) => {
-        if (error.email) {
+    })
+    .catch((error) => {
+      if (error.email) {
         return console.log("Email đã được dùng để xác thực");
       }
       // The AuthCredential type that was used.
@@ -75,7 +70,7 @@ export function getDataUser() {
       return user.providerData[0];
     } else {
       console.log("error");
-      return null
+      return null;
     }
   });
 }
@@ -84,7 +79,9 @@ export function logOut() {
   const auth = getAuth();
   signOut(auth)
     .then(() => {
-      console.log("okeoke");
+      const token = getCookie("CCD") || "";
+      setCookie("CCD", token, 1 / (24 * 60 * 60 * 1000));
+      window.location.replace("/user");
     })
     .catch((error) => {
       console.log(error);

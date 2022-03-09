@@ -7,12 +7,12 @@ function Home(props) {
       <div className="container homepage-container">
         <div className="row homepage_layout_1">
           <div className="col-6 homepage_layout_1_image">
-            <div></div>
+            <div data-aos="fade-right"></div>
             {/* Thẻ div bên trên là chứa background. yêu cầu không ai được xóa */}
           </div>
-          <div className="col-6 homepage_layout_1_layout">
-            <h1>Tham gia khóa học MIỄN PHÍ</h1>
-            <Link to="/user/register">
+          <div className="col-6 homepage_layout_1_layout" data-aos="fade-left">
+            <h1>Tham gia học MIỄN PHÍ</h1>
+            <Link to="/user/register" style={{"paddingLeft":"45px"}}>
               <button className="button_homepage">Đăng ký</button>
             </Link>
             <p>Hoặc đăng ký bằng</p>
@@ -25,7 +25,7 @@ function Home(props) {
         </div>
         <div className="homepage_layout_2">
           <div className="row">
-            <div className="col-5 homepage_layout_2_left">
+            <div className="col-5 homepage_layout_2_left" data-aos="fade-up-right"> 
               <div>
                 <h1>
                   MỤC TIÊU <br /> của bạn là gì?
@@ -41,24 +41,24 @@ function Home(props) {
             </div>
             <div className="col-7">
               <div className="row">
-                <div className="background_1_layout_2 col-6">
+                <div className="background_1_layout_2 col-6" data-aos="fade-down">
                   <div>
                     <button>Beginner</button>
                   </div>
                 </div>
-                <div className="background_2_layout_2 col-6">
+                <div className="background_2_layout_2 col-6" data-aos="fade-down">
                   <div>
-                    <button>Beginner</button>
+                    <button>Data</button>
                   </div>
                 </div>
-                <div className="background_3_layout_2 col-6">
+                <div className="background_3_layout_2 col-6" data-aos="fade-up">
                   <div>
-                    <button>Beginner</button>
+                    <button>Front-end</button>
                   </div>
                 </div>
-                <div className="background_4_layout_2 col-6">
+                <div className="background_4_layout_2 col-6" data-aos="fade-up">
                   <div>
-                    <button>Beginner</button>
+                    <button>Back-end</button>
                   </div>
                 </div>
               </div>
@@ -86,12 +86,11 @@ function Home(props) {
       <div className="homepage_layout_3">
         <div>
           <h1>120.000+</h1>
-          <br />
           <h2>nguời khác đã học</h2>
         </div>
       </div>
       {/* Layout 6 */}
-      <div className="container">
+      {/* <div className="container">
         <div className="homepage_layout_5">
           <div className="row">
             <div className="col-6 homepage_layout_5_right">
@@ -109,13 +108,12 @@ function Home(props) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="homepage_layout_4">
         <div className="container">
           <div className="row">
             <div className="col-6 homepage_layout_4_image"></div>
             <div className="col-6 homepage_layout_4_text">
-              <div className="col-12"></div>
               <h1>Tham gia ngay thôi!</h1>
               <p>
                 Nếu đã xem tới đây thì bạn chắc hẳn bạn đã khá tò mò rồi nhỉ.
@@ -124,7 +122,7 @@ function Home(props) {
               <Link to="/user/register">
                 <button className="button_homepage">Đăng ký</button>
               </Link>
-            </div>
+              </div>
           </div>
         </div>
       </div>

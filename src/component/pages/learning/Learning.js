@@ -1,6 +1,5 @@
 import "./Learning.css";
 
-import homeBegin from "../../../images/homeBegin.png"
 import { Link } from "react-router-dom";
 
 
@@ -11,12 +10,10 @@ function Learning(props) {
             <div className="row">
                 <div className="col-3">
                     <div className="card ln-card">
-                        
-                        <Link className="ln-link">
+                        <Link to="#" className="ln-link">
                             <div className="background">
-
+                            <button className="ln-btn">Học tiếp</button>
                             </div>
-                            <button className="btn btn-app ln-btn">Học tiếp</button>
                         </Link>
                         
                         <div className="card-body">
@@ -25,6 +22,62 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
+                <div className="col-3">
+                    <div className="card ln-card">
+                        <Link to="#" className="ln-link">
+                            <div className="background">
+                            <button className="ln-btn">Học tiếp</button>
+                            </div>
+                        </Link>
+                        
+                        <div className="card-body">
+                            <h5 className="card-title">Kiến Thức Nhập Môn IT</h5>
+                            <p className="card-text ln-views">180.000 lượt xem</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="card ln-card">
+                        <Link to="#" className="ln-link">
+                            <div className="background">
+                            <button className="ln-btn">Học tiếp</button>
+                            </div>
+                        </Link>
+                        
+                        <div className="card-body">
+                            <h5 className="card-title">Kiến Thức Nhập Môn IT</h5>
+                            <p className="card-text ln-views">180.000 lượt xem</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="card ln-card">
+                        <Link to="#" className="ln-link">
+                            <div className="background">
+                            <button className="ln-btn">Học tiếp</button>
+                            </div>
+                        </Link>
+                        
+                        <div className="card-body">
+                            <h5 className="card-title">Kiến Thức Nhập Môn IT</h5>
+                            <p className="card-text ln-views">180.000 lượt xem</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="card ln-card">
+                        <Link to="#" className="ln-link">
+                            <div className="background">
+                            <button className="ln-btn">Học tiếp</button>
+                            </div>
+                        </Link>
+                        
+                        <div className="card-body">
+                            <h5 className="card-title">Kiến Thức Nhập Môn IT</h5>
+                            <p className="card-text ln-views">180.000 lượt xem</p>
+                        </div>
+                    </div>
+                </div> 
             </div>
         </div>
     )

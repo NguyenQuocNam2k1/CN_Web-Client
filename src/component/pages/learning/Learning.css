@@ -6,7 +6,11 @@
   border: none;
 }
 
-.background {
+.ln-card .ln-link {
+  position: relative;
+}
+
+.ln-card .ln-link .background {
   background-image: url("../../../images/home-icon.png");
   height: 200px;
   background-position: center;
@@ -16,36 +20,67 @@
   transition: all 0.3s ease 0s;
 }
 
-.ln-link {
-  position: relative;
-}
-
-.ln-btn {
-  text-align: center;
+.ln-card .ln-link .background button {
   position: absolute;
-  top: 50%;
+  border-radius: 25px;
+  width: 110px;
+  height: 34px;
+  border: none;
+  background: #ffd300;
+  font-weight: 600;
+  color: #ffffff;
+  bottom: -20%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  color: white;
-  display: none;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  z-index: 1;
 }
 
-.ln-link:hover .ln-btn {
-  display: block;
+.ln-card .ln-link:hover .background button {
   opacity: 1;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  bottom: 50%;
 }
 
-.ln-link:hover .background {
-  opacity: 0.8;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+.ln-card .ln-link::after {
+  content: "";
+  position: absolute;
+  border-radius: 32px;
+  inset: 0;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0s;
+  transition: all .3s ease 0s;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
+.ln-card .ln-link:hover::after {
+  opacity: 1;
+}
+
+/* .ln-btn {
+     text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blue;
+    color: white;
+    font-weight: 500;
+    border-radius:20px;
+    display: none;
+    transition: all 0.3s ease 0s; 
+  } */
+/* .ln-link:hover .lt-btn {
+    display: block;
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+} */
+/* .ln-link:hover .background{
+    opacity: 0.8;
+    transition: all 0.3s ease 0s;
+} */
 .ln-views {
   font-style: italic;
 }

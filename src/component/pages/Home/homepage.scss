@@ -1,5 +1,5 @@
 .homepage-container {
-  margin-top: 130px;
+  margin-top: 85px;
 }
 
 .homepage_layout_1 {
@@ -18,8 +18,8 @@
   }
   & .homepage_layout_1_layout {
     margin: auto;
-    text-align: center;
     & h1 {
+      padding-left: 45px;
       font-size: 39px;
       color: #000000;
       margin-bottom: 25px;
@@ -27,12 +27,13 @@
     }
     & p {
       font-size: 20px;
+      padding-left: 45px;
       color: #000000;
       font-weight: normal;
     }
     & .list_logo {
       display: flex;
-      justify-content: center;
+      padding-left: 45px;
       & .logo {
         width: 50px;
         height: 50px;
@@ -48,7 +49,7 @@
       }
       & .logo_facebook {
         background-image: url("../../../images/facebook.png");
-        margin: 0 24px;
+        margin: 0 33px;
       }
       & .logo_github {
         background-image: url("../../../images/github.png");
@@ -62,7 +63,7 @@
   border: none;
   background-color: #466a8a;
   color: #ffffff;
-  font-size: 23px;
+  font-size: 21px;
   border-radius: 25px;
   font-weight: 750;
   margin-bottom: 21px;
@@ -76,19 +77,17 @@
 // Layout 2
 .homepage_layout_2 {
   min-height: 350px;
-  margin-top: 20px;
+  margin-top: 50px;
   & .homepage_layout_2_left {
     display: flex;
     & div {
       margin: auto;
       & p {
         margin-top: 23px;
-        font-weight: 520;
-        font-size: 18px;
-        width: 83%;
-        font-family: Josefin Sans;
-        font-style: normal;
+        font-weight: 300;
+        font-size: 19px;
         color: #10162f;
+        width: 90%;
       }
     }
   }
@@ -127,7 +126,7 @@
     max-height: 320px;
     & div {
       position: relative;
-      background-image: url("../../../images/homeFrontend.png");
+      background-image: url("../../../images/homeScience.png");
       height: 100%;
       background-repeat: no-repeat;
       text-align: center;
@@ -149,9 +148,10 @@
   & .background_3_layout_2 {
     min-height: 270px;
     max-height: 320px;
+    margin-top: 20px;
     & div {
       position: relative;
-      background-image: url("../../../images/homeRegister.png");
+      background-image: url("../../../images/homeFrontend.png");
       height: 100%;
       background-repeat: no-repeat;
       text-align: center;
@@ -173,9 +173,10 @@
   & .background_4_layout_2 {
     min-height: 270px;
     max-height: 320px;
+    margin-top: 20px;
     & div {
       position: relative;
-      background-image: url("../../../images/homeBegin.png");
+      background-image: url("../../../images/homeBackend.png");
       height: 100%;
       background-repeat: no-repeat;
       text-align: center;
@@ -228,7 +229,6 @@
 }
 
 .homepage_layout_4 {
-  margin-bottom: 120px;
   height: 405px;
   background-color: #ffd300;
   & .container {
@@ -236,6 +236,18 @@
     & .row {
       height: 100%;
     }
+  }
+}
+.col-6.homepage_layout_4_text {
+  margin:auto ;
+  & h1 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  & p {
+    font-size: 20px;
+    font-weight: 350;
+    width: 83%;
   }
 }
 
@@ -246,21 +258,7 @@
   height: 96%;
   background-position: center;
 }
-.homepage_layout_4_text {
-  text-align: center;
-  display: grid;
-  margin: 0;
-  color: #000000;
-  & h1 {
-    font-weight: bold;
-    font-size: 50px;
-  }
-  & p {
-    font-weight: normal;
-    font-size: 25px;
-    text-align: justify;
-  }
-}
+
 .homepage-container button,
 .homepage_layout_4 button {
   transition: all 0.3s ease 0s;
@@ -276,7 +274,9 @@
 // Layout 5
 .homepage_layout_5 {
   height: 450px;
-  & .homepage_layout_5_left{
+  margin-bottom: 50px;
+  margin-top: 30px;
+  & .homepage_layout_5_left {
     height: 450px;
     & .background_layout_5 {
       background-image: url("../../../images/education.png");
@@ -284,7 +284,7 @@
       background-repeat: no-repeat;
       height: 100%;
       background-position: left;
-      margin-top:10px;
+      margin-top: 10px;
     }
   }
   & .homepage_layout_5_right {
@@ -296,11 +296,11 @@
 }
 
 // layout 6
-.background_layout_6{
-    background-image: url("../../../images/education.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    background-position: left;
-    margin-top:10px;
-}
+// .background_layout_6 {
+//   background-image: url("../../../images/education.png");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   height: 100%;
+//   background-position: left;
+//   margin-top: 10px;
+// }

@@ -8,13 +8,11 @@
 }
 
 .list-course-name {
-  position: fixed;
   top: 132px;
   background-color: #fff;
   border-radius: 6px;
   color: #333;
   padding-right: 20px;
-  width: 20%;
   max-width: 300px;
   z-index: 100;
 
@@ -140,11 +138,8 @@
       }
 
       & .body-course {
-        & a {
-          text-decoration: none;
-
-          & .title-course {
-            text-align: center;
+        text-align: center;
+          & .title-course{
             color: #333;
             overflow: hidden;
             // height: 3.2rem;
@@ -153,7 +148,6 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 1;
           }
-        }
 
         & .description-course {
           overflow: hidden;
@@ -188,3 +182,5 @@
 .card.course img {
   height: 240px !important;
 }
+
+
