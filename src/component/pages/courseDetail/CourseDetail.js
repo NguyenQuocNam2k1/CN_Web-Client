@@ -4,26 +4,17 @@ import { Link, useParams } from "react-router-dom";
 import Loading from "component/container/loading/Loading";
 import { useEffect, useState } from "react";
 import {useSelector} from "react-redux";
-<<<<<<< HEAD
-=======
 import thumbnailHTML from "../../../images/thumbnailHTML.png"
 
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
 
 function courseDetail(props) {
   const nameCourse = useParams().slug;
   const [LessonOfCourse, setLessonOfCourse] = useState([]);
-<<<<<<< HEAD
-  const re_render = useSelector(state => state.courses.render);
-  useEffect(() => {
-      setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
-=======
   const [courseImage , setCourseImage] = useState(" ");
   const re_render = useSelector(state => state.courses.render);
   useEffect(() => {
       setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
       setCourseImage(JSON.parse(localStorage.getItem("imageListCourse")));
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
   }, [re_render || nameCourse ]);
 
     const listReview = dbCourseFix[`${nameCourse}`].review.map((r, index) => {
@@ -36,10 +27,7 @@ function courseDetail(props) {
             fill="currentColor"
             className="bi bi-check-lg"
             viewBox="0 0 16 16"
-<<<<<<< HEAD
-=======
             color="#0a58ca"
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
           >
             <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
           </svg>
@@ -57,10 +45,7 @@ function courseDetail(props) {
             fill="currentColor"
             className="bi bi-check-lg"
             viewBox="0 0 16 16"
-<<<<<<< HEAD
-=======
             color="#0a58ca"
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
           >
             <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
           </svg>
@@ -78,10 +63,7 @@ function courseDetail(props) {
           fill="currentColor"
           className="bi bi-play-circle"
           viewBox="0 0 16 16"
-<<<<<<< HEAD
-=======
           color="#0a58ca"
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
         >
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
           <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
@@ -103,10 +85,6 @@ function courseDetail(props) {
         <div className="course-detail">
           <div className="cd-header">
             <h2 className="cd-header-title">{dbCourseFix[`${nameCourse}`].course}</h2>
-<<<<<<< HEAD
-            <button className="btn-app-y">Vào học</button>
-=======
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
           </div>
           <div className="row cd-body">
             <div className="col-8 cd-body-left">
@@ -126,10 +104,6 @@ function courseDetail(props) {
               </div>
             </div>
 
-<<<<<<< HEAD
-            <div className="col-4 cd-body-count">
-              <div className="cbc cd-body-count-user">
-=======
             <div className="col-3 card cd-body-right">
               <img src={courseImage} className="card-img-top" alt="..." />
               <div className="card-body cd-card-body">
@@ -142,7 +116,6 @@ function courseDetail(props) {
                       height="16" 
                       color="blue"
                       fill="currentColor" 
-                      color="#0d6efd"
                       class="bi bi-calendar-check-fill" 
                       viewBox="0 0 16 16">
                       <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
@@ -192,7 +165,6 @@ function courseDetail(props) {
 
             </div>
               {/* <div className="cbc cd-body-count-user">
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                 Có <br />
                 <p className="number">120.000</p>
                 <br /> người đã học khoá này
@@ -200,11 +172,7 @@ function courseDetail(props) {
               <div className="cbc cd-body-count-time">
                 Thời gian hoàn thành khoá học <br />
                 <p className="number">9 giờ</p>
-<<<<<<< HEAD
-              </div>
-=======
               </div> */}
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
             </div>
           </div>
         </div>

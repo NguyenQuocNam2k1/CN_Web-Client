@@ -29,12 +29,8 @@ function DetailCourse(props) {
         const tabMenu = document.querySelector('.tab-menu');
         const video = document.querySelector('.video-content');
         iconMenu.style.display = 'block';
-<<<<<<< HEAD
-        tabMenu.style.right = '-370px';
-=======
         tabMenu.style.width = '0%';
         tabMenu.style.opacity = '0';
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
         video.style.width = '100%';
     }
 
@@ -43,12 +39,8 @@ function DetailCourse(props) {
         const tabMenu = document.querySelector('.tab-menu');
         const video = document.querySelector('.video-content');
         iconMenu.style.display = 'none';
-<<<<<<< HEAD
-        tabMenu.style.right = '0px';
-=======
         tabMenu.style.width = '25%';
         tabMenu.style.opacity = '1';
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
         video.style.width = '75%';
     }
 

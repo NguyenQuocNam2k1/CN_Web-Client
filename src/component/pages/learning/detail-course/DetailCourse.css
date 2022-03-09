@@ -53,13 +53,8 @@
   width: 75%;
   text-align: center;
   margin-top: 50px;
-<<<<<<< HEAD
-  -webkit-transition: all 0.6s ease 0s;
-  transition: all 0.6s ease 0s;
-=======
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
 }
 
 .video-detail .video-content iframe {
@@ -150,16 +145,8 @@
   margin-left: 20px;
   padding-left: 16px;
   border-radius: 6px;
-<<<<<<< HEAD
-  width: 500px;
-=======
   width: 70%;
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
-}
-
-.video-detail .comment-coding .comment .comment-detail .title {
   font-size: 24px;
-  font-weight: 600;
   border-bottom: 1px solid #887b7b;
   margin-top: 60px;
   margin-bottom: 30px;

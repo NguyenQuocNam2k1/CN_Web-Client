@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React , {useEffect} from "react";
 import { useSelector, useDispatch} from "react-redux";
 import Loading from "component/container/loading/Loading";
@@ -9,16 +8,6 @@ import { getRouterDetail, getLessonByCourse } from "redux/actions/courseAction";
 
 const FE = [
   { title: "Front-end" },
-=======
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Loading from "component/container/loading/Loading";
-import "./fontEnd.css";
-import { Link, useParams } from "react-router-dom";
-import { getRouterDetail, getLessonByCourse } from "redux/actions/courseAction";
-
-const dataCourseFix = [
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
   {
     type:"front-end",
     title: "Front-end",
@@ -48,16 +37,6 @@ const dataCourseFix = [
 
 function Index() {
   const dispatch = useDispatch();
-<<<<<<< HEAD
-  const {slug} = useParams();
-  useEffect(()=>{
-      dispatch(getRouterDetail(slug));
-    },[]);
-  const {routerDetail} = useSelector((state) => state.courses);
-  const handleClick = (idCourse) => {
-    dispatch(getLessonByCourse(idCourse))
-  }
-=======
   const { slug } = useParams();
 
   let dataCourseRouter ;
@@ -75,7 +54,6 @@ function Index() {
     localStorage.setItem("imageListCourse", JSON.stringify(imgUrl));
     dispatch(getLessonByCourse(idCourse));
   };
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
   return (
     <>
       {routerDetail.length === 0 ? (
@@ -87,20 +65,8 @@ function Index() {
           <div className="font_layout_1">
             <div className="container font_layout_1_child">
               <div className="font_layout_1_child_w">
-<<<<<<< HEAD
-                <h1>Front-end</h1>
-                <div className="font_layout_1_text">
-                  Hầu hết các websites hoặc ứng dụng di động đều có 2 phần là
-                  Front-end và Back-end. Front-end là phần giao diện người dùng
-                  nhìn thấy và có thể tương tác, đó chính là các ứng dụng mobile
-                  hay những website bạn đã từng sử dụng. Vì vậy, nhiệm vụ của
-                  lập trình viên Front-end là xây dựng các giao diện đẹp, dễ sử
-                  dụng và tối ưu trải nghiệm người dùng
-                </div>
-=======
                 <h1>{dataCourseRouter.title}</h1>
                 <div className="font_layout_1_text">{dataCourseRouter.ds}</div>
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                 <div
                   className="font_layout_1_text"
                   style={{ paddingBottom: "10px" }}
@@ -112,10 +78,6 @@ function Index() {
           </div>
           <div className="container">
             {routerDetail.map((value) => {
-<<<<<<< HEAD
-              // console.log(value)
-=======
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
               return (
                 <div className="font_layout_2" key={value._id}>
                   <h2>{value.name}</h2>
@@ -126,12 +88,6 @@ function Index() {
                         <img src={value.image} alt="router_detail" />
                       </div>
                       <div className="col-7 font_courser_text">
-<<<<<<< HEAD
-                        <h3><b>{value.name}</b></h3>
-                        <h4>{value.description}</h4>
-                        <Link to={{pathname:`/courseDetail/${value.idCoursesList}`}}>
-                        <button onClick={()=>handleClick(value._id)} className="button_jelly btn-app-rt">Xem khóa học</button>
-=======
                         <h3>
                           <b>{value.name}</b>
                         </h3>
@@ -149,7 +105,6 @@ function Index() {
                           >
                             Xem khóa học
                           </button>
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                         </Link>
                       </div>
                     </div>

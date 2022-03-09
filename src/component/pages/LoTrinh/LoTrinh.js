@@ -19,20 +19,8 @@ function LoTrinh() {
                     <div className="col-7">
                         <div className="card mb-3 lt-card">
                             <div className="row g-0">
-<<<<<<< HEAD
-                                <div className="col-md-4">
-                                <img src={homeBegin} className="img-fluid rounded-start" alt="..."></img>
-                                </div>
-                                <div className="col-md-8 lt-card-body">
-                                <div className="card-body ">
-                                    <h5 className="card-title">Mới bắt đầu</h5>
-                                    <Link to="/chi-tiet-lo-trinh/moi-bat-dau">
-                                      <button className="btn btn-warning lt-btn" >Chi tiết</button>
-                                    </Link>
-=======
                                 <div className="col-5 lt-img">
                                     <img src={homeBegin} className="img-fluid rounded-start" alt="..."></img>
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                                 </div>
                                 <div className="col-5 lt-card-body">
                                     <div className="card-body ">

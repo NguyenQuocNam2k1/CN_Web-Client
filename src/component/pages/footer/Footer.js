@@ -18,10 +18,6 @@ function Footer(props) {
                   className="img"
                   src={logo}
                   alt="logo"
-<<<<<<< HEAD
-                  style={{"marginTop":"-25.9vh"}}
-=======
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                 ></img>
               </Link>
             </div>
@@ -32,10 +28,6 @@ function Footer(props) {
                 <li className="footer-list">Home</li>
                 <li className="footer-list">Mục lục</li>
                 <li className="footer-list">Lộ trình</li>
-<<<<<<< HEAD
-                <li className="footer-list">Kiểm tra</li>
-=======
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                 <li className="footer-list">Về chúng tôi</li>
               </ul>
             </div>

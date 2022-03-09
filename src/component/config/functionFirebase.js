@@ -39,13 +39,8 @@ export const signInWithFirebase = (typeLogin) => {
         .then(async (res) => {
           if (res.status === 200) {
             // Apply setCookie
-<<<<<<< HEAD
-            data = Object.assign({image:data.photoURL},data);
-            localStorage.setItem("authUser" , JSON.stringify(data))
-=======
             data = Object.assign({ image: data.photoURL }, data);
             localStorage.setItem("authUser", JSON.stringify(data));
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
             setCookie("CCD", token, 1);
             window.location.replace("/");
           }
@@ -56,21 +51,13 @@ export const signInWithFirebase = (typeLogin) => {
     })
     .catch((error) => {
       if (error.email) {
-<<<<<<< HEAD
-        return console.log("Email đã được dùng để xác thực");
-=======
         const alertLogin = document.querySelector("#alert_login");
         alertLogin.style.display = "block";
-        setTimeout(() => {
-          alertLogin.style.display = "none";
-        }, 5000);
         return;
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
       }
       // The AuthCredential type that was used.
       if (FacebookAuthProvider.credentialFromError(error)) {
         const alertLogin = document.querySelector("#alert_login");
-        alertLogin.style.display = "block";
         setTimeout(() => {
           alertLogin.style.display = "none";
         }, 5000);

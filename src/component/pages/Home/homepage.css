@@ -290,6 +290,21 @@
   width: 83%;
 }
 
+.col-6.homepage_layout_4_text {
+  margin: auto;
+}
+
+.col-6.homepage_layout_4_text h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.col-6.homepage_layout_4_text p {
+  font-size: 20px;
+  font-weight: 350;
+  width: 83%;
+}
+
 .homepage_layout_4_image {
   background-image: url("../../../images/homeRegister.png");
   background-size: contain;
@@ -342,8 +357,6 @@
 .homepage_layout_5 .homepage_layout_5_right div {
   margin: auto;
 }
-<<<<<<< HEAD
-=======
 
 .btn-app-layout_2 {
   border-radius: 30px;
@@ -354,5 +367,4 @@
   margin-top: 20px;
   height: 48px;
 }
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
 /*# sourceMappingURL=homepage.css.map */

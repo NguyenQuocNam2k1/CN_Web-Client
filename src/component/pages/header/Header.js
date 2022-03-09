@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React ,{ useEffect , useState } from "react";
-=======
 import React, { useEffect, useState } from "react";
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 import search from "./../../../images/search.png";
@@ -40,15 +36,9 @@ function Header() {
 
   const hidenListCourses = () => {
     const listCourses = document.querySelector(".listCourses");
-<<<<<<< HEAD
-    setTimeout(()=>{
-      listCourses.style.display = "none";
-    },100)
-=======
     setTimeout(() => {
       listCourses.style.display = "none";
     }, 100)
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
     const inputSearch = document.querySelector("#search-input");
     inputSearch.value = "";
   };
@@ -66,13 +56,8 @@ function Header() {
   return (
     <>
       {match === "/user" ||
-<<<<<<< HEAD
-      match === "/user/register" ||
-      match === "/learning/detail" ? (
-=======
         match === "/user/register" ||
         match === "/learning/detail" ? (
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -138,14 +123,6 @@ function Header() {
                   <p>{`Kết quả cho '${valueInput}'`}</p>
                   {dataListCourse.map((course, index) => {
                     return (
-<<<<<<< HEAD
-                      <Link 
-                       to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
-                        key={index}
-                        onClick={()=> dispatch(getLessonByCourse(course._id))}
-                      >
-                        <li className="menu-items">
-=======
                       <Link
                         to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
                         key={index}
@@ -153,7 +130,6 @@ function Header() {
                         <li className="menu-items"
                           onClick={() => dispatch(getLessonByCourse(course._id))}
                         >
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                           {course.name}
                         </li>
                       </Link>
@@ -170,22 +146,13 @@ function Header() {
                 </Link>
               ) : (
                 <div className="avatar">
-<<<<<<< HEAD
-                  <img
-=======
                    <img
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                     src={authUser.image}
                     className="rounded-circle"
                     style={{ width: "40px" }}
                     alt="Avatar"
-<<<<<<< HEAD
-                  />
-                  <ul className="avatar_list">
-=======
                   /> 
                     <ul className="avatar_list">
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                     <li>Viết blog</li>
                     <li>Bài viết của tôi</li>
                     <li>Bài viết đã lưu</li>

@@ -40,29 +40,6 @@ function Login() {
     passWord: "",
   };
 
-<<<<<<< HEAD
-    return (
-        <div className="page-login">
-                <div className="photo-edit__form">
-                    <h1>Login</h1>
-                    <LoginForm
-                        initialValues={initialValues}
-                        onSubmit={handleSubmit}
-                        auth={auth}
-                    />
-                    <div className="login-other">
-                        <p>Hoặc đăng nhập bằng</p>
-                        <div className='list_logo'>
-                            <div className='logo logo_gg' onClick={() => signInWithFirebase('GG')}></div>
-                            <div className='logo logo_facebook' onClick={() => signInWithFirebase('FB')}></div>
-                            <div className='logo logo_github'onClick={() => signInWithFirebase('GH')}></div>
-                        </div>
-                        <Link to='/user/register'>
-                            <button className='btn btn-primary' style={{'padding': '8px 28px'}}>Tạo tài khoản</button>
-                        </Link>
-                    </div>
-                </div>
-=======
   return (
     <div className="page-login background_login">
       <div id="alert_login" style={{"display":"none"}}>
@@ -129,7 +106,6 @@ function Login() {
               Đăng ký{" "}
             </Link>
           </p>
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
         </div>
       </div>
     </div>

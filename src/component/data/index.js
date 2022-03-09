@@ -8,11 +8,7 @@ export const HTML_CSSZH = {
         "Biết cách phân tích giao diện website",
         "Biết cách làm giao diện web responsive",
         "Sở hữu 2 giao diện web khi học xong khóa học",
-<<<<<<< HEAD
-        "Biết cách tự học những kiến thức mới"
-=======
         "Biết cách tự học những kiến thức mới",
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
     ],
     require: [
         "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
@@ -46,9 +42,6 @@ export const lapTrinh_C = {
         "Các khái niệm cốt lõi như mảng, chuỗi, hàm, đặc tả tập tin,…",
         "Cấu trúc dữ liệu và giải thuật với ngôn ngữ lập trình C",
         "Các mô hình, kiến trúc cơ bản khi triển khai ứng dụng",
-<<<<<<< HEAD
-        "Hiểu hơn về cách internet và máy vi tính hoạt động",
-=======
     ],
     require: [
         "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
@@ -65,7 +58,6 @@ export const csdl_SQL = {
         "Các xây dựng hệ cơ sở dữ liệu",
         "Làm quen với ngôn ngữ truy vấn SQL",
         "Các truy vấn cơ bản trong SQL",
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
     ],
     require: [
         "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
@@ -137,24 +129,6 @@ export const reactjs = {
     ]
 }
 
-<<<<<<< HEAD
-export const responsive_grid = {
-    course: "Responsive Với Grid System",
-    review: [
-        "Biết cách xây dựng website Responsive",
-        "Tự tay xây dựng được thư viện CSS Grid",
-        "Hiểu được tư tưởng thiết kế với Grid system",
-        "Tự hiểu được Grid layout trong bootstrap"
-    ],
-    require: [
-        "Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)",
-        "Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó",
-        "Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học",
-        "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
-    ]
-}
-=======
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
 
 export const nodeJS = {
     course: "NodeJS",
@@ -261,9 +235,6 @@ export const lapTrinh_R_1 = {
         "Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)",
     ]
 }
-<<<<<<< HEAD
-export const lapTrinh_R_2 = [];
-=======
 export const lapTrinh_R_2 = {
     course: "Phân tích dữ liệu với R",
     review: [
@@ -317,4 +288,3 @@ export const vuejs = {
 //     ],
 //     countLike:
 // ]
->>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
