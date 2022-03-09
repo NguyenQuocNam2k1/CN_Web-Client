@@ -52,7 +52,11 @@ function LoginForm(props) {
                         />
                         {props.auth.status === "500" && <p className="error-login">{props.auth.message}</p>}
                         <FormGroup>
-                            <Button type="submit" color='primary'>Đăng nhập
+                            <Button type="submit" color='primary'>
+                                <div>
+
+                                <p>Đăng nhập</p>
+                                </div>
                                 {isSubmitting && <Spinner size="small" />}
                             </Button>
                         </FormGroup>

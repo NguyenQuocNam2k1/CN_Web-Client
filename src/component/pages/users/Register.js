@@ -62,7 +62,7 @@ function Register(props) {
     };
 
     return (
-        <div className="page-register">
+        <div className="page-register background_login">
             <div className="photo-edit__form">
                 <h1>Register</h1>
 

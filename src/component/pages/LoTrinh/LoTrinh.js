@@ -19,6 +19,7 @@ function LoTrinh() {
                     <div className="col-7">
                         <div className="card mb-3 lt-card">
                             <div className="row g-0">
+<<<<<<< HEAD
                                 <div className="col-md-4">
                                 <img src={homeBegin} className="img-fluid rounded-start" alt="..."></img>
                                 </div>
@@ -28,7 +29,18 @@ function LoTrinh() {
                                     <Link to="/chi-tiet-lo-trinh/moi-bat-dau">
                                       <button className="btn btn-warning lt-btn" >Chi tiết</button>
                                     </Link>
+=======
+                                <div className="col-5 lt-img">
+                                    <img src={homeBegin} className="img-fluid rounded-start" alt="..."></img>
+>>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                                 </div>
+                                <div className="col-5 lt-card-body">
+                                    <div className="card-body ">
+                                        <h5 className="card-title">Mới bắt đầu</h5>
+                                        <Link to="/chi-tiet-lo-trinh/moi-bat-dau">
+                                        <button className="btn btn-warning lt-btn" >Chi tiết</button>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -36,10 +48,10 @@ function LoTrinh() {
                     <div className="col-7">
                     <div className="card mb-3 lt-card">
                         <div className="row g-0">
-                            <div className="col-md-4">
+                            <div className="col-5 lt-img">
                             <img src={homeFrontend} className="img-fluid rounded-start" alt="..." />
                             </div>
-                            <div className="col-md-8 lt-card-body">
+                            <div className="col-5 lt-card-body">
                             <div className="card-body">
                                 <h5 className="card-title">Front-end</h5>
                                 <Link to="/chi-tiet-lo-trinh/front-end">
@@ -53,10 +65,10 @@ function LoTrinh() {
                 <div className="col-7">
                     <div className="card mb-3 lt-card">
                         <div className="row g-0">
-                            <div className="col-md-4">
+                            <div className="col-5 lt-img">
                             <img src={homeBackend} className="img-fluid rounded-start" alt="..." />
                             </div>
-                            <div className="col-md-8 lt-card-body">
+                            <div className="col-5 lt-card-body">
                             <div className="card-body">
                                 <h5 className="card-title">Back-end</h5>
                                 <Link to="/chi-tiet-lo-trinh/back-end">
@@ -70,10 +82,10 @@ function LoTrinh() {
                 <div className="col-7">
                     <div className="card mb-3 lt-card">
                         <div className="row g-0">
-                            <div className="col-md-4">
+                            <div className="col-5 lt-img">
                             <img src={homeDataScience} className="img-fluid rounded-start" alt="..." />
                             </div>
-                            <div className="col-md-8 lt-card-body">
+                            <div className="col-5 lt-card-body">
                             <div className="card-body">
                                 <h5 className="card-title">Data Science</h5>
                                 <Link to="/chi-tiet-lo-trinh/data-science">

@@ -8,7 +8,12 @@ function MucLuc(props) {
   const dispatch = useDispatch();
 
   const courseList = useSelector((state) => state.courses.courseList);
+<<<<<<< HEAD
   const handleClick = (idCourse) => {
+=======
+  const handleClick = (idCourse , imgUrl) => {
+    localStorage.setItem("imageListCourse" , JSON.stringify(imgUrl));
+>>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
     dispatch(getLessonByCourse(idCourse));
   };
   return (
@@ -92,7 +97,11 @@ function MucLuc(props) {
                     <div className="card course">
                       <img
                         src={course.image}
+<<<<<<< HEAD
                         className="card-img-top"
+=======
+                        className="card-img-top ml-img img-hover-zoom img-hover-zoom--colorize"
+>>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                         alt="anh-khoa-hoc"
                         style={{ height: "182px" }}
                       ></img>
@@ -109,7 +118,11 @@ function MucLuc(props) {
                           <Link
                             to={{pathname:`/courseDetail/${course.idCoursesList}`}}
                             className="btn btn-primary button_jelly"
+<<<<<<< HEAD
                             onClick={() => handleClick(course._id)}
+=======
+                            onClick={() => handleClick(course._id , course.image)}
+>>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
                             style={{
                               fontSize: "18px",
                               padding: "6px 41px",

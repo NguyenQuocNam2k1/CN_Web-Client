@@ -34,7 +34,7 @@ function Home(props) {
                   Một trong những điều quan trọng nhất bạn cần làm khi học lập
                   trình đó là xác định đúng mục tiêu học tập của mình.
                 </p>
-                <button className="btn-app-layout_2 btn-app">
+                <button className="btn-app btn-app-layout_2">
                   Xem chi tiết
                 </button>
               </div>
@@ -69,13 +69,16 @@ function Home(props) {
           <div className="row">
             <div className="col-6">
               <div className="homepage_layout_5_left">
-                <div className="background_layout_5"></div>
+                <div className="background_layout_5" data-aos="fade-up-right"></div>
               </div>
             </div>
-            <div className="col-6 homepage_layout_5_right">
+            <div className="col-6 homepage_layout_5_right" data-aos="fade-up-left">
               <div>
                 <h1>Bạn đang là học viên của CoCoders?</h1>
-                <button className="btn-app-layout_2 btn-app">
+                <button className="btn-app-layout_2 btn-app" 
+                style={{"borderRadius": "30px", 
+                "width": "290px",
+                "height": "48px"}}>
                   Xem khóa đang học
                 </button>
               </div>
@@ -112,8 +115,13 @@ function Home(props) {
       <div className="homepage_layout_4">
         <div className="container">
           <div className="row">
+<<<<<<< HEAD
             <div className="col-6 homepage_layout_4_image"></div>
             <div className="col-6 homepage_layout_4_text">
+=======
+            <div className="col-6 homepage_layout_4_image" data-aos="fade-up-right"></div>
+            <div className="col-6 homepage_layout_4_text" data-aos="fade-up-left">
+>>>>>>> d10e6f167b716b9556cbc12170fa97e20366aa3c
               <h1>Tham gia ngay thôi!</h1>
               <p>
                 Nếu đã xem tới đây thì bạn chắc hẳn bạn đã khá tò mò rồi nhỉ.
