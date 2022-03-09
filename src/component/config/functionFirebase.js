@@ -53,11 +53,15 @@ export const signInWithFirebase = (typeLogin) => {
       if (error.email) {
         const alertLogin = document.querySelector("#alert_login");
         alertLogin.style.display = "block";
+        setTimeout(() => {
+          alertLogin.style.display = "none";
+        }, 5000);
         return;
       }
       // The AuthCredential type that was used.
       if (FacebookAuthProvider.credentialFromError(error)) {
         const alertLogin = document.querySelector("#alert_login");
+        alertLogin.style.display = "block";
         setTimeout(() => {
           alertLogin.style.display = "none";
         }, 5000);
