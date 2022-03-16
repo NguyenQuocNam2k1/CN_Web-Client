@@ -2,7 +2,8 @@ import { UserTypes } from "../constants/action-types";
 import { setCookie } from "component/config/cookie";
 
 const initialState = {
-    dataUser: []
+    dataUser: "100",
+    stRegister: false,
 }
 
 export const userReducer = (state = initialState, { type, payload }) => {
@@ -14,7 +15,9 @@ export const userReducer = (state = initialState, { type, payload }) => {
                 localStorage.setItem("authUser" , JSON.stringify(payload.data));
                 setCookie('CCD', valueToken, 1);
             }
-            return {...state , dataUser: payload};
+            return {...state , dataUser: payload.status};
+        case UserTypes.REGISTER:
+            return {...state , stRegister: payload.status};
         default:
             return state;
     }

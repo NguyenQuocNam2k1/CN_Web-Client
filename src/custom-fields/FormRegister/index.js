@@ -40,28 +40,30 @@ function FormRegister(props) {
               name="email"
               component={InputField}
               label="Email"
-              placeholder="Nhập email ... "
+              placeholder="a@gmail.com"
             />
 
             <FastField
               name="userName"
               component={InputField}
-              label="User Name"
-              placeholder="Nhập user name ... "
+              label="Tên người dùng"
+              placeholder="Nguyen Van A"
             />
 
             <FastField
               name="passWord"
               component={InputField}
-              label="Pass Word"
-              placeholder="Nhập mật khẩu ... "
+              label="Mật khẩu"
+              type="password"
+              placeholder="******"
             />
 
             <FastField
               name="againPassWord"
               component={InputField}
-              label="Again Pass Word"
-              placeholder="Nhập lại mật khẩu ... "
+              label="Xác nhận mật khẩu"
+              type="password"
+              placeholder="******"
             />
 
             <FormGroup>
@@ -69,7 +71,7 @@ function FormRegister(props) {
                 <div>
                   <p>Đăng ký</p>
                 </div>
-                {isSubmitting && <Spinner />}
+                {isSubmitting}
               </Button>
               <p style={{ marginTop: "20px", marginBottom: "0px" , "fontSize":"14px" , "fontWeight":"500" }}>
                 Bạn là thành viên của Cocoder?

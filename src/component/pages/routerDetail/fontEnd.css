@@ -85,4 +85,8 @@
   font-weight: 590;
   bottom: 0px;
 }
+
+.font_layout_2:last-child {
+  margin-bottom: 70px;
+}
 /*# sourceMappingURL=fontEnd.css.map */

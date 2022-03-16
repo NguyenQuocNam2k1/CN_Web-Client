@@ -74,10 +74,8 @@ export function getDataUser() {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user);
       return user.providerData[0];
     } else {
-      console.log("error");
       return null;
     }
   });

@@ -6,7 +6,7 @@ import {Link , useParams} from "react-router-dom";
 import { getRouterDetail, getLessonByCourse } from "redux/actions/courseAction";
 
 
-const FE = [
+const dataCourseFix = [
   { title: "Front-end" },
   {
     type:"front-end",

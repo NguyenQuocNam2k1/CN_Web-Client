@@ -141,7 +141,18 @@
   border-radius: 7px;
   margin: 10px 10px 0px 0px;
 }
-
+#alert_success{
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  text-align: -webkit-center;
+  background-color: #fff3cd;
+  animation: animationAlert 1.2s ease-in-out;
+  padding: 10px 20px;
+  color: #2c2b2b;
+  border-radius: 7px;
+  margin: 10px 10px 0px 0px;
+}
 @keyframes animationAlert{
   from {right: -30%;}
   to {right: 0px;}
