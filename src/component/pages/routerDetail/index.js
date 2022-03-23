@@ -66,7 +66,7 @@ function Index() {
               </div>
             </div>
           </div>
-          <div className="container">
+          <div className="container" style={{"marginBottom" : "45px"}}>
             {routerDetail.map((value) => {
               // console.log(value)
               return (

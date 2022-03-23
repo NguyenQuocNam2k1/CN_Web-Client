@@ -62,9 +62,9 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
   transition: all 0.5s ease 0s;
 }
 
-.search-input {
-  border-radius: 18px;
-}
+// .search-input {
+//   border-radius: 18px;
+// }
 
 input.form-control.me-2.search-input {
   width: 300px;
@@ -72,7 +72,8 @@ input.form-control.me-2.search-input {
 }
 
 .img-input {
-  width: 20px;
+  width: 27px;
+  padding-right: 5px;
 }
 .login-btn {
   font-size: 16px;
@@ -163,16 +164,21 @@ input.form-control.me-2.search-input {
 }
 
 .d-flex {
-  position: relative;
+  // position: relative;
 }
 
+.form-search {
+  flex-direction: column;
+  
+}
 .btn.btn-search {
   position: absolute;
   left: 6px;
 }
 
 form.d-flex {
-  position: relative;
+  // position: relative;
+  
 
   /* custom scroll */
   & ul.listCourses::-webkit-scrollbar {
@@ -191,17 +197,18 @@ form.d-flex {
   }
   
   & ul.listCourses {
-    position: absolute;
-    top: 34px;
+    // position: absolute;
+    top: 54px;
     width: 100%;
     // min-height: 20vh;
     max-height: 40vh;
     overflow-y: scroll;
     background: aliceblue;
     list-style: none;
-    margin-top: 14px;
+    // margin-top: 24px;
     padding-left: 0px;
     border-radius: 6px;
+    text-align:start;
     box-shadow: 0 0 10px hsla(0, 0%, 76%, 0.635);
     display: none;
     & a{
@@ -224,6 +231,9 @@ form.d-flex {
       font-size: 18px;
       margin-bottom: 0;
       font-weight: 600;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
     }
   }
 
@@ -243,3 +253,85 @@ form.d-flex {
 // }
 
 
+.openBtn {
+  border-radius: 23px;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  margin-right: 10px;
+  padding: 6px 21px 6px 15px;  
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.openBtn:hover {
+  border: none;
+  background-color: #f1f1f1;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  // background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4);
+}
+
+.overlay-content {
+  position: relative;
+  top: 22%;
+  width: 45%;
+  border-radius: 7px;
+  background-color: #f5f6f7;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+  height: 216px;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
+}
+
+.overlay .closebtn:hover {
+  color: #ccc;
+}
+
+.overlay input[type=text] {
+  padding: 15px;
+  margin: 20px auto;
+  font-size: 17px;
+  outline: none;
+  border: 2px solid #3b8ba5;
+  float: left;
+  border-radius: 6px;
+  width: 93%;
+  background: white;
+}
+
+// .overlay input[type=text]:hover {
+//   background: #f1f1f1;
+//   border: none;
+// }
+
+.overlay button {
+  float: left;
+  width: 20%;
+  padding: 15px;
+  background: #466a8a;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay button:hover {
+  background: #bbb;
+}
