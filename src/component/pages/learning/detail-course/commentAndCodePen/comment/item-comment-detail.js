@@ -63,22 +63,20 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                 await socket.emit('updateLike', (cmtList[i]));
             }
         }
-        console.log('cmtList1: ', cmtList);
-        console.log('idUser: ', idUser);
+     
         setCmtList(cmtList);
     };
 
-    console.log('cmtList: ', cmtList);
-
+ 
     useEffect(() => {
         socket.on("receive_comment", (data) => {
             setCmtList((list) => [...list, data]);
-            console.log('list: ', cmtList);
+        
         });
 
         socket.on("receive_count_like_updated", (data) => {
             
-            console.log("data: ", data);
+          
             const nodeAmountLike = document.querySelector(`.amount.${data.id}`);
             nodeAmountLike.textContent = data.countLike.length;
             /* let liked = false;

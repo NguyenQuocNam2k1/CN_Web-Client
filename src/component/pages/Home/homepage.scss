@@ -223,7 +223,7 @@
 
 .homepage_layout_4 {
 	height: 405px;
-	background-color: #ffd300;
+	// background-color: #ffd300;
 	& .container {
 		height: 100%;
 		& .row {
@@ -272,7 +272,7 @@
 .homepage-container button:hover,
 .homepage_layout_4 button:hover {
 	transform: scale(1.05);
-	box-shadow: 0 0 10px rgb(175, 171, 171);
+	// box-shadow: 0 0 10px rgb(175, 171, 171);
 	transition: all 0.3s ease 0s;
 }
 

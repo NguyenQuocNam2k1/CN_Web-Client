@@ -50,6 +50,7 @@ function Index() {
     dispatch(getRouterDetail(slug));
   }, []);
   const { routerDetail } = useSelector((state) => state.courses);
+  // const routerDetail = [];
   const handleClick = (idCourse, imgUrl) => {
     localStorage.setItem("imageListCourse", JSON.stringify(imgUrl));
     dispatch(getLessonByCourse(idCourse));
@@ -76,7 +77,7 @@ function Index() {
               </div>
             </div>
           </div>
-          <div className="container">
+          <div className="container" style={{"marginBottom" : "45px"}}>
             {routerDetail.map((value) => {
               return (
                 <div className="font_layout_2" key={value._id}>

@@ -6,6 +6,7 @@ const socket = io.connect("http://localhost:5000");
 
 function Comment(props) {
 
+
     const user = JSON.parse(localStorage.getItem('authUser'));
     const idRoom = 'html';
 

@@ -26,7 +26,7 @@ function LoTrinh() {
                                     <div className="card-body ">
                                         <h5 className="card-title">Mới bắt đầu</h5>
                                         <Link to="/chi-tiet-lo-trinh/moi-bat-dau">
-                                        <button className="btn btn-warning lt-btn" >Chi tiết</button>
+                                        <button className="lt-btn" >Chi tiết</button>
                                         </Link>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@ function LoTrinh() {
                             <div className="card-body">
                                 <h5 className="card-title">Front-end</h5>
                                 <Link to="/chi-tiet-lo-trinh/front-end">
-                                  <button className="btn btn-warning lt-btn" >Chi tiết</button>
+                                  <button className="lt-btn" >Chi tiết</button>
                                 </Link>
                             </div>
                             </div>
@@ -60,7 +60,7 @@ function LoTrinh() {
                             <div className="card-body">
                                 <h5 className="card-title">Back-end</h5>
                                 <Link to="/chi-tiet-lo-trinh/back-end">
-                                  <button className="btn btn-warning lt-btn" >Chi tiết</button>
+                                  <button className="lt-btn" >Chi tiết</button>
                                 </Link>
                             </div>
                             </div>
@@ -77,7 +77,7 @@ function LoTrinh() {
                             <div className="card-body">
                                 <h5 className="card-title">Data Science</h5>
                                 <Link to="/chi-tiet-lo-trinh/data-science">
-                                   <button className="btn btn-warning lt-btn" >Chi tiết</button>
+                                   <button className="lt-btn" >Chi tiết</button>
                                 </Link>
                             </div>
                             </div>

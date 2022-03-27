@@ -264,7 +264,6 @@
 
 .homepage_layout_4 {
   height: 405px;
-  background-color: #ffd300;
 }
 
 .homepage_layout_4 .container {
@@ -323,8 +322,6 @@
 .homepage_layout_4 button:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-  -webkit-box-shadow: 0 0 10px #afabab;
-          box-shadow: 0 0 10px #afabab;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
