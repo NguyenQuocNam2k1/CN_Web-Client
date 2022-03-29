@@ -47,6 +47,7 @@ function Header() {
   const token = getCookie("CCD") || "";
   let authUser = JSON.parse(localStorage.getItem("authUser"));
 
+
   const [scrolled, setScrolled] = useState(0);
   window.addEventListener("scroll", () => {
     setScrolled(window.scrollY);
@@ -202,7 +203,7 @@ function Header() {
               ) : (
                 <div className="avatar">
                    <img
-                    src={authUser.image}
+                    src={authUser[0].image}
                     className="rounded-circle"
                     style={{ width: "40px" }}
                     alt="Avatar"

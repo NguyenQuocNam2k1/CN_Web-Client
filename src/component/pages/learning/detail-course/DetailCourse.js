@@ -6,11 +6,16 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCheck, faLock, faArrowRight, faList, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import * as dbCourseFix from "../../../data/index.js";
+
 
 library.add(faCheck, faLock, faArrowRight, faList, faChevronLeft, faChevronRight);
 
 function DetailCourse(props) {
-    console.log(useParams());
+    const {slug} = useParams();  //Thằng này là tên khóa học
+    const {search} = useLocation(); //Thằng search này là id của bài học
+
+
     const [type, setType] = useState('comment');
 
     const linkVideo = "https://www.youtube.com/embed/tgbNymZ7vqY";
@@ -52,7 +57,7 @@ function DetailCourse(props) {
                     <Link to='/learning'>
                         <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
                     </Link>
-                    <p>Kiến thức nhập môn</p>
+                    <p>{dbCourseFix[`${slug}`].course}</p>
                     <FontAwesomeIcon icon="fa-solid fa-list" onClick={openMenu} />
                 </div>
                 <div className="video-content">
@@ -85,7 +90,7 @@ function DetailCourse(props) {
                     </div>
 
                     {/* Comment */}
-                    {type === 'comment' ? <Comment /> : <Coding />}
+                    {type === 'comment' ? <Comment idRoom={search.slice(4)}/> : <Coding />}
                 </div>
 
 

@@ -53,27 +53,7 @@ function courseDetail(props) {
         </li>
       );
     });
-  const listContent = LessonOfCourse.map((content) => {
-    return (
-      <div className="cd-body-lesson-1" key={content._id}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-play-circle"
-          viewBox="0 0 16 16"
-          color="#0a58ca"
-        >
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
-        </svg>
-        <Link to={{pathname:`/learning/${nameCourse}/id=${content._id}`}}>
-          <span>{content.name}</span>
-        </Link>
-      </div>
-    );
-  });
+
 
   return (
     <>
@@ -99,7 +79,29 @@ function courseDetail(props) {
                 </div>
                 <div className="col-12 cd-body-learn">
                   <h3 className="cd-body-title">Nội dung khóa học</h3>
-                  <div className="cd-body-lesson">{listContent}</div>
+                  <div className="cd-body-lesson">{
+                    LessonOfCourse.map((content) => {
+                      return (
+                        <div className="cd-body-lesson-1" key={content._id}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            className="bi bi-play-circle"
+                            viewBox="0 0 16 16"
+                            color="#0a58ca"
+                          >
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+                          </svg>
+                          <Link to={{pathname:`/learning/${nameCourse}`, search: `id=${content._id}`}}>
+                            <span>{content.name}</span>
+                          </Link>
+                        </div>
+                      );
+                    })
+                  }</div>
                 </div>
               </div>
             </div>

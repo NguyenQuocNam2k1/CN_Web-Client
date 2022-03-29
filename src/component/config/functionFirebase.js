@@ -24,7 +24,7 @@ export const signInWithFirebase = (typeLogin) => {
     .then(async (user) => {
       let data = user.user.providerData[0];
       const token = await user.user.getIdToken();
-      await fetch("https://cn-web.herokuapp.com/api/user/loginFirebase", {
+      await fetch("http://localhost:5000/api/user/loginFirebase", {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
@@ -36,11 +36,13 @@ export const signInWithFirebase = (typeLogin) => {
         referrerPolicy: "no-referrer",
         body: JSON.stringify(data),
       })
+        .then((res) => {
+          return res.json();
+        })
         .then(async (res) => {
-          if (res.status === 200) {
+          if (res.status === "200") {
             // Apply setCookie
-            data = Object.assign({ image: data.photoURL }, data);
-            localStorage.setItem("authUser", JSON.stringify(data));
+            localStorage.setItem("authUser", JSON.stringify(res.data));
             setCookie("CCD", token, 1);
             window.location.replace("/");
           }

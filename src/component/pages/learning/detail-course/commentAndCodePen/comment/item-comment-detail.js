@@ -6,16 +6,16 @@ import { useEffect, useState } from "react";
 
 library.add(faThumbsUp, faUser);
 
-function CommentDetail({ socket, idUser, username, room, image }) {
+function CommentDetail(props) {
 
+    const { socket, idUser, username, room, image } = props;
     const [currentCmt, setCurrentCmt] = useState("");
     const [cmtList, setCmtList] = useState([]);
-    /*     const [countLike, setCountLike] = useState(false); */
+ 
 
-    const sendComment = async () => {
+    const sendComment = () => {
         if (currentCmt !== "") {
             const cmtData = {
-                id: 'a' + Math.floor(Math.random() * 1000000),
                 idRoom: room,
                 idUser: idUser,
                 username: username,
@@ -29,74 +29,34 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                     new Date(Date.now()).getMinutes(),
             };
 
-            await socket.emit("send_comment", cmtData);
-            setCmtList((list) => [...list, cmtData]);
+            socket.emit("send_comment", cmtData);
             setCurrentCmt("");
         }
     };
 
-    const updateCountLike = async (id) => {
-
-        const nodeAmountLike = document.querySelector(`.amount.${id}`);
-
-        for (let i = 0; i < cmtList.length; i++) {
-            if (cmtList[i].id == id) {
-
-/*                 const data = {
-                    cmt: cmtList[i],
-                    id: id,
-                    idUser: idUser,
-                }; */
-                let liked = false;
-                for (let j = 0; j < cmtList[i].countLike.length; j++) {
-                    if (cmtList[i].countLike[j] == idUser) {
-                        cmtList[i].countLike = cmtList[i].countLike.slice(0, j).concat(cmtList[i].countLike.slice(j + 1));
-                        liked = true;
-                        setCmtList(cmtList)
-                    }
-                };
-                if (!liked) {
-                    cmtList[i].countLike.push(`${idUser}`);
-                    setCmtList(cmtList)
+    const updateCountLike =  (idCmt) => {
+        cmtList.forEach(element => {
+            if(element._id === idCmt){
+                if(!element.countLike.includes(idUser)){
+                    element.countLike.push(idUser);
+                    socket.emit("update_count_like", ({room, idCmt , countLike: element.countLike}));
+                    return;
                 }
-                nodeAmountLike.textContent = cmtList[i].countLike.length;
-                await socket.emit('updateLike', (cmtList[i]));
+                const newArray = element.countLike.filter(item => item !== idUser);
+                console.log(newArray);
+                socket.emit("update_count_like", ({room, idCmt , countLike: newArray}));
             }
-        }
-     
-        setCmtList(cmtList);
+        });
     };
 
  
     useEffect(() => {
-        socket.on("receive_comment", (data) => {
-            setCmtList((list) => [...list, data]);
-        
-        });
+        socket.emit("get_comment", room);
+        socket.on("receive_all_comment", data => setCmtList(data));
 
-        socket.on("receive_count_like_updated", (data) => {
-            
-          
-            const nodeAmountLike = document.querySelector(`.amount.${data.id}`);
-            nodeAmountLike.textContent = data.countLike.length;
-            /* let liked = false;
-            for (let j = 0; j < data.cmt.countLike.length; j++) {
-                if (data.cmt.countLike[j] == data.idUser) {
-                    data.cmt.countLike = data.cmt.countLike.slice(0, j).concat(data.cmt.countLike.slice(j + 1));
-                    liked = true;
-                }
-            };
-            if (!liked) {
-                data.cmt.countLike.push(`${data.idUser}`);
-            }
+        socket.on("receive_comment", data => setCmtList((list) => [...list, data]));
 
-            const nodeAmountLike = document.querySelector(`.amount.${data.id}`);
-            nodeAmountLike.textContent = data.cmt.countLike.length; */
-
-            console.log('cmtListeff: ', cmtList);
-
-        });
-    }, [socket]);
+    }, []);
 
     return (
         <>
@@ -121,9 +81,10 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                 />
                 <button className='btn-app btn-comment' onClick={sendComment}>Bình luận</button>
             </div>
-            {cmtList.map((cmt, index) => {
+            {cmtList.length === 0 ? <></> : cmtList.map((cmt, index) => {
+                let key = cmt._id;
                 return (
-                    <div key={index} className={cmt.id}>
+                    <div key={index} className={cmt._id}>
                         <div className="item-comment-detail">
                             <img
                                 src={cmt.avatar}
@@ -138,18 +99,19 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                                     <div className="icon-like">
                                         <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
                                     </div>
-                                    <p className={`amount ${cmt.id}`}>{cmt.countLike.length}</p>
+                                    <p className={`amount ${cmt._id}`}>{cmt.countLike.length}</p>
                                 </div>
                             </div>
                         </div>
                         <div className="felt-feedback-time">
-                            <p onClick={() => updateCountLike(`${cmt.id}`)} className="felt">Thích</p>
+                            <p onClick={() => updateCountLike(cmt._id)} className="felt">Thích</p>
                             <p className="feedback">Trả lời</p>
                             <p className="time">{cmt.time}</p>
                         </div>
                     </div>
                 );
-            })}
+            })
+            }
         </>
     )
 }
