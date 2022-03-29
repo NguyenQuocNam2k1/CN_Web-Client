@@ -38,6 +38,7 @@
 } */
 
 .btn-app {
+  border-radius: 6px;
   font-size: 16px;
   border: 1px solid #466a8a;
   background-color: #466a8a;

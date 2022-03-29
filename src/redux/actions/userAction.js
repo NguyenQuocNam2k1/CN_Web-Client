@@ -1,15 +1,24 @@
 import { UserTypes } from "../constants/action-types";
 import api from "../../apis/index.js";
 
-export const logIn = (username , password) => async (dispatch) => { 
+export const logIn = (email , password) => async (dispatch) => { 
     try {
-        const response = await api.post("/api/user/logIn" , {username,password});
+        const response = await api.post("/api/user/logIn" , {email , password});
         dispatch({ type: UserTypes.LOG_IN, payload: response.data }); 
     } catch (err) {
-        dispatch({ type: UserTypes.LOG_IN, payload: err.response.data }); 
+        console.log("Error:" , err);
     }
 }
 
+
+export const register = (username , password , email) => async (dispatch) => { 
+    try {
+        const response = await api.post("/api/user/register" , {username,password,email});
+        dispatch({ type: UserTypes.REGISTER, payload: response.data }); 
+    } catch (err) {
+        console.log("Error:" , err)
+    }
+}
 
 
 

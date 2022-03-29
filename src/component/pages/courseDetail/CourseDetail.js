@@ -10,9 +10,11 @@ import thumbnailHTML from "../../../images/thumbnailHTML.png"
 function courseDetail(props) {
   const nameCourse = useParams().slug;
   const [LessonOfCourse, setLessonOfCourse] = useState([]);
+  const [courseImage , setCourseImage] = useState(" ");
   const re_render = useSelector(state => state.courses.render);
   useEffect(() => {
       setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
+      setCourseImage(JSON.parse(localStorage.getItem("imageListCourse")));
   }, [re_render || nameCourse ]);
 
     const listReview = dbCourseFix[`${nameCourse}`].review.map((r, index) => {
@@ -103,7 +105,7 @@ function courseDetail(props) {
             </div>
 
             <div className="col-3 card cd-body-right">
-              <img src={thumbnailHTML} className="card-img-top" alt="..." />
+              <img src={courseImage} className="card-img-top" alt="..." />
               <div className="card-body cd-card-body">
                 <button className="button_jelly cd-btn">Vào học</button>
                 <div className="cd-card-body-count">
@@ -114,7 +116,6 @@ function courseDetail(props) {
                       height="16" 
                       color="blue"
                       fill="currentColor" 
-                      color="#0d6efd"
                       class="bi bi-calendar-check-fill" 
                       viewBox="0 0 16 16">
                       <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>

@@ -289,6 +289,21 @@
   width: 83%;
 }
 
+.col-6.homepage_layout_4_text {
+  margin: auto;
+}
+
+.col-6.homepage_layout_4_text h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.col-6.homepage_layout_4_text p {
+  font-size: 20px;
+  font-weight: 350;
+  width: 83%;
+}
+
 .homepage_layout_4_image {
   background-image: url("../../../images/homeRegister.png");
   background-size: contain;
