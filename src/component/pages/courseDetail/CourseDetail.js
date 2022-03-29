@@ -9,9 +9,11 @@ import thumbnailHTML from "../../../images/thumbnailHTML.png"
 
 function courseDetail(props) {
   const nameCourse = useParams().slug;
-  const [LessonOfCourse, setLessonOfCourse] = useState([]);
-  const [courseImage , setCourseImage] = useState(" ");
+  const [LessonOfCourse, setLessonOfCourse] = useState(null);
+  const [courseImage , setCourseImage] = useState("");
   const re_render = useSelector(state => state.courses.render);
+  
+
   useEffect(() => {
       setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
       setCourseImage(JSON.parse(localStorage.getItem("imageListCourse")));
@@ -57,7 +59,7 @@ function courseDetail(props) {
 
   return (
     <>
-      {LessonOfCourse.length === 0 ? (
+      {!LessonOfCourse ? (
         <>
           <Loading></Loading>
         </>
