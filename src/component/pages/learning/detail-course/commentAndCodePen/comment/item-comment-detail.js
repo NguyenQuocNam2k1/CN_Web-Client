@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
-import { async } from "@firebase/util";
+import { v4 as uuidv4 } from 'uuid';
 
 library.add(faThumbsUp, faUser);
 
@@ -17,27 +17,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
 
   const sendComment = () => {
     if (currentCmt !== "") {
-        const cmtData = {
-            idRoom: room,
-            idUser: idUser,
-            username: username,
-            content: currentCmt,
-            avatar: image,
-            cmtResponse: [],
-            countLike: [],
-            time:
-                new Date(Date.now()).getHours() +
-                ":" +
-                new Date(Date.now()).getMinutes(),
-        };
-        socket.emit("send_comment", cmtData);
-        setCurrentCmt("");
-    }
-};
-
-  const sendCommentResponse =  (id) => {
-    if (currentCmt !== "") {
-      const cmtRes = {
+      const cmtData = {
         idRoom: room,
         idUser: idUser,
         username: username,
@@ -48,72 +28,72 @@ function CommentDetail({ socket, idUser, username, room, image }) {
         time:
           new Date(Date.now()).getHours() +
           ":" +
-          new Date(Date.now()).getMinutes(),
+          new Date(Date.now()).getMinutes() +
+          " - " +
+          new Date(Date.now()).getDate() +
+          "/" +
+          (new Date(Date.now()).getMonth() + 1) +
+          "/" +
+          new Date(Date.now()).getFullYear(),
       };
-
-      for (let i = 0; i < cmtList.length; i++) {
-        if (cmtList[i]._id == id) {
-          cmtList[i].cmtResponse.push(cmtRes);
-        }
-      }
-
-      socket.emit("send_comment_response", cmtList);
-      setCmtList((cmtList) => [...cmtList]);
+      socket.emit("send_comment", cmtData);
       setCurrentCmt("");
     }
   };
 
+  const sendCommentResponse = (_id) => {
+    if (currentResCmt !== "") {
+      const cmtRes = {
+        _id: "ccd" + uuidv4().replace(/-/g, ''),
+        idRoom: room,
+        idUser: idUser,
+        username: username,
+        content: currentResCmt,
+        avatar: image,
+        countLike: [],
+        time:
+          new Date(Date.now()).getHours() +
+          ":" +
+          new Date(Date.now()).getMinutes() +
+          " - " +
+          new Date(Date.now()).getDate() +
+          "/" +
+          (new Date(Date.now()).getMonth() + 1) +
+          "/" +
+          new Date(Date.now()).getFullYear(),
+      };
+  
+      socket.emit("send_comment_response", { _id, cmtRes });
+      setCurrentResCmt("");
+    }
+  };
 
-  const updateCountLike =  (idCmt) => {
-    cmtList.forEach(element => {
-        if(element._id === idCmt){
-            if(!element.countLike.includes(idUser)){
-                element.countLike.push(idUser);
-                socket.emit("update_count_like", ({room, idCmt , countLike: element.countLike}));
-                return;
-            }
-            const newArray = element.countLike.filter(item => item !== idUser);
-            socket.emit("update_count_like", ({room, idCmt , countLike: newArray}));
+  const updateCountLike = (idCmt) => {
+    cmtList.forEach((element) => {
+      if (element._id === idCmt) {
+        if (!element.countLike.includes(idUser)) {
+          element.countLike.push(idUser);
+          socket.emit("update_count_like", {
+            room,
+            idCmt,
+            countLike: element.countLike,
+          });
+          return;
         }
+        const newArray = element.countLike.filter((item) => item !== idUser);
+        socket.emit("update_count_like", { room, idCmt, countLike: newArray });
+      }
     });
-};
+  };
 
   const updateCountLikeRes = async (idCmt, idCmtRes) => {
     const nodeAmountLike = document.querySelector(`.amount.${idCmtRes}`);
     const viewLike = document.querySelector(`.amount-like.${idCmtRes}`);
 
-    for (let i = 0; i < cmtList.length; i++) {
-      if (cmtList[i]._id == idCmt) {
-        for (let j = 0; j < cmtList[i].cmtResponse.length; j++) {
-          let liked = false;
-          if (cmtList[i].cmtResponse[j]._id == idCmtRes) {
-            for (
-              let k = 0;
-              k < cmtList[i].cmtResponse[j].countLike.length;
-              k++
-            ) {
-              if (cmtList[i].cmtResponse[j].countLike[k] == idUser) {
-                cmtList[i].cmtResponse[j].countLike = cmtList[i].cmtResponse[
-                  j
-                ].countLike
-                  .slice(0, k)
-                  .concat(cmtList[i].cmtResponse[j].countLike.slice(k + 1));
-                liked = true;
-              }
-            }
-            if (!liked) {
-              cmtList[i].cmtResponse[j].countLike.push(`${idUser}`);
-            }
-            cmtList[i].cmtResponse[j].countLike.length == 0
-              ? (viewLike.style.display = "none")
-              : (viewLike.style.display = "flex");
-            nodeAmountLike.textContent =
-              cmtList[i].cmtResponse[j].countLike.length;
-          }
-        }
-      }
-    }
-    await socket.emit("updateLike", cmtList);
+    cmtList.forEach(element => {
+      if(element._id !== idCmt) return;
+      if()
+    })
   };
 
   const appearInputResponse = (id) => {
@@ -125,19 +105,20 @@ function CommentDetail({ socket, idUser, username, room, image }) {
 
   useEffect(() => {
     socket.emit("get_comment", room);
-    socket.on("receive_all_comment", (data) => setCmtList(data));
-
+    socket.on("receive_all_comment", (data) => {
+      setCmtList(data.reverse());
+    });
     socket.on("receive_comment", (data) =>
-      setCmtList((list) => [...list, data])
+      setCmtList((list) => [data, ...list])
     );
   }, []);
 
   // set vị trí like theo độ rộng của cmt
   const list = document.querySelectorAll(".description-comment");
   for (let i = 0; i < list.length; i++) {
-    if (list[i].offsetWidth < 200) {
-      list[i].querySelector(".amount-like").style.bottom = "8px";
-      list[i].querySelector(".amount-like").style.right = "-26px";
+    if (list[i].offsetWidth > 200) {
+      list[i].querySelector(".amount-like").style.bottom = "-14px";
+      list[i].querySelector(".amount-like").style.right = "24px";
     }
   }
 
@@ -179,31 +160,18 @@ function CommentDetail({ socket, idUser, username, room, image }) {
               <div className="description-comment">
                 <div className="name">{cmt.username}</div>
                 <div className="description">{cmt.content}</div>
-                {cmt.countLike.length == 0 ? (
-                  <div
-                    className={`amount-like ${cmt._id}`}
-                    style={{ display: "none" }}
-                  >
-                    <div className="icon-like">
-                      <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
-                    </div>
-                    <p className={`amount ${cmt._id}`}>
-                      {cmt.countLike.length}
-                    </p>
+
+                <div
+                  className={`amount-like ${cmt._id}`}
+                  style={{
+                    display: `${cmt.countLike.length == 0 ? "none" : "flex"}`,
+                  }}
+                >
+                  <div className="icon-like">
+                    <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
                   </div>
-                ) : (
-                  <div
-                    className={`amount-like ${cmt._id}`}
-                    style={{ display: "flex" }}
-                  >
-                    <div className="icon-like">
-                      <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
-                    </div>
-                    <p className={`amount ${cmt._id}`}>
-                      {cmt.countLike.length}
-                    </p>
-                  </div>
-                )}
+                  <p className={`amount ${cmt._id}`}>{cmt.countLike.length}</p>
+                </div>
               </div>
             </div>
             <div className="felt-feedback-time">
@@ -234,47 +202,26 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                         <div className="description-comment">
                           <div className="name">{cmtRes.username}</div>
                           <div className="description">{cmtRes.content}</div>
-                          {cmtRes.countLike.length == 0 ? (
-                            <div
-                              className={`amount-like ${cmtRes._id}`}
-                              style={{ display: "none" }}
-                            >
-                              <div className="icon-like">
-                                <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
-                              </div>
-                              <p className={`amount ${cmtRes._id}`}>
-                                {cmtRes.countLike.length}
-                              </p>
+
+                          <div
+                            className={`amount-like ${cmtRes._id}`}
+                            style={{display: `${cmtRes.countLike.length == 0 ? "none" : "flex"}`}}
+                          >
+                            <div className="icon-like">
+                              <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
                             </div>
-                          ) : (
-                            <div
-                              className={`amount-like ${cmtRes._id}`}
-                              style={{ display: "flex" }}
-                            >
-                              <div className="icon-like">
-                                <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
-                              </div>
-                              <p className={`amount ${cmtRes._id}`}>
-                                {cmtRes.countLike.length}
-                              </p>
-                            </div>
-                          )}
+                            <p className={`amount ${cmtRes._id}`}>
+                              {cmtRes.countLike.length}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div className="felt-feedback-time response">
-                      <p
-                        onClick={() =>
-                          updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)
-                        }
-                        className="felt"
-                      >
+                      <p onClick={() =>updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)}className="felt">
                         Thích
                       </p>
-                      <p
-                        onClick={() => appearInputResponse(`${cmt._id}`)}
-                        className="feedback"
-                      >
+                      <p onClick={() => appearInputResponse(`${cmt._id}`)}  className="feedback">
                         Trả lời
                       </p>
                       <p className="time">{cmtRes.time}</p>
@@ -305,7 +252,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                 />
                 <button
                   className="btn-app btn-comment"
-                  onClick={(e) => sendCommentResponse(cmt._id)}
+                  onClick={() => sendCommentResponse(cmt._id)}
                 >
                   Bình luận
                 </button>
