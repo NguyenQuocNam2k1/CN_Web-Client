@@ -4,8 +4,9 @@
 }
 
 
-.background-login {
-  background-image: url(../../../public/troi.jpg);
+.background_login {
+  background-color: #d3cfcf;
+  // ddd4d4
   position: fixed;
   top: 0;
   right: 0;
@@ -17,12 +18,11 @@
 
 .photo-edit {
   &__form {
-    background-image: url(../../../public/background-login.png);
     margin: auto;
     width: 380px;
+    background-color: white;
     padding: 30px 50px;
     border-radius: 15px;
-    box-shadow: 0 0 20px #eee2e2;
 
     & label {
       font-weight: 600;
@@ -71,28 +71,25 @@
 }
 
 .btn.btn-primary {
-  border-radius: 30px;
-  padding: 8px 44px;
-  font-size: 20px;
+  font-size: 15px;
+  width: 100%;
   font-weight: 600;
+  margin-bottom: 20px;
+  & div{
+    margin: 0px;
+    width: 100%;
+    & p{
+      text-align: center;
+      align-items: center;
+      margin: 0px;
+    }
+  }
 }
 
 .login-other .logo:hover {
   cursor: pointer;
 }
 
-.login-other .logo_gg {
-  background-image: url("../../images/google.png");
-}
-
-.login-other .logo_facebook {
-  background-image: url("../../images/facebook.png");
-  margin: 0 24px;
-}
-
-.login-other .logo_github {
-  background-image: url("../../images/github.png");
-}
 
 .login-other .list_logo {
   display: flex;
@@ -106,15 +103,61 @@
 }
 
 .login-other a {
-  color: #fff;
   text-decoration: none;
   font-size: 15px;
 }
 
-.login-other a:hover {
-  color: #fff;
-}
 
 .form-label{
   margin-bottom: 2px;
+}
+
+.photo-edit__form{
+  & h1{
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+.mb-3{
+  margin-bottom: 12px !important;
+  font-size: 15px !important;
+  font-weight: 200;
+}
+
+.invalid-feedback{
+  font-weight: 400;
+}
+
+#alert_login{
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  text-align: -webkit-center;
+  background-color: #fff3cd;
+  animation: animationAlert 1.2s ease-in-out;
+  padding: 10px 20px;
+  color: #2c2b2b;
+  border-radius: 7px;
+  margin: 10px 10px 0px 0px;
+}
+#alert_success{
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  text-align: -webkit-center;
+  background-color: #fff3cd;
+  animation: animationAlert 1.2s ease-in-out;
+  padding: 10px 20px;
+  color: #2c2b2b;
+  border-radius: 7px;
+  margin: 10px 10px 0px 0px;
+}
+@keyframes animationAlert{
+  from {right: -30%;}
+  to {right: 0px;}
+}
+.icon_alert{
+  float: left !important;
+  margin-top:6px;
 }

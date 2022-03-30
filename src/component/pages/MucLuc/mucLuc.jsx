@@ -8,7 +8,8 @@ function MucLuc(props) {
   const dispatch = useDispatch();
 
   const courseList = useSelector((state) => state.courses.courseList);
-  const handleClick = (idCourse) => {
+  const handleClick = (idCourse , imgUrl) => {
+    localStorage.setItem("imageListCourse" , JSON.stringify(imgUrl));
     dispatch(getLessonByCourse(idCourse));
   };
   return (
@@ -26,10 +27,10 @@ function MucLuc(props) {
                 <li className="course-name">
                   <p>HTML & CSS</p>
                   <ul className="list-name-children">
-                    <Link to="/">
+                    <Link to="#">
                       <li className="course-children">HTML basic</li>
                     </Link>
-                    <Link to="/">
+                    <Link to="#">
                       <li className="course-children">HTML nâng cao</li>
                     </Link>
                   </ul>
@@ -37,14 +38,38 @@ function MucLuc(props) {
 
                 <li className="course-name">
                   <p>Python</p>
+                  <ul className="list-name-children">
+                    <Link to="#">
+                      <li className="course-children">Python basic</li>
+                    </Link>
+                    <Link to="#">
+                      <li className="course-children">Python nâng cao</li>
+                    </Link>
+                  </ul>
                 </li>
 
                 <li className="course-name">
                   <p>JavaScript</p>
+                  <ul className="list-name-children">
+                    <Link to="#">
+                      <li className="course-children">JavaScript basic</li>
+                    </Link>
+                    <Link to="#">
+                      <li className="course-children">JavaScript nâng cao</li>
+                    </Link>
+                  </ul>
                 </li>
 
                 <li className="course-name">
                   <p>Java</p>
+                  <ul className="list-name-children">
+                    <Link to="#">
+                      <li className="course-children">Java basic</li>
+                    </Link>
+                    <Link to="#">
+                      <li className="course-children">Java nâng cao</li>
+                    </Link>
+                  </ul>
                 </li>
 
                 <li className="course-name">
@@ -52,15 +77,19 @@ function MucLuc(props) {
                 </li>
 
                 <li className="course-name">
-                  <p>C++</p>
+                  <p>C</p>
                 </li>
 
                 <li className="course-name">
-                  <p>R</p>
+                  <p>ReactJS</p>
                 </li>
 
                 <li className="course-name">
-                  <p>C#</p>
+                  <p>VueJS</p>
+                </li>
+
+                <li className="course-name">
+                  <p>NodeJS</p>
                 </li>
               </ul>
             </div>
@@ -92,7 +121,7 @@ function MucLuc(props) {
                     <div className="card course">
                       <img
                         src={course.image}
-                        className="card-img-top"
+                        className="card-img-top ml-img img-hover-zoom img-hover-zoom--colorize"
                         alt="anh-khoa-hoc"
                         style={{ height: "182px" }}
                       ></img>
@@ -109,7 +138,7 @@ function MucLuc(props) {
                           <Link
                             to={{pathname:`/courseDetail/${course.idCoursesList}`}}
                             className="btn btn-primary button_jelly"
-                            onClick={() => handleClick(course._id)}
+                            onClick={() => handleClick(course._id , course.image)}
                             style={{
                               fontSize: "18px",
                               padding: "6px 41px",

@@ -1,4 +1,4 @@
-import React ,{ useEffect , useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 import search from "./../../../images/search.png";
@@ -14,10 +14,9 @@ function Header() {
   const [valueInput, setValueInput] = useState("");
   const dataListCourse = useSelector((state) => state.courses.courseList);
   const dispatch = useDispatch();
-
+  const inputSearch = document.querySelector(".search-input");
   //Search
   const searchFunction = () => {
-    const inputSearch = document.querySelector("#search-input");
     const listCourses = document.querySelector(".listCourses");
     const menuCourses = Array.from(document.querySelectorAll(".menu-items"));
 
@@ -36,10 +35,10 @@ function Header() {
 
   const hidenListCourses = () => {
     const listCourses = document.querySelector(".listCourses");
-    setTimeout(()=>{
+    setTimeout(() => {
       listCourses.style.display = "none";
-    },100)
-    const inputSearch = document.querySelector("#search-input");
+    }, 100)
+    const inputSearch = document.querySelector(".search-input");
     inputSearch.value = "";
   };
 
@@ -48,16 +47,28 @@ function Header() {
   const token = getCookie("CCD") || "";
   let authUser = JSON.parse(localStorage.getItem("authUser"));
 
+
   const [scrolled, setScrolled] = useState(0);
   window.addEventListener("scroll", () => {
     setScrolled(window.scrollY);
   });
 
+  const openSearch = () => {
+    const searchButton = document.querySelector("#myOverlay")
+    searchButton.style.display = "block";
+    document.querySelector(".search-input").focus();
+  }
+  const closeSearch = () => {
+    const searchButton = document.querySelector("#myOverlay")
+    searchButton.style.display = "none";
+    inputSearch.value = "";
+  }
+
   return (
     <>
       {match === "/user" ||
-      match === "/user/register" ||
-      match === "/learning/detail" ? (
+        match === "/user/register" ||
+        match.includes("/learning/") === true ? (
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -105,7 +116,7 @@ function Header() {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex">
+              {/* <form className="d-flex">
                 <input
                   id="search-input"
                   className="form-control me-2 search-input"
@@ -123,19 +134,65 @@ function Header() {
                   <p>{`Kết quả cho '${valueInput}'`}</p>
                   {dataListCourse.map((course, index) => {
                     return (
-                      <Link 
-                       to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
+                      <Link
+                        to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
                         key={index}
-                        onClick={()=> dispatch(getLessonByCourse(course._id))}
                       >
-                        <li className="menu-items">
+                        <li className="menu-items"
+                          onClick={() => dispatch(getLessonByCourse(course._id))}
+                        >
                           {course.name}
                         </li>
                       </Link>
                     );
                   })}
                 </ul>
-              </form>
+              </form> */}
+              {/* search button */}
+              <div>
+                <div id="myOverlay" className="overlay">
+                  <span className="closebtn" onClick={closeSearch} title="Close">×</span>
+                  <div className="overlay-content">
+                    <form className="d-flex form-search">
+                      <input type="text"
+                        placeholder="Tìm kiếm khoá học..."
+                        className="search-input"
+                        name="search"
+                        autoComplete="off"
+                        onKeyUp={searchFunction}
+                        onChange={(e) => setValueInput(e.target.value)}
+                        onBlur={closeSearch}
+                      // onBlur={hidenListCourses}
+                      />
+                      <div>
+                        <ul className="listCourses" onClick={closeSearch} >
+                          <p>{`Kết quả cho '${valueInput}'`}</p>
+                          {dataListCourse.map((course, index) => {
+                            return (
+                              <Link
+                                to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
+                                key={index}
+                              >
+                                <li className="menu-items"
+                                  onClick={() => dispatch(getLessonByCourse(course._id))}
+                                >
+                                  {course.name}
+                                </li>
+                              </Link>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <button className="openBtn" onClick={openSearch}>
+                  <img src={search} className="img-input" alt="img-input" />
+                  Tìm kiếm
+                </button>
+              </div>
+
               {/* Check login */}
               {!token ? (
                 <Link to="/user">
@@ -146,7 +203,7 @@ function Header() {
               ) : (
                 <div className="avatar">
                   <img
-                    src={authUser.image}
+                    src={authUser[0].image}
                     className="rounded-circle"
                     style={{ width: "40px" }}
                     alt="Avatar"

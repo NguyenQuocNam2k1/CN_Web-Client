@@ -70,7 +70,7 @@ function courseDetail(props) {
 
   return (
     <>
-      {LessonOfCourse.length === 0 || undefined || null ? (
+      {LessonOfCourse.length === 0 ? (
         <>
           <Loading></Loading>
         </>

@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
-import { async } from "@firebase/util";
 
 library.add(faThumbsUp, faUser);
 
@@ -28,8 +27,8 @@ function CommentDetail({ socket, idUser, username, room, image }) {
             time:
                new Date(Date.now()).getHours() +
                ":" +
-               new Date(Date.now()).getMinutes() + 
-               " - " + 
+               new Date(Date.now()).getMinutes() +
+               " - " +
                new Date(Date.now()).getDate() + "/" + (new Date(Date.now()).getMonth() + 1) + "/" + new Date(Date.now()).getFullYear(),
          };
 
@@ -151,9 +150,9 @@ function CommentDetail({ socket, idUser, username, room, image }) {
    // set vị trí like theo độ rộng của cmt
    const list = document.querySelectorAll('.description-comment');
    for (let i = 0; i < list.length; i++) {
-      if (list[i].offsetWidth < 200) {
-         list[i].querySelector('.amount-like').style.bottom = '8px';
-         list[i].querySelector('.amount-like').style.right = '-26px';
+      if (list[i].offsetWidth > 200) {
+         list[i].querySelector('.amount-like').style.bottom = '-14px';
+         list[i].querySelector('.amount-like').style.right = '24px';
       }
    }
 

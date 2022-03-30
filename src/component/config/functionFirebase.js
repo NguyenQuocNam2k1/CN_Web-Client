@@ -24,7 +24,7 @@ export const signInWithFirebase = (typeLogin) => {
     .then(async (user) => {
       let data = user.user.providerData[0];
       const token = await user.user.getIdToken();
-      await fetch("https://cn-web.herokuapp.com/api/user/loginFirebase", {
+      await fetch("http://localhost:5000/api/user/loginFirebase", {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
@@ -36,28 +36,38 @@ export const signInWithFirebase = (typeLogin) => {
         referrerPolicy: "no-referrer",
         body: JSON.stringify(data),
       })
+        .then((res) => {
+          return res.json();
+        })
         .then(async (res) => {
-          if (res.status === 200) {
+          if (res.status === "200") {
             // Apply setCookie
-            data = Object.assign({image:data.photoURL},data);
-            localStorage.setItem("authUser" , JSON.stringify(data))
+            localStorage.setItem("authUser", JSON.stringify(res.data));
             setCookie("CCD", token, 1);
             window.location.replace("/");
           }
         })
         .catch((err) => {
-          console.log(err);
+          return "SERVER ERROR";
         });
     })
     .catch((error) => {
       if (error.email) {
-        return console.log("Email đã được dùng để xác thực");
+        const alertLogin = document.querySelector("#alert_login");
+        alertLogin.style.display = "block";
+        setTimeout(() => {
+          alertLogin.style.display = "none";
+        }, 5000);
+        return;
       }
       // The AuthCredential type that was used.
       if (FacebookAuthProvider.credentialFromError(error)) {
-        return console.log(
-          "Email đã được dùng để xác thực bằng phương pháp khác"
-        );
+        const alertLogin = document.querySelector("#alert_login");
+        alertLogin.style.display = "block";
+        setTimeout(() => {
+          alertLogin.style.display = "none";
+        }, 5000);
+        return;
       }
     });
 };
@@ -66,10 +76,8 @@ export function getDataUser() {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user);
       return user.providerData[0];
     } else {
-      console.log("error");
       return null;
     }
   });

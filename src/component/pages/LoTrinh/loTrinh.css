@@ -3,26 +3,67 @@
 }
 
 .lt-btn {
-  border-radius: 18px;
-  color: white;
-  width: 142px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 4px 0 20px 0;
+  border-radius: 25px;
+  width: 110px;
+  height: 38px;
+  border: none;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #ffd300;
+  bottom: 0;
+}
+
+.lt-btn:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .lt-title {
   text-align: left;
 }
 
-.lt-card {
-  -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+.lt-title .lt-content {
+  font-weight: 350;
 }
 
-.lt-card-body {
+.lt-list {
+  margin-bottom: 29px;
+}
+
+.lt-list .lt-card {
+  -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lt-list .lt-card .lt-img {
+  padding-left: 50px;
+}
+
+.lt-list .lt-card .lt-card-body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lt-list .lt-card .lt-card-body .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

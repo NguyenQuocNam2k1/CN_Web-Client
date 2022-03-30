@@ -230,14 +230,6 @@
   margin-top: calc(70%);
 }
 
-.btn-app-layout_2 {
-  border-radius: 30px;
-  color: #ffffff;
-  width: 290px;
-  margin-top: 20px;
-  height: 48px;
-}
-
 .homepage_layout_3 {
   background: #466a8a;
   height: 310px;
@@ -272,7 +264,6 @@
 
 .homepage_layout_4 {
   height: 405px;
-  background-color: #ffd300;
 }
 
 .homepage_layout_4 .container {
@@ -281,6 +272,21 @@
 
 .homepage_layout_4 .container .row {
   height: 100%;
+}
+
+.col-6.homepage_layout_4_text {
+  margin: auto;
+}
+
+.col-6.homepage_layout_4_text h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.col-6.homepage_layout_4_text p {
+  font-size: 20px;
+  font-weight: 350;
+  width: 83%;
 }
 
 .col-6.homepage_layout_4_text {
@@ -316,8 +322,6 @@
 .homepage_layout_4 button:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-  -webkit-box-shadow: 0 0 10px #afabab;
-          box-shadow: 0 0 10px #afabab;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
@@ -349,5 +353,15 @@
 
 .homepage_layout_5 .homepage_layout_5_right div {
   margin: auto;
+}
+
+.btn-app-layout_2 {
+  border-radius: 30px;
+  color: #ffffff;
+  background-color: #466a8a;
+  border: none;
+  width: 290px;
+  margin-top: 20px;
+  height: 48px;
 }
 /*# sourceMappingURL=homepage.css.map */
