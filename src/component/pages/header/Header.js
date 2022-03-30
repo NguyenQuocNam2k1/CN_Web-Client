@@ -111,39 +111,6 @@ function Header() {
                   </Link>
                 </li>
               </ul>
-              {/* <form className="d-flex">
-                <input
-                  id="search-input"
-                  className="form-control me-2 search-input"
-                  type="search"
-                  placeholder="Tìm kiếm khóa hoc ..."
-                  aria-label="Search"
-                  onKeyUp={searchFunction}
-                  onChange={(e) => setValueInput(e.target.value)}
-                  onBlur={hidenListCourses}
-                />
-                <div className="btn btn-search" type="submit">
-                  <img src={search} className="img-input" alt="img-input" />
-                </div>
-                <ul className="listCourses">
-                  <p>{`Kết quả cho '${valueInput}'`}</p>
-                  {dataListCourse.map((course, index) => {
-                    return (
-                      <Link
-                        to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
-                        key={index}
-                      >
-                        <li className="menu-items"
-                          onClick={() => dispatch(getLessonByCourse(course._id))}
-                        >
-                          {course.name}
-                        </li>
-                      </Link>
-                    );
-                  })}
-                </ul>
-              </form> */}
-              {/* search button */}
               <div>
                 <div id="myOverlay" className="overlay">
                     <span className="closebtn" onClick={closeSearch} title="Close">×</span>

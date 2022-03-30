@@ -109,6 +109,7 @@ input.form-control.me-2.search-input {
     display: none;
 
     & li:hover {
+      cursor: pointer;
       background-color: #466a8a;
       border-radius: 6px;
       transition: all 0.2s ease 0s;
@@ -264,7 +265,7 @@ form.d-flex {
 }
 
 .openBtn:hover {
-  border: none;
+  border: 1px solid #f1f1f1;
   background-color: #f1f1f1;
 }
 
