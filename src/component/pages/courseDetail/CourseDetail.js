@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 function courseDetail(props) {
   const nameCourse = useParams().slug;
-  const [LessonOfCourse, setLessonOfCourse] = useState([]);
+  const [LessonOfCourse, setLessonOfCourse] = useState(null);
   const re_render = useSelector(state => state.courses.render);
   useEffect(() => {
     setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
@@ -70,7 +70,7 @@ function courseDetail(props) {
 
   return (
     <>
-      {LessonOfCourse.length === 0 ? (
+      {!LessonOfCourse ? (
         <>
           <Loading></Loading>
         </>

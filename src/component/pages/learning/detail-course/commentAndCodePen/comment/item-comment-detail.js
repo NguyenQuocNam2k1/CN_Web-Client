@@ -13,7 +13,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
 
    const cmtRef = useRef();
 
-   const sendComment = async () => {
+   const sendComment = () => {
       if (currentCmt !== "") {
          const cmtData = {
             id: 'a' + Math.floor(Math.random() * 1000000),
@@ -32,13 +32,13 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                new Date(Date.now()).getDate() + "/" + (new Date(Date.now()).getMonth() + 1) + "/" + new Date(Date.now()).getFullYear(),
          };
 
-         await socket.emit("send_comment", cmtData);
+         socket.emit("send_comment", cmtData);
          setCmtList((list) => [...list, cmtData]);
          setCurrentCmt("");
       }
    };
 
-   const sendCommentResponse = async (id) => {
+   const sendCommentResponse = (id) => {
       console.log('id: ', id);
       if (currentCmt !== "") {
          const cmtRes = {
@@ -64,13 +64,13 @@ function CommentDetail({ socket, idUser, username, room, image }) {
          };
 
          console.log('l:', cmtList);
-         await socket.emit("send_comment_response", cmtList);
+         socket.emit("send_comment_response", cmtList);
          setCmtList((cmtList) => [...cmtList]);
          setCurrentCmt("");
       }
    }
 
-   const updateCountLike = async (id) => {
+   const updateCountLike = (id) => {
 
       const nodeAmountLike = document.querySelector(`.amount.${id}`);
       const viewLike = document.querySelector(`.amount-like.${id}`);
@@ -92,45 +92,35 @@ function CommentDetail({ socket, idUser, username, room, image }) {
             nodeAmountLike.textContent = cmtList[i].countLike.length;
          }
       }
-      await socket.emit('updateLike', (cmtList));
+      socket.emit('updateLike', (cmtList));
 
    };
 
-   const updateCountLikeRes = async (idCmt, idCmtRes) => {
-
+   const updateCountLikeRes = (idCmt, idCmtRes) => {
       const nodeAmountLike = document.querySelector(`.amount.${idCmtRes}`);
       const viewLike = document.querySelector(`.amount-like.${idCmtRes}`);
-
-      for (let i = 0; i < cmtList.length; i++) {
-         if (cmtList[i].id == idCmt) {
-            for (let j = 0; j < cmtList[i].cmtResponse.length; j++) {
-               let liked = false;
-               if (cmtList[i].cmtResponse[j].id == idCmtRes) {
-                  for (let k = 0; k < cmtList[i].cmtResponse[j].countLike.length; k++) {
-                     if (cmtList[i].cmtResponse[j].countLike[k] == idUser) {
-                        cmtList[i].cmtResponse[j].countLike = cmtList[i].cmtResponse[j].countLike.slice(0, k).concat(cmtList[i].cmtResponse[j].countLike.slice(k + 1));
-                        liked = true;
-                     }
-                  };
-                  if (!liked) {
-                     cmtList[i].cmtResponse[j].countLike.push(`${idUser}`);
-                  }
-                  cmtList[i].cmtResponse[j].countLike.length == 0 ? viewLike.style.display = 'none' : viewLike.style.display = 'flex';
-                  nodeAmountLike.textContent = cmtList[i].cmtResponse[j].countLike.length;
-               }
+      cmtList.forEach(element => {
+         if (element._id !== idCmt) return;
+         console.log(element)
+         element.cmtResponse.forEach(item => {
+            if (item._id !== idCmtRes) return;
+            console.log(element);
+            if (!item.countLike.includes(idUser)) {
+               item.countLike.push(idUser);
+               console.log(item.countLike);
+               socket.emit("update_count_like_cmt_res", {
+                  room,
+                  idCmt,
+                  idCmtRes,
+                  countLike: item.countLike,
+               });
+               return;
             }
-         }
-      }
-      await socket.emit('updateLike', (cmtList));
+            const newArray = item.countLike.filter((item) => item !== idUser);
+            socket.emit("update_count_like_cmt_res", { room, idCmt, idCmtRes, countLike: newArray });
+         })
+      })
    };
-
-   const appearInputResponse = (id) => {
-      console.log('id: ', id);
-      document.querySelector(`div.${id}`).querySelector('.input-comment-response').style.display = 'flex';
-      cmtRef.current.focus();
-   };
-
-   console.log('cmtList: ', cmtList);
 
    useEffect(() => {
       socket.on("receive_comment", (data) => {
@@ -266,25 +256,37 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                            style={{ "width": "40px" }}
                            alt="Avatar"
                         />
-                        <input
-                           ref={cmtRef}
-                           className="form-control me-2 search-input comment-input"
-                           type="text"
-                           value={currentCmt}
-                           placeholder="Bạn có gì thắc mắc trong bài học này?"
-                           onChange={(event) => {
-                              setCurrentCmt(event.target.value);
-                           }}
-                           onKeyPress={(event) => {
-                              event.key === "Enter" && sendCommentResponse(cmt.id);
-                           }}
-                        />
-                        <button className='btn-app btn-comment' onClick={(e) => sendCommentResponse(cmt.id)}>Bình luận</button>
+                        <div className="description-comment">
+                           <div className="name">{cmtRes.username}</div>
+                           <div className="description">{cmtRes.content}</div>
+
+                           <div
+                              className={`amount-like ${cmtRes._id}`}
+                              style={{ display: `${cmtRes.countLike.length == 0 ? "none" : "flex"}` }}
+                           >
+                              <div className="icon-like">
+                                 <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
+                              </div>
+                              <p className={`amount ${cmtRes._id}`}>
+                                 {cmtRes.countLike.length}
+                              </p>
+                           </div>
+                        </div>
                      </div>
                   </div>
+                  <div className="felt-feedback-time response">
+                     <p onClick={() => updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)} className="felt">
+                        Thích
+                     </p>
+                     <p onClick={() => appearInputResponse(`${cmt._id}`)} className="feedback">
+                        Trả lời
+                     </p>
+                     <p className="time">{cmtRes.time}</p>
+                  </div>
                </div>
-            );
-         })}
+            )
+         })
+         }
       </>
    )
 }
