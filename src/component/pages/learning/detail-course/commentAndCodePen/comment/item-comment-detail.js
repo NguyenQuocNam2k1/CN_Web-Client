@@ -86,13 +86,30 @@ function CommentDetail({ socket, idUser, username, room, image }) {
     });
   };
 
+
   const updateCountLikeRes = async (idCmt, idCmtRes) => {
     const nodeAmountLike = document.querySelector(`.amount.${idCmtRes}`);
     const viewLike = document.querySelector(`.amount-like.${idCmtRes}`);
-
     cmtList.forEach(element => {
       if(element._id !== idCmt) return;
-      if()
+      console.log(element)
+      element.cmtResponse.forEach(item => {
+        if(item._id !== idCmtRes) return;
+        console.log(element);
+        if(!item.countLike.includes(idUser)) {
+          item.countLike.push(idUser);
+          console.log(item.countLike);
+          socket.emit("update_count_like_cmt_res", {
+            room,
+            idCmt,
+            idCmtRes,
+            countLike: item.countLike,
+          });
+          return;
+        }
+        const newArray = item.countLike.filter((item) => item !== idUser);
+        socket.emit("update_count_like_cmt_res", { room, idCmt, idCmtRes , countLike: newArray });
+      })
     })
   };
 
@@ -218,7 +235,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                       </div>
                     </div>
                     <div className="felt-feedback-time response">
-                      <p onClick={() =>updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)}className="felt">
+                      <p onClick={() => updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)} className="felt">
                         Thích
                       </p>
                       <p onClick={() => appearInputResponse(`${cmt._id}`)}  className="feedback">
