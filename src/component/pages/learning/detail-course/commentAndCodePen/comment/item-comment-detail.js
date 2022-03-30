@@ -88,17 +88,12 @@ function CommentDetail({ socket, idUser, username, room, image }) {
 
 
   const updateCountLikeRes = async (idCmt, idCmtRes) => {
-    const nodeAmountLike = document.querySelector(`.amount.${idCmtRes}`);
-    const viewLike = document.querySelector(`.amount-like.${idCmtRes}`);
     cmtList.forEach(element => {
       if(element._id !== idCmt) return;
-      console.log(element)
       element.cmtResponse.forEach(item => {
         if(item._id !== idCmtRes) return;
-        console.log(element);
         if(!item.countLike.includes(idUser)) {
           item.countLike.push(idUser);
-          console.log(item.countLike);
           socket.emit("update_count_like_cmt_res", {
             room,
             idCmt,
@@ -193,7 +188,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
             </div>
             <div className="felt-feedback-time">
               <p onClick={() => updateCountLike(`${cmt._id}`)} className="felt">
-                Thích
+                {cmt.countLike.includes(idUser)? "Bỏ thích" : "Thích"}
               </p>
               <p
                 onClick={() => appearInputResponse(`${cmt._id}`)}
@@ -236,7 +231,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                     </div>
                     <div className="felt-feedback-time response">
                       <p onClick={() => updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)} className="felt">
-                        Thích
+                        {cmtRes.countLike.includes(idUser)? "Bỏ thích" : "Thích"}
                       </p>
                       <p onClick={() => appearInputResponse(`${cmt._id}`)}  className="feedback">
                         Trả lời
