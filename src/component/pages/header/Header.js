@@ -102,11 +102,6 @@ function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="#">
-                    Blog
-                  </Link>
-                </li>
-                <li className="nav-item">
                   <Link
                     className="nav-link active"
                     aria-current="page"
@@ -161,7 +156,6 @@ function Header() {
                         autoComplete="off"
                         onKeyUp={searchFunction}
                         onChange={(e) => setValueInput(e.target.value)}
-                        onBlur={closeSearch}
                         // onBlur={hidenListCourses}
                         />
                         <div>
