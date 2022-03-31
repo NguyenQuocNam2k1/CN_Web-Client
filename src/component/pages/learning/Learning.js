@@ -8,7 +8,7 @@ function Learning(props) {
     return (
         <div className="container learning">
             <div className="row">
-                <div className="col-3">
+                <div className="col-12 col-md-6 col-xxl-4 mt-2">
                     <div className="card ln-card">
                         <Link to="#" className="ln-link">
                             <div className="background">
@@ -22,7 +22,7 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-md-6 col-xxl-4 pe-2">
                     <div className="card ln-card">
                         <Link to="#" className="ln-link">
                             <div className="background">
@@ -36,7 +36,7 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-md-6 mt-md-3 col-xxl-4 pe-2">
                     <div className="card ln-card">
                         <Link to="#" className="ln-link">
                             <div className="background">
@@ -50,7 +50,7 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-md-6 mt-md-3 col-xxl-4 mt-xxl-3 pe-2">
                     <div className="card ln-card">
                         <Link to="#" className="ln-link">
                             <div className="background">
@@ -64,7 +64,7 @@ function Learning(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-md-6 mt-md-3 col-xxl-4 mt-xxl-3 pe-2">
                     <div className="card ln-card">
                         <Link to="#" className="ln-link">
                             <div className="background">
