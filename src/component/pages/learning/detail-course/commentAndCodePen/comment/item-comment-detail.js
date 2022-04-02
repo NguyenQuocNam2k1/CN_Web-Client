@@ -4,6 +4,7 @@ import { faThumbsUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import UIUpdateAndDeleteCmt from "./UIUpdateAndDelete";
+import moment from "moment";
 
 library.add(faThumbsUp, faUser);
 
@@ -26,16 +27,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
             avatar: image,
             cmtResponse: [],
             countLike: [],
-            time:
-               new Date(Date.now()).getHours() +
-               ":" +
-               new Date(Date.now()).getMinutes() +
-               " - " +
-               new Date(Date.now()).getDate() +
-               "/" +
-               (new Date(Date.now()).getMonth() + 1) +
-               "/" +
-               new Date(Date.now()).getFullYear(),
+            time: moment().format(),
          };
          socket.emit("send_comment", cmtData);
          setCurrentCmt("");
@@ -52,16 +44,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
             content: currentResCmt,
             avatar: image,
             countLike: [],
-            time:
-               new Date(Date.now()).getHours() +
-               ":" +
-               new Date(Date.now()).getMinutes() +
-               " - " +
-               new Date(Date.now()).getDate() +
-               "/" +
-               (new Date(Date.now()).getMonth() + 1) +
-               "/" +
-               new Date(Date.now()).getFullYear(),
+            time: moment().format(),
          };
 
          socket.emit("send_comment_response", { _id, cmtRes });
@@ -199,7 +182,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                         >
                            Trả lời
                         </p>
-                        <p className="time">{cmt.time}</p>
+                        <p className="time">{moment(`${cmt.time}`).fromNow()}</p>
                      </div>
                      <UIUpdateAndDeleteCmt
                         rootId={""}
@@ -250,7 +233,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                                     <p onClick={() => appearInputResponse(`${cmt._id}`)} className="feedback">
                                        Trả lời
                                     </p>
-                                    <p className="time">{cmtRes.time}</p>
+                                    <p className="time">{moment(`${cmtRes.time}`).fromNow()}</p>
                                  </div>
                                  <UIUpdateAndDeleteCmt
                                     rootId={cmt._id}

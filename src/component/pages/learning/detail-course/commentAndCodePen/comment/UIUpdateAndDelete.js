@@ -60,22 +60,25 @@ function UIUpdateAndDeleteCmt({ rootId, id, img, room, socket, idUser, cmtList }
     }
     setCmtUpdate(currentValue);
     cmtRef.current.focus();
-
   }
 
   function updateCmt(rootId, id, room) {
-    const newCmt = cmtUpdate;
+    const newCmt = cmtUpdate.trim();
+    const currentValue = document.querySelector(`.a${id}`).querySelector('.description').innerHTML.trim();
 
-    //check rootId nếu bằng null thì nó là cmt bố chỉ cần id để update
+    if (newCmt === currentValue) {
+      alert('Bạn chưa thay đổi comment? Hãy thay đổi comment hoặc chọn hủy!!!');
+      /* huyUpdateCmt(rootId, id) */
+    }
+
     if (!rootId) {
       socket.emit('update_content', { id, newCmt, room });
       document.querySelector(`.a${id}`).querySelector('.input-comment-update').style.display = 'none';
       document.querySelector(`.a${id}`).querySelector('.felt-feedback-time').style.flexDirection = 'row';
     }
-    // dựa vào rootId để tìm ra cmt bố rồi đi vào update thằng cmt res
+
     else {
       socket.emit('update_content_response', { rootId, id, newCmt, room });
-      console.log({ rootId, newCmt, id, room });
       document.querySelector(`.a${id}`).querySelector('.input-comment-res').style.display = 'none';
       document.querySelector(`.a${id}`).querySelector('.felt-feedback-time.response').style.flexDirection = 'row';
     }
@@ -83,28 +86,41 @@ function UIUpdateAndDeleteCmt({ rootId, id, img, room, socket, idUser, cmtList }
     document.querySelector(`.a${id}`).querySelector('.iconUpdateOrDelete').style.display = 'block';
     document.querySelector(`.a${id}`).querySelector('img').style.display = 'block';
     document.querySelector(`.a${id}`).querySelector('.description-comment').style.display = 'block';
-    console.log(document.querySelector(`.a${id}`).querySelector('.updateAndDelete'));
     document.querySelector(`.a${id}`).querySelector('.updateAndDelete').style.display = 'none';
     document.querySelector(`.a${id}`).querySelector(`.modal-background-${id}`).style.display = 'none';
     setCmtUpdate('');
   };
 
-  //Tương tự thằng update
+  function huyUpdateCmt(rootId, id) {
+    if (!rootId) {
+      document.querySelector(`.a${id}`).querySelector('.input-comment-update').style.display = 'none';
+      document.querySelector(`.a${id}`).querySelector('.felt-feedback-time').style.flexDirection = 'row';
+    }
+    else {
+      document.querySelector(`.a${id}`).querySelector('.input-comment-res').style.display = 'none';
+      document.querySelector(`.a${id}`).querySelector('.felt-feedback-time.response').style.flexDirection = 'row';
+    }
+    document.querySelector(`.a${id}`).querySelector('.description-comment').style.display = 'block';
+    document.querySelector(`.a${id}`).querySelector('.iconUpdateOrDelete').style.display = 'block';
+    document.querySelector(`.a${id}`).querySelector('img').style.display = 'block';
+    document.querySelector(`.a${id}`).querySelector('.description-comment').style.display = 'block';
+    document.querySelector(`.a${id}`).querySelector('.updateAndDelete').style.display = 'none';
+    document.querySelector(`.a${id}`).querySelector(`.modal-background-${id}`).style.display = 'none';
+  }
+
   function deleteCmt(rootId, id, room) {
     console.log('rootId, id, room', { rootId, id, room });
     if (!rootId) {
-      console.log('tk bố');
       socket.emit('delete-comment', { id, room });
     }
     else {
-      console.log('tk con');
       socket.emit('delete-comment-res', { rootId, id, room });
     }
     document.querySelector(`.a${id}`).querySelector('.updateAndDelete').style.display = 'none';
     document.querySelector(`.modal-background-${id}`).style.display = 'none';
-    document.querySelector('.modal-backdrop.fade.show').style.display = 'none';
-    document.querySelector('body').style.overflow = 'scroll';
-    document.querySelector('.modal-dialog').style.display = 'none';
+    /*   document.querySelector('.modal-backdrop.fade.show').style.display = 'none';
+      document.querySelector('body').style.overflow = 'scroll';
+      document.querySelector('.modal-dialog').style.display = 'none'; */
   }
 
   function handleClickReportCmt(e, id) {
@@ -134,8 +150,11 @@ function UIUpdateAndDeleteCmt({ rootId, id, img, room, socket, idUser, cmtList }
             event.key === "Enter" && sendComment();
           }}
         />
-        <button className="btn-app btn-comment" onClick={() => updateCmt(rootId, id, room)}>
+        <button className="btn-app btn-comment" style={{ backgroundColor: '#dc3545' }} onClick={() => updateCmt(rootId, id, room)}>
           Lưu thay đổi
+        </button>
+        <button className="btn-app btn-huy-comment" style={{ marginLeft: '10px' }} onClick={() => huyUpdateCmt(rootId, id)}>
+          Hủy
         </button>
       </div>
 
@@ -170,14 +189,14 @@ function UIUpdateAndDeleteCmt({ rootId, id, img, room, socket, idUser, cmtList }
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id={`a${id}`}>Xóa bình luận</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => closeIcon(id)}></button>
             </div>
             <div className="modal-body">
               Bạn có chắc chắn muốn xóa bình luận này không?
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => closeIcon(id)}>Close</button>
-              <button type="button" className="btn btn-danger" onClick={() => deleteCmt(rootId, id, room)}>Xóa</button>
+              <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={() => deleteCmt(rootId, id, room)}>Xóa</button>
             </div>
           </div>
         </div>

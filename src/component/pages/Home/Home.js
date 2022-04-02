@@ -12,7 +12,7 @@ function Home(props) {
           </div>
           <div className="col-lg-6 homepage_layout_1_layout" data-aos="fade-left">
             <h1>Tham gia học MIỄN PHÍ</h1>
-            <Link to="/user/register" style={{"paddingLeft":"45px"}}>
+            <Link to="/user/register" style={{ "paddingLeft": "45px" }}>
               <button className="button_homepage">Đăng ký</button>
             </Link>
             <p>Hoặc đăng ký bằng</p>
@@ -25,7 +25,7 @@ function Home(props) {
         </div>
         <div className="homepage_layout_2">
           <div className="row">
-            <div className="col-5 homepage_layout_2_left" data-aos="fade-up-right"> 
+            <div className="col-5 homepage_layout_2_left" data-aos="fade-up-right">
               <div>
                 <h1>
                   MỤC TIÊU <br /> của bạn là gì?
@@ -75,10 +75,12 @@ function Home(props) {
             <div className="col-6 homepage_layout_5_right" data-aos="fade-up-left">
               <div>
                 <h1>Bạn đang là học viên của CoCoders?</h1>
-                <button className="btn-app-layout_2 btn-app" 
-                style={{"borderRadius": "30px", 
-                "width": "290px",
-                "height": "48px"}}>
+                <button className="btn-app-layout_2 btn-app"
+                  style={{
+                    "borderRadius": "30px",
+                    "width": "290px",
+                    "height": "48px"
+                  }}>
                   Xem khóa đang học
                 </button>
               </div>
@@ -125,7 +127,7 @@ function Home(props) {
               <Link to="/user/register">
                 <button className="button_homepage">Đăng ký</button>
               </Link>
-              </div>
+            </div>
           </div>
         </div>
       </div>
