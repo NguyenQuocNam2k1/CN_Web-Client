@@ -3,6 +3,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import UIUpdateAndDeleteCmt from "./UIUpdateAndDelete";
 
 library.add(faThumbsUp, faUser);
 
@@ -115,6 +116,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
       cmtRef.current.focus();
    };
 
+
    useEffect(() => {
       socket.emit("get_comment", room);
       socket.on("receive_all_comment", (data) => {
@@ -187,22 +189,33 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                      </div>
                   </div>
                   <div className="felt-feedback-time">
-                     <p onClick={() => updateCountLike(`${cmt._id}`)} className="felt">
-                        {cmt.countLike.includes(idUser) ? "Bỏ thích" : "Thích"}
-                     </p>
-                     <p
-                        onClick={() => appearInputResponse(`${cmt._id}`)}
-                        className="feedback"
-                     >
-                        Trả lời
-                     </p>
-                     <p className="time">{cmt.time}</p>
+                     <div className="felt" style={{ display: 'flex' }}>
+                        <p onClick={() => updateCountLike(`${cmt._id}`)} className="felt">
+                           {cmt.countLike.includes(idUser) ? "Bỏ thích" : "Thích"}
+                        </p>
+                        <p
+                           onClick={() => appearInputResponse(`${cmt._id}`)}
+                           className="feedback"
+                        >
+                           Trả lời
+                        </p>
+                        <p className="time">{cmt.time}</p>
+                     </div>
+                     <UIUpdateAndDeleteCmt
+                        rootId={""}
+                        id={cmt._id}
+                        img={cmt.avatar}
+                        room={room}
+                        socket={socket}
+                        idUser={idUser}
+                        cmtList={cmtList}
+                     />
                   </div>
 
                   <div className="list-comment-response">
                      {cmt.cmtResponse.map((cmtRes, index) => {
                         return (
-                           <div key={index} className={cmtRes._id}>
+                           <div key={index} className={`a${cmtRes._id}`}>
                               <div className="item-comment-detail">
                                  <div className="comment-feedback">
                                     <img
@@ -230,13 +243,24 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                                  </div>
                               </div>
                               <div className="felt-feedback-time response">
-                                 <p onClick={() => updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)} className="felt">
-                                    {cmtRes.countLike.includes(idUser) ? "Bỏ thích" : "Thích"}
-                                 </p>
-                                 <p onClick={() => appearInputResponse(`${cmt._id}`)} className="feedback">
-                                    Trả lời
-                                 </p>
-                                 <p className="time">{cmtRes.time}</p>
+                                 <div className="felt" style={{ display: 'flex' }}>
+                                    <p onClick={() => updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)} className="felt">
+                                       {cmtRes.countLike.includes(idUser) ? "Bỏ thích" : "Thích"}
+                                    </p>
+                                    <p onClick={() => appearInputResponse(`${cmt._id}`)} className="feedback">
+                                       Trả lời
+                                    </p>
+                                    <p className="time">{cmtRes.time}</p>
+                                 </div>
+                                 <UIUpdateAndDeleteCmt
+                                    rootId={cmt._id}
+                                    id={cmtRes._id}
+                                    img={cmtRes.avatar}
+                                    room={room}
+                                    socket={socket}
+                                    idUser={idUser}
+                                    cmtList={cmtList}
+                                 />
                               </div>
                            </div>
                         );

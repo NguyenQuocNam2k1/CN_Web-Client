@@ -120,7 +120,8 @@
 
     & .comment {
       margin-top: 32px;
-      & .comment-question {
+      & .comment-question,
+      .input-comment-update {
         display: flex;
         margin-bottom: 30px;
 
@@ -330,7 +331,8 @@
   margin-left: 6%;
 }
 
-.input-comment-response {
+.input-comment-response,
+.input-comment-update-res {
   display: none;
   margin-bottom: 30px;
   margin-left: 6%;
@@ -345,4 +347,9 @@
     padding-left: 16px !important;
     border-radius: 6px;
   }
+}
+
+.video-detail .comment-coding .comment .input-comment-update {
+  display: none;
+  z-index: 10;
 }
