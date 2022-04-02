@@ -68,7 +68,7 @@ function Header() {
     <>
       {match === "/user" ||
         match === "/user/register" ||
-        match.includes("/learning/")===true ? (
+        match.includes("/learning/") === true ? (
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -113,13 +113,13 @@ function Header() {
               </ul>
               <div>
                 <div id="myOverlay" className="overlay">
-                    <span className="closebtn" onClick={closeSearch} title="Close">×</span>
-                    <div className="overlay-content">
-                      <form className="d-flex form-search">
-                        <input type="text" 
-                        placeholder="Tìm kiếm khoá học..." 
+                  <span className="closebtn" onClick={closeSearch} title="Close">×</span>
+                  <div className="overlay-content">
+                    <form className="d-flex form-search">
+                      <input type="text"
+                        placeholder="Tìm kiếm khoá học..."
                         className="search-input"
-                        name="search" 
+                        name="search"
                         autoComplete="off"
                         onKeyUp={searchFunction}
                         onChange={(e) => setValueInput(e.target.value)}
@@ -143,14 +143,14 @@ function Header() {
                             );
                           })}
                         </ul>
-                        </div>
-                      </form>
-                    </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
 
                 <button className="openBtn" onClick={openSearch}>
-                <img src={search} className="img-input" alt="img-input" />
-                Tìm kiếm
+                  <img src={search} className="img-input" alt="img-input" />
+                  Tìm kiếm
                 </button>
               </div>
 
@@ -163,13 +163,13 @@ function Header() {
                 </Link>
               ) : (
                 <div className="avatar">
-                   <img
+                  <img
                     src={authUser[0].image}
                     className="rounded-circle"
                     style={{ width: "40px" }}
                     alt="Avatar"
-                  /> 
-                    <ul className="avatar_list">
+                  />
+                  <ul className="avatar_list">
                     <li>Viết blog</li>
                     <li>Bài viết của tôi</li>
                     <li>Bài viết đã lưu</li>
