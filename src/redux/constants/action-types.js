@@ -10,3 +10,4 @@ export const CourseType = {
     GET_COURSE_BY_ID: "GET_COURSE_BY_ID",
     GET_LESSON_BY_COURSE:"GET_LESSON_BY_COURSE",
 }
+

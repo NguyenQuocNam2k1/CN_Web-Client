@@ -1,159 +1,268 @@
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faUser } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 library.add(faThumbsUp, faUser);
 
 function CommentDetail({ socket, idUser, username, room, image }) {
+  const [currentCmt, setCurrentCmt] = useState("");
+  const [cmtList, setCmtList] = useState([]);
+  const [currentResCmt, setCurrentResCmt] = useState([]);
 
-    const [currentCmt, setCurrentCmt] = useState("");
-    const [cmtList, setCmtList] = useState([]);
-    /*     const [countLike, setCountLike] = useState(false); */
+  /*     const [countLike, setCountLike] = useState(false); */
 
-    const sendComment = async () => {
-        if (currentCmt !== "") {
-            const cmtData = {
-                id: 'a' + Math.floor(Math.random() * 1000000),
-                idRoom: room,
-                idUser: idUser,
-                username: username,
-                content: currentCmt,
-                avatar: image,
-                cmtResponse: [],
-                countLike: [],
-                time:
-                    new Date(Date.now()).getHours() +
-                    ":" +
-                    new Date(Date.now()).getMinutes(),
-            };
+  const cmtRef = useRef();
 
-            await socket.emit("send_comment", cmtData);
-            setCmtList((list) => [...list, cmtData]);
-            setCurrentCmt("");
+  const sendComment = () => {
+    if (currentCmt !== "") {
+      const cmtData = {
+        idRoom: room,
+        idUser: idUser,
+        username: username,
+        content: currentCmt,
+        avatar: image,
+        cmtResponse: [],
+        countLike: [],
+        time:
+          new Date(Date.now()).getHours() +
+          ":" +
+          new Date(Date.now()).getMinutes() +
+          " - " +
+          new Date(Date.now()).getDate() +
+          "/" +
+          (new Date(Date.now()).getMonth() + 1) +
+          "/" +
+          new Date(Date.now()).getFullYear(),
+      };
+      socket.emit("send_comment", cmtData);
+      setCurrentCmt("");
+    }
+  };
+
+  const sendCommentResponse = (_id) => {
+    if (currentResCmt !== "") {
+      const cmtRes = {
+        _id: "ccd" + uuidv4().replace(/-/g, ''),
+        idRoom: room,
+        idUser: idUser,
+        username: username,
+        content: currentResCmt,
+        avatar: image,
+        countLike: [],
+        time:
+          new Date(Date.now()).getHours() +
+          ":" +
+          new Date(Date.now()).getMinutes() +
+          " - " +
+          new Date(Date.now()).getDate() +
+          "/" +
+          (new Date(Date.now()).getMonth() + 1) +
+          "/" +
+          new Date(Date.now()).getFullYear(),
+      };
+  
+      socket.emit("send_comment_response", { _id, cmtRes });
+      setCurrentResCmt("");
+    }
+  };
+
+  const updateCountLike = (idCmt) => {
+    cmtList.forEach((element) => {
+      if (element._id === idCmt) {
+        if (!element.countLike.includes(idUser)) {
+          element.countLike.push(idUser);
+          socket.emit("update_count_like", {
+            room,
+            idCmt,
+            countLike: element.countLike,
+          });
+          return;
         }
-    };
+        const newArray = element.countLike.filter((item) => item !== idUser);
+        socket.emit("update_count_like", { room, idCmt, countLike: newArray });
+      }
+    });
+  };
 
-    const updateCountLike = async (id) => {
+  const updateCountLikeRes = async (idCmt, idCmtRes) => {
+    const nodeAmountLike = document.querySelector(`.amount.${idCmtRes}`);
+    const viewLike = document.querySelector(`.amount-like.${idCmtRes}`);
 
-        const nodeAmountLike = document.querySelector(`.amount.${id}`);
+    cmtList.forEach(element => {
+      if(element._id !== idCmt) return;
+      // if()
+    })
+  };
 
-        for (let i = 0; i < cmtList.length; i++) {
-            if (cmtList[i].id == id) {
+  const appearInputResponse = (id) => {
+    document
+      .querySelector(`div.a${id}`)
+      .querySelector(".input-comment-response").style.display = "flex";
+    cmtRef.current.focus();
+  };
 
-/*                 const data = {
-                    cmt: cmtList[i],
-                    id: id,
-                    idUser: idUser,
-                }; */
-                let liked = false;
-                for (let j = 0; j < cmtList[i].countLike.length; j++) {
-                    if (cmtList[i].countLike[j] == idUser) {
-                        cmtList[i].countLike = cmtList[i].countLike.slice(0, j).concat(cmtList[i].countLike.slice(j + 1));
-                        liked = true;
-                        setCmtList(cmtList)
-                    }
-                };
-                if (!liked) {
-                    cmtList[i].countLike.push(`${idUser}`);
-                    setCmtList(cmtList)
-                }
-                nodeAmountLike.textContent = cmtList[i].countLike.length;
-                await socket.emit('updateLike', (cmtList[i]));
-            }
-        }
-        console.log('cmtList1: ', cmtList);
-        console.log('idUser: ', idUser);
-        setCmtList(cmtList);
-    };
+  useEffect(() => {
+    socket.emit("get_comment", room);
+    socket.on("receive_all_comment", (data) => {
+      setCmtList(data.reverse());
+    });
+    socket.on("receive_comment", (data) =>
+      setCmtList((list) => [data, ...list])
+    );
+  }, []);
 
-    console.log('cmtList: ', cmtList);
+  // set vị trí like theo độ rộng của cmt
+  const list = document.querySelectorAll(".description-comment");
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].offsetWidth > 200) {
+      list[i].querySelector(".amount-like").style.bottom = "-14px";
+      list[i].querySelector(".amount-like").style.right = "24px";
+    }
+  }
 
-    useEffect(() => {
-        socket.on("receive_comment", (data) => {
-            setCmtList((list) => [...list, data]);
-            console.log('list: ', cmtList);
-        });
+  return (
+    <>
+      <div className="comment-question">
+        <img
+          src={image}
+          className="rounded-circle"
+          style={{ width: "40px" }}
+          alt="Avatar"
+        />
+        <input
+          className="form-control me-2 search-input comment-input"
+          type="text"
+          value={currentCmt}
+          placeholder="Bạn có gì thắc mắc trong bài học này?"
+          onChange={(event) => {
+            setCurrentCmt(event.target.value);
+          }}
+          onKeyPress={(event) => {
+            event.key === "Enter" && sendComment();
+          }}
+        />
+        <button className="btn-app btn-comment" onClick={sendComment}>
+          Bình luận
+        </button>
+      </div>
+      {cmtList.map((cmt, index) => {
+        return (
+          <div key={index} className={`a${cmt._id}`}>
+            <div className="item-comment-detail">
+              <img
+                src={cmt.avatar}
+                className="rounded-circle"
+                style={{ width: "40px" }}
+                alt="Avatar"
+              />
+              <div className="description-comment">
+                <div className="name">{cmt.username}</div>
+                <div className="description">{cmt.content}</div>
 
-        socket.on("receive_count_like_updated", (data) => {
-            
-            console.log("data: ", data);
-            const nodeAmountLike = document.querySelector(`.amount.${data.id}`);
-            nodeAmountLike.textContent = data.countLike.length;
-            /* let liked = false;
-            for (let j = 0; j < data.cmt.countLike.length; j++) {
-                if (data.cmt.countLike[j] == data.idUser) {
-                    data.cmt.countLike = data.cmt.countLike.slice(0, j).concat(data.cmt.countLike.slice(j + 1));
-                    liked = true;
-                }
-            };
-            if (!liked) {
-                data.cmt.countLike.push(`${data.idUser}`);
-            }
+                <div
+                  className={`amount-like ${cmt._id}`}
+                  style={{
+                    display: `${cmt.countLike.length == 0 ? "none" : "flex"}`,
+                  }}
+                >
+                  <div className="icon-like">
+                    <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
+                  </div>
+                  <p className={`amount ${cmt._id}`}>{cmt.countLike.length}</p>
+                </div>
+              </div>
+            </div>
+            <div className="felt-feedback-time">
+              <p onClick={() => updateCountLike(`${cmt._id}`)} className="felt">
+                Thích
+              </p>
+              <p
+                onClick={() => appearInputResponse(`${cmt._id}`)}
+                className="feedback"
+              >
+                Trả lời
+              </p>
+              <p className="time">{cmt.time}</p>
+            </div>
 
-            const nodeAmountLike = document.querySelector(`.amount.${data.id}`);
-            nodeAmountLike.textContent = data.cmt.countLike.length; */
+            <div className="list-comment-response">
+              {cmt.cmtResponse.map((cmtRes, index) => {
+                return (
+                  <div key={index} className={cmtRes._id}>
+                    <div className="item-comment-detail">
+                      <div className="comment-feedback">
+                        <img
+                          src={cmtRes.avatar}
+                          className="rounded-circle"
+                          style={{ width: "40px" }}
+                          alt="Avatar"
+                        />
+                        <div className="description-comment">
+                          <div className="name">{cmtRes.username}</div>
+                          <div className="description">{cmtRes.content}</div>
 
-            console.log('cmtListeff: ', cmtList);
+                          <div
+                            className={`amount-like ${cmtRes._id}`}
+                            style={{display: `${cmtRes.countLike.length == 0 ? "none" : "flex"}`}}
+                          >
+                            <div className="icon-like">
+                              <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
+                            </div>
+                            <p className={`amount ${cmtRes._id}`}>
+                              {cmtRes.countLike.length}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="felt-feedback-time response">
+                      <p onClick={() =>updateCountLikeRes(`${cmt._id}`, `${cmtRes._id}`)}className="felt">
+                        Thích
+                      </p>
+                      <p onClick={() => appearInputResponse(`${cmt._id}`)}  className="feedback">
+                        Trả lời
+                      </p>
+                      <p className="time">{cmtRes.time}</p>
+                    </div>
+                  </div>
+                );
+              })}
 
-        });
-    }, [socket]);
-
-    return (
-        <>
-            <div className="comment-question">
+              <div className="input-comment-response">
                 <img
-                    src={image}
-                    className="rounded-circle"
-                    style={{ "width": "40px" }}
-                    alt="Avatar"
+                  src={image}
+                  className="rounded-circle"
+                  style={{ width: "40px" }}
+                  alt="Avatar"
                 />
                 <input
-                    className="form-control me-2 search-input comment-input"
-                    type="text"
-                    value={currentCmt}
-                    placeholder="Bạn có gì thắc mắc trong bài học này?"
-                    onChange={(event) => {
-                        setCurrentCmt(event.target.value);
-                    }}
-                    onKeyPress={(event) => {
-                        event.key === "Enter" && sendComment();
-                    }}
+                  ref={cmtRef}
+                  className="form-control me-2 search-input comment-input"
+                  type="text"
+                  value={currentResCmt}
+                  placeholder="Bạn có gì thắc mắc trong bài học này?"
+                  onChange={(event) => {
+                    setCurrentResCmt(event.target.value);
+                  }}
+                  onKeyPress={(event) => {
+                    event.key === "Enter" && sendCommentResponse(cmt._id);
+                  }}
                 />
-                <button className='btn-app btn-comment' onClick={sendComment}>Bình luận</button>
+                <button
+                  className="btn-app btn-comment"
+                  onClick={() => sendCommentResponse(cmt._id)}
+                >
+                  Bình luận
+                </button>
+              </div>
             </div>
-            {cmtList.map((cmt, index) => {
-                return (
-                    <div key={index} className={cmt.id}>
-                        <div className="item-comment-detail">
-                            <img
-                                src={cmt.avatar}
-                                className="rounded-circle"
-                                style={{ "width": "40px" }}
-                                alt="Avatar"
-                            />
-                            <div className="description-comment">
-                                <div className="name">{cmt.username}</div>
-                                <div className="description">{cmt.content}</div>
-                                <div className="amount-like ">
-                                    <div className="icon-like">
-                                        <FontAwesomeIcon icon="fa-solid fa-thumbs-up" />
-                                    </div>
-                                    <p className={`amount ${cmt.id}`}>{cmt.countLike.length}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="felt-feedback-time">
-                            <p onClick={() => updateCountLike(`${cmt.id}`)} className="felt">Thích</p>
-                            <p className="feedback">Trả lời</p>
-                            <p className="time">{cmt.time}</p>
-                        </div>
-                    </div>
-                );
-            })}
-        </>
-    )
+          </div>
+        );
+      })}
+    </>
+  );
 }
 
 export default CommentDetail;

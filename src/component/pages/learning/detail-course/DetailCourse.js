@@ -1,26 +1,25 @@
 import './DetailCourse.css';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Comment from './commentAndCodePen/comment/comment';
 import Coding from './commentAndCodePen/coding/coding.js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCheck, faLock, faArrowRight, faList, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import * as dbCourseFix from "../../../data/index.js";
+
 
 library.add(faCheck, faLock, faArrowRight, faList, faChevronLeft, faChevronRight);
 
 function DetailCourse(props) {
+    const {slug} = useParams();  //Thằng này là tên khóa học
+    const {search} = useLocation(); //Thằng search này là id của bài học
+
+
     const [type, setType] = useState('comment');
 
     const linkVideo = "https://www.youtube.com/embed/tgbNymZ7vqY";
-    const listCourse = [
-        {
-            name: 'Mô hình Client-Server là gì?'
-        },
-        {
-            name: 'Domain là gì? Tên miền là gì?'
-        }
-    ]
+    const listCourse = JSON.parse(localStorage.getItem("LessonByCourse"))||[];
 
     const iconCloseMenu = document.querySelector('.svg-inline--fa.fa-arrow-right');
 
@@ -43,6 +42,13 @@ function DetailCourse(props) {
         tabMenu.style.opacity = '1';
         video.style.width = '75%';
     }
+    
+    //SET cho tab-menu có độ dài bằng video
+    useEffect(()=>{
+        const tab_menu = document.querySelector(".tab-menu");
+        let heighVideo = document.querySelector(".video-content").offsetHeight;
+        tab_menu.style.height = heighVideo+'px';
+    },[])
 
     return (
         <div style={{ display: 'flex' }}>
@@ -51,7 +57,7 @@ function DetailCourse(props) {
                     <Link to='/learning'>
                         <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
                     </Link>
-                    <p>Kiến thức nhập môn</p>
+                    <p>{dbCourseFix[`${slug}`].course}</p>
                     <FontAwesomeIcon icon="fa-solid fa-list" onClick={openMenu} />
                 </div>
                 <div className="video-content">
@@ -61,7 +67,6 @@ function DetailCourse(props) {
                     </iframe>
                     <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
                 </div>
-
                 <div className='comment-coding'>
                     <div className='title'>
                         <p
@@ -85,8 +90,9 @@ function DetailCourse(props) {
                     </div>
 
                     {/* Comment */}
-                    {type === 'comment' ? <Comment /> : <Coding />}
+                    {type === 'comment' ? <Comment idRoom={search.slice(4)}/> : <Coding />}
                 </div>
+
 
                 <div className='tab-menu'>
                     <div className='tittle-list'>

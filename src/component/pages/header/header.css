@@ -307,8 +307,8 @@ form.d-flex ul.listCourses::after {
 
 .overlay .closebtn {
   position: absolute;
-  top: 20px;
-  right: 45px;
+  top: 80px;
+  right: 294px;
   font-size: 60px;
   cursor: pointer;
   color: white;
@@ -342,5 +342,11 @@ form.d-flex ul.listCourses::after {
 
 .overlay button:hover {
   background: #bbb;
+}
+
+.listCourse-content {
+  background-color: #f5f6f7;
+  padding: 15px;
+  border-radius: 0 0 7px 7px;
 }
 /*# sourceMappingURL=header.css.map */

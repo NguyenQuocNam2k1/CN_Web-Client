@@ -26,6 +26,7 @@ function Header() {
       let text = item.innerText.toLowerCase();
       if (text.includes(value)) {
         listCourses.style.display = "block";
+        document.querySelector(".overlay-text").style.display = "none";
         item.style.display = "block";
       } else {
         item.style.display = "none";
@@ -47,6 +48,7 @@ function Header() {
   const token = getCookie("CCD") || "";
   let authUser = JSON.parse(localStorage.getItem("authUser"));
 
+
   const [scrolled, setScrolled] = useState(0);
   window.addEventListener("scroll", () => {
     setScrolled(window.scrollY);
@@ -67,7 +69,7 @@ function Header() {
     <>
       {match === "/user" ||
         match === "/user/register" ||
-        match === "/learning/detail" ? (
+        match.includes("/learning/")===true ? (
         <></>
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -160,9 +162,13 @@ function Header() {
                         autoComplete="off"
                         onKeyUp={searchFunction}
                         onChange={(e) => setValueInput(e.target.value)}
-                        // onBlur={closeSearch}
-                        onBlur={hidenListCourses}
+                        onBlur={closeSearch}
+                        // onBlur={hidenListCourses}
                         />
+                        <div className="overlay-text" style={{padding: "30px"}}>
+                          No recent searches
+                        </div>
+                        <div className="listCourse-content">
                         <ul className="listCourses" onClick={closeSearch} >
                           <p>{`Kết quả cho '${valueInput}'`}</p>
                           {dataListCourse.map((course, index) => {
@@ -180,6 +186,7 @@ function Header() {
                             );
                           })}
                         </ul>
+                        </div>
                       </form>
                     </div>
                 </div>
@@ -200,7 +207,7 @@ function Header() {
               ) : (
                 <div className="avatar">
                    <img
-                    src={authUser.image}
+                    src={authUser[0].image}
                     className="rounded-circle"
                     style={{ width: "40px" }}
                     alt="Avatar"

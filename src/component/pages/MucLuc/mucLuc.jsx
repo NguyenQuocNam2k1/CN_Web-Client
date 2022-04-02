@@ -27,10 +27,10 @@ function MucLuc(props) {
                 <li className="course-name">
                   <p>HTML & CSS</p>
                   <ul className="list-name-children">
-                    <Link to="/">
+                    <Link to="#">
                       <li className="course-children">HTML basic</li>
                     </Link>
-                    <Link to="/">
+                    <Link to="#">
                       <li className="course-children">HTML nâng cao</li>
                     </Link>
                   </ul>
@@ -38,14 +38,38 @@ function MucLuc(props) {
 
                 <li className="course-name">
                   <p>Python</p>
+                  <ul className="list-name-children">
+                    <Link to="#">
+                      <li className="course-children">Python basic</li>
+                    </Link>
+                    <Link to="#">
+                      <li className="course-children">Python nâng cao</li>
+                    </Link>
+                  </ul>
                 </li>
 
                 <li className="course-name">
                   <p>JavaScript</p>
+                  <ul className="list-name-children">
+                    <Link to="#">
+                      <li className="course-children">JavaScript basic</li>
+                    </Link>
+                    <Link to="#">
+                      <li className="course-children">JavaScript nâng cao</li>
+                    </Link>
+                  </ul>
                 </li>
 
                 <li className="course-name">
                   <p>Java</p>
+                  <ul className="list-name-children">
+                    <Link to="#">
+                      <li className="course-children">Java basic</li>
+                    </Link>
+                    <Link to="#">
+                      <li className="course-children">Java nâng cao</li>
+                    </Link>
+                  </ul>
                 </li>
 
                 <li className="course-name">
@@ -53,15 +77,19 @@ function MucLuc(props) {
                 </li>
 
                 <li className="course-name">
-                  <p>C++</p>
+                  <p>C</p>
                 </li>
 
                 <li className="course-name">
-                  <p>R</p>
+                  <p>ReactJS</p>
                 </li>
 
                 <li className="course-name">
-                  <p>C#</p>
+                  <p>VueJS</p>
+                </li>
+
+                <li className="course-name">
+                  <p>NodeJS</p>
                 </li>
               </ul>
             </div>

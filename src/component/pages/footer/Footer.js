@@ -5,9 +5,10 @@ import logo from "../../../images/logo.png";
 
 function Footer(props) {
   const match = useLocation().pathname;
+
   return (
     <>
-      {match === "/user" || match === "/user/register" || match === "/learning/detail" ? (
+      {match === "/user" || match === "/user/register" || match.includes("/learning/")===true ? (
         <></>
       ) : (
         <div className="container-footer" id="awan"> 

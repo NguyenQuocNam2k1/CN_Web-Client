@@ -1,13 +1,13 @@
 import CommentDetail from "./item-comment-detail";
-import { io } from "socket.io-client";
+import io  from "socket.io-client";
 import { useState } from 'react';
 
 const socket = io.connect("http://localhost:5000");
 
 function Comment(props) {
 
-    const user = JSON.parse(localStorage.getItem('authUser'));
-    const idRoom = 'html';
+    const user = JSON.parse(localStorage.getItem('authUser'))[0];
+    const {idRoom} = props;
 
     socket.emit("join_room", idRoom);
 
@@ -19,7 +19,7 @@ function Comment(props) {
                 <div className="list-comment">
                     <div className="item-comment">
                         <CommentDetail
-                            socket={socket} idUser={user.uid} username={user.displayName} room={idRoom} image={user.image}
+                            socket={socket} idUser={user._id} username={user.username} room={idRoom} image={user.image}
                         />
                         {/* <CommentDetail
                             avatar={user.image}

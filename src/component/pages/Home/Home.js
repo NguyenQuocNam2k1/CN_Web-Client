@@ -6,11 +6,11 @@ function Home(props) {
     <>
       <div className="container homepage-container">
         <div className="row homepage_layout_1">
-          <div className="col-6 homepage_layout_1_image">
+          <div className="col-lg-6 col-sm-12 homepage_layout_1_image">
             <div data-aos="fade-right"></div>
             {/* Thẻ div bên trên là chứa background. yêu cầu không ai được xóa */}
           </div>
-          <div className="col-6 homepage_layout_1_layout" data-aos="fade-left">
+          <div className="col-lg-6 homepage_layout_1_layout" data-aos="fade-left">
             <h1>Tham gia học MIỄN PHÍ</h1>
             <Link to="/user/register" style={{"paddingLeft":"45px"}}>
               <button className="button_homepage">Đăng ký</button>
