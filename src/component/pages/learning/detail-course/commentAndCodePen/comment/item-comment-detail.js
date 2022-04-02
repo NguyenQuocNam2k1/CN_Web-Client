@@ -17,41 +17,40 @@ function CommentDetail({ socket, idUser, username, room, image }) {
 
    const cmtRef = useRef();
 
-  const sendComment = () => {
-    if (currentCmt !== "") {
-      const cmtData = {
-        idRoom: room,
-        idUser: idUser,
-        username: username,
-        content: currentCmt,
-        avatar: image,
-        cmtResponse: [],
-        countLike: [],
-        time: moment().format("YYYY-MM-DDThh:mm:ss"),
-      };
-      console.log(cmtData.time);
-      socket.emit("send_comment", cmtData);
-      setCurrentCmt("");
-    }
-  };
+   const sendComment = () => {
+      if (currentCmt !== "") {
+         const cmtData = {
+            idRoom: room,
+            idUser: idUser,
+            username: username,
+            content: currentCmt,
+            avatar: image,
+            cmtResponse: [],
+            countLike: [],
+            time: moment().format(),
+         };
+         socket.emit("send_comment", cmtData);
+         setCurrentCmt("");
+      }
+   };
 
-  const sendCommentResponse = (_id) => {
-    if (currentResCmt !== "") {
-      const cmtRes = {
-        _id: "ccd" + uuidv4().replace(/-/g, ''),
-        idRoom: room,
-        idUser: idUser,
-        username: username,
-        content: currentResCmt,
-        avatar: image,
-        countLike: [],
-        time: moment().format(),
-      };
-  
-      socket.emit("send_comment_response", { _id, cmtRes });
-      setCurrentResCmt("");
-    }
-  };
+   const sendCommentResponse = (_id) => {
+      if (currentResCmt !== "") {
+         const cmtRes = {
+            _id: "ccd" + uuidv4().replace(/-/g, ''),
+            idRoom: room,
+            idUser: idUser,
+            username: username,
+            content: currentResCmt,
+            avatar: image,
+            countLike: [],
+            time: moment().format(),
+         };
+
+         socket.emit("send_comment_response", { _id, cmtRes });
+         setCurrentResCmt("");
+      }
+   };
 
    const updateCountLike = (idCmt) => {
       cmtList.forEach((element) => {

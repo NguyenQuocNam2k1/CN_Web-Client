@@ -319,7 +319,7 @@ form.d-flex ul.listCourses::after {
   color: #ccc;
 }
 
-.overlay input[type=text] {
+.overlay input[type="text"] {
   padding: 15px;
   margin: 20px auto;
   font-size: 17px;
