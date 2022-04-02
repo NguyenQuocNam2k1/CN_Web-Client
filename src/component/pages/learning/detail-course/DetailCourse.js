@@ -12,14 +12,14 @@ import * as dbCourseFix from "../../../data/index.js";
 library.add(faCheck, faLock, faArrowRight, faList, faChevronLeft, faChevronRight);
 
 function DetailCourse(props) {
-    const {slug} = useParams();  //Thằng này là tên khóa học
-    const {search} = useLocation(); //Thằng search này là id của bài học
+    const { slug } = useParams();  //Thằng này là tên khóa học
+    const { search } = useLocation(); //Thằng search này là id của bài học
 
 
     const [type, setType] = useState('comment');
 
     const linkVideo = "https://www.youtube.com/embed/tgbNymZ7vqY";
-    const listCourse = JSON.parse(localStorage.getItem("LessonByCourse"))||[];
+    const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
 
     const iconCloseMenu = document.querySelector('.svg-inline--fa.fa-arrow-right');
 
@@ -28,8 +28,7 @@ function DetailCourse(props) {
         const tabMenu = document.querySelector('.tab-menu');
         const video = document.querySelector('.video-content');
         iconMenu.style.display = 'block';
-        tabMenu.style.width = '0%';
-        tabMenu.style.opacity = '0';
+        tabMenu.style.right = '-370px';
         video.style.width = '100%';
     }
 
@@ -38,17 +37,16 @@ function DetailCourse(props) {
         const tabMenu = document.querySelector('.tab-menu');
         const video = document.querySelector('.video-content');
         iconMenu.style.display = 'none';
-        tabMenu.style.width = '25%';
-        tabMenu.style.opacity = '1';
+        tabMenu.style.right = '0px';
         video.style.width = '75%';
     }
-    
+
     //SET cho tab-menu có độ dài bằng video
-    useEffect(()=>{
+    useEffect(() => {
         const tab_menu = document.querySelector(".tab-menu");
         let heighVideo = document.querySelector(".video-content").offsetHeight;
-        tab_menu.style.height = heighVideo+'px';
-    },[])
+        tab_menu.style.height = heighVideo + 'px';
+    }, [])
 
     return (
         <div style={{ display: 'flex' }}>
@@ -90,7 +88,7 @@ function DetailCourse(props) {
                     </div>
 
                     {/* Comment */}
-                    {type === 'comment' ? <Comment idRoom={search.slice(4)}/> : <Coding />}
+                    {type === 'comment' ? <Comment idRoom={search.slice(4)} /> : <Coding />}
                 </div>
 
 

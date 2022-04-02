@@ -8,10 +8,10 @@ function Footer(props) {
 
   return (
     <>
-      {match === "/user" || match === "/user/register" || match.includes("/learning/")===true ? (
+      {match === "/user" || match === "/user/register" || match.includes("/learning/") === true ? (
         <></>
       ) : (
-        <div className="container-footer" id="awan"> 
+        <div className="container-footer" id="awan">
           <div className="container-fluid">
             <div className="row">
               <div className="col-3 logo">

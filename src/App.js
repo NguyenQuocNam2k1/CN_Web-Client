@@ -17,6 +17,8 @@ import DetailCourse from 'component/pages/learning/detail-course/DetailCourse';
 import { getAllCourseList } from "redux/actions/courseAction";
 import AOS from "aos";
 
+import UpdateCmt from "component/pages/learning/detail-course/commentAndCodePen/comment/UIUpdateAndDelete";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -39,12 +41,13 @@ function App() {
           <Route exact path="/courseDetail/:slug" component={CourseDetail} />
           <Route exact path="/lo-trinh" component={LoTrinh} />
           <Route exact path="/chi-tiet-lo-trinh/:slug" component={RouterDetail} />
-          <Route exact path="/learning" component={Learning}/>
-          <Route exact path="/learning/:slug" component={DetailCourse}/>
+          <Route exact path="/learning" component={Learning} />
+          <Route exact path="/learning/:slug" component={DetailCourse} />
+          <Route exact path="/update" component={UpdateCmt} />
           {/* <Route component={NotFound} /> */}
         </Switch>
         <Footer />
-  </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }
