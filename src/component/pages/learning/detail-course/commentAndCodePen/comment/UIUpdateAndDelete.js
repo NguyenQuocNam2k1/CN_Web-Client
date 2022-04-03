@@ -109,7 +109,6 @@ function UIUpdateAndDeleteCmt({ rootId, id, img, room, socket, idUser, cmtList }
   }
 
   function deleteCmt(rootId, id, room) {
-    console.log('rootId, id, room', { rootId, id, room });
     if (!rootId) {
       socket.emit('delete-comment', { id, room });
     }
@@ -118,9 +117,6 @@ function UIUpdateAndDeleteCmt({ rootId, id, img, room, socket, idUser, cmtList }
     }
     document.querySelector(`.a${id}`).querySelector('.updateAndDelete').style.display = 'none';
     document.querySelector(`.modal-background-${id}`).style.display = 'none';
-    /*   document.querySelector('.modal-backdrop.fade.show').style.display = 'none';
-      document.querySelector('body').style.overflow = 'scroll';
-      document.querySelector('.modal-dialog').style.display = 'none'; */
   }
 
   function handleClickReportCmt(e, id) {
@@ -147,7 +143,7 @@ function UIUpdateAndDeleteCmt({ rootId, id, img, room, socket, idUser, cmtList }
             setCmtUpdate(event.target.value);
           }}
           onKeyPress={(event) => {
-            event.key === "Enter" && sendComment();
+            event.key === "Enter" && updateCmt(rootId, id, room);
           }}
         />
         <button className="btn-app btn-comment" style={{ backgroundColor: '#dc3545' }} onClick={() => updateCmt(rootId, id, room)}>
