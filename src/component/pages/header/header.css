@@ -118,6 +118,7 @@ input.form-control.me-2.search-input {
 }
 
 .avatar .avatar_list li:hover {
+  cursor: pointer;
   background-color: #466a8a;
   border-radius: 6px;
   -webkit-transition: all 0.2s ease 0s;
@@ -278,7 +279,7 @@ form.d-flex ul.listCourses::after {
 }
 
 .openBtn:hover {
-  border: none;
+  border: 1px solid #f1f1f1;
   background-color: #f1f1f1;
 }
 
@@ -318,7 +319,7 @@ form.d-flex ul.listCourses::after {
   color: #ccc;
 }
 
-.overlay input[type=text] {
+.overlay input[type="text"] {
   padding: 15px;
   margin: 20px auto;
   font-size: 17px;
