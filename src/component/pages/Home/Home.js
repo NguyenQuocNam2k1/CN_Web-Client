@@ -89,10 +89,25 @@ function Home(props) {
         </div>
       </div>
       <div className="homepage_layout_3">
-        <div>
-          {/* <h1>120.000+</h1>
-          <h2>nguời khác đã học</h2> */}
+      <div className="slideshow">
+  
+          <div className="card_part card_part-one">
+          </div>
+          
+          <div className="card_part card_part-two">
+          </div>
+
+          <div className="card_part card_part-three">
+          </div>
+
+          <div className="card_part card_part-four">
         </div>
+
+</div>
+        {/* <div>
+          <h1>120.000+</h1>
+          <h2>nguời khác đã học</h2>
+        </div> */}
       </div>
       {/* Layout 6 */}
       {/* <div className="container">
