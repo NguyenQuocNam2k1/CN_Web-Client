@@ -1,5 +1,6 @@
 import { UserTypes } from "../constants/action-types";
 import api from "../../apis/index.js";
+import { async } from "@firebase/util";
 
 export const logIn = (email , password) => async (dispatch) => { 
     try {
@@ -20,6 +21,15 @@ export const register = (username , password , email) => async (dispatch) => {
     }
 }
 
+export const addCourse = (idCourse, _id) =>  async(dispatch) => {
+    try {
+        const response = await api.post("/api/user/addCourse" , {idCourse,_id});
+        console.log(response);
+        dispatch({ type: UserTypes.ADD_COURSE, payload: response.data }); 
+    } catch (err) {
+        console.log("Error:" , err);
+    }
+}
 
 
 

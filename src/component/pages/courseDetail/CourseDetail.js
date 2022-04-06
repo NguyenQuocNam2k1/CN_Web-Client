@@ -3,14 +3,18 @@ import * as dbCourseFix from "../../data/index.js";
 import { Link, useParams } from "react-router-dom";
 import Loading from "component/container/loading/Loading";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCookie } from "../../config/cookie.js";
+import {addCourse} from "../../../redux/actions/userAction.js";
 
 function courseDetail(props) {
+  const dispatch = useDispatch();
   const nameCourse = useParams().slug;
   const [LessonOfCourse, setLessonOfCourse] = useState("");
   const [courseImage, setCourseImage] = useState(" ");
   const re_render = useSelector((state) => state.courses.render);
+
+  const authUser = JSON.parse(localStorage.getItem("authUser"));
 
   useEffect(() => {
     setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
@@ -123,7 +127,10 @@ function courseDetail(props) {
             <div className="col-3 card cd-body-right">
               <img src={courseImage} className="card-img-top" alt="..." />
               <div className="card-body cd-card-body">
-                <button className="button_jelly cd-btn">Vào học</button>
+                {authUser[0].course_studied.includes(nameCourse)
+                ?<button className="button_jelly cd-btn">Vào học</button>
+                :<button className="button_jelly cd-btn" onClick={() => dispatch(addCourse(nameCourse,authUser[0]._id))}>Đăng ký</button>
+                }
                 <div className="cd-card-body-count">
                   <ul>
                     <li className="cd-card-list">

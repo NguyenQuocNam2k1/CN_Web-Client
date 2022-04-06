@@ -9,7 +9,6 @@ const initialState = {
 export const userReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case UserTypes.LOG_IN:
-            console.log(payload);
             if (payload.status === "200") {
                 let valueToken = payload.token;
                 // Apply setCookie
