@@ -296,14 +296,14 @@
   margin-bottom: 0;
 }
 
-.video-detail .tab-menu ul.list-course li.name-course {
+.video-detail .tab-menu ul.list-course li.name-course-lock {
   list-style: none;
   font-size: 16px;
   padding: 12px;
   position: relative;
 }
 
-.video-detail .tab-menu ul.list-course li.name-course svg.svg-inline--fa.fa-lock {
+.video-detail .tab-menu ul.list-course li.name-course-lock svg.svg-inline--fa.fa-lock {
   position: absolute;
   right: 8px;
   top: 16px;
@@ -311,7 +311,7 @@
   font-size: 14px;
 }
 
-.video-detail .tab-menu ul.list-course li.name-course svg.svg-inline--fa.fa-check {
+.video-detail .tab-menu ul.list-course li.name-course-lock svg.svg-inline--fa.fa-check {
   position: absolute;
   right: 8px;
   top: 12px;
@@ -322,8 +322,24 @@
   font-size: 10px;
 }
 
+.video-detail .tab-menu ul.list-course li.name-course {
+  list-style: none;
+  font-size: 16px;
+  padding: 12px;
+  position: relative;
+  color: black;
+  background-color: white;
+}
+
 .video-detail .tab-menu ul.list-course li.name-course:hover {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
   background-color: #2e63cdb0;
+  color: white;
+}
+
+.video-detail .tab-menu ul.list-course li.name-course-lock:hover {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }

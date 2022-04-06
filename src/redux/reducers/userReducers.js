@@ -9,7 +9,6 @@ const initialState = {
 export const userReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case UserTypes.LOG_IN:
-            console.log(payload);
             if (payload.status === "200") {
                 let valueToken = payload.token;
                 // Apply setCookie
@@ -19,6 +18,9 @@ export const userReducer = (state = initialState, { type, payload }) => {
             return {...state , dataUser: payload.status};
         case UserTypes.REGISTER:
             return {...state , stRegister: payload.status};
+        case UserTypes.ADD_COURSE:
+            localStorage.setItem("authUser" , JSON.stringify(payload));
+            return {...state}
         default:
             return state;
     }

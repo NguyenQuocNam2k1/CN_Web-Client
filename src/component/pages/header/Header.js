@@ -26,6 +26,7 @@ function Header() {
       let text = item.innerText.toLowerCase();
       if (text.includes(value)) {
         listCourses.style.display = "block";
+        document.querySelector(".overlay-text").style.display = "none";
         item.style.display = "block";
       } else {
         item.style.display = "none";
@@ -125,7 +126,10 @@ function Header() {
                         onChange={(e) => setValueInput(e.target.value)}
                         // onBlur={hidenListCourses}
                         />
-                        <div>
+                        <div className="overlay-text" style={{padding: "30px"}}>
+                          No recent searches
+                        </div>
+                        <div className="listCourse-content">
                         <ul className="listCourses" onClick={closeSearch} >
                           <p>{`Kết quả cho '${valueInput}'`}</p>
                           {dataListCourse.map((course, index) => {
