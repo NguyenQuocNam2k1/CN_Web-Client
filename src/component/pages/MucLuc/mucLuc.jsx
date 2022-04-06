@@ -8,6 +8,7 @@ function MucLuc(props) {
   const dispatch = useDispatch();
 
   const courseList = useSelector((state) => state.courses.courseList);
+  console.log(courseList);
   const handleClick = (idCourse , imgUrl) => {
     localStorage.setItem("imageListCourse" , JSON.stringify(imgUrl));
     dispatch(getLessonByCourse(idCourse));
