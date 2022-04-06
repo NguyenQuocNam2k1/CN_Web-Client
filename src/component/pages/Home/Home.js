@@ -90,8 +90,8 @@ function Home(props) {
       </div>
       <div className="homepage_layout_3">
         <div>
-          <h1>120.000+</h1>
-          <h2>nguời khác đã học</h2>
+          {/* <h1>120.000+</h1>
+          <h2>nguời khác đã học</h2> */}
         </div>
       </div>
       {/* Layout 6 */}
