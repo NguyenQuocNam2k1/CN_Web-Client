@@ -18,6 +18,9 @@ export const userReducer = (state = initialState, { type, payload }) => {
             return {...state , dataUser: payload.status};
         case UserTypes.REGISTER:
             return {...state , stRegister: payload.status};
+        case UserTypes.ADD_COURSE:
+            localStorage.setItem("authUser" , JSON.stringify(payload));
+            return {...state}
         default:
             return state;
     }
