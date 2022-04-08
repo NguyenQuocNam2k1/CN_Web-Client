@@ -2,9 +2,11 @@ import "./DetailCourse.css";
 import { Link, useLocation, useParams } from "react-router-dom";
 import Comment from "./commentAndCodePen/comment/comment";
 import Coding from "./commentAndCodePen/coding/coding.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import io from "socket.io-client";
+import ListCourse from "./commentAndCodePen/comment/listCourse";
 import {
   faCheck,
   faLock,
@@ -23,19 +25,30 @@ library.add(
   faChevronLeft,
   faChevronRight
 );
+import ReactPlayer from "react-player/youtube";
+
+
+const socket = io.connect("http://localhost:5000");
+// const socket = io.connect("https://cn-web.herokuapp.com");
 
 function DetailCourse(props) {
   const { slug } = useParams(); //Thằng này là tên khóa học
   const { search } = useLocation(); //Thằng search này là id của bài học
-
+  
   const [type, setType] = useState("comment");
-
-  const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
+  
+  const user = JSON.parse(localStorage.getItem('authUser'))[0];
+  const listCourse = JSON.parse(localStorage.getItem("LessonByCourse"))|| [];
   let indexLesson;
+  const BaiDaHocGanNhat = user.lesson_course.length === 0 ? [{idLesson:search.slice(4)}]: user.lesson_course.filter(item => item.idCourse === slug);
+  let ViTriBaiDaHocGanNhat ;
+  
   const linkVideo = listCourse.filter((lesson, index) => {
     if (lesson._id === search.slice(4)) indexLesson = index;
+    if(lesson._id === BaiDaHocGanNhat[0].idLesson) ViTriBaiDaHocGanNhat = index;
     return lesson._id == search.slice(4);
   });
+  
 
   const iconCloseMenu = document.querySelector(
     ".svg-inline--fa.fa-arrow-right"
@@ -60,11 +73,35 @@ function DetailCourse(props) {
   };
 
   //SET cho tab-menu có độ dài bằng video
-  useEffect(() => {
-    const tab_menu = document.querySelector(".tab-menu");
-    let heighVideo = document.querySelector(".video-content").offsetHeight;
-    tab_menu.style.height = heighVideo + "px";
-  }, []);
+  // useEffect(() => {
+  //   const tab_menu = document.querySelector(".tab-menu");
+  //   let heighVideo = document.querySelector(".video-content").offsetHeight;
+  //   tab_menu.style.height = heighVideo + "px";
+  // }, []);
+
+  //React Player
+ const ref = useRef();
+//  const [test , setTest] = useState("1");
+//  console.log(test);
+ const [openLock, setOpenLock] = useState(false);
+ const totalTimeVideo = useRef(0);
+ let currentTimeVideo = 0;
+//  const user = JSON.parse(localStorage.getItem('authUser'))[0];
+ const getCurrentTimePlay = () => {
+   currentTimeVideo = ref.current.getCurrentTime();
+   if(currentTimeVideo/totalTimeVideo.current > 0.7 && indexLesson >= ViTriBaiDaHocGanNhat){
+     setOpenLock(true);
+   }
+ };
+ const getTotalTimeVideo = () =>{
+   totalTimeVideo.current = ref.current.getDuration();
+ }
+ useEffect(()=>{
+  socket.on("receive_user", data =>{
+    localStorage.setItem("authUser", JSON.stringify(data));
+  });
+},[socket]);
+ 
 
   return (
     <div style={{ display: "flex" }}>
@@ -78,18 +115,34 @@ function DetailCourse(props) {
         </div>
         <div className="video-content">
           <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
-          {/* <iframe width="853" height="480" src="https://www.youtube.com/embed/8EFWm5KD8ow" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
-          {/* <iframe width="853" height="480" src="https://youtu.be/2fanjSYVElY?list=PL33lvabfss1xnFpWQF6YH11kMTS1HmLsw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-          {/* <iframe
-                       width="853" height="480" 
-                        src={linkVideo[0].video}>
-                    </iframe> */}
-          <iframe
-            src={linkVideo[0].video}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+          <div>
+            {/* url ={[
+              https://www.youtube.com/watch?v=2fanjSYVElY&list=PL33lvabfss1xnFpWQF6YH11kMTS1HmLsw&index=1,
+              https://www.youtube.com/watch?v=XUIm5VQlpJM&list=PL33lvabfss1xnFpWQF6YH11kMTS1HmLsw&index=2,
+              https://www.youtube.com/watch?v=TrLKdQH_Qng&list=PL33lvabfss1xnFpWQF6YH11kMTS1HmLsw&index=3
+            ]} */}
+            <ReactPlayer
+              url={linkVideo[0].video}
+              config={{
+                youtube: {
+                  playerVars: { showinfo: 1 }
+                }}}
+              // url="https://www.youtube.com/watch?v=_40bzGOHloo"
+              // url="https://www.youtube.com/watch?v=2fanjSYVElY"
+              // url ={[
+              //   "https://www.youtube.com/watch?v=2fanjSYVElY&list=PL33lvabfss1xnFpWQF6YH11kMTS1HmLsw&index=1",
+              //   "https://www.youtube.com/watch?v=XUIm5VQlpJM&list=PL33lvabfss1xnFpWQF6YH11kMTS1HmLsw&index=2",
+              //   "https://www.youtube.com/watch?v=TrLKdQH_Qng&list=PL33lvabfss1xnFpWQF6YH11kMTS1HmLsw&index=3",
+              // ]}
+              ref={ref}
+              controls
+              onProgress={getCurrentTimePlay}
+              onStart={getTotalTimeVideo}
+              width="100%"
+              height="100%"
+            >
+            </ReactPlayer>
+          </div>
           <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
         </div>
         <div className="comment-coding">
@@ -110,6 +163,7 @@ function DetailCourse(props) {
             <p
               className="title-coding"
               onClick={() => {
+                closeMenu()
                 setType("coding");
                 document.querySelector(".title-comment").style.borderBottom =
                   "none";
@@ -124,7 +178,7 @@ function DetailCourse(props) {
 
           {/* Comment */}
           {type === "comment" ? (
-            <Comment idRoom={search.slice(4)} />
+            <Comment idRoom={search.slice(4)} socket={socket} user={user} />
           ) : (
             <Coding />
           )}
@@ -138,27 +192,10 @@ function DetailCourse(props) {
               onClick={closeMenu}
             />
           </div>
-          <ul className="list-course">
-            {listCourse.map((course, index) =>
-              index > indexLesson ? (
-                <li key={index} className="name-course-lock">
-                  {course.name}
-                  {/* <FontAwesomeIcon icon="fa-solid fa-check" /> */}
-                  <FontAwesomeIcon icon="fa-solid fa-lock" />
-                </li>
-              ) : (
-                <Link to={{
-                    pathname: `/learning/${slug}`,
-                    search: `id=${course._id}`,
-                  }} key={index} style={{"textDecoration":"none"}}>
-                  <li className="name-course">
-                    {course.name}
-                    {/* <FontAwesomeIcon icon="fa-solid fa-check" /> */}
-                  </li>
-                </Link>
-              )
-            )}
-          </ul>
+
+          {/* list course */}
+          <ListCourse listCourse={listCourse} slug={slug} indexLessoned={ViTriBaiDaHocGanNhat} openLock={openLock} socket={socket} user={user} indexLessonPresent={indexLesson}/>
+
         </div>
       </div>
     </div>

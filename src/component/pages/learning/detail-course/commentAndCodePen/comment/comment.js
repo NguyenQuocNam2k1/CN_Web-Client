@@ -1,13 +1,10 @@
 import CommentDetail from "./item-comment-detail";
-import io from "socket.io-client";
 
-// const socket = io.connect("http://localhost:5000");
- const socket = io.connect("https://cn-web.herokuapp.com");
 
 function Comment(props) {
 
-    const user = JSON.parse(localStorage.getItem('authUser'))[0];
-    const { idRoom } = props;
+    const { idRoom , socket, user} = props;
+    console.log(idRoom);
 
     socket.emit("join_room", idRoom);
 
