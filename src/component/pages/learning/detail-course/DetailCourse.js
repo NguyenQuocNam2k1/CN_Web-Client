@@ -37,8 +37,6 @@ function DetailCourse(props) {
   const { search } = useLocation(); //Thằng search này là id của bài học
 
   const [type, setType] = useState("comment");
-  // const loading = useSelector(state => state.users.loading);
-
   const iconCloseMenu = document.querySelector(
     ".svg-inline--fa.fa-arrow-right"
   );
@@ -62,39 +60,33 @@ function DetailCourse(props) {
   };
 
   //React Player
-  let user = JSON.parse(localStorage.getItem("authUser"))[0];
+  let user = JSON.parse(localStorage.getItem("authUser"));
   const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
   let indexLesson;
-  const BaiDaHocGanNhat =
-    user.lesson_course.length === 0
-      ? [{ idLesson: search.slice(4) }]
-      : user.lesson_course.filter((item) => item.idCourse === slug);
+  const BaiDaHocGanNhat = user[0].lesson_course.length === 0 ? [{ idLesson: search.slice(4) }] : user[0].lesson_course.filter((item) => item.idCourse === slug);
   let ViTriBaiDaHocGanNhat;
 
-  console.log(listCourse);
-  console.log(BaiDaHocGanNhat);
-
   const linkVideo = listCourse.filter((lesson, index) => {
-    if(BaiDaHocGanNhat.length===0) return;
+    if (BaiDaHocGanNhat.length === 0) return;
     if (lesson._id === search.slice(4)) indexLesson = index;
-    if (lesson._id === BaiDaHocGanNhat[0].idLesson) ViTriBaiDaHocGanNhat = index;
+    if (lesson._id === BaiDaHocGanNhat[0].idLesson)
+      ViTriBaiDaHocGanNhat = index;
     return lesson._id == search.slice(4);
   });
 
   const ref = useRef();
-  const [indexLessonFuture, setIndexLessonFuture] = useState(
-    ViTriBaiDaHocGanNhat
-  );
+  const [indexLessonFuture, setIndexLessonFuture] = useState(ViTriBaiDaHocGanNhat);
   const [openLock, setOpenLock] = useState(false);
   const totalTimeVideo = useRef(0);
   const currentTimeVideo = useRef(0);
+
   const getCurrentTimePlay = () => {
-    user = JSON.parse(localStorage.getItem("authUser"))[0];
     currentTimeVideo.current = ref.current.getCurrentTime();
     setOpenLock(false);
+    console.log(indexLesson, ViTriBaiDaHocGanNhat,indexLessonFuture );
     if (
       currentTimeVideo.current / totalTimeVideo.current > 0.7 &&
-      indexLesson >= ViTriBaiDaHocGanNhat
+      indexLesson === ViTriBaiDaHocGanNhat
     ) {
       setIndexLessonFuture(ViTriBaiDaHocGanNhat + 1);
       if (indexLessonFuture > ViTriBaiDaHocGanNhat) {
@@ -102,11 +94,12 @@ function DetailCourse(props) {
       }
     }
   };
+
   const getTotalTimeVideo = () => {
     totalTimeVideo.current = ref.current.getDuration();
   };
+
   useEffect(() => {
-    user = JSON.parse(localStorage.getItem("authUser"))[0];
     socket.on("receive_user", (data) => {
       localStorage.setItem("authUser", JSON.stringify(data));
     });
@@ -115,7 +108,9 @@ function DetailCourse(props) {
   return (
     <>
       {BaiDaHocGanNhat.length === 0 ? (
-        <Loading />
+        <>
+          <Loading />
+        </>
       ) : (
         <div style={{ display: "flex" }}>
           <div className="video-detail">
@@ -183,7 +178,7 @@ function DetailCourse(props) {
 
               {/* Comment */}
               {type === "comment" ? (
-                <Comment idRoom={search.slice(4)} socket={socket} user={user} />
+                <Comment idRoom={search.slice(4)} socket={socket} user={user[0]} />
               ) : (
                 <Coding />
               )}
@@ -202,10 +197,10 @@ function DetailCourse(props) {
               <ListCourse
                 listCourse={listCourse}
                 slug={slug}
-                indexLessoned={indexLessonFuture}
+                indexLessoned={indexLessonFuture || 0}
                 openLock={openLock}
                 socket={socket}
-                user={user}
+                user={user[0]}
                 indexLessonPresent={indexLesson}
                 currentTimeVideo={currentTimeVideo.current}
               />
