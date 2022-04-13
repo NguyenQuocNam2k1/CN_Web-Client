@@ -1,11 +1,10 @@
+import { useEffect, useState } from "react";
 import CommentDetail from "./item-comment-detail";
 
 
 function Comment(props) {
 
     const { idRoom , socket, user} = props;
-    console.log(idRoom);
-
     socket.emit("join_room", idRoom);
 
     return (

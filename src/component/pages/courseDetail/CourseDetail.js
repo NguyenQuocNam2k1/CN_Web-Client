@@ -138,7 +138,7 @@ function courseDetail(props) {
                       search: `id=${idLesson[0].idLesson}`,
                     }}
                   >
-                    <button className="button_jelly cd-btn">Vào học</button>
+                    <button className="button_jelly cd-btn">Học tiếp</button>
                   </Link>
                 ) : (
                   <Link

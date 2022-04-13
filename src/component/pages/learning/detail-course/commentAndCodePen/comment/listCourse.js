@@ -1,26 +1,27 @@
-import React,{memo, useEffect} from "react";
+import React, { memo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
-
-function listCourse({listCourse , slug , indexLessoned, openLock ,socket , user, indexLessonPresent}) {
-
-  if (openLock){
-    indexLessoned++;
-    let newLessonCourse = user.lesson_course.map(item => {
-      if(item.idCourse === slug){
+function listCourse({
+  listCourse,
+  slug,
+  indexLessoned,
+  openLock,
+  socket,
+  user,
+  indexLessonPresent,
+}) {
+  if (openLock === true) {
+    let newLessonCourse = user.lesson_course.map((item) => {
+      if (item.idCourse === slug) {
         item.idLesson = listCourse[indexLessoned]._id;
         return item;
       }
       return item;
     });
-    // console.log(newLessonCourse);
-    socket.emit("update_lesson_course", {_id:user._id, newLessonCourse});
+    socket.emit("update_lesson_course", { _id: user._id, newLessonCourse });
   }
-  
 
-  
   return (
     <ul className="list-course">
       {listCourse.map((course, index) =>
@@ -35,13 +36,21 @@ function listCourse({listCourse , slug , indexLessoned, openLock ,socket , user,
           //   key={index}
           //   style={{ "textDecoration": "none"}}
           // >
-          <Link to={{
-            pathname: `/learning/${slug}`,
-            search: `id=${course._id}`,
-          }}
-          key={index}
+          <Link
+            to={{
+              pathname: `/learning/${slug}`,
+              search: `id=${course._id}`,
+            }}
+            key={index}
+            style={{ textDecoration: "none" }}
           >
-            <li className={indexLessonPresent===index? "name-course-present" : "name-course"}>
+            <li
+              className={
+                indexLessonPresent === index
+                  ? "name-course-present"
+                  : "name-course"
+              }
+            >
               {course.name}
               {/* <FontAwesomeIcon icon="fa-solid fa-check" /> */}
             </li>
@@ -53,4 +62,4 @@ function listCourse({listCourse , slug , indexLessoned, openLock ,socket , user,
   );
 }
 
-export default memo(listCourse);
+export default listCourse;

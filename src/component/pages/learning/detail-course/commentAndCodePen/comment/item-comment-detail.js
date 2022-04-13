@@ -101,15 +101,13 @@ function CommentDetail({ socket, idUser, username, room, image }) {
 
 
    useEffect(() => {
-      console.log("Abnd",room);
       socket.emit("get_comment", room);
       socket.on("receive_all_comment", (data) => {
          setCmtList(data.reverse());
       });
       socket.on("receive_comment", (data) =>
-         setCmtList((list) => [data, ...list])
-      );
-   }, []);
+      setCmtList(data.reverse()));
+   }, [room]);
 
    // set vị trí like theo độ rộng của cmt
    const list = document.querySelectorAll(".description-comment");
