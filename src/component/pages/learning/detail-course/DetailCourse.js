@@ -29,8 +29,8 @@ library.add(
 import ReactPlayer from "react-player/youtube";
 import { useSelector } from "react-redux";
 
-const socket = io.connect("http://localhost:5000");
-// const socket = io.connect("https://cn-web.herokuapp.com");
+// const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://cn-web.herokuapp.com");
 
 function DetailCourse(props) {
   const { slug } = useParams(); //Thằng này là tên khóa học
@@ -83,7 +83,6 @@ function DetailCourse(props) {
   const getCurrentTimePlay = () => {
     currentTimeVideo.current = ref.current.getCurrentTime();
     setOpenLock(false);
-    console.log(indexLesson, ViTriBaiDaHocGanNhat,indexLessonFuture );
     if (
       currentTimeVideo.current / totalTimeVideo.current > 0.7 &&
       indexLesson === ViTriBaiDaHocGanNhat
