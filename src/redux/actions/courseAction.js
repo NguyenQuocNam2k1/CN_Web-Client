@@ -29,3 +29,12 @@ export const getLessonByCourse = (listCourse) => async(dispatch) => {
         localStorage.setItem("LessonByCourse", JSON.stringify([]))
     }
 }
+
+
+export const setLoading = () => async(dispatch) => {
+    try {
+        dispatch({type: CourseType.SET_LOADING});
+    } catch (err) {
+        localStorage.setItem("LessonByCourse", JSON.stringify([]))
+    }
+}

@@ -273,7 +273,7 @@
     & ul.list-course {
       padding: 0;
       margin-bottom: 0;
-      & li.name-course {
+      & li.name-course-lock {
         list-style: none;
         font-size: 16px;
         padding: 12px;
@@ -298,9 +298,24 @@
           font-size: 10px;
         }
       }
+      & li.name-course{
+        list-style: none;
+        font-size: 16px;
+        padding: 12px;
+        position: relative;
+        color: black;
+        background-color: white;
 
-      & li.name-course:hover {
+      }
+
+      & li.name-course:hover{
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
         background-color: #2e63cdb0;
+        color: white;
+      }
+
+      & li.name-course-lock:hover {
         transition: all 0.3s ease 0s;
       }
     }
