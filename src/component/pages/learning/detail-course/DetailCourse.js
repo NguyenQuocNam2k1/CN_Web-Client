@@ -29,8 +29,8 @@ library.add(
 import ReactPlayer from "react-player/youtube";
 import { useSelector } from "react-redux";
 
-const socket = io.connect("http://localhost:5000");
-// const socket = io.connect("https://cn-web.herokuapp.com");
+// const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://cn-web.herokuapp.com");
 
 function DetailCourse(props) {
   const { slug } = useParams(); //Thằng này là tên khóa học
