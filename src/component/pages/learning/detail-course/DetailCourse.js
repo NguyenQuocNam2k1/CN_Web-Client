@@ -83,6 +83,7 @@ function DetailCourse(props) {
   const getCurrentTimePlay = () => {
     currentTimeVideo.current = ref.current.getCurrentTime();
     setOpenLock(false);
+    console.log(indexLesson,ViTriBaiDaHocGanNhat,indexLessonFuture);
     if (
       currentTimeVideo.current / totalTimeVideo.current > 0.7 &&
       indexLesson === ViTriBaiDaHocGanNhat
