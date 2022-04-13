@@ -3,7 +3,8 @@ import { setCookie } from "component/config/cookie";
 
 const initialState = {
     dataUser: "100",
-    stRegister: false
+    stRegister: false,
+    loading:false,
 }
 
 export const userReducer = (state = initialState, { type, payload }) => {
@@ -20,7 +21,7 @@ export const userReducer = (state = initialState, { type, payload }) => {
             return {...state , stRegister: payload.status};
         case UserTypes.ADD_COURSE:
             localStorage.setItem("authUser" , JSON.stringify(payload));
-            return {...state}
+            return {...state, loading:!state.loading}
         default:
             return state;
     }
