@@ -159,55 +159,8 @@ function Home(props) {
               </div>
             </div>
           </div> 
-
-          
-
-          {/* <div className="mySlides">
-            <div className="row slide-child">
-              <p className="col-8 slide-text">"I've always struggled with learning JavaScript. I've taken many courses but Cocoders's course was the one which stuck. Studying JavaScript as well as data structures and algorithms on Cocoders gave me the skills and confidence I needed to land my dream job as a software engineer at Spotify." </p>
-              <div className="col-4 slide-content">
-              <img className="slide-img" src={slide2} />
-
-              </div>
-            </div>
-          </div>
-
-          <div className="mySlides">
-            <div className="row slide-child">
-              <div className="col-4 slide-content">
-              <img className="slide-img" src={slide3} />
-
-              </div>
-              <p className="col-8 slide-text">"Cocoders was the gateway to my career as a software developer. The well-structured curriculum took my coding knowledge from a total beginner level to a very confident level. It was everything I needed to land my first dev job at an amazing company."</p>
-            </div>
-          </div> */}
-
         </div>
       </div>
-        {/* <div>
-          <h1>120.000+</h1>
-          <h2>nguời khác đã học</h2>
-        </div> */}
-      {/* Layout 6 */}
-      {/* <div className="container">
-        <div className="homepage_layout_5">
-          <div className="row">
-            <div className="col-6 homepage_layout_5_right">
-              <div>
-                <h1>Kiểm tra năng lực với hệ thống bài kiểm tra</h1>
-                <button className="btn-app-layout_2 btn-app">
-                  Xem chi tiết
-                </button>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="homepage_layout_5_left">
-                <div className="background_layout_6"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className="homepage_layout_4">
         <div className="container">
           <div className="row">

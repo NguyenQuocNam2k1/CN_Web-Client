@@ -25,10 +25,10 @@ function Learning() {
           <div className="row">
             {listCourseStudied.map((item, index) => {
               return (
-                <div className="col-12 col-md-6 col-xxl-4 mt-2" key={index}>
+                <div className="col-12 col-md-6 col-xxl-3 pe-2" key={index}>
                   <div className="card ln-card">
                     <Link to="#" className="ln-link">
-                      <div className="background">
+                      <div className="background" style={{"backgroundImage":`url(${item.image})`}}>
                         <button className="ln-btn">Học tiếp</button>
                       </div>
                     </Link>

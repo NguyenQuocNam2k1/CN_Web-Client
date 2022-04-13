@@ -135,7 +135,7 @@ function Header() {
                           {dataListCourse.map((course, index) => {
                             return (
                               <Link
-                                to={!token ? "/user" : `/courseDetail/${course.idCoursesList}`}
+                                to={`/courseDetail/${course.idCoursesList}`}
                                 key={index}
                               >
                                 <li className="menu-items"
