@@ -2,9 +2,12 @@ import "./DetailCourse.css";
 import { Link, useLocation, useParams } from "react-router-dom";
 import Comment from "./commentAndCodePen/comment/comment";
 import Coding from "./commentAndCodePen/coding/coding.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import io from "socket.io-client";
+import ListCourse from "./commentAndCodePen/comment/listCourse";
+import Loading from "component/container/loading/Loading";
 import {
   faCheck,
   faLock,
@@ -23,20 +26,17 @@ library.add(
   faChevronLeft,
   faChevronRight
 );
+import ReactPlayer from "react-player/youtube";
+import { useSelector } from "react-redux";
+
+const socket = io.connect("http://localhost:5000");
+// const socket = io.connect("https://cn-web.herokuapp.com");
 
 function DetailCourse(props) {
   const { slug } = useParams(); //Thằng này là tên khóa học
   const { search } = useLocation(); //Thằng search này là id của bài học
 
   const [type, setType] = useState("comment");
-
-  const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
-  let indexLesson;
-  const linkVideo = listCourse.filter((lesson, index) => {
-    if (lesson._id === search.slice(4)) indexLesson = index;
-    return lesson._id == search.slice(4);
-  });
-
   const iconCloseMenu = document.querySelector(
     ".svg-inline--fa.fa-arrow-right"
   );
@@ -59,109 +59,156 @@ function DetailCourse(props) {
     video.style.width = "75%";
   };
 
-  //SET cho tab-menu có độ dài bằng video
+  //React Player
+  let user = JSON.parse(localStorage.getItem("authUser"));
+  const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
+  let indexLesson;
+  const BaiDaHocGanNhat = user[0].lesson_course.length === 0 ? [{ idLesson: search.slice(4) }] : user[0].lesson_course.filter((item) => item.idCourse === slug);
+  let ViTriBaiDaHocGanNhat;
+
+  const linkVideo = listCourse.filter((lesson, index) => {
+    if (BaiDaHocGanNhat.length === 0) return;
+    if (lesson._id === search.slice(4)) indexLesson = index;
+    if (lesson._id === BaiDaHocGanNhat[0].idLesson)
+      ViTriBaiDaHocGanNhat = index;
+    return lesson._id == search.slice(4);
+  });
+
+  const ref = useRef();
+  const [indexLessonFuture, setIndexLessonFuture] = useState(ViTriBaiDaHocGanNhat);
+  const [openLock, setOpenLock] = useState(false);
+  const totalTimeVideo = useRef(0);
+  const currentTimeVideo = useRef(0);
+
+  const getCurrentTimePlay = () => {
+    currentTimeVideo.current = ref.current.getCurrentTime();
+    setOpenLock(false);
+    console.log(indexLesson, ViTriBaiDaHocGanNhat,indexLessonFuture );
+    if (
+      currentTimeVideo.current / totalTimeVideo.current > 0.7 &&
+      indexLesson === ViTriBaiDaHocGanNhat
+    ) {
+      setIndexLessonFuture(ViTriBaiDaHocGanNhat + 1);
+      if (indexLessonFuture > ViTriBaiDaHocGanNhat) {
+        if (indexLessonFuture < listCourse.length) setOpenLock(true);
+      }
+    }
+  };
+
+  const getTotalTimeVideo = () => {
+    totalTimeVideo.current = ref.current.getDuration();
+  };
+
   useEffect(() => {
-    const tab_menu = document.querySelector(".tab-menu");
-    let heighVideo = document.querySelector(".video-content").offsetHeight;
-    tab_menu.style.height = heighVideo + "px";
-  }, []);
+    socket.on("receive_user", (data) => {
+      localStorage.setItem("authUser", JSON.stringify(data));
+    });
+  }, [socket]);
 
   return (
-    <div style={{ display: "flex" }}>
-      <div className="video-detail">
-        <div className="title-video">
-          <Link to="/learning">
-            <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
-          </Link>
-          <p>{dbCourseFix[`${slug}`].course}</p>
-          <FontAwesomeIcon icon="fa-solid fa-list" onClick={openMenu} />
-        </div>
-        <div className="video-content">
-          <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
-          {/* <iframe width="853" height="480" src="https://www.youtube.com/embed/8EFWm5KD8ow" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
-          {/* <iframe width="853" height="480" src="https://youtu.be/2fanjSYVElY?list=PL33lvabfss1xnFpWQF6YH11kMTS1HmLsw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-          {/* <iframe
-                       width="853" height="480" 
-                        src={linkVideo[0].video}>
-                    </iframe> */}
-          <iframe
-            src={linkVideo[0].video}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-          <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
-        </div>
-        <div className="comment-coding">
-          <div className="title">
-            <p
-              className="title-comment"
-              onClick={() => {
-                setType("comment");
-                document.querySelector(".title-comment").style.borderBottom =
-                  "2px solid red";
-                document.querySelector(".title-coding").style.borderBottom =
-                  "none";
-                document.querySelector(".comment-coding").style.width = "70%";
-              }}
-            >
-              Bình luận
-            </p>
-            <p
-              className="title-coding"
-              onClick={() => {
-                setType("coding");
-                document.querySelector(".title-comment").style.borderBottom =
-                  "none";
-                document.querySelector(".title-coding").style.borderBottom =
-                  "2px solid red";
-                document.querySelector(".comment-coding").style.width = "96%";
-              }}
-            >
-              Coding
-            </p>
-          </div>
+    <>
+      {BaiDaHocGanNhat.length === 0 ? (
+        <>
+          <Loading />
+        </>
+      ) : (
+        <div style={{ display: "flex" }}>
+          <div className="video-detail">
+            <div className="title-video">
+              <Link to="/learning">
+                <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
+              </Link>
+              <p>{dbCourseFix[`${slug}`].course}</p>
+              <FontAwesomeIcon icon="fa-solid fa-list" onClick={openMenu} />
+            </div>
+            <div className="video-content">
+              <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
+              <div>
+                <ReactPlayer
+                  url={linkVideo[0].video}
+                  config={{
+                    youtube: {
+                      playerVars: { showinfo: 1 },
+                    },
+                  }}
+                  ref={ref}
+                  controls
+                  onProgress={getCurrentTimePlay}
+                  onStart={getTotalTimeVideo}
+                  width="100%"
+                  height="100%"
+                ></ReactPlayer>
+              </div>
+              <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
+            </div>
+            <div className="comment-coding">
+              <div className="title">
+                <p
+                  className="title-comment"
+                  onClick={() => {
+                    setType("comment");
+                    document.querySelector(
+                      ".title-comment"
+                    ).style.borderBottom = "2px solid red";
+                    document.querySelector(".title-coding").style.borderBottom =
+                      "none";
+                    document.querySelector(".comment-coding").style.width =
+                      "70%";
+                  }}
+                >
+                  Bình luận
+                </p>
+                <p
+                  className="title-coding"
+                  onClick={() => {
+                    closeMenu();
+                    setType("coding");
+                    document.querySelector(
+                      ".title-comment"
+                    ).style.borderBottom = "none";
+                    document.querySelector(".title-coding").style.borderBottom =
+                      "2px solid red";
+                    document.querySelector(".comment-coding").style.width =
+                      "96%";
+                  }}
+                >
+                  Coding
+                </p>
+              </div>
 
-          {/* Comment */}
-          {type === "comment" ? (
-            <Comment idRoom={search.slice(4)} />
-          ) : (
-            <Coding />
-          )}
-        </div>
-
-        <div className="tab-menu">
-          <div className="tittle-list">
-            Nội dung khóa học
-            <FontAwesomeIcon
-              icon="fa-solid fa-arrow-right"
-              onClick={closeMenu}
-            />
-          </div>
-          <ul className="list-course">
-            {listCourse.map((course, index) =>
-              index > indexLesson ? (
-                <li key={index} className="name-course-lock">
-                  {course.name}
-                  {/* <FontAwesomeIcon icon="fa-solid fa-check" /> */}
-                  <FontAwesomeIcon icon="fa-solid fa-lock" />
-                </li>
+              {/* Comment */}
+              {type === "comment" ? (
+                <Comment idRoom={search.slice(4)} socket={socket} user={user[0]} />
               ) : (
-                <Link to={{
-                    pathname: `/learning/${slug}`,
-                    search: `id=${course._id}`,
-                  }} key={index} style={{"textDecoration":"none"}}>
-                  <li className="name-course">
-                    {course.name}
-                    {/* <FontAwesomeIcon icon="fa-solid fa-check" /> */}
-                  </li>
-                </Link>
-              )
-            )}
-          </ul>
+                <Coding />
+              )}
+            </div>
+
+            <div className="tab-menu">
+              <div className="tittle-list">
+                Nội dung khóa học
+                <FontAwesomeIcon
+                  icon="fa-solid fa-arrow-right"
+                  onClick={closeMenu}
+                />
+              </div>
+
+              {/* list course */}
+              <ListCourse
+                listCourse={listCourse}
+                slug={slug}
+                indexLessoned={indexLessonFuture || 0}
+                openLock={openLock}
+                socket={socket}
+                user={user[0]}
+                indexLessonPresent={indexLesson}
+                currentTimeVideo={currentTimeVideo.current}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 

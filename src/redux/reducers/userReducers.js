@@ -3,7 +3,7 @@ import { setCookie } from "component/config/cookie";
 
 const initialState = {
     dataUser: "100",
-    stRegister: false,
+    stRegister: false
 }
 
 export const userReducer = (state = initialState, { type, payload }) => {
