@@ -31,7 +31,7 @@ function Learning() {
                 <div className="col-12 col-md-6 col-xxl-3 pe-2" key={index}>
                   <div className="card ln-card">
                     <Link to={{
-                      path:`/courseDetail/${item.idCoursesList}`,
+                      pathname:`/courseDetail/${item.idCoursesList}`,
                       state:`${item.countUser}`
                       }} 
                       className="ln-link" onClick={()=>handleClick(item._id , item.image)}>

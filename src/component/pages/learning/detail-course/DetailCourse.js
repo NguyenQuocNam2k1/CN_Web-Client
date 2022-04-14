@@ -35,6 +35,7 @@ import {
 function DetailCourse(props) {
   const { slug } = useParams(); //Thằng này là tên khóa học
   const idLesson = useLocation().search.slice(4); //Thằng search này là id của bài học
+  const { state } = useLocation(); // Thằng này giúp đếm số lượng người đã đăng ký học
 
   const [type, setType] = useState("comment");
 
@@ -83,7 +84,7 @@ function DetailCourse(props) {
     idLessonStudied = authUser.lesson_course.filter(
       (item) => item.idCourse === slug
     );
-    if (idLessonStudied.length !== 0){
+    if (idLessonStudied.length !== 0) {
       listCourse.map((lesson, index) => {
         if (lesson._id === idLessonStudied[0].idLesson) {
           indexLessonStudied = index;
@@ -127,7 +128,12 @@ function DetailCourse(props) {
         <div style={{ display: "flex" }}>
           <div className="video-detail">
             <div className="title-video">
-              <Link to="/learning">
+              <Link
+                to={{
+                  pathname: `/courseDetail/${slug}`,
+                  state: `${state}`,
+                }}
+              >
                 <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
               </Link>
               <p>{dbCourseFix[`${slug}`].course}</p>
