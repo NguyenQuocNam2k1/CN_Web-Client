@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
 import CommentDetail from "./item-comment-detail";
+import io from "socket.io-client";
 
+// const socket = io.connect("http://localhost:5000");
+ const socket = io.connect("https://cn-web.herokuapp.com");
 
 function Comment(props) {
 
-    const { idRoom , socket, user} = props;
+    const { idRoom , user} = props;
+
     socket.emit("join_room", idRoom);
 
     return (

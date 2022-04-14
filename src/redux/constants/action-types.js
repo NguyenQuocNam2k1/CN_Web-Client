@@ -2,6 +2,8 @@ export const UserTypes = {
     LOG_IN: "LOG_IN",
     REGISTER: "REGISTER",
     ADD_COURSE:"ADD_COURSE",
+    UPDATE_COURSE_STUDYING:"UPDATE_COURSE_STUDYING",
+    RE_RENDER:"RE_RENDER"
 }
 
 export const CourseType = {

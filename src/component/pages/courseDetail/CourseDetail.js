@@ -1,6 +1,6 @@
 import "./courseDetail.css";
 import * as dbCourseFix from "../../data/index.js";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams ,useLocation } from "react-router-dom";
 import Loading from "component/container/loading/Loading";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import { addCourse } from "../../../redux/actions/userAction.js";
 function courseDetail(props) {
   const dispatch = useDispatch();
   const nameCourse = useParams().slug;
+  const countUser = useLocation().state; 
   const [LessonOfCourse, setLessonOfCourse] = useState("");
   const [courseImage, setCourseImage] = useState(" ");
   const re_render = useSelector((state) => state.courses.render);
@@ -17,9 +18,7 @@ function courseDetail(props) {
   // Đoạn này để xử lý check xem người dùng đã đăng ký khóa học hay chưa
   const authUser = JSON.parse(localStorage.getItem("authUser"));
   let courseStudied = !authUser ? null : authUser[0].lesson_course;
-  let idLesson = !courseStudied
-    ? ""
-    : courseStudied.filter((item) => item.idCourse === nameCourse);
+  let idLesson = !courseStudied? "" : courseStudied.filter((item) => item.idCourse === nameCourse);
   //
 
   useEffect(() => {
@@ -130,6 +129,7 @@ function courseDetail(props) {
                     to={{
                       pathname: `/learning/${nameCourse}`,
                       search: `id=${idLesson[0].idLesson}`,
+                      state:countUser
                     }}
                   >
                     <button className="button_jelly cd-btn">Học tiếp</button>
@@ -148,7 +148,8 @@ function courseDetail(props) {
                           addCourse(
                             nameCourse,
                             authUser[0]._id,
-                            LessonOfCourse[0]._id
+                            LessonOfCourse[0]._id,
+                            countUser
                           )
                         )
                       }
