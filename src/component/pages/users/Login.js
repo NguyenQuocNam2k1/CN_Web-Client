@@ -32,6 +32,7 @@ function Login() {
   };
 
   return (
+
     <div className="page-login background_login">
       <div id="alert_login" style={{"display":"none"}}>
         <svg
@@ -99,6 +100,7 @@ function Login() {
         </div>
       </div>
     </div>
+
   );
 }
 

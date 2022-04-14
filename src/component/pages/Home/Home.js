@@ -15,7 +15,6 @@ function Home(props) {
       var x = document.getElementsByClassName("mySlides");
       for (i = 0; i < x.length; i++) {
         x[i].style.display = "none"; 
-        console.log(x[i].style.display); 
       }
       myIndex++;
       if (myIndex > x.length) {myIndex = 1}    

@@ -137,7 +137,7 @@ function MucLuc(props) {
                         <div className="submit-course">
                           <Link
                             to={{pathname:`/courseDetail/${course.idCoursesList}`}}
-                            className="btn btn-primary button_jelly"
+                            className="btn-primary button_jelly"
                             onClick={() => handleClick(course._id , course.image)}
                             style={{
                               fontSize: "18px",
