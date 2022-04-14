@@ -20,8 +20,13 @@ export const userReducer = (state = initialState, { type, payload }) => {
         case UserTypes.REGISTER:
             return {...state , stRegister: payload.status};
         case UserTypes.ADD_COURSE:
-            localStorage.setItem("authUser" , JSON.stringify(payload));
+            localStorage.setItem("authUser" , JSON.stringify(payload.data));
             return {...state, loading:!state.loading}
+        case UserTypes.UPDATE_COURSE_STUDYING:
+            localStorage.setItem("authUser" , JSON.stringify([payload.data]));
+            return {...state,loading: !state.loading}
+        case UserTypes.RE_RENDER:
+            return {...state , loading: !state.loading}
         default:
             return state;
     }

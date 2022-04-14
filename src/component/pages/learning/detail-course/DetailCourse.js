@@ -5,8 +5,6 @@ import Coding from "./commentAndCodePen/coding/coding.js";
 import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import io from "socket.io-client";
-import ListCourse from "./commentAndCodePen/comment/listCourse";
 import Loading from "component/container/loading/Loading";
 import {
   faCheck,
@@ -26,17 +24,20 @@ library.add(
   faChevronLeft,
   faChevronRight
 );
-import ReactPlayer from "react-player/youtube";
-import { useSelector } from "react-redux";
 
-// const socket = io.connect("http://localhost:5000");
-const socket = io.connect("https://cn-web.herokuapp.com");
+import ReactPlayer from "react-player/youtube";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  updateCourseStudying,
+  reRender,
+} from "../../../../redux/actions/userAction";
 
 function DetailCourse(props) {
   const { slug } = useParams(); //Thằng này là tên khóa học
-  const { search } = useLocation(); //Thằng search này là id của bài học
+  const idLesson = useLocation().search.slice(4); //Thằng search này là id của bài học
 
   const [type, setType] = useState("comment");
+
   const iconCloseMenu = document.querySelector(
     ".svg-inline--fa.fa-arrow-right"
   );
@@ -59,62 +60,69 @@ function DetailCourse(props) {
     video.style.width = "75%";
   };
 
-  //React Player
-  let loading = useSelector(state => state.users.loading);
-  let user = JSON.parse(localStorage.getItem("authUser"));
-  const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
-  let indexLesson;
-  const BaiDaHocGanNhat = user[0].lesson_course.length === 0 ? [{ idLesson: search.slice(4) }] : user[0].lesson_course.filter((item) => item.idCourse === slug);
-  let ViTriBaiDaHocGanNhat;
-
-  const linkVideo = listCourse.filter((lesson, index) => {
-    if (BaiDaHocGanNhat.length === 0) return;
-    if (lesson._id === search.slice(4)) indexLesson = index;
-    if (lesson._id === BaiDaHocGanNhat[0].idLesson)
-      ViTriBaiDaHocGanNhat = index;
-    return lesson._id == search.slice(4);
-  });
-
+  //React-Player
   const ref = useRef();
-  const [indexLessonFuture, setIndexLessonFuture] = useState(ViTriBaiDaHocGanNhat);
-  const [openLock, setOpenLock] = useState(false);
-  const totalTimeVideo = useRef(0);
   const currentTimeVideo = useRef(0);
+  const totalTimeVideo = useRef(0);
+  const dispatch = useDispatch();
 
-  const getCurrentTimePlay = () => {
+  const loading = useSelector((state) => state.users.loading);
+  let authUser = JSON.parse(localStorage.getItem("authUser"))[0];
+  const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
+
+  useEffect(() => {
+    authUser = JSON.parse(localStorage.getItem("authUser"))[0];
+  }, [loading]);
+  let idLessonStudied = 0,
+    indexLessonStudied = 0,
+    indexLessonPresent,
+    indexLessonFuture;
+
+  let linkVideo = "";
+  if (authUser.lesson_course.length !== 0) {
+    idLessonStudied = authUser.lesson_course.filter(
+      (item) => item.idCourse === slug
+    );
+    if (idLessonStudied.length !== 0){
+      listCourse.map((lesson, index) => {
+        if (lesson._id === idLessonStudied[0].idLesson) {
+          indexLessonStudied = index;
+        }
+        if (lesson._id === idLesson) indexLessonPresent = index;
+      });
+      indexLessonFuture = indexLessonStudied;
+      linkVideo = listCourse[indexLessonPresent].video;
+    }
+  }
+
+  const getCurrentTime = () => {
     currentTimeVideo.current = ref.current.getCurrentTime();
-    setOpenLock(false);
     if (
-      currentTimeVideo.current / totalTimeVideo.current > 0.7 &&
-      indexLesson === ViTriBaiDaHocGanNhat
+      totalTimeVideo.current > 0 &&
+      currentTimeVideo.current / totalTimeVideo.current > 0.7
     ) {
-      setIndexLessonFuture(ViTriBaiDaHocGanNhat + 1);
-      if (indexLessonFuture > ViTriBaiDaHocGanNhat) {
-        if (indexLessonFuture < listCourse.length) setOpenLock(true);
+      if (indexLessonPresent === indexLessonStudied) {
+        indexLessonFuture = ++indexLessonStudied;
+        const newLessonCourse = authUser.lesson_course.map((item) => {
+          if (item.idCourse === slug) {
+            item.idLesson = listCourse[indexLessonFuture]._id;
+            return item;
+          }
+          return item;
+        });
+        dispatch(updateCourseStudying(authUser._id, newLessonCourse));
+        totalTimeVideo.current = 0;
       }
     }
   };
-
   const getTotalTimeVideo = () => {
     totalTimeVideo.current = ref.current.getDuration();
   };
 
-  useEffect(()=>{
-    user = JSON.parse(localStorage.getItem("authUser"));
-  },[loading]);
-
-  useEffect(() => {
-    socket.on("receive_user", (data) => {
-      localStorage.setItem("authUser", JSON.stringify(data));
-    });
-  }, [socket]);
-
   return (
     <>
-      {BaiDaHocGanNhat.length === 0 ? (
-        <>
-          <Loading />
-        </>
+      {idLessonStudied.length === 0 ? (
+        <Loading></Loading>
       ) : (
         <div style={{ display: "flex" }}>
           <div className="video-detail">
@@ -129,7 +137,7 @@ function DetailCourse(props) {
               <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
               <div>
                 <ReactPlayer
-                  url={linkVideo[0].video}
+                  url={linkVideo}
                   config={{
                     youtube: {
                       playerVars: { showinfo: 1 },
@@ -137,7 +145,7 @@ function DetailCourse(props) {
                   }}
                   ref={ref}
                   controls
-                  onProgress={getCurrentTimePlay}
+                  onProgress={getCurrentTime}
                   onStart={getTotalTimeVideo}
                   width="100%"
                   height="100%"
@@ -150,6 +158,7 @@ function DetailCourse(props) {
                 <p
                   className="title-comment"
                   onClick={() => {
+                    openMenu();
                     setType("comment");
                     document.querySelector(
                       ".title-comment"
@@ -182,7 +191,7 @@ function DetailCourse(props) {
 
               {/* Comment */}
               {type === "comment" ? (
-                <Comment idRoom={search.slice(4)} socket={socket} user={user[0]} />
+                <Comment idRoom={idLesson} user={authUser} />
               ) : (
                 <Coding />
               )}
@@ -196,18 +205,37 @@ function DetailCourse(props) {
                   onClick={closeMenu}
                 />
               </div>
-
-              {/* list course */}
-              <ListCourse
-                listCourse={listCourse}
-                slug={slug}
-                indexLessoned={indexLessonFuture || 0}
-                openLock={openLock}
-                socket={socket}
-                user={user[0]}
-                indexLessonPresent={indexLesson}
-                currentTimeVideo={currentTimeVideo.current}
-              />
+              <ul className="list-course">
+                {listCourse.map((course, index) =>
+                  // indexLessonFuture >= index ?
+                  indexLessonFuture >= index ? (
+                    <Link
+                      to={{
+                        pathname: `/learning/${slug}`,
+                        search: `id=${course._id}`,
+                      }}
+                      key={index}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <li
+                        key={index}
+                        className={
+                          indexLessonPresent === index
+                            ? "name-course-present"
+                            : "name-course"
+                        }
+                      >
+                        {course.name}
+                      </li>
+                    </Link>
+                  ) : (
+                    <li key={index} className="name-course-lock">
+                      {course.name}
+                      <FontAwesomeIcon icon="fa-solid fa-lock" />
+                    </li>
+                  )
+                )}
+              </ul>
             </div>
           </div>
         </div>

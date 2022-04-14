@@ -99,6 +99,7 @@ function Index() {
                         <Link
                           to={{
                             pathname: `/courseDetail/${value.idCoursesList}`,
+                            state:`${value.countUser}`
                           }}
                         >
                           <button

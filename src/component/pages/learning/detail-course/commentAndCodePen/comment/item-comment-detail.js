@@ -105,8 +105,9 @@ function CommentDetail({ socket, idUser, username, room, image }) {
       socket.on("receive_all_comment", (data) => {
          setCmtList(data.reverse());
       });
-      socket.on("receive_comment", (data) =>
-      setCmtList(data.reverse()));
+      socket.on("receive_comment", (data) =>{
+         setCmtList(data.reverse())
+      });
    }, [room]);
 
    // set vị trí like theo độ rộng của cmt

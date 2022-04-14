@@ -1,6 +1,6 @@
 import "./courseDetail.css";
 import * as dbCourseFix from "../../data/index.js";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams ,useLocation } from "react-router-dom";
 import Loading from "component/container/loading/Loading";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,15 +10,16 @@ import { addCourse } from "../../../redux/actions/userAction.js";
 function courseDetail(props) {
   const dispatch = useDispatch();
   const nameCourse = useParams().slug;
+  const countUser = useLocation().state; 
   const [LessonOfCourse, setLessonOfCourse] = useState("");
   const [courseImage, setCourseImage] = useState(" ");
   const re_render = useSelector((state) => state.courses.render);
 
   // Đoạn này để xử lý check xem người dùng đã đăng ký khóa học hay chưa
   const authUser = JSON.parse(localStorage.getItem("authUser"));
-  let courseStudied = !authUser[0].lesson_course?"":authUser[0].lesson_course;
-  let idLesson = courseStudied.filter(item => item.idCourse === nameCourse);
-  // 
+  let courseStudied = !authUser ? null : authUser[0].lesson_course;
+  let idLesson = !courseStudied? "" : courseStudied.filter((item) => item.idCourse === nameCourse);
+  //
 
   useEffect(() => {
     setLessonOfCourse(JSON.parse(localStorage.getItem("LessonByCourse")));
@@ -106,20 +107,8 @@ function courseDetail(props) {
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                             <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
                           </svg>
-                          {/* {!token ? (
-                            <Link to="/user">
-                              <span>{content.name}</span>
-                            </Link>
-                          ) : (
-                            <Link
-                              to={{
-                                pathname: `/learning/${nameCourse}`,
-                                search: `id=${content._id}`,
-                              }}
-                            > */}
-                              <span>{content.name}</span>
-                            {/* </Link> */}
-                          {/* )} */}
+
+                          <span>{content.name}</span>
                         </div>
                       );
                     })}
@@ -131,11 +120,16 @@ function courseDetail(props) {
             <div className="col-3 card cd-body-right">
               <img src={courseImage} className="card-img-top" alt="..." />
               <div className="card-body cd-card-body">
-                {authUser[0].course_studied.includes(nameCourse) ? (
+                {!authUser ? (
+                  <Link to="/user">
+                    <button className="button_jelly cd-btn">Đăng ký</button>
+                  </Link>
+                ) : authUser[0].course_studied.includes(nameCourse) ? (
                   <Link
                     to={{
                       pathname: `/learning/${nameCourse}`,
                       search: `id=${idLesson[0].idLesson}`,
+                      state:countUser
                     }}
                   >
                     <button className="button_jelly cd-btn">Học tiếp</button>
@@ -154,7 +148,8 @@ function courseDetail(props) {
                           addCourse(
                             nameCourse,
                             authUser[0]._id,
-                            LessonOfCourse[0]._id
+                            LessonOfCourse[0]._id,
+                            countUser
                           )
                         )
                       }

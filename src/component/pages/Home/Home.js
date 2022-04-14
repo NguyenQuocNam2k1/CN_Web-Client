@@ -159,7 +159,6 @@ function Home(props) {
               </div>
             </div>
           </div> 
-
         </div>
       </div>
       <div className="homepage_layout_4">
