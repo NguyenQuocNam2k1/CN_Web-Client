@@ -136,7 +136,7 @@ function Header() {
                             return (
                               <Link
                                 to={{
-                                  path:`/courseDetail/${course.idCoursesList}`,
+                                  pathname:`/courseDetail/${course.idCoursesList}`,
                                   state:`${course.countUser}`
                                 }}
                                 key={index}

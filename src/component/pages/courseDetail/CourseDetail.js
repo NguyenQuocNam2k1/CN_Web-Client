@@ -28,7 +28,7 @@ function courseDetail(props) {
 
   const listReview = dbCourseFix[`${nameCourse}`].review.map((r, index) => {
     return (
-      <li key={`rv${index}`} className="list-detail">
+      <li key={`rv${index}`} className="col-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -37,6 +37,7 @@ function courseDetail(props) {
           className="bi bi-check-lg"
           viewBox="0 0 16 16"
           color="#0a58ca"
+          style={{paddingBottom:"3px"}}
         >
           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
         </svg>
@@ -46,15 +47,16 @@ function courseDetail(props) {
   });
   const listRequire = dbCourseFix[`${nameCourse}`].require.map((req, index) => {
     return (
-      <li key={`req${index}`} className="list-detail">
+      <li key={`req${index}`} className="col-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
+          width="20"
+          height="20"
           fill="currentColor"
           className="bi bi-check-lg"
           viewBox="0 0 16 16"
           color="#0a58ca"
+          style={{paddingBottom:"3px"}}
         >
           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
         </svg>
@@ -78,16 +80,18 @@ function courseDetail(props) {
               {dbCourseFix[`${nameCourse}`].course}
             </h2>
           </div>
-          <div className="row cd-body">
-            <div className="col-8 cd-body-left">
+          <div className="container">
+            <div className="row cd-body">
+              
+            <div className="col-9 cd-body-left">
               <div className="row cd-body-course">
                 <div className="col-12 cd-body-learn">
                   <h3 className="cd-body-title">Bạn sẽ học được gì?</h3>
-                  <ul>{listReview}</ul>
+                  <ul className="row">{listReview}</ul>
                 </div>
                 <div className="col-12 cd-body-learn">
                   <h3 className="cd-body-title">Yêu cầu</h3>
-                  <ul>{listRequire}</ul>
+                  <ul className="row">{listRequire}</ul>
                 </div>
                 <div className="col-12 cd-body-learn">
                   <h3 className="cd-body-title">Nội dung khóa học</h3>
@@ -221,15 +225,7 @@ function courseDetail(props) {
                   </ul>
                 </div>
               </div>
-              {/* <div className="cbc cd-body-count-user">
-                Có <br />
-                <p className="number">120.000</p>
-                <br /> người đã học khoá này
-              </div>
-              <div className="cbc cd-body-count-time">
-                Thời gian hoàn thành khoá học <br />
-                <p className="number">9 giờ</p>
-              </div> */}
+            </div>
             </div>
           </div>
         </div>

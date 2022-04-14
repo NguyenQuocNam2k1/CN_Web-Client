@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { logIn } from "../../../redux/actions/userAction.js";
 import { signInWithFirebase } from "../../config/functionFirebase";
-import google from "../../../images/google.svg";
+import google from "../../../images/googleIcon.png";
 
 function Login() {
   const dispatch = useDispatch();
@@ -75,7 +75,7 @@ function Login() {
               onClick={() => signInWithFirebase("GG")}
               style={{ margin: "0 10px" }}
             >
-              <img src={google} style={{ width: "42px" }} />
+              <img src={google} style={{ width: "38px", borderRadius:"20px"}} />
             </div>
             <div className="logo" onClick={() => signInWithFirebase("GH")}>
               <svg
