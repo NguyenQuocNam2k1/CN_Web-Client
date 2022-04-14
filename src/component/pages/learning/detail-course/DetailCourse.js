@@ -60,6 +60,7 @@ function DetailCourse(props) {
   };
 
   //React Player
+  let loading = useSelector(state => state.users.loading);
   let user = JSON.parse(localStorage.getItem("authUser"));
   const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
   let indexLesson;
@@ -83,7 +84,6 @@ function DetailCourse(props) {
   const getCurrentTimePlay = () => {
     currentTimeVideo.current = ref.current.getCurrentTime();
     setOpenLock(false);
-    console.log(indexLesson, ViTriBaiDaHocGanNhat,indexLessonFuture );
     if (
       currentTimeVideo.current / totalTimeVideo.current > 0.7 &&
       indexLesson === ViTriBaiDaHocGanNhat
@@ -98,6 +98,10 @@ function DetailCourse(props) {
   const getTotalTimeVideo = () => {
     totalTimeVideo.current = ref.current.getDuration();
   };
+
+  useEffect(()=>{
+    user = JSON.parse(localStorage.getItem("authUser"));
+  },[loading]);
 
   useEffect(() => {
     socket.on("receive_user", (data) => {
