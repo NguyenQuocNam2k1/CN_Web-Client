@@ -84,6 +84,7 @@ export function getDataUser() {
 }
 
 export function logOut() {
+  localStorage.setItem("authUser" , JSON.stringify(""));
   const auth = getAuth();
   signOut(auth)
     .then(() => {

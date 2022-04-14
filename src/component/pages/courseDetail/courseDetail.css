@@ -27,9 +27,8 @@
 }
 
 .cd-body-lesson-1 {
-  height: 44px;
-  width: 727px;
-  padding-left: 100px;
+  min-width: 500px;
+  max-width: 700px;
   border: 1px solid rgba(0, 0, 0, 0.28);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -38,10 +37,13 @@
   background: #f5f5f5;
   margin-bottom: 8px;
   line-height: 46px;
+  padding: auto;
+  padding-left: 5vh;
 }
 
 .cd-body-lesson-1 span {
-  padding-left: 4px;
+  padding-left: 2.2vh;
+  vertical-align: sub;
 }
 
 .cd-body-lesson-1 a {
@@ -54,19 +56,11 @@
           box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
-.cd-body {
-  margin: 10px 0 37px;
-  padding-left: 100px;
-}
-
 .cd-body .cd-body-left .cd-body-learn li {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 50%;
   font-weight: 350;
-  float: left;
   list-style: none;
-  padding: 0 24px 10px 0;
 }
 
 .cd-body .cd-body-left .cd-body-learn li span {
@@ -74,7 +68,8 @@
 }
 
 .cd-body .cd-body-left .cd-body-learn .cd-body-title {
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   font-weight: 600;
   font-size: 35px;
   line-height: 35px;
@@ -83,6 +78,7 @@
 
 .cd-body .cd-body-right {
   border: none;
+  margin-top: 40px;
 }
 
 .cd-body .cd-body-right .cd-card-body {
