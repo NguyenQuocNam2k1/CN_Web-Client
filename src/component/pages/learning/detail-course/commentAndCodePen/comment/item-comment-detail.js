@@ -101,6 +101,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
 
 
    useEffect(() => {
+      let commenting = true;
       socket.emit("get_comment", room);
       socket.on("receive_all_comment", (data) => {
          setCmtList(data.reverse());

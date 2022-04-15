@@ -344,4 +344,44 @@ form.d-flex ul.listCourses::after {
 .overlay button:hover {
   background: #bbb;
 }
+
+@media screen and (max-width: 992px) {
+  .container-fluid {
+    padding: 0;
+  }
+  div#navbarSupportedContent {
+    background-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 20px #3333333b;
+            box-shadow: 0 0 20px #3333333b;
+    margin-top: 24px;
+  }
+  li.nav-item {
+    padding: 0 24px;
+  }
+  li.nav-item:hover {
+    background-color: #d6cece;
+    border-radius: 6px;
+    color: #fff !important;
+  }
+  li.nav-item {
+    margin-right: 0;
+  }
+  button.openBtn {
+    margin-left: 24px;
+    margin-bottom: 24px;
+  }
+  button.btn.login-btn {
+    margin-left: 24px;
+    margin-bottom: 12px;
+  }
+  .a.navbar-brand {
+    margin-left: 24xp;
+  }
+  button.navbar-toggler.collapsed {
+    margin-right: 24px;
+  }
+  .App {
+    overflow-x: hidden;
+  }
+}
 /*# sourceMappingURL=header.css.map */
