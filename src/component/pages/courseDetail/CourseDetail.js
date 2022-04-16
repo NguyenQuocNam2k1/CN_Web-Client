@@ -28,7 +28,7 @@ function courseDetail(props) {
 
   const listReview = dbCourseFix[`${nameCourse}`].review.map((r, index) => {
     return (
-      <li key={`rv${index}`} className="col-6">
+      <li key={`rv${index}`} className="col-12 col-sm-6" >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -47,7 +47,7 @@ function courseDetail(props) {
   });
   const listRequire = dbCourseFix[`${nameCourse}`].require.map((req, index) => {
     return (
-      <li key={`req${index}`} className="col-6">
+      <li key={`req${index}`} className="col-12 col-sm-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -76,14 +76,14 @@ function courseDetail(props) {
       ) : (
         <div className="course-detail">
           <div className="cd-header">
-            <h2 className="cd-header-title">
+            <h2 className="container cd-header-title">
               {dbCourseFix[`${nameCourse}`].course}
             </h2>
           </div>
           <div className="container">
             <div className="row cd-body">
               
-            <div className="col-9 cd-body-left">
+            <div className="col-lg-9 col-sm-12 cd-body-left">
               <div className="row cd-body-course">
                 <div className="col-12 cd-body-learn">
                   <h3 className="cd-body-title">Bạn sẽ học được gì?</h3>
@@ -93,7 +93,7 @@ function courseDetail(props) {
                   <h3 className="cd-body-title">Yêu cầu</h3>
                   <ul className="row">{listRequire}</ul>
                 </div>
-                <div className="col-12 cd-body-learn">
+                <div className="col-12 cd-body-learn ">
                   <h3 className="cd-body-title">Nội dung khóa học</h3>
                   <div className="cd-body-lesson">
                     {LessonOfCourse.map((content) => {
@@ -121,12 +121,13 @@ function courseDetail(props) {
               </div>
             </div>
 
-            <div className="col-3 card cd-body-right">
-              <img src={courseImage} className="card-img-top" alt="..." />
+            {/* <div className="col-1"></div> */}
+            <div className="col-lg-3 col-sm-0 card cd-body-right">
+              <img src={courseImage} className="card-img-top hide_CourseDetail" alt="..." />
               <div className="card-body cd-card-body">
                 {!authUser ? (
-                  <Link to="/user">
-                    <button className="button_jelly cd-btn">Đăng ký</button>
+                  <Link to="/user" className="btn-courseDetail-login_link">
+                    <button className="button_jelly_courseDetail cd-btn btn-courseDetail-login">Đăng ký</button>
                   </Link>
                 ) : authUser[0].course_studied.includes(nameCourse) ? (
                   <Link
@@ -135,8 +136,9 @@ function courseDetail(props) {
                       search: `id=${idLesson[0].idLesson}`,
                       state:countUser
                     }}
+                    className="btn-courseDetail-login_link"
                   >
-                    <button className="button_jelly cd-btn">Học tiếp</button>
+                    <button className="button_jelly_courseDetail cd-btn btn-courseDetail-login">Học tiếp</button>
                   </Link>
                 ) : (
                   <Link
@@ -144,9 +146,10 @@ function courseDetail(props) {
                       pathname: `/learning/${nameCourse}`,
                       search: `id=${LessonOfCourse[0]._id}`,
                     }}
+                    className="btn-courseDetail-login_link"
                   >
                     <button
-                      className="button_jelly cd-btn"
+                      className="button_jelly_courseDetail cd-btn btn-courseDetail-login"
                       onClick={() =>
                         dispatch(
                           addCourse(
@@ -162,7 +165,7 @@ function courseDetail(props) {
                     </button>
                   </Link>
                 )}
-                <div className="cd-card-body-count">
+                <div className="cd-card-body-count hide_CourseDetail" >
                   <ul>
                     <li className="cd-card-list">
                       <svg
@@ -206,7 +209,7 @@ function courseDetail(props) {
                         <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z" />
                         <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z" />
                       </svg>
-                      <span>Thời lượng học 32 giờ 10 phút </span>
+                      <span>{countUser} người đã học</span>
                     </li>
                     <li className="cd-card-list">
                       <svg
