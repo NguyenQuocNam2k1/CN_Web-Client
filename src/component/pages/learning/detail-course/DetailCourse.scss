@@ -233,12 +233,14 @@
   }
   & .tab-menu {
     width: 25%;
-    background-color: #f7f3f3;
+    background-color: #ffffff;
+    border-left: 1px solid #f0e3e3;
     position: absolute;
     top: 50px;
     right: 0;
     transition: all 0.6s ease 0s;
     overflow-y: scroll;
+    height: -webkit-fill-available;
     &::-webkit-scrollbar {
       width: 6px;
       height: 10px;
@@ -255,10 +257,11 @@
     & .tittle-list {
       font-size: 24px;
       padding: 10px;
-      margin-left: 12px;
+      padding-left: 12px;
       font-weight: 600;
       border-bottom: 1px solid #f0e3e3;
       position: relative;
+      background-color: #F1F1F1;
 
       & svg.svg-inline--fa.fa-arrow-right {
         font-size: 20px;
@@ -273,8 +276,9 @@
     & ul.list-course {
       padding: 0;
       margin-bottom: 0;
-      & li.name-course {
+      & li.name-course-lock {
         list-style: none;
+        background-color: #F1F1F1;
         font-size: 16px;
         padding: 12px;
         position: relative;
@@ -298,9 +302,38 @@
           font-size: 10px;
         }
       }
+      & li.name-course{
+        list-style: none;
+        font-size: 16px;
+        padding: 12px;
+        position: relative;
+        color: black;
+        border-bottom:1px solid #F7F3F3 ;
+      }
 
-      & li.name-course:hover {
+      & li.name-course:hover{
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
         background-color: #2e63cdb0;
+        color: white;
+      }
+      & li.name-course-present{
+        list-style: none;
+        font-size: 16px;
+        padding: 12px;
+        position: relative;
+        color: rgb(255, 255, 255);
+        border-bottom:1px solid #F7F3F3 ;
+        background-color: #003296b0;
+      }
+      & li.name-course-present:hover{
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        background-color: #2e63cdb0;
+        color: white;
+      }
+
+      & li.name-course-lock:hover {
         transition: all 0.3s ease 0s;
       }
     }

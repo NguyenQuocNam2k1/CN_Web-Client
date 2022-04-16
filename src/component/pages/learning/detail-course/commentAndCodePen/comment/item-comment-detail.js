@@ -3,8 +3,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import UIUpdateAndDeleteCmt from "./UIUpdateAndDelete";
 import moment from "moment";
+import UIUpdateAndDeleteCmt from "./UIUpdateAndDelete";
 
 library.add(faThumbsUp, faUser);
 
@@ -85,7 +85,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                   countLike: item.countLike,
                });
                return;
-            }
+            };
             const newArray = item.countLike.filter((item) => item !== idUser);
             socket.emit("update_count_like_cmt_res", { room, idCmt, idCmtRes, countLike: newArray });
          })
@@ -106,10 +106,10 @@ function CommentDetail({ socket, idUser, username, room, image }) {
       socket.on("receive_all_comment", (data) => {
          setCmtList(data.reverse());
       });
-      socket.on("receive_comment", (data) =>
-         setCmtList((list) => [data, ...list])
-      );
-   }, []);
+      socket.on("receive_comment", (data) =>{
+         setCmtList(data.reverse())
+      });
+   }, [room]);
 
    // set vị trí like theo độ rộng của cmt
    const list = document.querySelectorAll(".description-comment");

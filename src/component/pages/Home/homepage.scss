@@ -200,23 +200,37 @@
 // Layout 3
 .homepage_layout_3 {
 	background: #466a8a;
-	height: 310px;
-	text-align: center;
-	font-weight: 600;
-	& {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		& h1 {
-			font-size: 120px;
-			line-height: 120px;
+	// height: 310px;
+	padding: 30px;
+	
+	& .slide-content{
+
+		& .slide-img{
+			width: 35%;
+			border-radius: 50%;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		& .slide-if {
+			padding-top:20px;
+			text-align: center;
 			color: #ffffff;
 		}
-		& h2 {
-			font-weight: 600;
-			font-size: 40px;
-			line-height: 40px;
+
+	}
+	& .abc {
+		margin: 0 auto;
+		position: relative;
+		& .slide-text {
+			font-size: 25px;
+			padding: 30px 50px;
 			color: #ffffff;
+			text-align: -webkit-center;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 0;
 		}
 	}
 }
@@ -317,3 +331,6 @@
 //   background-position: left;
 //   margin-top: 10px;
 // }
+
+
+.mySlides {display:none;}

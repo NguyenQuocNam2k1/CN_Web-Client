@@ -8,7 +8,6 @@ function MucLuc(props) {
   const dispatch = useDispatch();
 
   const courseList = useSelector((state) => state.courses.courseList);
-  console.log(courseList);
   const handleClick = (idCourse , imgUrl) => {
     localStorage.setItem("imageListCourse" , JSON.stringify(imgUrl));
     dispatch(getLessonByCourse(idCourse));
@@ -152,7 +151,10 @@ function MucLuc(props) {
                         </p>
                         <div className="submit-course">
                           <Link
-                            to={{pathname:`/courseDetail/${course.idCoursesList}`}}
+                            to={{
+                              pathname:`/courseDetail/${course.idCoursesList}`,
+                              state:`${course.countUser}`
+                            }}
                             className="btn btn-primary button_jelly"
                             onClick={() => handleClick(course._id , course.image)}
                             style={{

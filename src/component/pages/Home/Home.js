@@ -1,7 +1,26 @@
 import "./homepage.css";
 import { Link } from "react-router-dom";
+import slide1 from "../../../images/Slide1.png"
+import slide2 from "../../../images/Slide2.png"
+import slide3 from "../../../images/Slide3.png"
+
+
 
 function Home(props) {
+      var myIndex = 0;
+      carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}    
+      x[myIndex-1] ? x[myIndex-1].style.display = "block" : "";  
+      setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
   return (
     <>
       <div className="container homepage-container">
@@ -89,31 +108,59 @@ function Home(props) {
         </div>
       </div>
       <div className="homepage_layout_3">
-        <div>
-          <h1>120.000+</h1>
-          <h2>nguời khác đã học</h2>
+        <div className="w3-content w3-section">
+          <div className="mySlides">
+            <div className="row slide-child">
+              <div className="col-4">
+                <div className="slide-content">
+                  <img className="slide-img" src={slide1} />
+                  <div className="slide-if">
+                    Mr Do Khanh Tu <br></br>
+                    Software Engineer at Amazon
+                  </div>
+                </div>
+              </div>
+              <div className="col-8 abc">
+                <p className="slide-text">"It's scary to change careers. I only gained confidence that I could code by working through the hundreds of hours of free lessons on Cocoders. Within a year I had a six-figure job as a Software Engineer. CoCoders changed my life." </p>
+              </div>
+            </div>
+          </div>  
+          <div className="mySlides">
+            <div className="row slide-child">
+            <div className="col-8 abc">
+                <p className="slide-text">I've always struggled with learning JavaScript. I've taken many courses but Cocoders's course was the one which stuck. Studying JavaScript as well as data structures and algorithms on Cocoders gave me the skills and confidence I needed to land my dream job as a software engineer at Spotify. </p>
+              </div>
+              <div className="col-4">
+                <div className="slide-content">
+                  <img className="slide-img" src={slide2} />
+                  <div className="slide-if">
+                    Ms Wendy <br></br>
+                    Software Engineer at Spotify
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>  
+
+          <div className="mySlides">
+            <div className="row slide-child">
+              <div className="col-4">
+                <div className="slide-content">
+                  <img className="slide-img" src={slide3} />
+                  <div className="slide-if">
+                    Ms Tu Anh <br></br>
+                    Software Engineer at Microsoft
+                  </div>
+                </div>
+              </div>
+              <div className="col-8 abc">
+                <p className="slide-text">Cocoders was the gateway to my career as a software developer. The well-structured curriculum took my coding knowledge from a total beginner level to a very confident level. It was everything I needed to land my first dev job at an amazing company." </p>
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
-      {/* Layout 6 */}
-      {/* <div className="container">
-        <div className="homepage_layout_5">
-          <div className="row">
-            <div className="col-6 homepage_layout_5_right">
-              <div>
-                <h1>Kiểm tra năng lực với hệ thống bài kiểm tra</h1>
-                <button className="btn-app-layout_2 btn-app">
-                  Xem chi tiết
-                </button>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="homepage_layout_5_left">
-                <div className="background_layout_6"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className="homepage_layout_4">
         <div className="container">
           <div className="row">

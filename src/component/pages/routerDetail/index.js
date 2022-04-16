@@ -1,9 +1,9 @@
-import React , {useEffect} from "react";
+import React , {useEffect, useState} from "react";
 import { useSelector, useDispatch} from "react-redux";
 import Loading from "component/container/loading/Loading";
 import "./fontEnd.css";
 import {Link , useParams} from "react-router-dom";
-import { getRouterDetail, getLessonByCourse } from "redux/actions/courseAction";
+import { getRouterDetail, getLessonByCourse, setLoading } from "redux/actions/courseAction";
 
 
 const dataCourseFix = [
@@ -48,8 +48,9 @@ function Index() {
 
   useEffect(() => {
     dispatch(getRouterDetail(slug));
-  }, []);
-  const { routerDetail } = useSelector((state) => state.courses);
+    return () => dispatch(setLoading());
+  },[]);
+  let { routerDetail } = useSelector((state) => state.courses);
   // const routerDetail = [];
   const handleClick = (idCourse, imgUrl) => {
     localStorage.setItem("imageListCourse", JSON.stringify(imgUrl));
@@ -98,6 +99,7 @@ function Index() {
                         <Link
                           to={{
                             pathname: `/courseDetail/${value.idCoursesList}`,
+                            state:`${value.countUser}`
                           }}
                         >
                           <button

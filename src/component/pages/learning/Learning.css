@@ -1,5 +1,6 @@
 .learning {
   margin-top: 120px;
+  min-height: 50vh;
 }
 
 .ln-card {
@@ -11,13 +12,13 @@
 }
 
 .ln-card .ln-link .background {
-  background-image: url("../../../images/home-icon.png");
   height: 200px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  border-radius: 30px;
 }
 
 .ln-card .ln-link .background button {
@@ -50,8 +51,8 @@
   border-radius: 32px;
   inset: 0;
   opacity: 0;
-  -webkit-transition: all .3s ease 0s;
-  transition: all .3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -83,5 +84,35 @@
 } */
 .ln-views {
   font-style: italic;
+}
+
+.learning_body {
+  width: 100vh;
+  height: 80vh;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.learning_body_text {
+  padding-top: 10vh;
+  margin: auto;
+  width: 90%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.learning_body_button {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=Learning.css.map */

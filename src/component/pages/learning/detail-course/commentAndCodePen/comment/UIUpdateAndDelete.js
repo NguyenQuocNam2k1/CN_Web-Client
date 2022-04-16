@@ -160,10 +160,10 @@ function UIUpdateAndDeleteCmt({ rootId, id, img, room, socket, idUser, cmtList }
         {checkUser ?
           <div className="updateAndDelete">
             <li className="update">
-              <button className="updateOrDelete update" type="button" onClick={() => handleClickUpdateCmt(rootId, id)}>Sửa</button>
+              <button className="updateOrDelete update" data-bs-dismiss="modal" type="button" onClick={() => handleClickUpdateCmt(rootId, id)}>Sửa</button>
             </li>
             <li className="delete">
-              <button type="button" className="updateOrDelete delete" data-bs-toggle="modal" data-bs-target={`#a${id}`} onClick={() => closeIcon(id)}>
+              <button type="button" className="updateOrDelete delete" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target={`#a${id}`} onClick={() => closeIcon(id)}>
                 Xóa
               </button>
             </li>
