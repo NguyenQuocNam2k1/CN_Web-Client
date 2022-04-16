@@ -105,8 +105,7 @@
 }
 
 .video-detail .comment-coding {
-  width: 70%;
-  margin: auto;
+  padding-left: 64px;
 }
 
 .video-detail .comment-coding .title {
@@ -178,6 +177,7 @@
   background-color: #d9e2f5;
   padding: 12px;
   border-radius: 20px;
+  max-width: 831px;
 }
 
 .video-detail .comment-coding .comment .comment-detail .list-comment .item-comment .item-comment-detail .description-comment .description {
@@ -233,6 +233,13 @@
 .video-detail .comment-coding .comment .comment-detail .list-comment .item-comment .felt-feedback-time p.felt:hover, .video-detail .comment-coding .comment .comment-detail .list-comment .item-comment .felt-feedback-time p.feedback:hover {
   border-bottom: 1px solid #c23333;
   margin-bottom: 11px;
+}
+
+.video-detail .comment-coding .comment .comment-detail .list-comment .item-comment .cmt-response {
+  padding-left: 52px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .video-detail .comment-coding .comment .comment-detail .list-comment .item-comment .comment-feedback {
