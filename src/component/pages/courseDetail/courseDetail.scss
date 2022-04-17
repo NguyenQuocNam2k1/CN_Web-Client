@@ -1,18 +1,18 @@
 .course-detail {
   margin-top: 82px;
-  // margin-bottom: 140px;
+  margin-bottom: 40px;
   & .cd-header {
     display: flex;
-    height: 120px;
+    height: 10vw;
     width: 100%;
     background-color: #466a8a;
     justify-content: space-between;
     & .cd-header-title {
       font-weight: bold;
       font-size: 60px;
-      line-height: 126px;
+      line-height: 10vw;
       color: #ffffff;
-      padding-left: 100px;
+      // padding:1vh 0vh;
     }
     & button {
       margin: 44px;
@@ -21,7 +21,7 @@
 }
 
 .cd-body-lesson-1 {
-  min-width: 500px;
+  min-width: 400px;
   max-width: 700px;
   border: 1px solid rgba(0, 0, 0, 0.28);
   box-sizing: border-box;
@@ -47,18 +47,25 @@
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 .cd-body {
+  margin-top:20px;
   & .cd-body-left {
     & .cd-body-learn {
+      & ul{
+        padding: 0;
+      }
       & li {
         box-sizing: border-box;
         font-weight: 350;
         list-style: none;
+        margin-bottom:12px;
+  	   -webkit-line-clamp: 1;  /* số dòng hiển thị */
+  	   -webkit-box-orient: vertical;
         & span {
-          padding-left: 4px;
+          padding-left: 8px;
         }
       }
       & .cd-body-title {
-        margin-top: 40px;
+        margin-top: 2vw;
         margin-bottom: 20px;
         font-weight: 600;
         font-size: 35px;
@@ -70,7 +77,7 @@
 
   & .cd-body-right {
     border: none;
-    margin-top: 40px;
+    margin-top: 30px;
     & .cd-card-body {
       display: flex;
       flex-direction: column;
@@ -88,6 +95,9 @@
         bottom: 0;
       }
       & .cd-card-body-count {
+        & ul{
+          padding-left: 0px;
+        }
         & .cd-card-list {
           list-style: none;
           padding-bottom: 10px;
@@ -101,4 +111,87 @@
   }
 }
 
+.button_jelly_courseDetail {
+  z-index: 1;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: #466a8a;
+}
 
+.button_jelly_courseDetail:hover{
+  cursor: pointer;
+  animation: jelly_courseDetail 0.5s;
+}
+
+@keyframes jelly_courseDetail {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cd-header-title{
+    font-size: 40px !important;
+  }
+  .cd-body-title{
+    font-size: 25px !important;
+  }
+  .cd-header{
+    height: 16vw !important;
+    & .cd-header-title{
+       line-height: 16vw !important;
+    }
+  }
+  .hide_CourseDetail{
+    display: none;
+  }
+  .btn-courseDetail-login{
+    width: 90vw !important;
+    height: 50px !important;
+    border-radius: 10px !important;
+  }
+  .cd-card-body{
+    padding: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .cd-header-title{
+    font-size: 30px !important;
+  }
+  .cd-body-lesson-1{
+    min-width: 100px !important;
+    max-width: 350px !important;
+    font-size: 12px !important;
+    line-height: 35px;
+  }
+  .cd-header{
+    height: 16vw !important;
+    & .cd-header-title{
+       line-height: 16vw !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .cd-body-lesson-1{
+    min-width: 100px !important;
+    max-width: 300px !important;
+    font-size: 10px !important;
+    line-height: 35px;
+  }
+}
