@@ -203,17 +203,92 @@
 }
 
 .img-hover-zoom--colorize {
-  -webkit-transition: -webkit-transform .5s, -webkit-filter 1.5s ease-in-out;
-  transition: -webkit-transform .5s, -webkit-filter 1.5s ease-in-out;
-  transition: transform .5s, filter 1.5s ease-in-out;
-  transition: transform .5s, filter 1.5s ease-in-out, -webkit-transform .5s, -webkit-filter 1.5s ease-in-out;
+  -webkit-transition: -webkit-transform 0.5s, -webkit-filter 1.5s ease-in-out;
+  transition: -webkit-transform 0.5s, -webkit-filter 1.5s ease-in-out;
+  transition: transform 0.5s, filter 1.5s ease-in-out;
+  transition: transform 0.5s, filter 1.5s ease-in-out, -webkit-transform 0.5s, -webkit-filter 1.5s ease-in-out;
 }
 
 /* The Transformation */
 .img-hover-zoom--colorize:hover {
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  cursor: pointer;
+}
+
+.mobile-list-courses {
+  display: none;
+}
+
+.col-12.col-md-12.col-xl-6.title-right {
+  text-align: center;
+}
+
+a.navbar-brand {
+  margin-left: 5vh;
+}
+
+div#navbarSupportedContent a {
+  margin-right: 5vh;
+}
+
+@media screen and (max-width: 1200px) {
+  .col-9.muc-luc .lo-trinh {
+    height: auto;
+  }
+  .col-9.muc-luc .lo-trinh .title {
+    display: block;
+    text-align: center;
+  }
+  .col-9.muc-luc .lo-trinh .title .title-left {
+    padding-left: 0;
+  }
+  .col-9.muc-luc .lo-trinh .title .title-left p {
+    margin: 12px 0;
+  }
+  .col-9.muc-luc .lo-trinh .title .title-right a {
+    display: block;
+    margin-bottom: 6px;
+  }
+  .col-xl-3.col-md-4.col-12.list-name {
+    display: block;
+  }
+  .button.navbar-toggler {
+    margin-right: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .col-3.col-md-4.col-xs-12.list-name {
+    display: none;
+  }
+  .list-course-name {
+    background-color: #e0d2d22e;
+    padding-right: 0;
+    margin: auto;
+  }
+  .btn-app.mobile-list-courses {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 24px;
+    cursor: pointer;
+  }
+  .mobile-list-courses {
+    display: block;
+  }
+  .col-xl-3.col-md-4.col-12.list-name {
+    display: none;
+  }
+  .col-9.muc-luc .item-course .card.course .ml-img {
+    border-radius: 32px;
+    padding: 16px;
+  }
+  .img-hover-zoom--colorize:hover {
+    opacity: 0.9;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 /*# sourceMappingURL=mucLuc.css.map */
