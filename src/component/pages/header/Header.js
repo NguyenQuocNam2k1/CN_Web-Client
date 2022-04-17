@@ -145,7 +145,10 @@ function Header() {
                                 key={index}
                               >
                                 <li className="menu-items"
-                                  onClick={() => dispatch(getLessonByCourse(course._id))}
+                                  onClick={() => {
+                                    localStorage.setItem("imageListCourse", JSON.stringify(course.image));
+                                    dispatch(getLessonByCourse(course._id));
+                                  }}
                                 >
                                   {course.name}
                                 </li>

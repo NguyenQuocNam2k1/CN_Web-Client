@@ -154,7 +154,7 @@ function MucLuc(props) {
                               pathname:`/courseDetail/${course.idCoursesList}`,
                               state:`${course.countUser}`
                             }}
-                            className="btn-primary button_jelly"
+                            className="btn btn-primary button_jelly"
                             onClick={() => handleClick(course._id , course.image)}
                             style={{
                               fontSize: "18px",

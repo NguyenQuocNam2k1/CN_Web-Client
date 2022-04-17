@@ -19,7 +19,7 @@ function Learning() {
   const handleClick = (idCourse, imgUrl) =>{
     localStorage.setItem("imageListCourse", JSON.stringify(imgUrl));
     dispatch(getLessonByCourse(idCourse));
-  }
+  };
 
   return (
     <>

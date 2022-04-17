@@ -14,18 +14,18 @@ function Footer(props) {
         <div className="container-footer" id="awan">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-3 logo">
+              <div className="col-8 col-md-3 logo">
                 <Link className="navbar-brand" to="/">
                   <img
-                    className="img"
+                    className="img w-100"
                     src={logo}
                     alt="logo"
                   ></img>
                 </Link>
               </div>
 
-              <div className="col-3 footer-title">
-                <h3>Truy cập nhanh</h3>
+              <div className="col-md-3 col-12 text-center text-md-start footer-title">
+                <h3 class="fs-4">Truy cập nhanh</h3>
                 <ul>
                   <li className="footer-list">Home</li>
                   <li className="footer-list">Mục lục</li>
@@ -34,8 +34,8 @@ function Footer(props) {
                 </ul>
               </div>
 
-              <div className="col-3 footer-title">
-                <h3>Nguồn tài liệu</h3>
+              <div className="col-md-3 col-12 text-center text-md-start footer-title">
+                <h3 class="fs-4">Nguồn tài liệu</h3>
                 <ul>
                   <li className="footer-list">F8</li>
                   <li className="footer-list">W3school</li>
@@ -43,8 +43,8 @@ function Footer(props) {
                 </ul>
               </div>
 
-              <div className="col-3 footer-title">
-                <h3>Liên hệ</h3>
+              <div className="col-md-3 col-12 text-center text-md-start footer-title">
+                <h3 className="fs-4">Liên hệ</h3>
                 <ul>
                   <li>
                     <svg

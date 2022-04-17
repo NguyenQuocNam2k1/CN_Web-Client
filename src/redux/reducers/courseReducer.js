@@ -16,7 +16,7 @@ export const courseReducer = (state = initialState, { type, payload }) => {
     case CourseType.SET_ROUTER_DETAIL:
       return { ...state, typeCourse: payload };
     case CourseType.GET_LESSON_BY_COURSE:
-      localStorage.setItem("LessonByCourse", JSON.stringify(payload))
+      localStorage.setItem("LessonByCourse", JSON.stringify(payload));
       return {...state, render: !state.render }
     case CourseType.SET_LOADING:
       return {...state, routerDetail :[]}

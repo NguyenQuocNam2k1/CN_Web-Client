@@ -102,3 +102,36 @@
         background-position: 100% 0;
     };
 }
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    ul {
+        list-style: none;
+        padding-left: 5px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    ul {
+        list-style: none;
+    }
+
+    .col-3.footer-title{
+        text-align: center;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    ul {
+        list-style: none;
+    }
+}
+
+
+
+@media screen and (max-width: 480px) {
+    #awan {
+      background: none !important;
+    }
+  }

@@ -425,4 +425,22 @@
   display: none;
   z-index: 10;
 }
+
+.cmt-response-content {
+  margin-top: -4px;
+  margin-bottom: 1rem;
+  margin-right: 0.5rem;
+}
+
+.cmt-response-content:hover {
+  cursor: pointer;
+}
+
+.btn-comment {
+  border-radius: 6px;
+}
+
+.description-comment {
+  max-width: 50vw;
+}
 /*# sourceMappingURL=DetailCourse.css.map */
