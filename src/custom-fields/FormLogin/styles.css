@@ -6,7 +6,8 @@
 }
 
 .background_login {
-  background-color: #d3cfcf;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../../../src/images/login.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../../src/images/login.png);
   position: fixed;
   top: 0;
   right: 0;

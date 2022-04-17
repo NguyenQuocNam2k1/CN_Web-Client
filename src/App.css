@@ -38,7 +38,6 @@
 } */
 
 .btn-app {
-  border-radius: 6px;
   font-size: 16px;
   border: 1px solid #466a8a;
   background-color: #466a8a;
@@ -137,8 +136,9 @@
   font-size: inherit;
   font-family: inherit;
   color: white;
-  padding: 0.5em 1em;
+  /* padding: 0.5em 1em; */
   outline: none;
+  border-radius: 24px;
   border: none;
   background-color: #466a8a;
 }

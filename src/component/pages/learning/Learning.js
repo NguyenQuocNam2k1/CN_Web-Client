@@ -61,7 +61,6 @@ function Learning() {
             </Link>
             <br />
             <p style={{ fontSize: "1.1rem" }}>
-              Hoặc quay lại{" "}
               <Link to="/" style={{ textDecoration: "none" }}>
                 Trang Chủ
               </Link>
