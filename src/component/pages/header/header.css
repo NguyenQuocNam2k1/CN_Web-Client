@@ -7,7 +7,7 @@
   height: 80px;
   z-index: 100;
   -webkit-box-shadow: 0 0 10px #c7afaf;
-  box-shadow: 0 0 10px #c7afaf;
+          box-shadow: 0 0 10px #c7afaf;
 }
 
 .navbar-brand .img {
@@ -19,8 +19,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .navbar-nav .nav-block-item {
@@ -113,7 +113,7 @@ input.form-control.me-2.search-input {
   padding-left: 0px;
   border-radius: 6px;
   -webkit-box-shadow: 0 0 10px #c3c3c3a2;
-  box-shadow: 0 0 10px #c3c3c3a2;
+          box-shadow: 0 0 10px #c3c3c3a2;
   display: none;
 }
 
@@ -154,12 +154,12 @@ input.form-control.me-2.search-input {
 .avatar:hover .avatar_list {
   display: block;
   -webkit-animation: appear 0.3s ease 0s;
-  animation: appear 0.3s ease 0s;
+          animation: appear 0.3s ease 0s;
 }
 
 .header_scroll {
   -webkit-animation: animationHeader 1s ease;
-  animation: animationHeader 1s ease;
+          animation: animationHeader 1s ease;
   z-index: 1;
 }
 
@@ -188,8 +188,8 @@ input.form-control.me-2.search-input {
 .form-search {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .btn.btn-search {
@@ -227,7 +227,7 @@ form.d-flex ul.listCourses {
   border-radius: 6px;
   text-align: start;
   -webkit-box-shadow: 0 0 10px rgba(194, 194, 194, 0.635);
-  box-shadow: 0 0 10px rgba(194, 194, 194, 0.635);
+          box-shadow: 0 0 10px rgba(194, 194, 194, 0.635);
   display: none;
 }
 
@@ -308,13 +308,11 @@ form.d-flex ul.listCourses::after {
 
 .overlay .closebtn {
   position: absolute;
-  top: 153px;
-  right: 362px;
-  font-size: 53px;
+  top: 80px;
+  right: 294px;
+  font-size: 60px;
   cursor: pointer;
-  color: #433d3d;
-  z-index: 10;
-  padding: 10px;
+  color: white;
 }
 
 .overlay .closebtn:hover {
@@ -331,7 +329,6 @@ form.d-flex ul.listCourses::after {
   border-radius: 6px;
   width: 93%;
   background: white;
-  margin-top: 54px;
 }
 
 .overlay button {
@@ -355,7 +352,7 @@ form.d-flex ul.listCourses::after {
   div#navbarSupportedContent {
     background-color: #ffffff !important;
     -webkit-box-shadow: 0 0 20px #3333333b;
-    box-shadow: 0 0 20px #3333333b;
+            box-shadow: 0 0 20px #3333333b;
     margin-top: 24px;
   }
   li.nav-item {

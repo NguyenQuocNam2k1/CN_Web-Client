@@ -1,3 +1,7 @@
+#root {
+  overflow-x: hidden;
+}
+
 .homepage-container {
   margin-top: 85px;
 }
@@ -371,5 +375,36 @@
 
 .mySlides {
   display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .homepage_layout_1 {
+    height: 100%;
+  }
+  .homepage_layout_5 {
+    height: 100%;
+  }
+  .homepage_layout_3 .abc .slide-text {
+    position: relative;
+    top: 0;
+    -webkit-transform: none;
+            transform: none;
+    font-size: 12px;
+  }
+  .homepage_layout_4 {
+    height: 100%;
+    margin-top: 15px;
+  }
+  .homepage_layout_2 .background_1_layout_2, .homepage_layout_2 .background_2_layout_2, .homepage_layout_2 .background_3_layout_2, .homepage_layout_2 .background_4_layout_2 {
+    min-height: 100%;
+    max-height: none;
+    margin: 15px 0;
+  }
+  .homepage_layout_2 .background_1_layout_2 div, .homepage_layout_2 .background_2_layout_2 div, .homepage_layout_2 .background_3_layout_2 div, .homepage_layout_2 .background_4_layout_2 div {
+    height: auto;
+  }
+  .homepage_layout_5 {
+    margin-top: -30px;
+  }
 }
 /*# sourceMappingURL=homepage.css.map */

@@ -44,21 +44,24 @@ function Home(props) {
         </div>
         <div className="homepage_layout_2">
           <div className="row">
-            <div className="col-5 homepage_layout_2_left" data-aos="fade-up-right">
-              <div>
-                <h1>
-                  MỤC TIÊU <br /> của bạn là gì?
-                </h1>
-                <p>
-                  Một trong những điều quan trọng nhất bạn cần làm khi học lập
-                  trình đó là xác định đúng mục tiêu học tập của mình.
-                </p>
-                <button className="btn-app btn-app-layout_2">
-                  Xem chi tiết
-                </button>
+            <div className="col-md-5">
+              <div className="homepage_layout_2_left" data-aos="fade-up-right">
+                <div>
+                  <h1>
+                    MỤC TIÊU <br /> của bạn là gì?
+                  </h1>
+                  <p>
+                    Một trong những điều quan trọng nhất bạn cần làm khi học lập
+                    trình đó là xác định đúng mục tiêu học tập của mình.
+                  </p>
+                  <button className="btn-app btn-app-layout_2">
+                    Xem chi tiết
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="col-7">
+
+            <div className="col-md-7">
               <div className="row">
                 <div className="background_1_layout_2 col-6" data-aos="fade-down">
                   <div>
@@ -86,12 +89,12 @@ function Home(props) {
         </div>
         <div className="homepage_layout_5">
           <div className="row">
-            <div className="col-6">
+            <div className="col-md-6">
               <div className="homepage_layout_5_left">
                 <div className="background_layout_5" data-aos="fade-up-right"></div>
               </div>
             </div>
-            <div className="col-6 homepage_layout_5_right" data-aos="fade-up-left">
+            <div className="col-md-6 homepage_layout_5_right" data-aos="fade-up-left">
               <div>
                 <h1>Bạn đang là học viên của CoCoders?</h1>
                 <button className="btn-app-layout_2 btn-app"
@@ -111,7 +114,7 @@ function Home(props) {
         <div className="w3-content w3-section">
           <div className="mySlides">
             <div className="row slide-child">
-              <div className="col-4">
+              <div className="col-md-4">
                 <div className="slide-content">
                   <img className="slide-img" src={slide1} />
                   <div className="slide-if">
@@ -120,17 +123,17 @@ function Home(props) {
                   </div>
                 </div>
               </div>
-              <div className="col-8 abc">
+              <div className="col-md-8 abc">
                 <p className="slide-text">"It's scary to change careers. I only gained confidence that I could code by working through the hundreds of hours of free lessons on Cocoders. Within a year I had a six-figure job as a Software Engineer. CoCoders changed my life." </p>
               </div>
             </div>
           </div>  
           <div className="mySlides">
             <div className="row slide-child">
-            <div className="col-8 abc">
+            <div className="col-md-8 abc">
                 <p className="slide-text">I've always struggled with learning JavaScript. I've taken many courses but Cocoders's course was the one which stuck. Studying JavaScript as well as data structures and algorithms on Cocoders gave me the skills and confidence I needed to land my dream job as a software engineer at Spotify. </p>
               </div>
-              <div className="col-4">
+              <div className="col-md-4">
                 <div className="slide-content">
                   <img className="slide-img" src={slide2} />
                   <div className="slide-if">
@@ -145,7 +148,7 @@ function Home(props) {
 
           <div className="mySlides">
             <div className="row slide-child">
-              <div className="col-4">
+              <div className="col-md-4">
                 <div className="slide-content">
                   <img className="slide-img" src={slide3} />
                   <div className="slide-if">
@@ -154,7 +157,7 @@ function Home(props) {
                   </div>
                 </div>
               </div>
-              <div className="col-8 abc">
+              <div className="col-md-8 abc">
                 <p className="slide-text">Cocoders was the gateway to my career as a software developer. The well-structured curriculum took my coding knowledge from a total beginner level to a very confident level. It was everything I needed to land my first dev job at an amazing company." </p>
               </div>
             </div>
@@ -164,8 +167,8 @@ function Home(props) {
       <div className="homepage_layout_4">
         <div className="container">
           <div className="row">
-            <div className="col-6 homepage_layout_4_image" data-aos="fade-up-right"></div>
-            <div className="col-6 homepage_layout_4_text" data-aos="fade-up-left">
+            <div className="col-m-6 col-6 homepage_layout_4_image" data-aos="fade-up-right"></div>
+            <div className="col-md-6 col-6 homepage_layout_4_text" data-aos="fade-up-left">
               <h1>Tham gia ngay thôi!</h1>
               <p>
                 Nếu đã xem tới đây thì bạn chắc hẳn bạn đã khá tò mò rồi nhỉ.
