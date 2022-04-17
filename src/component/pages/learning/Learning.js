@@ -19,7 +19,7 @@ function Learning() {
   const handleClick = (idCourse, imgUrl) =>{
     localStorage.setItem("imageListCourse", JSON.stringify(imgUrl));
     dispatch(getLessonByCourse(idCourse));
-  }
+  };
 
   return (
     <>
@@ -61,7 +61,6 @@ function Learning() {
             </Link>
             <br />
             <p style={{ fontSize: "1.1rem" }}>
-              Hoặc quay lại{" "}
               <Link to="/" style={{ textDecoration: "none" }}>
                 Trang Chủ
               </Link>

@@ -32,6 +32,7 @@ import {
   reRender,
 } from "../../../../redux/actions/userAction";
 
+
 function DetailCourse(props) {
   const { slug } = useParams(); //Thằng này là tên khóa học
   const idLesson = useLocation().search.slice(4); //Thằng search này là id của bài học
@@ -68,11 +69,11 @@ function DetailCourse(props) {
   const dispatch = useDispatch();
 
   const loading = useSelector((state) => state.users.loading);
-  let authUser = JSON.parse(localStorage.getItem("authUser"))[0];
-  const listCourse = JSON.parse(localStorage.getItem("LessonByCourse")) || [];
+  const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem("authUser"))[0]);
+  const listCourse = JSON.parse(localStorage.getItem("LessonByCourse"));
 
   useEffect(() => {
-    authUser = JSON.parse(localStorage.getItem("authUser"))[0];
+    setAuthUser(JSON.parse(localStorage.getItem("authUser"))[0]);
   }, [loading]);
   let idLessonStudied = 0,
     indexLessonStudied = 0,
@@ -97,6 +98,7 @@ function DetailCourse(props) {
   }
 
   const getCurrentTime = () => {
+    if(ref.current.getCurrentTime() - currentTimeVideo.current > 4) return;
     currentTimeVideo.current = ref.current.getCurrentTime();
     if (
       totalTimeVideo.current > 0 &&
@@ -122,7 +124,7 @@ function DetailCourse(props) {
 
   return (
     <>
-      {idLessonStudied.length === 0 ? (
+      {idLessonStudied.length === 0 || !linkVideo ? (
         <Loading></Loading>
       ) : (
         <div style={{ display: "flex" }}>

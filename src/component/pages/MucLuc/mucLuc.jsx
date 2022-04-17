@@ -12,6 +12,20 @@ function MucLuc(props) {
     localStorage.setItem("imageListCourse" , JSON.stringify(imgUrl));
     dispatch(getLessonByCourse(idCourse));
   };
+
+  let countClicked = 0;
+
+  function appearListCourse() {
+    countClicked = countClicked + 1;
+    const nodeListCourse = document.querySelector('.list-name');
+    if(countClicked % 2 === 0) {
+      nodeListCourse.style.display = 'none';
+    }
+    else {
+      nodeListCourse.style.display = 'block'
+    }
+    console.log(countClicked);
+  }
   return (
     <div className="container mt-16 muc-luc">
       {courseList.length === 0 || !courseList ? (
@@ -20,7 +34,8 @@ function MucLuc(props) {
         </>
       ) : (
         <div className="row">
-          <div className="col-3 list-name">
+          <div className="col-xl-12 btn-app mobile-list-courses" onClick={appearListCourse}>Ngôn ngữ lập trình</div>
+          <div className="col-xl-3 col-md-4 col-12 list-name">
             <div className="list-course-name">
               <div className="title">Ngôn ngữ</div>
               <ul className="list-name">
@@ -96,15 +111,15 @@ function MucLuc(props) {
           </div>
 
           {/*  Khoa hoc */}
-          <div className="col-9 muc-luc">
+          <div className="col-9 col-md-8 col-12 muc-luc">
             {/* Layout tieu de */}
             <div className="lo-trinh">
               <div className="row">
-                <div className="title">
-                  <div className="col-8 title-left">
+                <div className="col-12 title">
+                  <div className="col-12 col-md-12 col-xl-6 title-left">
                     <p>Không biết bắt đầu từ đâu?</p>
                   </div>
-                  <div className="col-4 title-right">
+                  <div className="col-12 col-md-12 col-xl-6 title-right">
                     <Link to="/lo-trinh">Đến lộ trình</Link>
                   </div>
                 </div>
@@ -117,7 +132,7 @@ function MucLuc(props) {
               {/* item course */}
               {courseList.map((course) => {
                 return (
-                  <div className="col-4 item-course" key={course._id}>
+                  <div className="col-xl-4 col-md-6 col-12 item-course" key={course._id}>
                     <div className="card course">
                       <img
                         src={course.image}
