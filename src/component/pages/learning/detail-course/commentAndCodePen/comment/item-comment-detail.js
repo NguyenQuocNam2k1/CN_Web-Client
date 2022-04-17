@@ -216,7 +216,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
                      </div>
                
 
-                  <div className="list-comment-response" style={{ display: "none" }}>
+                  <div className="list-comment-response" style={{ display: "block" }}>
                      {cmt.cmtResponse.map((cmtRes, index) => {
                         return (
                            <div key={index} className={`a${cmtRes._id}`}>
