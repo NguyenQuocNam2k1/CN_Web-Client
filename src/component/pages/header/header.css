@@ -308,9 +308,9 @@ form.d-flex ul.listCourses::after {
 
 .overlay .closebtn {
   position: absolute;
-  top: 150px;
-  right: 352px;
-  font-size: 40px;
+  top: 153px;
+  right: 362px;
+  font-size: 53px;
   cursor: pointer;
   color: #433d3d;
   z-index: 10;
@@ -331,6 +331,7 @@ form.d-flex ul.listCourses::after {
   border-radius: 6px;
   width: 93%;
   background: white;
+  margin-top: 54px;
 }
 
 .overlay button {
