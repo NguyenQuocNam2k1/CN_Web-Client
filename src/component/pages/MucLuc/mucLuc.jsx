@@ -116,10 +116,10 @@ function MucLuc(props) {
             <div className="lo-trinh">
               <div className="row">
                 <div className="col-12 title">
-                  <div className="col-12 col-12 title-left">
+                  <div className="col-12 col-md-12 col-xl-6 title-left">
                     <p>Không biết bắt đầu từ đâu?</p>
                   </div>
-                  <div className="col-12 col-md-12 title-right">
+                  <div className="col-12 col-md-12 col-xl-6 title-right">
                     <Link to="/lo-trinh">Đến lộ trình</Link>
                   </div>
                 </div>

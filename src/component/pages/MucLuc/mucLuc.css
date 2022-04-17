@@ -222,6 +222,18 @@
   display: none;
 }
 
+.col-12.col-md-12.col-xl-6.title-right {
+  text-align: center;
+}
+
+a.navbar-brand {
+  margin-left: 5vh;
+}
+
+div#navbarSupportedContent a {
+  margin-right: 5vh;
+}
+
 @media screen and (max-width: 1200px) {
   .col-9.muc-luc .lo-trinh {
     height: auto;
@@ -242,6 +254,9 @@
   }
   .col-xl-3.col-md-4.col-12.list-name {
     display: block;
+  }
+  .button.navbar-toggler {
+    margin-right: 24px;
   }
 }
 
