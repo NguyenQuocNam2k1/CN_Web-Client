@@ -42,7 +42,7 @@ export const signInWithFirebase = (typeLogin) => {
         .then(async (res) => {
           if (res.status === "200") {
             // Apply setCookie
-            localStorage.setItem("authUser", JSON.stringify(res.data));
+            localStorage.setItem("authUser", JSON.stringify([res.data]));
             setCookie("CCD", token, 1);
             window.location.replace("/");
           }
@@ -84,6 +84,7 @@ export function getDataUser() {
 }
 
 export function logOut() {
+  localStorage.setItem("authUser" , JSON.stringify(""));
   const auth = getAuth();
   signOut(auth)
     .then(() => {

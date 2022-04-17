@@ -5,7 +5,7 @@
 
 
 .background_login {
-  background-color: #d3cfcf;
+  background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(../../../src/images/login.png);
   // ddd4d4
   position: fixed;
   top: 0;
@@ -161,3 +161,4 @@
   float: left !important;
   margin-top:6px;
 }
+
