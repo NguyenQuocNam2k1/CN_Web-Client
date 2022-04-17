@@ -11,7 +11,7 @@ function Learning() {
     courseListed.course_studied.filter((lesson) => {
       if (item.idCoursesList === lesson) {
         listCourseStudied.push(item);
-      }
+      }img-hover-zoom
     });
   });
 
