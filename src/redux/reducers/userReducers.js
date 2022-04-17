@@ -23,7 +23,7 @@ export const userReducer = (state = initialState, { type, payload }) => {
             localStorage.setItem("authUser" , JSON.stringify(payload.data));
             return {...state, loading:!state.loading}
         case UserTypes.UPDATE_COURSE_STUDYING:
-            localStorage.setItem("authUser" , JSON.stringify([payload.data]));
+            localStorage.setItem("authUser" , JSON.stringify(payload.data));
             return {...state,loading: !state.loading}
         case UserTypes.RE_RENDER:
             return {...state , loading: !state.loading}

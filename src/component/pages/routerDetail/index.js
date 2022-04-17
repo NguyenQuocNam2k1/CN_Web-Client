@@ -105,6 +105,7 @@ function Index() {
                           <button
                             onClick={() => handleClick(value._id, value.image)}
                             className="button_jelly btn-app-rt"
+                            style={{"padding":"10px 20px"}}
                           >
                             Xem khóa học
                           </button>

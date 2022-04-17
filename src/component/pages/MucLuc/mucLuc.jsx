@@ -24,7 +24,6 @@ function MucLuc(props) {
     else {
       nodeListCourse.style.display = 'block'
     }
-    console.log(countClicked);
   }
   return (
     <div className="container mt-16 muc-luc">
@@ -34,7 +33,7 @@ function MucLuc(props) {
         </>
       ) : (
         <div className="row">
-          <div className="col-xl-12 btn-app mobile-list-courses" onClick={appearListCourse}>Ngôn ngữ lập trình</div>
+          {/* <div className="col-xl-12 btn-app mobile-list-courses" onClick={appearListCourse}>Ngôn ngữ lập trình</div> */}
           <div className="col-xl-3 col-md-4 col-12 list-name">
             <div className="list-course-name">
               <div className="title">Ngôn ngữ</div>
@@ -111,7 +110,7 @@ function MucLuc(props) {
           </div>
 
           {/*  Khoa hoc */}
-          <div className="col-9 col-md-8 col-12 muc-luc">
+          <div className="col-xl-9 col-md-8 col-9 muc-luc">
             {/* Layout tieu de */}
             <div className="lo-trinh">
               <div className="row">
@@ -139,7 +138,7 @@ function MucLuc(props) {
                         className="card-img-top ml-img img-hover-zoom img-hover-zoom--colorize"
                         alt="anh-khoa-hoc"
                         style={{ height: "182px" }}
-                      ></img>
+                        />
 
                       <div className="card-body body-course">
                         <h5 className="card-title title-course">
@@ -159,8 +158,11 @@ function MucLuc(props) {
                             onClick={() => handleClick(course._id , course.image)}
                             style={{
                               fontSize: "18px",
-                              padding: "6px 41px",
+                              padding: "6px 0px",
                               fontWeight: "500",
+                              width:"100%",
+                              textAlign:"center",
+                              borderRadius:"10px"
                             }}
                           >
                             Chi tiết
