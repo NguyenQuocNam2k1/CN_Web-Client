@@ -50,9 +50,10 @@ function CommentDetail({ socket, idUser, username, room, image }) {
       };
 
       socket.emit("send_comment_response", { _id, cmtRes });
+      document.querySelector(".input-comment-response").style.display = "none";
       setCurrentResCmt("");
-   }
-   document.querySelector(".input-comment-response").style.display = "none";
+    }
+    setListCmtResShow((pev) => [...pev, _id]);
   };
 
   const updateCountLike = (idCmt) => {
@@ -119,7 +120,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
   // set vị trí like theo độ rộng của cmt
   const list = document.querySelectorAll(".description-comment");
   for (let i = 0; i < list.length; i++) {
-    if (list[i].offsetWidth > 200) {
+    if (list[i].offsetWidth > 500) {
       list[i].querySelector(".amount-like").style.bottom = "-14px";
       list[i].querySelector(".amount-like").style.right = "24px";
     }

@@ -57,6 +57,9 @@ function Coding() {
           onChange={setJs}
         />
       </div>
+
+      <h2 className="result">Kết quả nhận được:</h2>
+
       <div className="pane">
         <iframe
           srcDoc={srcDoc}
