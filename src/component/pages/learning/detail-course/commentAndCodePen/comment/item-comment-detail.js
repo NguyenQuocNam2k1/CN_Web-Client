@@ -50,6 +50,7 @@ function CommentDetail({ socket, idUser, username, room, image }) {
          socket.emit("send_comment_response", { _id, cmtRes });
          setCurrentResCmt("");
       }
+      document.querySelector(".input-comment-response").style.display = "none";
    };
 
    const updateCountLike = (idCmt) => {
@@ -101,11 +102,12 @@ function CommentDetail({ socket, idUser, username, room, image }) {
 
 
    useEffect(() => {
+      let commenting = true;
       socket.emit("get_comment", room);
       socket.on("receive_all_comment", (data) => {
          setCmtList(data.reverse());
       });
-      socket.on("receive_comment", (data) =>{
+      socket.on("receive_comment", (data) => {
          setCmtList(data.reverse())
       });
    }, [room]);

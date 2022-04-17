@@ -74,11 +74,14 @@ function Header() {
       ) : (
         <nav className="navbar navbar-expand-lg navbar-light">
           <div
-            className={scrolled > 10 ? "header_scroll container" : "container"}
+            className={scrolled > 10 ? "header_scroll container-fluid" : "container-fluid"}
           >
             <Link className="navbar-brand" to="/">
               <img className="img" src={logo} alt="logo"></img>
             </Link>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
             <div
               className="collapse navbar-collapse"
               id="navbarSupportedContent"

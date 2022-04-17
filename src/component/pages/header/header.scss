@@ -333,12 +333,57 @@ form.d-flex {
 .overlay button:hover {
   background: #bbb;
 }
-<<<<<<< HEAD
+
+@media screen and (max-width: 992px) {
+  .container-fluid {
+    padding: 0;
+  }
+
+  div#navbarSupportedContent {
+    background-color: #ffffff !important;
+    box-shadow: 0 0 20px #3333333b;
+    margin-top: 24px;
+  }
+
+  li.nav-item {
+    padding: 0 24px;
+  }
+
+  li.nav-item:hover {
+    background-color: rgb(214, 206, 206);
+    border-radius: 6px;
+    color: #fff !important;
+  }
+
+  li.nav-item {
+    margin-right: 0;
+  }
+
+  button.openBtn {
+    margin-left: 24px;
+    margin-bottom: 24px;
+  }
+
+  button.btn.login-btn {
+    margin-left: 24px;
+    margin-bottom: 12px;
+  }
+
+  .a.navbar-brand {
+    margin-left: 24xp;
+  }
+
+  button.navbar-toggler.collapsed {
+    margin-right: 24px;
+  }
+
+  .App {
+    overflow-x: hidden;
+  }
+}
 
 .listCourse-content {
   background-color: #f5f6f7;
   padding: 15px;
   border-radius: 0 0 7px 7px;
 }
-=======
->>>>>>> 7971ad967f6c9d363a73bbb985bcd843a128788b
